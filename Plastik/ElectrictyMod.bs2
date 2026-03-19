@@ -1,0 +1,295 @@
+Group Electricity 503 HEX FFFFFFF9FFF3FFF38B162AF3AB5368E78B1B69CFB9536A8FFFFFFF1FFFF7FE3FFFE7FC3FFFE7F87FFFC7F07FFFC3E0FFFF83C1FFFF8381FFFF0303FFFF0107FFFE0007FFFE000FFFFC001FFFFC001FFFF8203FFFF8607FFFF0F07FFFF1F0FFFFE1F0FFFFE3F1FFFDC4B24911CDB6D5559CB2DD55BDB6DD557C925D11FFFFFFFF 255 255 0
+Group Elecsources 504 HEX 00000006000C000C74E9D50C54AC971874E4963846AC9570000000E0000801E0001803C00018078000380F80003C1F00007C3E00007C7E0000FEFC0000FFF80001FFF80001FFF00003FFF00003FFE00007DFC000079FC0000F0F80000F0F00001E0F00001C0E00023B4DB6EE32492AAA634D22AA424922AA836DA2EE00000000 255 255 0
+Element Electricity Battery 0 168 255 0 0 1 1 32768 battacid 0 HEX 000000000003E000000C18000010040000100400001C1C00001FFC00001F7C00001E3C00001F7C000013E40000100400001004000010040000100400001004000010040000100400001004000010040000100400001004000013C400001004003BBDFBA82A93F2A83B90B3902A90BB102A90B2903A909A900000000000000000 255 255 255
+Element Electricity Wire 42 5 180 0 0 1 1 0 Clear 0 HEX 000000000000000000000000000000003F000000610000000180000000800000008000000080000001800000010000000100000002007E000201820002030200020C020003F8020000C00200000006000000040000000C000000080000001800000008002ABB0C002AAA0FFC2ABB00002AB200002AAA00003EAB000000000000 255 255 255
+Element Electricity Insulatedwire 42 5 180 0 0 1 1 700 Wire 0 HEX 000000000000000000000038000000383F000038610000000180000000800038008000380080003801800038010000380100003802007E380201823802030238020C023803F8023800C00238000006000000040000000C000000080000001800000008002ABB0C002AAA0FFC2ABB00002AB200002AAA00003EAB000000000000 255 255 255
+Element None Charge 153 255 255 0 0 1 1 32768 Chargedis 0 Text Sound
+Element None Chargedis 0 0 132 0 0 1 1 1468 Wire 0 Text None
+Element Electricity ybulb 29 3 0 0 0 1 1 0 Clear 0 HEX 00000000000000000007800000084000001020000020100000400800008004000080040000800400010002000100020001000200010002000100020001000200010FC20001084200008CC400008484000084840000448800002490000014A000000FC000000FC000000FC0000007800000000000000000000000000000000000 255 255 0
+Element None ybulbwave 255 255 0 0 0 1 1 5875 ybulbdis 0 Text None
+Element None ybulbdis 255 255 0 0 0 1 1 500 ybulb 0 Text None
+Element Electricity rbulb 29 3 0 0 0 1 1 0 Clear 0 HEX 00000000000000000007800000084000001020000020100000400800008004000080040000800400010002000100020001000200010002000100020001000200010FC20001084200008CC400008484000084840000448800002490000014A000000FC000000FC000000FC0000007800000000000000000000000000000000000 255 0 0
+Element None rbulbwave 255 0 0 0 0 1 1 5875 rbulbdis 0 Text None
+Element None rbulbdis 255 0 0 0 0 1 1 500 rbulb 0 Text None
+Element Electricity gbulb 29 3 0 0 0 1 1 0 Clear 0 HEX 00000000000000000007800000084000001020000020100000400800008004000080040000800400010002000100020001000200010002000100020001000200010FC20001084200008CC400008484000084840000448800002490000014A000000FC000000FC000000FC0000007800000000000000000000000000000000000 0 255 0
+Element None gbulbwave 0 255 0 0 0 1 1 5875 gbulbdis 0 Text None
+Element None gbulbdis 0 255 0 0 0 1 1 500 gbulb 0 Text None
+Element Electricity bluebulb 29 3 0 0 0 1 1 0 Clear 0 HEX 00000000000000000007800000084000001020000020100000400800008004000080040000800400010002000100020001000200010002000100020001000200010FC20001084200008CC400008484000084840000448800002490000014A000000FC000000FC000000FC0000007800000000000000000000000000000000000 0 0 255
+Element None bluebulbwave 0 0 255 0 0 1 1 5875 bluebulbdis 0 Text None
+Element None bluebulbdis 0 0 255 0 0 1 1 500 bluebulb 0 Text None
+Element Electricity battacid 0 255 0 1647 0 20 20 1000 battacid2 0 Text acid
+Element None battacid2 0 225 0 1647 0 20 20 1000 battacid 0 Text acid
+Element None elecwaterwave 66 198 255 694 0 1 1 32768 elecwaterdis 0 Text None
+Element None elecwaterdis 102 93 255 500 0 1 1 12 Water 0 Text None
+Element None sparks 255 255 255 -894 0 1 1 1468 Clear 0 Text None
+Element None burningbattacid 253 1 2 3000 0 20 20 0 Clear 30 Text burnbatt
+Element Elecsources battacidsource 3 253 4 0 1 1 1 0 Clear 0 Text Acid
+Element Elecsources sparkgen 254 255 253 0 1 1 1 0 Clear 0 Text SparkGen
+Element None sparkgenwav 254 255 253 0 0 1 1 32768 sparkgendis 0 Text None
+Element None sparkgendis 254 255 253 0 0 1 1 300 sparkgen 0 Text None
+Element None switchoff 254 1 0 0 1 1 1 0 Clear 0 Text None
+Element Electricity switchon 1 255 0 0 1 1 1 0 Clear 0 Text Switch
+Element Electricity turnoffwav 254 1 0 0 1 1 1 25000 turnoffdis 0 Text OFF
+Element Electricity turnonwav 1 255 0 0 1 1 1 25000 turnondis 0 Text ON
+Element None turnoffdis 254 1 0 0 1 1 1 1468 switchoff 0 Text None
+Element None turnondis 1 255 0 0 1 1 1 1468 switchon 0 Text None
+Element None chargeswitch 153 255 255 0 0 1 1 32768 chargeswitchdis 0 Text None
+Element None chargeswitchdis 0 0 132 0 0 1 1 1468 switchon 0 Text None
+Element None virus 253 2 3 700 100 20 1 0 Clear 800 Text None
+Element Electricity virussource 253 2 3 0 100 20 1 0 Clear 800 Text Virus
+Element None viruswav 249 1 2 0 0 1 1 32768 virusdis 0 Text None
+Element None virusdis 200 0 1 0 0 1 1 1468 Wire 0 Text None
+Element Elecsources watergen 1 2 252 0 1 1 1 0 Clear 0 Text Water
+Element None watergenwav 1 2 252 0 0 1 1 32768 watergendis 0 Text None
+Element None watergendis 1 2 252 0 0 1 1 300 watergen 0 Text None
+Element Elecsources burnergen 254 2 3 0 1 1 1 0 Clear 0 Text Burner
+Element None burnergenwav 254 2 3 0 0 1 1 32768 burnergendis 0 Text None
+Element None burnergendis 254 2 3 0 0 1 1 300 burnergen 0 Text None
+Element Elecsources saltgen 249 255 253 0 1 1 1 0 Clear 0 Text Salt
+Element None saltgenwav 249 255 253 0 0 1 1 32768 saltgendis 0 Text None
+Element None saltgendis 249 255 253 0 0 1 1 300 saltgen 0 Text None
+Element Elecsources oilgen 100 40 12 0 1 1 1 0 Clear 0 Text Oil
+Element None oilgenwav 100 40 12 0 0 1 1 32768 oilgendis 0 Text None
+Element None oilgendis 100 40 12 0 0 1 1 300 oilgen 0 Text None
+Element Elecsources gasgen 128 2 128 0 1 1 1 0 Clear 0 Text Gas
+Element None gasgenwav 128 2 128 0 0 1 1 32768 gasgendis 0 Text None
+Element None gasgendis 128 2 128 0 0 1 1 300 gasgen 0 Text None
+Element Elecsources lasersource 255 0 0 0 0 1 1 0 Clear 0 Text Laser
+Element Elecsources laserstop 135 141 138 0 0 1 1 0 Clear 0 Text Xlaser
+Element None lasersourcewav 255 0 0 0 0 1 1 32768 lasersourcedis 0 Text None
+Element None lasersourcedis 255 0 0 0 0 1 1 300 lasersource 0 Text None
+Element None laserabsorb 0 0 0 0 0 1 1 32768 Clear 0 Text None
+Element None laserbeam 255 0 0 0 0 1 1 4000 Clear 0 Text laser
+Interaction lasersourcedis Clear lasersource laserbeam 32768
+Interaction laserbeam Wall Clear Wall 32768
+Interaction laserbeam Oil laserbeam Fire 32768
+Interaction laserbeam Water laserbeam Steam 32768
+Interaction laserbeam Earth laserbeam Fire 10000
+Interaction laserbeam TNT laserbeam Fire 32768
+Interaction laserbeam Gas laserbeam Fire 32768
+Interaction laserbeam GasII laserbeam Fire 32768
+Interaction laserbeam Cera laserbeam Fire 32768
+Interaction laserbeam Wood laserbeam Fire 32768
+Interaction laserbeam Plant laserbeam Fire 32768
+Interaction laserbeam Saltwater Steam Salt 32768
+Interaction laserbeam Clear Clear laserbeam 32700
+Interaction laserbeam Fire Fire laserbeam 32768
+Interaction Charge lasersource Wire lasersourcewav 32768
+Interaction lasersourcewav lasersource lasersourcewav lasersourcewav 30500
+Interaction laserbeam laserstop Clear laserstop 32768
+Interaction laserstop Clear laserstop laserabsorb
+Interaction laserabsorb Clear laserabsorb laserabsorb 6000
+Interaction laserabsorb laserbeam laserabsorb laserabsorb 500
+Element Electricity uvbulb 100 0 100 0 0 1 1 0 Clear 0 Text UV
+Element None uvbulbwav 196 0 196 0 0 1 1 32768 uvbulbdis 0 Text None
+Element None uvbulbdis 196 0 196 0 0 1 1 300 uvbulb 0 Text None
+Element None uvwave 0 0 0 10 0 1 1 32768 uvwavedis 0 Text None
+Element None uvwavedis 0 0 0 10 0 1 1 100 Clear 0 Text None
+Element None uvglow 108 236 118 0 0 1 1 200 Clear 0 Text None
+Element None uvglow2 108 236 118 0 0 1 1 32768 Clear 0 Text None
+Element Elecsources uvpaint 108 236 118 0 0 1 1 200 uvpaintdry 0 Text UVpaint
+Element None uvpaintdry 0 0 0 0 0 1 1 0 uvpaintdry 0 Text None
+Interaction uvbulbdis Clear uvbulb uvwave 2000
+Interaction uvwave Wall uvglow Wall 32000
+Interaction uvwave uvpaintdry uvglow uvpaintdry 32000
+Interaction uvwave Clear uvwave uvwave 32000
+Interaction uvglow Clear uvglow uvglow2 6000
+Interaction uvglow2 Clear uvglow2 uvglow2 6000
+Interaction uvglow2 uvwavedis uvglow2 uvglow2 6000
+Interaction Charge uvbulb Wire uvbulbwav 32768
+Interaction uvbulbwav uvbulb uvbulbwav uvbulbwav 30500
+Interaction Battery Clear Earth Earth 32768
+Interaction Charge Wire Charge Charge 32768
+Interaction Charge Charge Charge Charge 2401
+Interaction Charge Chargedis Chargedis Chargedis 32768
+Interaction ybulb Charge ybulbwave Wire 32768
+Interaction ybulb ybulbwave ybulbwave ybulbwave 32768
+Interaction rbulb Charge rbulbwave Wire 32768
+Interaction rbulb rbulbwave rbulbwave rbulbwave 32768
+Interaction gbulb Charge gbulbwave Wire 32768
+Interaction gbulb gbulbwave gbulbwave gbulbwave 32768
+Interaction bluebulb Charge bluebulbwave Wire 32768
+Interaction bluebulb bluebulbwave bluebulbwave bluebulbwave 32768
+Interaction battacid Wire Clear Charge 32768
+Interaction battacid2 Wire Clear Charge 32768
+Interaction genwav generator genwav genwav 32768
+Interaction genwav Wire generator Charge 32768
+Interaction Charge Water Wire elecwaterwave 32768
+Interaction elecwaterwave Water elecwaterwave elecwaterwave 20000
+Interaction elecwaterwave Clear sparks elecwaterdis 32768
+Interaction elecwaterdis Clear sparks Water 32768
+Interaction sparks Clear sparks sparks 60
+Interaction sparks Wood Fire Fire 10000
+Interaction sparks Cera Fire Fire 10000
+Interaction sparks Gas Explosion Fire 32000
+Interaction sparks GasII Explosion Fire 32000
+Interaction sparks Oil Explosion Fire 32000
+Interaction sparks Plant Fire Fire 10000
+Interaction sparks Wire Clear Charge 3000
+Interaction Insulatedwire Clear Earth Clear 32000
+Interaction Insulatedwire Water Earth Clear 32000
+Interaction ybulb Clear Earth Clear 32000
+Interaction rbulb Clear Earth Clear 32000
+Interaction gbulb Clear Earth Clear 32000
+Interaction bluebulb Clear Earth Clear 32000
+Interaction battacid Fire burningbattacid Fire 32000
+Interaction battacid2 Fire burningbattacid Fire 32000
+Interaction burningbattacid battacid Fire burningbattacid 200
+Interaction burningbattacid battacid2 Fire burningbattacid 200
+Interaction burningbattacid Clear Clear Fire 2000
+Interaction battacidsource Clear battacidsource battacid 2000
+Interaction Charge sparkgen Wire sparkgenwav 32768
+Interaction sparkgenwav sparkgen sparkgenwav sparkgenwav 30500
+Interaction sparkgenwav Clear sparkgendis sparks 32768
+Interaction sparkgendis Clear sparkgendis sparks 32500
+Interaction sparkgendis Clear sparkgen sparks 32768
+Interaction turnoffwav switchon turnoffwav turnoffwav 32768
+Interaction turnoffwav chargeswitch turnoffwav turnoffwav 32768
+Interaction turnoffwav chargeswitchdis turnoffwav turnoffwav 32768
+Interaction turnonwav switchoff turnonwav turnonwav 32768
+Interaction turnonwav chargeswitchdis turnonwav turnonwav 32768
+Interaction Charge switchon Wire chargeswitch 32768
+Interaction chargeswitch Wire switchon Charge 32768
+Interaction chargeswitch switchon chargeswitch chargeswitch 32768
+Interaction battacid switchon Clear chargeswitch 32768
+Interaction battacid2 switchon Clear chargeswitch 32768
+Interaction virus Wire virus viruswav 32768
+Interaction viruswav Wire viruswav viruswav 32768
+Interaction viruswav Charge viruswav viruswav 32768
+Interaction viruswav Chargedis viruswav viruswav 32768
+Interaction virusdis Clear virus virus 8000
+Interaction virus All virus Clear 1000 Wall
+Interaction virus Clear virus Fire 1000
+Interaction virus Extinguisher Extinguisher Extinguisher 2000
+Interaction virussource Wire virussource viruswav 32768
+Interaction Charge watergen Wire watergenwav 32768
+Interaction Charge saltgen Wire saltgenwav 32768
+Interaction Charge burnergen Wire burnergenwav 32768
+Interaction Charge oilgen Wire oilgenwav 32768
+Interaction Charge gasgen Wire gasgenwav 32768
+Interaction burnergenwav burnergen burnergenwav burnergenwav 30500
+Interaction burnergenwav Clear burnergendis Fire 32768
+Interaction burnergendis Clear burnergendis Fire 32500
+Interaction burnergendis Clear burnergen Fire 32768
+Interaction watergenwav watergen watergenwav watergenwav 30500
+Interaction watergenwav Clear watergendis Water 32768
+Interaction watergendis Clear watergendis Water 32500
+Interaction watergendis Clear watergen Water 32768
+Interaction saltgenwav saltgen saltgenwav saltgenwav 30500
+Interaction saltgenwav Clear saltgendis Salt 32768
+Interaction saltgendis Clear saltgendis Salt 32500
+Interaction saltgendis Clear saltgen Salt 32768
+Interaction oilgenwav oilgen oilgenwav oilgenwav 30500
+Interaction oilgenwav Clear oilgendis Oil 32768
+Interaction oilgendis Clear oilgendis Oil 32500
+Interaction oilgendis Clear oilgen Oil 32768
+Interaction gasgenwav gasgen gasgenwav gasgenwav 30500
+Interaction gasgenwav Clear gasgendis Gas 32768
+Interaction gasgendis Clear gasgendis Gas 32500
+Interaction gasgendis Clear gasgen Oil 32768
+Element Elecsources radiotransmitter 30 30 30 0 0 1 1 0 Clear 0 HEX 0000000000E01800018004000108020001104300032061000227210002272100022221000322210001020000000200000002000000020000000200000002000000020000000200000002000000020000000200000002000000000000000000003BBAE0002AAAA0003BAAA00032AAA0002AAAA0002ABAE0000000000000000000 255 255 255
+Element None radtranswav 99 30 30 0 0 1 1 32768 radtransdis 0 Text None
+Element None radtransdis 30 99 30 0 0 1 1 300 radiotransmitter 0 Text None
+Element None radiowav 0 0 1 10 0 1 1 32768 radiodis 0 Text None
+Element None radiodis 0 0 0 10 0 1 1 100 Clear 0 Text None
+Element Elecsources remotebomb 230 1 1 0 0 1 1 0 Clear 0 HEX 0000000000180000000C08002004040030060380180200800C030080040103C0020102C0020082C0020082C0020082C0020082C0020082C0020082C0020082C0020082C0060082C0040082C00C0082C0080082C0180182C0300102C00003000070EE8B8050BEDA8070FAAB8066AA8A8050AA8A8050EE8B800000000000000000 255 255 255
+Interaction Charge radiotransmitter Wire radtranswav 32768
+Interaction radtranswav radiotransmitter radtranswav radtranswav 30500
+Interaction radtransdis Clear radiotransmitter radiowav 2000
+Interaction radiowav Clear radiowav radiowav 32000
+Interaction radiowav remotebomb Explosion Explosion 32768
+Interaction Explosion radiodis Explosion Clear 32768
+
+Group Nuclear 600 HEX FFFFFFF9FFF3FFF38B162AF3AB5368E78B1B69CFB9536A8FFFFFFF1FFFF7FE3FFFE7FC3FFFE7F87FFFC7F07FFFC3E0FFFF83C1FFFF8381FFFF0303FFFF0107FFFE0007FFFE000FFFFC001FFFFC001FFFF8203FFFF8607FFFF0F07FFFF1F0FFFFE1F0FFFFE3F1FFFDC4B24911CDB6D5559CB2DD55BDB6DD557C925D11FFFFFFFF 0 255 0
+Element Nuclear uranium 0 200 1 1647 1 20 20 0 Clear 0 HEX 00000000000000000007C000003FF800007FFC0001BFFF00023FFC80021FF880041FF840080FF0200807E0200807C0201003C0101001801010010010107FFC1013FEFFD01FFC7FF00FF83FE00FF03FE00FF01FE007E00FC003C0078003C0078001800300004004002B3A7D442AAFD56C2BBBD5542B2AD5443AAA574400000000 255 255 0
+Element None uranium2 0 200 1 1647 1 20 20 20 uranium 0 Text uranium
+Element None radiationgas 1 220 2 -100 1 1 4 20 uranium 100 Text None
+Element Nuclear reactor 99 98 100 0 1 1 1 0 Clear 200 HEX 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000001FFFFFF01FFFFFF01FFFFFF01FFFFFF01FFFFFF01FFFFFF01FFFFFF01FFFFFF00000000000000000000000003B76EEE02A544AA02A544AA03B744AE022544A8032544AC02A544AA02B564EA00000000000000000 255 255 255
+Element Nuclear deepuranium 252 224 114 900 1 1 1 0 Clear 400 HEX 00000000085080000404100020F000000F9BC080080770005800130030039D80200FE8882017D04030278850182308C00F430480224F04C0043CC8A4083CE8224E187020070C602801838FC000F80800020C08000007F90000000040000020003BB808002AA000002BA000002A3800002B2000003AB800000000000000000000 255 255 255
+Element None uraniumpipe 93 84 135 2000 0 0 1 0 uraniumdrill 0 Text K19
+Element Nuclear uraniumdrill 93 95 135 0 0 0 1 0 Clear 0 HEX 01F00000060F0000180500002019000040228000204280001184C0000A0880000C10C00004114000022140000142600000C2200000C4600000246000001860000018A000001890000005100000031000000110000002A800000268007624E8005524A8005524D40057248C005624840055248000552480007526C00000000000 255 255 255
+Element Nuclear heatpad 160 0 0 0 0 1 1 0 Clear 0 HEX 00000000000000000000000000C020000180C000030180C0030103000181060000E1840000208600002083000061810000C30300000002000000000000000000000000001FFFFFF83FFFFFFC1FFFFFF800000000000000002B7700002A5200002A5200002A7200003B5200002A5200002A5200002B5200000000000000000000 255 30 30
+Element None uraniumtrans 100 95 135 0 0 1 1 32768 uraniumtransdis 0 Text None
+Element None uraniumtransdis 70 95 135 0 0 1 1 1468 uraniumpipe 0 Text None
+Element Nuclear uraniumtapPlace 153 255 255 0 0 1 1 700 uraniumtap 0 HEX 00000000000000000000000000FF800001FFC00000FF8000001C0000001C0000001C0000001C0000001C00000FFFF8001FFFFC000FFFFC0000001C0000001C0000001C000000080000000000000000001DDE1C0009521C000952000009DE00000950000009501800095018000950000009500000000000000000000000000000 255 255 255
+Element None uraniumtap 153 255 255 0 0 1 1 0 Clear 0 Text None
+Element None uraniumtapwav 153 255 255 0 0 1 1 32768 uraniumtapdis 0 Text None
+Element None uraniumtapdis 0 0 132 0 0 1 1 1468 uraniumtap 0 Text None
+Element None uraniumliq 0 200 1 1647 1 20 20 0 Clear 0 Text None
+Element None heatwav 230 0 0 0 0 1 1 32768 heatdis 0 Text None
+Element None heatdis 200 0 0 0 0 1 1 500 heatpad 0 Text None
+Element Nuclear generator 255 255 255 0 0 1 1 0 Clear 0 HEX 00000000000000000003FFF00007FFE00007FFC0000FFF80000FFF00000FFC00000FF800001FF000001FE000001FFE00001FFC00003FF800003FF0000007E000000FC000000F8000001F0000001E0000003C00000038000000700000006ED20000C89A0000C89600010892000008D200000A9200000A9200000ED20000000000 255 255 255
+Element None genwav 255 255 0 0 0 1 1 32768 gendis 0 Text None
+Element None gendis 255 0 255 0 0 1 1 1310 generator 0 Text None
+Interaction uraniumtapPlace Clear uraniumtapPlace Wall 32768
+Interaction uranium All uranium Clear 6000 reactor
+Interaction uranium All radiationgas Clear 100 reactor
+Interaction uranium Clear uranium uranium 2
+Interaction uranium reactor uranium Clear 3
+Interaction uranium2 uranium uranium uranium 32000
+Interaction radiationgas Clear radiationgas radiationgas 10
+Interaction uraniumdrill Clear uraniumdrill uraniumpipe 3000
+Interaction uraniumpipe Earth Clear uraniumpipe 1500
+Interaction deepuranium uraniumpipe Clear uraniumtrans 100
+Interaction uraniumtrans uraniumtap uraniumtransdis uraniumtapwav 32768
+Interaction uraniumtapwav uraniumtap uraniumtapwav uraniumtapwav 32768
+Interaction uraniumtapwav Clear uraniumtapdis uraniumliq 32768
+Interaction uraniumtapdis Clear uraniumtap uraniumliq 5000
+Interaction uraniumtrans uraniumpipe uraniumtrans uraniumtrans 32768
+Interaction uraniumliq reactor uranium reactor 32768
+Interaction radiationgas heatpad Clear heatwav 32768
+Interaction heatwav heatpad heatwav heatwav 32768
+Interaction heatdis Water heatdis Steam 2000
+Interaction Steam generator Clear genwav 1000
+Interaction Fire heatpad Clear heatwav 32768
+Interaction radiationgas uraniumtap uraniumliq uraniumtap 32768
+Element Elecsources snowgen 254 255 253 0 1 1 1 0 Clear 0 HEX 000000000000000000010000000D60000003800000010000000100000015500000092000011550800083810001FFFF800083810001155080000920000015500000010000000100000001000000038000000D60000001000000000000034BAA00026AAA00027AAA00025AAA00034AAA00014AAA00034BBE000000000000000000 255 255 255
+Element None snowgenwav 249 255 253 0 0 1 1 32768 snowgendis 0 Text None
+Element None snowgendis 249 255 253 0 0 1 1 300 snowgen 0 Text None
+Element None snow 0 0 0 -1000 6 8 20 18 snowfall 0 Text None
+Element None snowfall 255 255 255 400 0 0 1 0 Clear 0 Text None
+Interaction snowgenwav snowgen snowgenwav snowgenwav 30500
+Interaction snowgenwav Clear snowgendis snow 32768
+Interaction snowgendis Clear snowgendis snow 2000
+Interaction snowgendis Clear snowgen snow 32768
+Interaction Charge snowgen Wire snowgenwav 32768
+Interaction snowfall snowgen Clear snowgen 32768
+Interaction Fire snowfall Fire Water 32768
+Interaction Water snowfall Water Clear 500
+Interaction Water snowfall Ice snowfall 500
+Interaction snowfall Clear Clear Clear 2
+Interaction Fire snowfall Clear Clear 32768
+Element None waterpipe 93 84 135 2000 0 0 1 0 waterdrill 0 Text None
+Element Nuclear waterdrill 93 95 135 0 0 0 1 0 Clear 0 HEX 01F00000060F0000180500002019000040228000204280001184C0000A0880000C10C00004114000022140000142600000C2200000C4600000246000001860000018A000001890000005100000031000000110000002A800000268007624E8005524A8005524D40057248C005624840055248000552480007526C00000000000 5 2 255
+Element None watertrans 100 95 135 0 0 1 1 32768 watertransdis 0 Text None
+Element None watertransdis 70 95 135 0 0 1 1 1468 waterpipe 0 Text None
+Element Nuclear watertapPlace 153 255 255 0 0 1 1 700 watertap 0 HEX 00000000000000000000000000FF800001FFC00000FF8000001C0000001C0000001C0000001C0000001C00000FFFF8001FFFFC000FFFFC0000001C0000001C0000001C000000080000000000000000001DDE1C0009521C000952000009DE00000950000009501800095018000950000009500000000000000000000000000000 5 2 255
+Element None watertap 153 255 255 0 0 1 1 0 Clear 0 Text None
+Element None watertapwav 153 255 255 0 0 1 1 32768 watertapdis 0 Text None
+Element None watertapdis 0 0 132 0 0 1 1 1468 watertap 0 Text None
+Interaction watertapPlace Clear watertapPlace Wall 32768
+Interaction waterdrill Clear waterdrill waterpipe 3000
+Interaction waterpipe Earth Clear waterpipe 1500
+Interaction watertrans watertap watertransdis watertapwav 32768
+Interaction watertapwav watertap watertapwav watertapwav 32768
+Interaction watertapwav Clear watertapdis Water 32768
+Interaction watertapdis Clear watertap Water 5000
+Interaction watertrans waterpipe watertrans watertrans 32768
+Interaction Water waterpipe Clear watertrans 100
+Element None oilpipe 93 84 135 2000 0 0 1 0 oildrill 0 Text None
+Element Nuclear oildrill 93 95 135 0 0 0 1 0 Clear 0 HEX 01F00000060F0000180500002019000040228000204280001184C0000A0880000C10C00004114000022140000142600000C2200000C4600000246000001860000018A000001890000005100000031000000110000002A800000268007624E8005524A8005524D40057248C005624840055248000552480007526C00000000000 149 74 0
+Element None oiltrans 100 95 135 0 0 1 1 32768 oiltransdis 0 Text None
+Element None oiltransdis 70 95 135 0 0 1 1 1468 oilpipe 0 Text None
+Element Nuclear oiltapPlace 153 255 255 0 0 1 1 700 oiltap 0 HEX 00000000000000000000000000FF800001FFC00000FF8000001C0000001C0000001C0000001C0000001C00000FFFF8001FFFFC000FFFFC0000001C0000001C0000001C000000080000000000000000001DDE1C0009521C000952000009DE00000950000009501800095018000950000009500000000000000000000000000000 149 74 0
+Element None oiltap 153 255 255 0 0 1 1 0 Clear 0 Text None
+Element None oiltapwav 153 255 255 0 0 1 1 32768 oiltapdis 0 Text None
+Element None oiltapdis 0 0 132 0 0 1 1 1468 oiltap 0 Text None
+Interaction oiltapPlace Clear oiltapPlace Wall 32768
+Interaction oildrill Clear oildrill oilpipe 3000
+Interaction oilpipe Earth Clear oilpipe 1500
+Interaction oiltrans oiltap oiltransdis oiltapwav 32768
+Interaction oiltapwav oiltap oiltapwav oiltapwav 32768
+Interaction oiltapwav Clear oiltapdis Oil 32768
+Interaction oiltapdis Clear oiltap Oil 5000
+Interaction oiltrans oilpipe oiltrans oiltrans 32768
+Interaction Oil oilpipe Clear oiltrans 100
