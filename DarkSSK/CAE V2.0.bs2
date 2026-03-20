@@ -1,0 +1,955 @@
+GROUP CLEARALL
+ELEMENTSCLEAR
+INCLUDE elements.bs2
+MENURIGHT = 70
+GROUP Random 600 HEX 00000000000FF00000100800000FF0000008100000085000000A1000000D1000000A100000081000000BD000000C3000000BF000000D5000000AF000000F5000000AB000000D5000000AF000000D5000000EB000000560000003C000000000000000000007A2FA2008228360083EF2A00822822007A2FA200000000000000000 255 255 255
+
+GROUP Random2 700 HEX 00000000000000000000000000000000000000000000000003FF000003FF000003FF000003C0000003C0000003FE0FC003FE1FC003FE3FC003C03C0003C03C0003C01E0003C00F0003C00780000003C0000003C000007FC000007F8000007F000000000000000000000000000000000000000000000000000000000000000000 255 255 255
+
+GROUP Random3 800 HEX 0000000000000000003AB8000022A800003138000022A000003AA0000000000000000000000C0C0000101000002020000070700000A8A80001252400018D8C0001777400010884000113E4000118D400019744000150440001B064000150540000B8680000747000001A400000154000000A8000000700000000000000000000 255 255 255
+
+GROUP Random4 801 HEX 000000000000000000EAEE00008AA20000C4EE00008A880000EA8E000000000000000000000C0C0000101000002020000070700000A8A80001252400018D8C0001777400010884000113E4000118D400019744000150440001B064000150540000B8680000747000001A400000154000000A8000000700000000000000000000 255 255 255
+
+GROUP Random5 1000 HEX 0000000000000000007F00E00041009000220090001400E0001C009000630090008080E0010040000100406002002090020020900200209004001090040010600400100004001088040010D8040010A804001088020020880200A0000201A0E00103409001064090008080E000630090001C0090000000E00000000000000000 255 255 255
+
+GROUP Random6 1100 HEX 000000000000000000F80000030600000401000008708000080C820010044500100242001002400010024000100040000800800008008000040100E00306011000F842480000A228040042080A000110040000E0000000000001C00000022000018490000244500002441060018220900001C090000000600000000000000000 255 255 255
+
+Element None InvinciGlass 0 0 0 0 1 1 1 0 Clear 0 TEXT IVCGlass
+Element None Replicator2 100 100 200 900 1 1 1 0 Clear 1 TEXT Replicator2
+Element None BlackGas 20 20 20 -500 4 5 1 0 Clear 2 TEXT BlackGas
+Element None Randomize 100 200 142 2 100 100 1 0 Clear 300 TEXT Randomize
+Element None FatJuice 255 219 0 300 1 1 1 0 Clear 4 TEXT FatJuice
+Element None Nuclear 118 255 80 700 1 1 1 0 Clear 5 TEXT Urainium
+Element None NuclearGas 67 179 0 -10 1 10 1 0 Clear 6 TEXT NuclearGas
+Element None Plutonium 60 203 230 500 1 1 1 0 Clear 7 TEXT Plutonium
+Element None Fuel 100 0 0 700 1 1 1 0 Clear 8 TEXT Fuel 
+Element None LiquidNitrogen 208 255 255 800 1 1 1 0 Clear 9 TEXT LiquidNitrogen
+Element None Floater 20 100 240 800 100 100 100 0 Clear 10 TEXT Floater
+Element None Trailerexplosive 40 30 40 0 1 1 1 0 Clear 11 TEXTTrailerexplosive
+Element None Sprinkler 10 20 240 0 0 0 1 0 Clear 12 TEXT Sprinkler
+Element None BOOM 80 30 20 0 1 1 1 0 Clear 13 TEXT BOOM
+Element None SolidExp 10 10 40 0 1 1 1 0 Clear 14 TEXT SolidExp
+Element None Prototype 255 0 0 0 0 1 1 0 Clear 15 TEXT ChristmasLights
+Element None Sparks 0 155 0 0 1 1 1 0 Clear 16 TEXT Sparks
+Element None Oddinum 0 255 0 50 100000 100 1 0 Clear 17 TEXT Oddinum
+Element None Multiplier 0 100 200 300 1 1 1 0 Clear 0 TEXT Multiplier
+Element None FreezBomb 0 100 200 0 1 1 1 0 Clear 0 TEXT FreezBomb
+Element None FreezWave 0 200 200 0 1 1 1 300 Clear 0 TEXT FreezWave
+Element None FreezTrail 0 0 200 0 1 1 1 100 Clear 0 TEXT FreezTrail
+Element None RandBomb 100 140 100 0 1 1 1 0 Clear 0 TEXT RandBomb
+Element None SparkBomb 20 240 0 0 1 1 1 0 Clear 0 TEXT SparkBomb
+Element None Bs2Kill 255 0 0 200 -1 -1 -1 0 Clear 0 TEXT Bs2Kill
+Element None Sodium 40 40 40 0 1 1 1 0 Clear 0 TEXT Sodium
+Element None Chlorine 20 255 40 100 100 1 1 0 Clear 0 TEXT Chlorine
+Element None ChWater 136 179 244 300 1 1 1 0 Clear 0 TEXT ChWater
+Element None WeirdBomb 99 60 220 0 1 1 1 0 Clear 0 TEXT WeirdBomb
+Element None SupTrail 99 132 217 0 1 1 1 0 Clear 0 TEXT SupTrail 
+Element None FlaWater 0 20 1500 300 8 8 8 0 Clear 0 TEXT FlaWater 
+Element None UrainRod 0 255 0 0 1 1 1 0 Clear 0 TEXT UrainRod
+Element None BluWave 29 43 123 0 1 1 1 0 Clear 0 TEXT BluWave
+Element None LaserBomb 90 90 90 0 1 1 1 0 Clear 0 TEXT LaserBomb
+Element None SideTrail 255 0 0 0 1 1 1 200 Clear 0 TEXT Laser
+Element None SideBomb 120 120 120 0 1 1 1 0 Clear 0 TEXT SideBomb
+Element None D-Laser 0 150 200 0 1 1 1 0 Clear 0 TEXT D-Laser
+Element None Burner2 179 0 0 0 0 1 1 0 Clear 0 TEXT Burner2
+Element None DragonFly 125 210 98 800 1 1 1 0 Clear 0 TEXT DragonFly 
+Element None EmpHolder 200 200 200 0 0 1 1 32768 Clear 0 TEXT Emp
+Element None WaterFall 0 0 150 0 0 1 1 0 Clear 0 TEXT WaterFall 
+Element None Converter 200 230 255 1 0 0 0 0 Clear 0 TEXT Converter
+Element None Regen 200 200 200 0 0 1 1 0 Clear 0 TEXT Regen
+Element None Mover 0 120 178 0 0 1 1 0 Clear 0 TEXT Mover
+Element None Anti 100 0 70 500 1 1 1 0 Clear 0 TEXT Anti
+Element None Exchanger 100 0 0 0 0 1 1 0 Clear 0 TEXT Exchanger
+Element None Repper 0 0 220 0 1 1 1 0 Clear 0 TEXT Repper
+Element None LGBomb 0 100 255 0 1 1 1 0 Clear 0 TEXT LGBomb
+Element None Explode 204 90 29 0 1 1 1 0 Clear 0 TEXT Explode
+Element None Blow 100 100 100 0 0 0 1 0 Blow2 0 Text Blow
+Element None Blow2 120 120 120 0 2 1 5 4000 Blow3 0 Text Blow2
+Element None Blow3 150 150 150 0 1 1 4 163 Clear 0 Text Blow3
+Element None ShockBomb 200 0 0 0 1 1 1 0 Clear 0 TEXT ShockBomb
+Element None ElecBomb 40 40 40 0 1 1 1 0 Clear 0 TEXT ElecBomb
+Element None Repoc 0 0 150 0 1 1 1 0 Clear 0 TEXT Repoc
+Element None DAQ 140 140 0 5 5 5 0 Clear 0 TEXT DAQ
+Element None DAQLine 0 0 160 0 1 1 1 0 Clear 0 TEXT DAQLine
+Element None ContWall 200 200 200 0 1 1 1 0 Clear 0 TEXT ContWall
+Element None HugeO 20 170 20 0 1 1 1 0 Clear 0 TEXT HugeO
+Element None Missile 255 255 255 0 1 900000 900000 0 Clear 0 TEXT Missile
+Element None HeavyWeight 123 110 47 31000 0 1 1 0 Clear 0 TEXT HeavyWeight
+Element None ESand 233 186 42 800 1000 1 1 0 Clear 0 TEXT ESand
+Element None Wind 0 0 0 0 1 1 1 0 Clear 0 TEXT Wind
+Element None GlueSource 255 0 140 0 1 1 1 0 Clear 0 TEXT GlueSource
+Element None AcidSource 150 0 0 0 1 1 1 0 Clear 0 TEXT AcidSource
+Element None Flies 50 50 50 800 1000 100 100 0 Clear 0 TEXT Flies
+Element None WarmWaterSource 0 0 140 0 1 1 1 0 Clear 0 TEXT WarmWater
+Element None Concrete 180 180 180 32000 0 1 1 0 Clear 0 TEXT Concrete
+Element None Paint 255 255 255 30000 0 1 1 0 Clear 0 TEXT Paint
+Element None Firezk 255 255 255 0 1 1 1 0 Clear 0 TEXT Firezk
+Element None NSplode 120 0 30 0 1 1 1 0 Clear 0 TEXT NSplode
+Element None DeBomb 100 100 100 31000 0 1 1 0 Clear 0 TEXT DeBomb
+Element None SearingBomb 150 0 10 31000 0 1 1 0 Clear 0 TEXT SearingBomb
+Element None InfectBomb 170 0 170 31000 0 1 1 0 Clear 0 TEXT InfectBomb
+Element None Worm 255 20 255 31000 0 0 1 0 Clear 0 TEXT Worm
+Element None FireBomb 150 0 0 31000 0 1 1 0 Clear 0 TEXT FireBomb
+Element None Cannon 255 255 255 31000 0 0 1 0 Clear 0 TEXT Cannon
+Element None IntGall 255 255 255 0 1 1 1 1000 Clear 0 TEXT IntGall
+Element None SulfuricGas 255 255 216 0 1 1 1 0 Clear 0 TEXT SulfuricGas
+Element None Aluminum 70 70 80 31000 0 1 1 0 Clear 0 TEXT Aluminum
+Element None Magnesium 160 160 160 0 1 1 1 0 Clear 0 TEXT Magnesium
+Element None Quatium 0 0 0 800 0 1 1 0 Clear 0 TEXT Quatium
+Element None FireStone 160 0 0 32000 0 0 1 0 Clear 0 TEXT FireStone
+Element None Firez 255 0 0 -31000 0 0 1 0 Clear 0 TEXT Firez
+Element None WaGen 200 200 255 0 1 1 1 0 Clear 0 TEXT WaGen
+Element None PlantPack 255 255 255 0 1 1 1 0 Clear 0 TEXT PlantPack
+Element None ThermiteMake 255 255 255 0 1 1 1 25000 Clear 0 TEXT ThermiteMake
+Element None D-29 20 20 20 0 1 1 1 0 Clear 0 TEXT D-29
+Element None DownBlast 100 100 255 32000 0 0 1 0 Clear 0 TEXT DownBlast
+Element None Meteroid 255 200 200 31000 0 0 1 0 Clear 0 TEXT Meteroid
+Element None MOAT 130 0 0 0 1 1 1 0 Clear 0 TEXT MOAT
+Element None Elemental 200 255 255 0 1 1 1 0 Clear 0 TEXT Elemental
+Element None BugSpray 226 204 110 300 200000 1 1 800 Clear 0 TEXT BugSpray
+Element None Testify 255 255 255 0 1 1 1 32768 AntiTestify 0 TEXT Testify
+Element None ElecTube 0 255 100 900 1 1 1 0 ElecTube 0 TEXT ElecTube
+Element None ChaosBomb 140 30 30 2000 0 0 1 0 Clear 0 TEXT ChaosBomb
+Element None DarkBomb 50 40 40 32000 0 0 1 0 Clear 0 TEXT DarkBomb
+Element None TimerExp 100 100 100 0 1 1 1 0 Clear 0 TEXT TimerExp
+Element None UltiBlast 160 160 255 0 1 1 1 0 Clear 0 TEXT IcyBlast
+Element None FPlant 0 255 0 3000 0 0 1 0 Clear 0 TEXT FPlant
+Element None WD-40 150 150 0 100 20 20 1 0 Clear 0 TEXT WD-40
+Element None CubeBomb 210 100 100 3000 0 0 1 0 Clear 0 TEXT CubeBomb
+Element None SuperBomb 255 0 255 3000 0 0 1 0 Clear 0 TEXT SuperBomb
+Element None BS2Crash 255 255 255 0 1 1 1 0 Clear 0 TEXT BS2Crash
+Element None Shrapnel 70 70 70 0 1 1 1 0 Clear 0 TEXT Shrapnel
+Element None InvisiKill 0 0 0 0 1 1 1 0 Clear 0 TEXT InvisiKill
+Element None waveD 140 140 140 0 1 1 1 2000 Clear 0 TEXT Grid
+Element None AtomBomb 120 120 120 1000 0 0 1 0 Clear 0 TEXT AtomBomb
+Element None C-2 255 255 100 0 1 1 1 0 Clear 0 TEXT C-2
+Element None Stagger 0 0 0 31000 0 1 1 32768 Clear 0 TEXT Stagger
+Element None Flash 50 50 50 3000 0 1 1 0 Clear 0 TEXT Flash
+
+Element None NuclearWater 255 4 255 900 1 1 1 0 Clear 0 TEXT NuclearWater
+Element None PlutoniumGas 118 20 255 -20 1 10 1 0 Clear 0 TEXT Plutonium
+Element None FireP 220 0 0 -400 1 1 1 3000 Clear 0 TEXT FireP
+Element None CoolFire 200 10 20 200 100 100 100 1000 Clear 0 TEXT CoolFire
+Element None HotFire 255 10 10 100 10 100 100 200 Clear 0 TEXT HotFire
+Element None FireD 255 0 0 400 1 1 1 1000 Clear 0 TEXT FireD
+Element None FireB 255 0 0 1 1 1 1 1000 Clear 0 TEXT FireB
+Element None FloaterB 20 100 240 -800 100 100 100 0 Clear 0 TEXT FloaterB
+Element None FloaterFire 255 0 0 -200 10 100 100 200 Clear 0 Text FloaterFire
+Element None Trail 0 40 240 0 10 100 100 800 Clear 0 TEXT Trail
+Element None Trail2 255 255 255 0 10 100 100 600 Clear 0 TEXT Trail2
+Element None Trail3 255 0 0 0 10 100 100 800 Clear 0 TEXT Trail2
+Element None TrailFire 255 0 0 400 100 100 100 100 Clear 0 TEXT TrailFire
+Element None BOOMWAVE 255 155 0 0 100 100 100 0 Clear 0 TEXT BOOMWAVE
+Element None boomwave2 255 0 0 0 100 100 100 0 Clear 0 TEXT boomwave2
+Element None Solid 20 20 20 0 1 1 1 0 Clear 0 TEXT Solid
+Element None Prototype1 0 255 0 0 0 1 1 0 Clear 0 TEXT Prototype1
+Element None Prototype2 0 0 255 0 0 1 1 0 Clear 0 TEXT Prototype2
+Element None Neutral 50 50 50 300 1 1 1 0 Clear 0 TEXT Neutral
+Element None RandBombExp 255 0 0 0 1 1 1 700 Clear 0 TEXT RandBombExp
+Element None RandBombTra 255 0 0 0 1 1 1 600 Clear 0 TEXT RandBombTra
+Element None SparkTrail 0 255 0 0 1 1 1 300 Clear 0 TEXT SparkTrail
+Element None Rust 125 76 74 0 1 1 1 0 Clear 0 TEXT Rust
+Element None WeirdTra 116 60 220 -900 7 7 7 0 Clear 0 TEXT WeirdTra
+Element None SupTrailTra 120 132 217 300 9 9 9 0 Clear 0 TEXT SupTrailTra
+Element None SupTrailTT 70 70 70 0 1 1 1 0 Clear 0 TEXT SupTrailTT
+Element None BluTrail 29 43 219 0 1 1 1 900 Clear 0 TEXT BluTrail
+Element None UrainWall 70 70 70 0 1 1 1 0 Clear 0 TEXT UrainWall
+Element None UrainWall2 40 40 40 0 1 1 1 0 Clear 0 TEXT UrainWall2
+Element None Sider 100 110 110 0 1 1 1 100 Clear 0 TEXT Sider
+Element None DragTra 125 180 98 0 1 1 1 4123 Clear 0 TEXT DragTra
+Element None Emp 0 100 255 0 1 1 1 0 Clear 0 TEXT Emp
+Element None EmpT 0 0 100 0 1 1 1 32768 Clear 0 TEXT EmpT
+Element None Rege 100 100 100 0 1 1 1 0 Clear 0 TEXT Rege
+Element None RegeA 100 100 150 0 1 1 1 0 Clear 0 TEXT RegeA
+Element None Rep3 0 40 240 0 1 1 1 32768 Rep3D 0 TEXT Wave
+Element None Rep3D 0 0 255 0 1 1 1 32768 Repper 0 TEXT Rep3D
+Element None LGShrap 0 255 255 0 1 1 1800 0 Clear 0 TEXT LGShrap
+Element None LGShrap2 0 255 255 900 1 1 1800 0 Clear 0 TEXT LGShrap2
+Element None LGShrap3 0 255 255 -900 1 1 1800 0 Clear 0 TEXT LGShrap3
+Element None LGTrail 0 200 200 0 1 1 1 800 Clear 0 TEXT LGTrail
+Element None Explode2 255 0 0 0 1 1 1 0 Clear 0 TEXT Explode2
+Element None Explode3 255 90 29 0 1 1 1 0 Clear 0 TEXT Explode3
+Element None Explode4 255 146 56 0 1 1 1 900 Clear 0 TEXT Explode4
+Element None ShockWave 100 100 100 0 1 1 1 0 Clear 0 TEXT ShockWave
+Element None ShockTrail 130 130 130 0 1 1 1 800 Clear 0 TEXT ShockTrail
+Element None Elec 255 255 0 1 1 1 0 Clear 0 TEXT Elec
+Element None RepocT 0 100 255 0 1 1 1 32700 Clear 0 TEXT RepocT
+Element None Huge_A 100 100 100 0 1 1 1 0 Clear 0 TEXT Huge_A
+Element None Huge_T 150 150 150 0 1 1 1 1000 Clear 0 TEXT HugeT
+Element None MisTrail 255 100 0 0 1 1 1 1000 Clear 0 TEXT MisTrail
+Element None WindUp 0 0 0 -800 1 1 1 0 Clear 0 TEXT WindUp
+Element None WindDown 0 0 0 800 1 1 1 0 Clear 0 TEXT WindDown
+Element None Painted 255 255 255 0 1 1 1 0 Clear 0 TEXT Painted
+Element None OFire 255 161 38 -700 1 1 1 2000 Clear 0 TEXT OFire
+Element None YFire 255 212 38 -800 1 1 1 2000 Clear 0 TEXT YFire
+Element None Smoke 50 50 50 -800 1 1 1 800 Clear 0 TEXT Smoke
+Element None Smok2 70 70 70 -500 1 1 1 400 Clear 0 TEXT Smok2
+Element None NSpl 255 255 0 0 1 1 1 0 Clear 0 TEXT NSpl
+Element None NSpl2 255 255 0 0 1 1 1 0 Clear 0 TEXT NSpl2
+Element None De1 10 10 10 0 1 1 1 0 Clear 0 TEXT De1
+Element None De2 30 30 30 0 1 1 1 0 Clear 0 TEXT De2
+Element None De3 50 50 50 0 1 1 1 0 Clear 0 TEXT De3
+Element None De4 70 70 70 0 1 1 1 0 Clear 0 TEXT De4
+Element None De5 90 90 90 0 1 1 1 0 Clear 0 TEXT De5
+Element None De6 110 110 110 0 1 1 1 0 Clear 0 TEXT De6
+Element None De7 130 130 130 0 1 1 1 0 Clear 0 TEXT De7
+Element None De8 150 150 150 0 1 1 1 0 Clear 0 TEXT De8
+Element None SearHeat 80 0 0 0 1 1 1 0 Clear 0 TEXT SearHeat
+Element None SearHeat2 100 0 0 0 1 1 1 0 Clear 0 TEXT SearHeat2
+Element None Null 0 0 0 0 1 1 1 0 Clear 0 TEXT Null
+Element None H1 120 0 0 0 1 1 1 1000 Clear 0 TEXT H1
+Element None H2 110 0 0 0 1 1 1 1000 Clear 0 TEXT H2
+Element None H3 130 0 0 0 1 1 1 1000 Clear 0 TEXT H3
+Element None Infected 230 0 230 0 1 1 1 0 Clear 0 TEXT Infected
+Element None Intect 255 0 255 0 1 1 1 0 Clear 0 TEXT Intect
+Element None IntTrail 255 0 255 0 1 1 1 2000 Clear 0 TEXT IntTrail
+Element None Fyeo 255 0 0 -800 1 1 1 4000 Clear 0 TEXT Fyeo
+Element None F_End 0 0 0 0 1 1 1 0 Clear 0 TEXT F_End
+Element None Canert 0 240 160 -31000 0 0 1 0 Clear 0 TEXT Canert
+Element None Cant 255 255 255 0 1 1 1 0 Clear 0 TEXT Cant
+Element None Parplosion 255 0 0 0 1 1 1 0 Clear 0 TEXT Parplosion
+Element None EatPar 255 255 0 0 1 1 1 1000 Clear 0 TEXT EatPar
+Element None Thermite 255 200 200 31000 0 1 1 0 Clear 0 TEXT Thermite
+Element None Therm2 255 180 180 31000 0 1 1 0 Clear 0 TEXT Therm2
+Element None Mixed1 70 70 80 800 1 1 1 0 Clear 0 TEXT Mixed1
+Element None Mixed2 125 76 74 800 1 1 1 0 Clear 0 TEXT Mixed2 
+Element None Magnesium(burn) 255 0 0 0 1 1 1 1000 Clear 0 TEXT Magnesium(burn)
+Element None UpFirez 255 0 0 -32000 0 0 1 1000 Clear 0 TEXT UpFirez
+Element None MysticStone 200 200 255 -32000 0 0 1 0 Clear 0 TEXT MysticStone
+Element None Glowz 240 240 255 -32000 0 0 1 0 Clear 0 TEXT Glowz
+Element None AlumniSulfate 61 172 78 -200 1 1 1 0 Clear 0 TEXT AlumniSulfate
+Element None SulfuricAcid 255 199 116 700 1 1 1 0 Clear 0 TEXT SulfuricAcid
+Element None Peal 100 100 100 800 0 1 1 0 Clear 0 TEXT Peal
+Element None DSplode 0 100 255 0 1 1 1 0 Clear 0 TEXT DSplode
+Element None DeetTrail 255 255 0 0 1 1 1 2000 Clear 0 TEXT DeetTrail
+Element None Wa1 0 0 0 31000 1 1 1 0 Clear 0 TEXT Wa1
+Element None Wa2 0 0 0 -32000 1 1 1 0 Clear 0 TEXT Wa2
+Element None Wa3 0 0 0 800 1 1 1 0 Clear 0 TEXT Wa3
+Element None HotMetal 255 118 130 0 1 1 1 0 Clear 0 TEXT HotMetal
+Element None Nul 40 40 40 0 1 1 1 0 Clear 0 TEXT Nul
+Element None DownedTrail 200 200 255 -32000 0 0 1 0 Clear 0 TEXT DownedTrail
+Element None DownedTrail2 200 200 255 -32000 0 0 1 0 Clear 0 TEXT DownedTrail2
+Element None Redder 255 0 0 0 1 1 1 1000 Clear 0 TEXT Redder
+Element None Greenz 0 255 0 0 1 1 1 0 Clear 0 TEXT Greenz
+Element None Redz 255 0 0 0 1 1 1 0 Clear 0 TEXT Redz
+Element None Bluez 0 0 255 0 1 1 1 0 Clear 0 TEXT Bluez
+Element None Whitez 255 255 255 0 1 1 1 0 Clear 0 TEXT Whitez
+Element None Endz 0 0 0 0 1 1 1 0 Clear 0 TEXT Endz
+Element None AntiTestify 0 0 0 0 1 1 1 32768 Testify 0 TEXT AntiTestify
+Element None WaterWave 140 140 255 0 1 1 1 0 Clear 0 TEXT WaterWave
+Element None WavedDis 140 140 255 0 1 1 1 800 Water 0 TEXT WavedDis
+Element None Ch1 255 0 0 -32000 0 1 1 3000 Ch2 0 TEXT Ch1
+Element None Ch2 255 0 0 900 0 1 1 4000 Clear 0 TEXT Ch2
+Element None ChSpread 255 0 0 0 1 1 1 0 Clear 0 TEXT ChSpread
+Element None CStop 0 0 0 0 1 1 1 100 Clear 0 TEXT CStop
+Element None ChTrail 255 0 0 0 1 1 1 1000 Clear 0 TEXT ChTrail
+Element None Dup 190 0 180 -100 20 20 20 0 Clear 0 TEXT Dup
+Element None clearz 0 0 0 0 1 1 1 0 Clear 0 TEXT clearz
+Element None Infectzs 50 50 50 0 1 1 1 0 Clear 0 TEXT Infectzs
+Element None DepTrail 120 0 120 0 1 1 1 0 Clear 0 TEXT DepTrail
+Element None Time1 100 100 100 0 1 1 1 0 Clear 0 TEXT Time1
+Element None Time2 100 100 100 0 1 1 1 0 Clear 0 TEXT Time2
+Element None Time3 100 100 100 0 1 1 1 0 Clear 0 TEXT Time3
+Element None TimeExplo 255 255 0 0 1 1 1 0 Clear 0 TEXT TimeExplo
+Element None TimeTrail 255 0 0 0 1 1 1 900 Clear 0 TEXT TimeTrail
+Element None UltiUp 255 255 255 -2000 0 0 1 1000 Clear 0 TEXT UltiUp
+Element None UltiTrail 100 100 255 0 1 1 1 0 Clear 0 TEXT UltiTrail
+Element None Ulti 120 120 255 0 1 1 1 0 Clear 0 TEXT Ulti
+Element None FaBurn 255 0 0 3000 0 0 1 0 Clear 0 TEXT FaBurn
+Element None NeutW 120 120 255 400 10 10 1 0 Clear 0 TEXT NeutW
+Element None Cattack 255 255 255 -31000 0 0 1 0 Clear 0 TEXT Cattack
+Element None BTraild 255 0 0 0 1 1 1 0 Clear 0 TEXT BTraild
+Element None Binfect 255 0 0 0 1 1 1 0 Clear 0 TEXT Binfect
+Element None Fire2 255 0 0 -400 1 1 1 2000 Clear 0 TEXT Fire2
+Element None Impa 255 0 0 0 1 1 1 0 Clear 0 TEXT Impa
+Element None Sap 100 100 100 32000 1 1 1 0 Clear 0 TEXT Sap
+Element None SEs 255 0 0 0 1 1 1 0 Clear 0 TEXT SEs
+Element None Nend 255 0 0 0 1 1 1 800 Clear 0 TEXT Nend
+Element None Whitee 255 255 255 0 1 1 1 0 Clear 0 TEXT Redd
+Element None Redd 255 0 0 0 1 1 1 0 Clear 0 TEXT Redd
+Element None Yelloww 255 255 0 0 1 1 1 0 Clear 0 TEXT Yelloww
+Element None Nulledd 0 0 0 1 1 1 1 0 Clear 0 TEXT Nulledd
+Element None Radia 0 255 0 -500 1 1 1 2000 Radia2 0 TEXT Radia
+Element None Radia2 100 255 100 -600 1 1 1 2000 Clear 0 TEXT Radia2
+Element None DEXPLODE 255 0 0 0 1 1 1 0 Clear 0 TEXT DEXPLODE
+Element None AHH 255 255 255 0 1 1 1 32000 Clear 0 TEXT AHH
+Element None AHHH 0 0 0 0 1 1 1 0 Clear 0 TEXT AHHH
+
+Interaction BlackGas Fire Replicator2 Replicator2 7000
+Interaction BlackGas Fire FireB Clear 6000
+Interaction BlackGas GasII Gas BlackGas 5000
+Interaction BlackGas Steam Water BlackGas 1000
+Interaction FireB Clear Fire FireB 10000
+Interaction Replicator2 All All All 32768 Clear
+Interaction Randomize Water Plant Steam 10000 Clear
+Interaction Randomize Oil Comet Lava 5000
+Interaction Randomize Sand ??? ??? 3000
+Interaction FatJuice Fire Wood(burning) Fire 4000
+Interaction FatJuice Fire Plant(burning) Fire 4000
+Interaction FatJuice Oil Cera Clear 5000
+Interaction Nuclear Clear NuclearGas Clear 20
+Interaction NuclearGas Clear Nuclear Clear 20
+Interaction Nuclear Water NuclearWater Clear 1000
+Interaction Nuclear All Nuclear Clear 1000 ContWall
+Interaction Plutonium All Plutonium Clear 1000 Clear
+Interaction Plutonium Clear PlutoniumGas Clear 40
+Interaction PlutoniumGas Clear Plutonium Clear 40
+Interaction Plutonium Nuclear ??? ??? 1000
+Interaction Plutonium Clear Plutonium FireP 2000
+Interaction FatJuice Water Steam Clear 4000
+Interaction Fuel Fire HotFire Clear 10000
+Interaction HotFire Clear Fire HotFire 4000
+Interaction CoolFire Clear Fire CoolFire 4000
+Interaction Fuel Fire FireD Clear 10000
+Interaction FireD Fuel Fire Clear 20000
+Interaction FireD Fuel HotFire Clear 20000                                                     
+Interaction HotFire Clear CoolFire Clear 20
+Interaction LiquidNitrogen Wall Ice Clear 30000
+Interaction LiquidNitrogen Earth Ice Clear 30000
+Interaction LiquidNitrogen Water Ice Clear 30000
+Interaction LiquidNitrogen Plant Ice Clear 30000
+Interaction LiquidNitrogen Oil Ice Clear 30000
+Interaction LiquidNitrogen Nuclear NuclearGas Clear 30000
+Interaction LiquidNitrogen Plutonium Steam Clear 30000
+Interaction LiquidNitrogen Clear Steam Clear 2
+Interaction LiquidNitrogen Ice Clear Ice 10000
+Interaction Floater Clear FloaterB Clear 7000
+Interaction FloaterB Clear Floater Clear 7000
+Interaction Floater Fire FloaterFire Fire 4000
+Interaction FloaterB Fire FloaterFire Fire 4000
+Interaction FloaterFire Clear Fire FloaterFire 2000
+Interaction FloaterFire Clear Fire FloaterFire 3000
+Interaction Trailerexplosive Fire TrailFire Clear 2000
+Interaction TrailFire Clear Trail TrailFire 5000
+Interaction TrailFire Clear Fire TrailFire 2000
+Interaction TrailFire Clear Trail3 TrailFire 5000
+Interaction TrailFire Clear Trail2 TrailFire 5000
+Interaction Sprinkler Clear Water Sprinkler 8000
+Interaction BOOM Fire BOOMWAVE Clear 7000
+Interaction BOOMWAVE Clear BOOMWAVE BOOMWAVE 10000
+Interaction BOOMWAVE Clear Clear Clear 100
+Interaction BOOMWAVE All Clear BOOMWAVE 5000 ContWall
+Interaction BOOMWAVE BOOMWAVE boomwave2 boomwave2 50
+Interaction boomwave2 BOOMWAVE boomwave2 boomwave2 12000
+Interaction boomwave2 boomwave2 Clear Clear 50
+Interaction Clear boomwave2 Clear Clear 30000
+Interaction BOOMWAVE BOOM Clear BOOMWAVE 20000
+Interaction SolidExp Fire Solid Solid 10000
+Interaction Solid Clear Solid Solid 32768
+Interaction Prototype All Prototype1 Clear 100
+Interaction Prototype1 All Prototype2 Clear 100
+Interaction Prototype2 All Prototype Clear 100
+Interaction Sparks All Sparks Sparks 5500
+Interaction Sparks Clear Clear Clear 9000
+Interaction Oddinum Clear Trail3 Oddinum 4000
+Interaction Sand Fire Comet Comet 5000
+Interaction Multiplier Clear Multiplier Multiplier 300
+Interaction Multiplier Clear Clear Clear 100
+Interaction FreezBomb Fire FreezWave Clear 5000
+Interaction FreezWave Clear FreezWave FreezWave 7000
+Interaction FreezWave Clear clear clear 3000
+Interaction FreezWave Clear FreezTrail FreezWave 3000
+Interaction FreezWave Water Ice FreezWave 3000
+Interaction RandBomb Fire RandBombExp RandBombExp 10000
+Interaction RandBombExp Clear RandBombExp RandBombExp 32000
+Interaction RandBombExp Clear RandBombTra RandBombExp 32768
+Interaction RandBombTra RandBombExp Clear RandBombTra 32768
+Interaction RandBombExp All Clear RandBombExp 3000 ContWall
+Interaction RandBombExp Clear Clear Clear 2000
+Interaction SparkBomb Fire Sparks Sparks 4000
+Interaction Sparks All Sparks Sparks 5000 Sparks
+Interaction Sparks Sparks Clear Clear 4000
+Interaction SparkTrail Sparks Clear SparkTrail 20000
+Interaction Salt Fire Chlorine Sodium 2000
+Interaction Sodium Clear Rust Clear 50
+Interaction Chlorine Water ChWater Clear 3000
+Interaction Sodium Rust Rust Rust 30
+Interaction WeirdBomb Fire WeirdTra WeirdTra 3000
+Interaction WeirdTra Clear Fire WeirdTra 4000
+Interaction WeirdTra Clear WeirdTra WeirdTra 40
+Interaction WeirdTra All Clear WeirdTra 5000
+Interaction SupTrail Fire SupTrailTra SupTrailTra 4000
+Interaction SupTrailTra Clear SupTrailTT SupTrailTra 10000
+Interaction SupTrailTra Clear SupTrailTra Fire 3000
+Interaction SupTrailTT Clear Clear Clear 6000
+Interaction FlaWater Plant Plant Plant 20000
+Interaction FlaWater Fire Fire Plant(burning) 2000
+Interaction FlaWater Fire TNT Fire 3000
+Interaction UrainRod Clear UrainWall Clear 32768
+Interaction UrainRod Water NuclearWater UrainRod 2000
+Interaction BluWave Clear BluWave BluWave 32768
+Interaction BluWave BluWave BluTrail BluWave 32768
+Interaction BluTrail BluWave Clear BluTrail 32768
+Interaction BluTrail BluWave BluTrail Clear 32768
+Interaction BluWave All Clear BluWave 32768
+Interaction LaserBomb Fire SideTrail SideTrail 5000
+Interaction SideTrail All Clear SideTrail 32699
+Interaction SideTrail Clear Fire SideTrail 4000
+Interaction SideBomb Fire Sider Sider 4000
+Interaction Sider All Clear Sider 24000
+Interaction Sider SideBomb Sider Sider 7000
+Interaction Sider All Fire Sider 32768
+Interaction D-Laser Clear Clear D-Laser 32768
+Interaction D-Laser Water WarmWater D-Laser 32000
+Interaction FlaWater Clear Clear FlaWater 10000
+Interaction Burner2 Clear Burner2 Fire 32768
+Interaction DragonFly Clear Clear DragonFly 10000
+Interaction DragonFly Clear DragonFly DragTra 30000
+Interaction DragonFly Water DragonFly DragonFly 200
+Interaction DragonFly Plant DragonFly Clear 32768
+Interaction EmpHolder Clear Emp EmpHolder 32768
+Interaction Emp EmpHolder EmpT Emp 32768
+Interaction EmpT Emp EmpT Clear 32768
+Interaction Emp Clear Clear Clear 32768
+Interaction Emp All Clear Emp 32768 ContWall
+Interaction EmpHolder All EmpHolder Clear 32768 ContWall
+Interaction WaterFall Clear WaterFall Water 32768
+Interaction Converter Water Converter Oil 3000
+Interaction Converter Sand Converter Salt 3000
+Interaction Regen Clear Regen Rege 32000
+Interaction Regen Clear Regen RegeA 32000
+Interaction Rege Regen Regen Rege 32000
+Interaction Rege Clear Clear Clear 32768
+Interaction RegeA Clear Clear Clear 32768
+Interaction Mover Clear Clear Mover 1000
+Interaction Anti All Anti Clear 10000 Clear
+Interaction Exchanger Water Exchanger Salt 32768
+Interaction Exchanger Salt Exchanger Water 32768
+Interaction Rep3 Repper Rep3 Rep3 32768
+Interaction Rep3 Repper Repper Repper 32768
+Interaction Rep3 Repper Rep3D Rep3 32768
+Interaction Rep3 Rep3D Clear Rep3D 32768
+Interaction Rep3 Clear Clear Clear 5000
+Interaction Repper Clear Repper Rep3 1000
+Interaction Repper Clear Repper Repper 32000
+Interaction SupTrailTra Clear Clear SupTrailTra 20000
+Interaction LGBomb Fire LGShrap Clear 4000
+Interaction LGBomb Fire LGShrap2 LGShrap3 4000
+Interaction LGShrap All LGShrap Clear 5000
+Interaction LGShrap2 All LGShrap2 Clear 5000
+Interaction LGShrap3 All LGShrap3 Clear 5000
+Interaction LGShrap Clear LGShrap LGTrail 5000
+Interaction LGShrap2 Clear LGShrap2 LGTrail 5000
+Interaction LGShrap3 Clear LGShrap3 LGTrail 5000
+Interaction LGShrap Clear Clear LGShrap 32760
+Interaction LGShrap LGBomb LGShrap LGShrap2 4000
+Interaction LGShrap2 LGBomb LGShrap2 LGShrap3 4000
+Interaction Repper All Repper Clear 32768 ContWall
+Interaction LGShrap Clear LGShrap LGShrap 100
+Interaction LGShrap2 Clear LGShrap2 LGShrap2 100
+Interaction LGShrap3 Clear LGShrap3 LGShrap3 100
+Interaction Explode2 All Explode2 Explode2 8000 Explode2
+Interaction Explode2 All Explode3 Explode3 10 Explode3
+Interaction Explode3 Explode2 Explode3 Explode3 32768 
+Interaction Explode Fire Explode2 Clear 5000
+Interaction Explode3 Clear Explode3 Fire 7000
+Interaction Explode3 All Explode3 Explode3 8000 Explode3
+Interaction Explode3 All Explode4 Explode4 2 Explode4
+Interaction Explode4 Explode3 Explode4 Explode4 32768
+Interaction Explode4 All Explode4 Fire 6000
+Interaction Blow Fire Blow2 Clear 6000
+Interaction Blow2 Clear Blow2 Blow2 19544
+Interaction Blow3 Blow2 Blow3 Blow3 19334
+Interaction Blow2 All Blow2 Clear 10000
+Interaction ShockBomb Fire Shockwave Shockwave 6000
+Interaction Shockwave Clear Shockwave ShockTrail 32768
+Interaction Shockwave All Shockwave Shockwave 32768 ContWall 
+Interaction Shockwave All Shockwave Clear 32768 ContWall
+Interaction Shockwave All Shockwave Clear 32768 ContWall
+Interaction Shockwave All Shockwave Clear 32768 ContWall
+Interaction Shockwave Wall Shockwave Sand 32768
+Interaction Shockwave Earth Shockwave Sand 32768
+Interaction Shockwave Water Shockwave Steam 32768
+Interaction Shockwave Ash Shockwave Clear 32768
+Interaction ElecBomb Fire Elec Clear 4000
+Interaction Elec All Elec Clear 5000
+Interaction Elec Clear Elec Elec 32768
+Interaction Elec Elec R R 32768
+Interaction R Elec R Clear 32768
+Interaction R Clear Clear Clear 10
+Interaction Repoc All Repoc Repoc 10000 Repoc
+Interaction Repoc All RepocT RepocT 3 RepocT
+Interaction RepocT Repoc RepocT RepocT 32768
+Interaction DAQ Clear DAQ DAQ 3000 DAQ
+Interaction DAQ Clear Clear Clear 32768
+Interaction DAQ DAQLine DAQ DAQ 20000
+Interaction DAQLine Clear DAQLine Wall 32768
+Interaction DAQ Wall DAQLine Wall 32768
+Interaction DAQ DAQ DAQLine DAQLine 32768
+Interaction HugeO Fire Huge_A Huge_A 4000
+Interaction Huge_A Clear Huge_T Huge_A 32768
+Interaction Huge_A Clear Huge_A Huge_A 32768 ContWall
+Interaction Huge_A All Clear Huge_A 32768 ContWall
+Interaction Huge_A Huge_A Clear Clear 32768
+Interaction Missile Clear MisTrail Missile 20000
+Interaction Missile All Clear Missile 32768 Missile
+Interaction HeavyWeight Earth Clear ESand 5000
+Interaction ESand Earth ESand ESand 32768
+Interaction ESand Clear Clear ESand 9000
+Interaction Wind Wind WindUp WindDown 32768
+Interaction WindUp All Clear All 50
+Interaction WindDown All Clear All 50
+Interaction GlueSource All GlueSource Glue 32768
+Interaction AcidSource All AcidSource Acid 32768
+Interaction Flies All Flies Clear 4000 Flies
+Interaction Flies All Flies Clear 4000 Clear
+Interaction WarmWaterSource All WarmWaterSource WarmWater 32768
+Interaction Concrete Wall Wall Wall 300
+Interaction Paint All Paint Painted 5000 Clear
+Interaction Painted All Painted Painted 32768 Clear
+Interaction Firezk All OFire YFire 32768
+Interaction OFire Clear OFire Fire 2000
+Interaction YFire Clear YFire Fire 3000
+Interaction Fire Clear Fire Smoke 400
+Interaction Fire Clear Fire Smok2 100
+Interaction Fire NSplode NSpl NSpl 4000
+Interaction NSpl Clear NSpl NSpl 9000
+Interaction NSpl All NSpl2 All 3
+Interaction NSpl2 NSpl NSpl2 NSpl2 32768
+Interaction NSpl2 All Clear All 2000
+Interaction NSpl All NSpl Clear 10000 NSpl2
+Interaction NSpl2 NSpl2 Clear Clear 1000
+Interaction DeBomb Earth De1 Earth 5000
+Interaction De1 Clear De1 De1 4000
+Interaction De1 De1 De2 De1 80
+Interaction De2 De1 De2 De2 3200
+Interaction De2 De2 De3 De2 65
+Interaction De3 De2 De3 De3 2700
+Interaction De3 De3 De4 De3 50
+Interaction De4 De3 De4 De4 2400
+Interaction De4 De4 De5 De4 35
+Interaction De5 De4 De5 De5 2000
+Interaction De5 De5 De6 De5 20
+Interaction De6 De5 De6 De6 1700
+Interaction De6 De6 De7 De6 12
+Interaction De7 De6 De7 De7 1400
+Interaction De7 De7 De8 De7 8
+Interaction De8 De7 De8 De8 1000
+Interaction De8 Clear De8 De8 9000
+Interaction SearingBomb Earth SearHeat Clear 5000
+Interaction SearHeat All SearHeat SearHeat 6000 SearHeat2
+Interaction SearHeat SearHeat SearHeat2 SearHeat 50
+Interaction SearHeat2 SearHeat SearHeat2 SearHeat2 3000
+Interaction SearHeat2 SearHeat2 Null SearHeat2 1
+Interaction Null SearHeat2 Null Null 1000
+Interaction Null Null Clear Null 1
+Interaction Clear Null Clear Clear 500
+Interaction Null Clear H1 Null 4000
+Interaction Null Clear H2 Null 4000
+Interaction Null Clear H3 Null 4000
+Interaction InfectBomb Earth Clear Infected 4000
+Interaction Infected Earth Infected Infected 32768
+Interaction Infected Clear Infected Intect 60
+Interaction Intect Clear IntTrail Intect 20000
+Interaction Intect Earth Clear Infected 5000
+Interaction InfectBomb Infected Clear Infected 5000
+Interaction Clear Worm Worm Clear 15700
+Interaction Worm Plant Worm Clear 4000
+Interaction FireBomb Earth Fyeo Earth 5000
+Interaction Fyeo Clear Fyeo Fyeo 32768
+Interaction Fyeo Fyeo F_End Fyeo 7000
+Interaction F_End F_End Fs F_End 1
+Interaction Fs F_End Fs Fs 32768
+Interaction Fs Fs Clear Fs 1
+Interaction Clear Fs Clear Clear 32768
+Interaction Fyeo Water Fyeo Steam 32768
+Interaction Fyeo All Fyeo Clear 6000 Fs
+Interaction Cannon Earth Cant Earth 4000
+Interaction Cant Cannon Cant Cant 7000
+Interaction Cant Clear Cant Canert 32768
+Interaction Canert All Canert Clear 9000 Cant
+Interaction IntGall Clear Nullify Clear 6
+Interaction Nullify Clear Nullify Nullify 3000
+Interaction Nullify Nullify Parplosion Nullify 2
+Interaction Parplosion Nullify Parplosion Parplosion 32768
+Interaction Parplosion Clear Parplosion Parplosion 5000
+Interaction Parplosion Parplosion EatPar Parplosion 2
+Interaction EatPar Parplosion EatPar EatPar 32768
+Interaction Parplosion All Parplosion Clear 6000 EatPar
+Interaction SulfuricGas Clear SulfuricGas SulfuricGas 1850
+Interaction SulfuricGas Clear Clear Clear 250
+Interaction SulfuricGas All Clear All 1800
+Interaction Aluminum Rust Mixed1 Mixed2 3000
+Interaction Mixed1 Aluminum Mixed1 Mixed1 7000
+Interaction Mixed2 Rust Mixed2 Mixed2 7000
+Interaction Magnesium(burn) Mixed1 Thermite Thermite 6000
+Interaction Magnesium(burn) Mixed2 Therm2 Therm2 6000
+Interaction Magnesium Fire Magnesium(burn) Clear 32000
+Interaction Magnesium Plant(burning) Magnesium(burn) Clear 32000
+Interaction Magnesium(burn) Magnesium Magnesium(burn) Magnesium(burn) 2000
+Interaction Magnesium(burn) Clear Magnesium(burn) Fire 3000
+Interaction Thermite All Thermite Clear 2000 Therm2
+Interaction Thermite Mixed2 Thermite Therm2 5000
+Interaction Therm2 All Therm2 Clear 3000 Thermite
+Interaction Thermite Mixed1 Thermite Thermite 32000
+Interaction Therm2 Mixed2 Therm2 Therm2 32000
+Interaction Thermite Clear Thermite Fire 3000
+Interaction Therm2 Clear Therm2 Fire 3000
+Interaction Thermite Clear Thermite Firework 400
+Interaction Therm2 Clear Therm2 UpFirez 5000
+Interaction MysticStone Clear MysticStone Glowz 32768
+Interaction Aluminum SulfuricGas AlumniSulfate SulfuricAcid 5000
+Interaction SulfuricAcid All SulfuricAcid Clear 1000 Clear
+Interaction Quatium Clear Quatium Peal 32768
+Interaction Peal Clear Clear Clear 32768
+Interaction Thermite Quatium Thermite DSplode 6000
+Interaction Therm2 Quatium Therm2 DSplode 6000
+Interaction DSplode All DSplode DSplode 8000 DeetTrail
+Interaction DeetTrail DSplode DeetTrail Clear 10000 
+Interaction DSplode Clear DeetTrail DSplode 5000
+Interaction FireStone Clear Firez FireStone 32768
+Interaction WaGen Clear WaGen Wa1 32768
+Interaction Wa1 Wall Wa2 Wall 32768
+Interaction WaGen Wa2 WaGen Clear 32768
+Interaction Sodium Fire HotMetal Clear 5000
+Interaction HotMetal Sodium HotMetal HotMetal 10000
+Interaction HotMetal HotMetal Nul HotMetal 1
+Interaction Nul HotMetal Nul Nul 5000
+Interaction Nul Nul Sodium Nul 1
+Interaction Sodium Nul Sodium Sodium 1000
+Interaction PlantPack Clear Clear Clear 20000
+Interaction ThermiteMake Clear Clear Clear 20000
+Interaction Cannon Clear Clear Clear 20000
+Interaction DownBlast Clear DownBlast DownBlast 32768
+Interaction DownBlast DownBlast DownedTrail DownBlast 32768
+Interaction DownBlast DownBlast DownedTrail2 DownBlast 32768
+Interaction DownedTrail DownBlast DownedTrail Clear 32768
+Interaction DownedTrail2 DownBlast DownedTrail2 Clear 32768
+Interaction Redder Clear Clear Redder 32768
+Interaction Meteroid Clear Meteroid Redder 10000
+Interaction Meteroid Clear Meteroid D-Laser 10000
+Interaction D-Laser Meteroid Meteroid D-Laser 20000
+Interaction Redder Meteroid Meteroid Redder 20000
+Interaction Redz All Redz Redz 9000 Endz
+Interaction Bluez All Bluez Bluez 9000 Endz
+Interaction Greenz All Greenz Greenz 9000 Endz
+Interaction Whitez All Whitez Whitez 9000 Endz
+Interaction Bluez Redz Endz Redz 4000
+Interaction Greenz Whitez Endz Whitez 1000
+Interaction Endz Bluez Endz Endz 32768
+Interaction Endz Redz Endz Endz 32768
+Interaction Endz Whitez Endz Endz 32768
+Interaction Endz Greenz Endz Endz 32768
+Interaction Endz Endz Nullez Endz 1
+Interaction Nullez Endz Nullez Nullez 5000
+Interaction Nullez Nullez Clear Nullez 50
+Interaction Clear Nullez Clear Clear 3000
+Interaction BugSpray Flies BugSpray Clear 5000
+Interaction BugSpray Parasite BugSpray Clear 5000
+Interaction ElecTube Water WaterWave Water 3000
+Interaction WaterWave Water WaterWave WaterWave 10000
+Interaction WaterWave Water WavedDis WaterWave 2000
+Interaction WavedDis WaterWave WavedDis Water 32768
+Interaction WaterWave Clear Clear Clear 32768
+Interaction ChaosBomb Earth ChSpread Earth 5000
+Interaction ChSpread All ChSpread ChSpread 10000 CStop
+Interaction ChSpread Clear CStop ChSpread 5000
+Interaction CStop ChSpread CStop Clear 32768
+Interaction CStop Clear CStop Ch1 5000
+Interaction Ch1 Clear Ch1 Ch2 10000
+Interaction CStop CStop Nulledz CStop 1
+Interaction Nulledz CStop Nulledz Nulledz 2000
+Interaction Nulledz Nulledz Clear Nulledz 1
+Interaction Clear Nulledz Clear Clear 900
+Interaction DarkBomb Earth clearz Earth 5000
+Interaction clearz All clearz clearz 10000 DepTrail
+Interaction clearz clearz DepTrail clearz 6700
+Interaction DepTrail clearz DepTrail Clear 32768
+Interaction DepTrail Clear Clear Clear 1000
+Interaction DepTrail Clear DepTrail Dup 1000
+Interaction Dup Dup AnotherNull Dup 1
+Interaction AnotherNull Dup AnotherNull AnotherNull 12000
+Interaction AnotherNull AnotherNull Clear AnotherNull 1
+Interaction Clear AnotherNull Clear Clear 6400
+Interaction AnotherNull DepTrail AnotherNull AnotherNull 12000
+Interaction AnotherNull clearz AnotherNull AnotherNull 12000
+Interaction TimerExp TimerExp Time1 TimerExp 1
+Interaction Time1 TimerExp Time1 Time1 32768
+Interaction Time1 Time1 Time2 Time1 32768
+Interaction Time2 Time1 Time2 Time2 32768
+Interaction Time2 Time2 Time3 Time2 1
+Interaction Time3 Time2 Time3 Time3 32768
+Interaction Time3 Time3 TimeExplo Time3 5
+Interaction TimeExplo All TimeExplo TimeExplo 32768 TimeTrail
+Interaction TimeExplo TimeExplo TimeTrail TimeExplo 32000
+Interaction TimeTrail TimeExplo TimeTrail Clear 32768
+Interaction TimeTrail TimeExplo TimeTrail TimeTrail 32000
+Interaction UltiBlast Fire Ulti Clear 5000
+Interaction Ulti Clear Ulti Ulti 14000
+Interaction Ulti All Ulti Clear 4000
+Interaction Ulti Ulti UltiTrail Ulti 20000
+Interaction UltiTrail Ulti UltiTrail Clear 32768
+Interaction UltiTrail Clear UltiTrail UltiUp 5000
+Interaction FPlant Fire FaBurn Clear 2000
+Interaction FaBurn FPlant FaBurn FaBurn 2000
+Interaction FaBurn Clear Clear Clear 900
+Interaction FaBurn Clear FaBurn Fire 4000
+Interaction FPlant Water FPlant FPlant 1000
+Interaction FPlant WarmWater FPlant FPlant 500
+Interaction FPlant SaltWater Clear Clear 400
+Interaction FPlant Steam FPlant FPlant 200
+Interaction FPlant Glue Clear Clear 3000
+Interaction WD-40 Rust WD-40 Clear 4000
+Interaction WD-40 Water NeutW NeutW 3000
+Interaction WD-40 Fire FaBurn Clear 400
+Interaction CubeBomb Earth Binfect Earth 3000
+Interaction Binfect Clear Binfect Binfect 20000
+Interaction Binfect CubeBomb Binfect Binfect 32768
+Interaction Binfect Binfect BTraild Binfect 9000
+Interaction BTraild Binfect BTraild Clear 32768
+Interaction BTraild Clear BTraild Cattack 10000
+Interaction Cattack All Cattack Clear 32768 Clear
+Interaction BTraild Clear Clear Clear 1800
+Interaction Shrapnel Fire Sap Sap 32768
+Interaction Sap Shrapnel Sap Sap 6000
+Interaction Sap Clear Clear Sap 22000
+Interaction Sap Earth Sap SEs 32768
+Interaction SEs Clear SEs SEs 19000
+Interaction SEs SEs Nend SEs 1
+Interaction Nend SEs Nend Nend 32768
+Interaction SEs All SEs Clear 32768 Nend
+Interaction Sap Wall Sap SEs 32768
+Interaction InvisiKill All InvisiKill InvisiKill 32768
+Interaction Nulledd Nulledd Clear Nulledd 1
+Interaction Clear Nulledd Clear Clear 3000
+Interaction Nulledd Clear Nulledd Radia 3000
+Interaction C-2 Fire DEXPLODE Fire 2000
+Interaction DEXPLODE Clear Clear DEXPLODE 20000
+Interaction DEXPLODE All DEXPLODE DEXPLODE 10000 n
+Interaction DEXPLODE DEXPLODE n DEXPLODE 1
+Interaction n DEXPLODE n n 7000
+Interaction n n k n 1
+Interaction k n k k 2000
+Interaction k k Clear k 1
+Interaction Clear k Clear Clear 900
+Interaction Stagger All Clear All 32768
+
+NOBIAS ELEMENT:Painted
+NOBIAS ELEMENT:DownBlast
+NOBIAS ELEMENT:DownedTrail2
+NOBIAS ELEMENT:DownedTrail
+NOBIAS ELEMENT:D-Laser
+NOBIAS ELEMENT:Redder
+NOBIAS ELEMENT:Wall
+
+InteractionTrigger PlantPack Clear TestTrigger 32768
+InteractionTrigger ThermiteMake Clear ThermiteMaker 32768 
+InteractionTrigger Cannon Clear Cannons 32768
+InteractionTrigger D-29 Fire ArtExplosion 5000
+InteractionTrigger MOAT Fire FirezTrigger 32768
+InteractionTrigger Elemental Fire WhitezTrigger 4000
+InteractionTrigger SuperBomb Earth Superb 32768
+InteractionTrigger waveD Clear dalll 32768
+InteractionTrigger AtomBomb Earth nuke 32768
+InteractionTrigger Whitee Clear growwed 9000
+InteractionTrigger Whitee Whitee nuke2 1
+InteractionTrigger Redd Whitee nuke2 8700
+InteractionTrigger Redd Redd nuke3 1
+InteractionTrigger Yelloww Redd nuke3 8000
+InteractionTrigger Redd Redd nuke4 1
+InteractionTrigger Nulledd Yelloww nuke4 7200
+InteractionTrigger Stagger All wind 99999
+InteractionTrigger Flash Earth eek 2000
+
+REMOVETRIGGER wind
+ON wind DRAW 0 SWAPPOINTS X1 Y1 (X1 + 1) Y1
+
+REMOVETRIGGER TestTrigger
+ON TestTrigger DRAW ELEMENT:Earth FILLEDRECT 68 73 170 170
+ON TestTrigger DRAW ELEMENT:Plant FILLEDCIRCLE 150 150 70 4000
+ON TestTrigger DRAW ELEMENT:Wood FILLEDCIRCLE 160 160 30 3000
+
+REMOVETRIGGER FirezTrigger
+ON FirezTrigger DRAW ELEMENT:Fire FILLEDRECT 1 1 1000 1000
+
+REMOVETRIGGER WhitezTrigger
+ON WhitezTrigger DRAW ELEMENT:Whitez FILLEDRECT 295 315 10 10
+ON WhitezTrigger DRAW ELEMENT:Redz FILLEDRECT 295 95 10 10
+ON WhitezTrigger DRAW ELEMENT:Greenz FILLEDRECT 84 95 10 10
+ON WhitezTrigger DRAW ELEMENT:Bluez FILLEDRECT 84 315 10 10
+
+TRIGGER ThermiteMaker {
+DRAW ELEMENT:Clear OBJECT (X - 10) (Y - 12) m ELEMENT:Magnesium a ELEMENT:Aluminum r ELEMENT:Rust p ELEMENT:Plant f ELEMENT:Burner e ELEMENT:Wall {
+	"eeeeeeeeee"
+        "eaaaaaaaae"
+        "eaaaaaaaae"
+        "eaaaaaaaae"
+        "eapppppppe"
+        "efpppppppe"
+        "errrrrrmme"
+        "errrrrrmme"
+        "errrrrrmme"
+        "errrrrrmme"
+        "errrrrrmme"
+        "eeeeeeeeee"
+        }
+}
+
+TRIGGER Cannons {
+DRAW ELEMENT:Clear OBJECT (X - 15) (Y - 20) w ELEMENT:Wall s ELEMENT:Sodium c ELEMENT:Cant {
+	"     ccccc     "
+        "    ccccccc    "
+        "   ccccccccc   "
+        "   wcccccccw   "
+        "   wwcccccww   "
+        "   wswwwwwsw   "
+        "   wsswwwssw   "
+        "   wssswsssw   "
+        "  wwsssssssww  "
+        " wwwssssssswww "
+        "wwwssssssssswww"
+        "wwwssssssssswww"
+        "wwwssssssssswww"
+        "wwwssssssssswww"
+        "wwwssssssssswww"
+        "wwwssssssssswww"
+        "wwwssssssssswww"
+        "wwwssssssssswww"
+        "wwwssssssssswww"
+        "wwwwwwwwwwwwwww"
+        }
+}
+
+TRIGGER ArtExplosion {
+	DRAW 0 FILLEDCIRCLE X1 Y1 (0 RAND 20)
+	FOR RayCount FROM 1 TO $1 DO ArtExplosion2 (X1 * 300) (Y1 * 300) ((0 - $6) RAND $6) ((0 - $5) RAND $5) ($3 RAND $4) $0 $2
+}
+
+TRIGGER ArtExplosion2 {
+	DRAW $5 FILLEDCIRCLE ($0 / 300) ($1 / 300) $6
+	IF ($4 > 0) <TIMER 1 FRAMES ArtExplosion2 ($0 - $3) ($1 - $2) ($2 - 1) $3 ($4 - 1) $5 $6>
+}
+
+REMOVETRIGGER Superb
+ON Superb DRAW ELEMENT:Fire2 FILLEDCIRCLE X1 (Y - 1) 15
+
+REMOVETRIGGER dalll
+ON dalll DRAW ELEMENT:waveD FILLEDCIRCLE ((((X1 / 9) * 9) / 9) * 9) ((((Y1 / 9) * 9) / 9) * 9) 1
+
+REMOVETRIGGER nuke
+ON nuke DRAW ELEMENT:Whitee FILLEDCIRCLE X1 Y1 (2 RAND RADIUS)
+
+REMOVETRIGGER growwed 
+ON growwed DRAW ELEMENT:Whitee FILLEDCIRCLE X1 Y1 (2 RAND RADIUS)
+
+REMOVETRIGGER nuke2
+ON nuke2 DRAW ELEMENT:Redd FILLEDCIRCLE X1 Y1 (2 RAND RADIUS)
+
+REMOVETRIGGER nuke3
+ON nuke3 DRAW ELEMENT:Yelloww FILLEDCIRCLE X1 Y1 (2 RAND RADIUS)
+
+REMOVETRIGGER nuke4
+ON nuke4 DRAW ELEMENT:Nulledd FILLEDCIRCLE X1 Y1 (2 RAND RADIUS)
+
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:BS2Crash)) <EXEC clearall>
+
+REMOVETRIGGER eek
+ON eek DRAW ELEMENT:AHH FILL 1 1 40 40
+ON eek DRAW ELEMENT:AHH FILL 200 200 20 20
+
+GROUP Random ADD InvinciGlass 0
+GROUP Random ADD Sodium 1
+GROUP Random ADD Chlorine 2
+GROUP Random ADD Plutonium 3
+GROUP Random ADD Nuclear 4
+GROUP Random ADD NuclearWater 5
+GROUP Random ADD FlaWater 6
+GROUP Random ADD UrainRod 7
+GROUP Random ADD Multiplier 8
+GROUP Random ADD Anti 9
+GROUP Random ADD Replicator2 10
+GROUP Random ADD Randomize 11
+GROUP Random ADD LiquidNitrogen 12
+GROUP Random ADD Exchanger 13
+GROUP Random ADD Converter 14
+GROUP Random ADD Firezk 16
+GROUP Random ADD SulfuricGas 17
+GROUP Random ADD Magnesium 18
+GROUP Random ADD Aluminum 19
+GROUP Random ADD Quatium 22
+GROUP Random ADD ThermiteMake 23
+GROUP Random ADD ElecTube 24
+GROUP Random ADD WD-40 25
+
+GROUP Random2 ADD BlackGas 15
+GROUP Random2 ADD FatJuice 16
+GROUP Random2 ADD Fuel 17
+GROUP Random2 ADD WaterFall 18
+GROUP Random2 ADD Sprinkler 19
+GROUP Random2 ADD Oddinum 20
+GROUP Random2 ADD Prototype 21
+GROUP Random2 ADD SupTrail 22
+GROUP Random2 ADD Floater 23
+GROUP Random2 ADD Burner2 24
+GROUP Random2 ADD DragonFly 25
+GROUP Random2 ADD Mover 26
+GROUP Random2 ADD DAQ 27
+GROUP Random2 ADD DAQLine 28
+GROUP Random2 ADD HeavyWeight 29
+GROUP Random2 ADD Flies 30
+GROUP Random2 ADD Concrete 31
+GROUP Random2 ADD Paint 32
+GROUP Random2 ADD Worm 33
+GROUP Random2 ADD PlantPack 34
+GROUP Random2 ADD BugSpray 35
+GROUP Random2 ADD FPlant 36
+
+GROUP Random3 ADD ContWall 27
+GROUP Random3 ADD Trailerexplosive 28
+GROUP Random3 ADD BOOM 29
+GROUP Random3 ADD SolidExp 30
+GROUP Random3 ADD FreezBomb 31
+GROUP Random3 ADD RandBomb 32
+GROUP Random3 ADD SparkBomb 33
+GROUP Random3 ADD WeirdBomb 34
+GROUP Random3 ADD BluWave 35
+GROUP Random3 ADD LaserBomb 36
+GROUP Random3 ADD SideTrail 37
+GROUP Random3 ADD SideBomb 38
+GROUP Random3 ADD UltiBlast 39
+GROUP Random3 ADD BS2Crash 40
+GROUP Random3 ADD C-2 41
+
+GROUP Random4 ADD EmpHolder 40
+GROUP Random4 ADD Repper 41
+GROUP Random4 ADD LGBomb 42
+GROUP Random4 ADD Explode 43
+GROUP Random4 ADD Blow 44
+GROUP Random4 ADD ShockBomb 45
+GROUP Random4 ADD ElecBomb 46
+GROUP Random4 ADD Repoc 47
+GROUP Random4 ADD HugeO 48
+GROUP Random4 ADD Missile 49
+GROUP Random4 ADD NSplode 50
+GROUP Random4 ADD MOAT 51
+GROUP Random4 ADD TimerExp 52
+GROUP Random4 ADD Shrapnel 53
+
+GROUP Random5 ADD DeBomb 1
+GROUP Random5 ADD SearingBomb 2
+GROUP Random5 ADD InfectBomb 3
+GROUP Random5 ADD FireBomb 4
+GROUP Random5 ADD Cannon 5
+GROUP Random5 ADD IntGall 6
+GROUP Random5 ADD ChaosBomb 7
+GROUP Random5 ADD DarkBomb 8
+GROUP Random5 ADD CubeBomb 9
+GROUP Random5 ADD SuperBomb 10
+GROUP Random5 ADD AtomBomb 11
+GROUP Random5 ADD Flash 12
+
+GROUP Random6 ADD MysticStone 20
+GROUP Random6 ADD FireStone 21
+GROUP Random6 ADD WaGen 22
+GROUP Random6 ADD D-29 23
+GROUP Random6 ADD DownBlast 24
+GROUP Random6 ADD Meteroid 25
+GROUP Random6 ADD Elemental 26
+GROUP Random6 ADD Testify 27
+GROUP Random6 ADD InvisiKill 28
+GROUP Random6 ADD waveD 54
+GROUP Random6 ADD Stagger 55
+
+SET BRUSHSIZE 15
+EXEC usefilledcircle
+EXEC listgroups
