@@ -1,0 +1,2273 @@
+// iReality
+
+INCLUDE sandbox.bs2
+EXEC clearall
+INCLUDE write.bs2
+
+Group Clear 0 File erase.bmp
+Group Stones 0 File stone.bmp
+Group Fluids 0 File liquidgroup.bmp
+Group Fire 0 File fire.bmp
+Group Life 0 File lifegroup.bmp
+Group Electricity 0 HEX 000000000000000C0000000C000000180000003000000070000000E0000801C0001803C00018078000380F80003C1F00007C3E00007C7E0000FCFC0000FEF80001FFF80001FFF00003FFE00003FFE00007DFC000079F80000F0F80000E0F00001E0F00000000000034DBBBA82491292834D139302491313036D92BA800000000 255 255 255
+Group Electricity2 0 HEX 000000000000000C3800000C040000180400003018000070200000E0200801C03C1803C00018078000380F80003C1F00007C3E00007C7E0000FCFC0000FEF80001FFF80001FFF00003FFE00003FFE00007DFC000079F80000F0F80000E0F00001E0F00000000000034DBBBA82491292834D139302491313036D92BA800000000 255 255 255
+Group Mining 0 HEX 00000000007FC00000FFF90000FFF9000003FFC00003FFC00000FF0000003FC000003FC00000FFC00000FFC00003E7F00007C1F00007C1F0001F00F0001F00F0007C00F000F800F000F800F003E000C003E000C0008000000000000000000000000000000000000045D2E0006C9A8000549EE0005496800055D2E00000000000 255 255 255
+Group Explosives 0 HEX 0000000000000000000000000000000000000000000000000000000000000000078000000240000002200000021000000FFFFC0010000BC02000103027F0100C2000103010000BC00FFFFC0002100000022000000240000007800000000000000000000000000000000000000000000000000000000000000000000000000000 255 255 255
+Group Volcano 0 File vulcano.bmp
+Group Spouts 0 File Sources.bmp
+
+GROUP CLEARALL
+ELEMENTSCLEAR
+
+Group Clear 0 File erase.bmp
+Group Stones 0 File stone.bmp
+Group Fluids 0 File liquidgroup.bmp
+Group Fire 0 File fire.bmp
+Group Life 0 File lifegroup.bmp
+Group Electricity 0 HEX 000000000000000C0000000C000000180000003000000070000000E0000801C0001803C00018078000380F80003C1F00007C3E00007C7E0000FCFC0000FEF80001FFF80001FFF00003FFE00003FFE00007DFC000079F80000F0F80000E0F00001E0F00000000000034DBBBA82491292834D139302491313036D92BA800000000 255 255 255
+Group Electricity2 0 HEX 000000000000000C3800000C040000180400003018000070200000E0200801C03C1803C00018078000380F80003C1F00007C3E00007C7E0000FCFC0000FEF80001FFF80001FFF00003FFE00003FFE00007DFC000079F80000F0F80000E0F00001E0F00000000000034DBBBA82491292834D139302491313036D92BA800000000 255 255 255
+Group Mining 0 HEX 00000000007FC00000FFF90000FFF9000003FFC00003FFC00000FF0000003FC000003FC00000FFC00000FFC00003E7F00007C1F00007C1F0001F00F0001F00F0007C00F000F800F000F800F003E000C003E000C0008000000000000000000000000000000000000045D2E0006C9A8000549EE0005496800055D2E00000000000 255 255 255
+Group Explosives 0 HEX 0000000000000000000000000000000000000000000000000000000000000000078000000240000002200000021000000FFFFC0010000BC02000103027F0100C2000103010000BC00FFFFC0002100000022000000240000007800000000000000000000000000000000000000000000000000000000000000000000000000000 255 255 255
+Group Volcano 0 File vulcano.bmp
+Group Spouts 0 File Sources.bmp
+
+GROUP Electricity2 ADD Battery 0
+GROUP Electricity2 ADD Wire 0
+GROUP Electricity2 ADD BatteryAcid 0
+
+// Basic Elements
+
+// Clear
+
+Element Clear Clear 0 0 0 1 1 1 1 0 Clear 0 File erase.bmp
+
+Element Clear Void 30 30 30 0 1 1 1 0 Clear 0 File hole.bmp
+Interaction Void All Void Clear 50000 Clear
+
+Element Clear ??? 255 0 100 0 1 1 1 2600 ?? 0 File question.bmp
+Interaction ??? Clear ??? ??? 8000
+InteractionTrigger ??? All ???Trigger 6000 ?
+SET element??? ELEMENT:???
+SET groupnature GROUP:Life
+SET ???exception GROUP:???Exceptions
+REMOVETRIGGER ???Trigger 
+ON ???Trigger IF (INTERACTION2 && ((INTERACTION2 INGROUP ???exception) == 0) && ((INTERACTION2 INGROUP groupnature) == 0))) <DRAW element FILLEDCIRCLE X2 Y2 0>
+
+Element None ?? 251 0 0 0 1 1 1 140 ? 0 File hole.bmp
+
+Element None ? 230 0 0 0 1 1 1 250 Clear 0 File hole.bmp
+
+GROUP ???Exceptions ADD ?? 0
+GROUP ???Exceptions ADD ? 1 
+
+Element Clear Replicator 250 250 250 800 1 1 1 0 Clear 0 File plus.bmp
+
+InteractionTrigger Replicator All ReplicatorTrigger 10000 Clear
+
+SET replicatorsource ELEMENT:ReplicatorSource
+
+TRIGGER ReplicatorTrigger {
+IF (INTERACTION2 != replicatorsource) <DRAW INTERACTION2 POINT X1 Y1>
+}
+
+Element Clear Antimatter 255 202 202 800 1 1 1 140 Clear 0 File minus.bmp
+
+InteractionTrigger Antimatter All AntimatterTrigger 10000 Clear
+
+SET antimattersource ELEMENT:AntimatterSource
+
+TRIGGER AntimatterTrigger {
+IF (INTERACTION2 != antimattersource ) <DRAW ELEMENT:Clear POINT X1 Y1>
+IF (INTERACTION2 != antimattersource ) <DRAW ELEMENT:Clear POINT X2 Y2>
+}
+
+Element Clear Elevator 249 0 0 32000 1 0 1 0 Clear 0 File up.bmp
+
+NOBIAS ELEMENT:Elevator
+
+InteractionTrigger Elevator All <DRAW 0 SWAPPOINTS X1 Y1 X1 (Y1 + 1)> 100% Elevator
+
+Element Clear AntiElevator 0 0 255 -32000 1 0 1 0 Clear 0 HEX 00000000000FF000007FFE0000F81F0003C003C0078001E00F0180F00E0180701C0180383801801C3001800C3001800C7001800E60C18306606186066061860660318C0660318C067019980E7009B80E300DB00C3007E00C3807E01C1C03C0380E03C0700F0180F0078001E003C003C000F81F00007FFE00000FF00000000000 255 255 255
+
+NOBIAS ELEMENT:AntiElevator
+
+InteractionTrigger AntiElevator All { 60% AntiElevator
+DRAW 0 SWAPPOINTS X1 Y1 X1 (Y1 - 1)
+}
+
+Element Clear Distorter 0 255 0 0 1 1 1 0.5% Clear 0 File pointreflection.bmp
+
+InteractionTrigger Distorter All <DRAW 0 SWAPPOINTS X1 Y1 X2 Y2> 10000 Distorter
+
+// Stones
+
+Element Stones Earth 200 127 0 0 1 1 1 0 Clear 0 File earth.bmp
+
+Element Stones Wall 125 0 0 0 1 1 1 0 Clear 0 File wall.bmp
+
+Element Stones Concrete 120 120 120 0 1 0 1 0 Clear 0 File stone.bmp
+
+Interaction Concrete Fire Concrete2 Fire 10% Concrete2 Clear 10% Clear Clear 10%
+
+Element None Concrete2 64 64 64 0 1 0 1 0 Clear 0 Text None
+
+Interaction Concrete2 Fire Wall Fire 10% Wall Clear 10% Clear Clear 10%
+
+Element Stones LiquidConcrete 140 140 140 1000 1 1 10 1 Concrete 0 File water2.bmp
+
+Interaction LiquidConcrete Concrete Concrete Concrete 100
+Interaction LiquidConcrete All Concrete All 10 Clear
+
+Element Stones Metal 180 180 180 0 1 1 1 0 Clear 0 HEX 0000000000000080000002A0000001C000001FF8000001C0104002A018C00080154000801240000010400000104F72401048254010482540104C274010482540104F257800000000000000001FFFFFFC1000000410000004100000041000000410000004100000041AAAAAAC10000004155555541AAAAAAC1FFFFFFC00000000 255 255 255
+
+Element None HotMetal 180 130 130 0 1 1 1 10 Metal 0 Text None
+
+NOBIAS ELEMENT:HotMetal
+
+Interaction HotMetal Metal Metal HotMetal 10% HotMetal HotMetal 10% Metal Metal 10%
+
+Element None LiquidMetal 200 150 150 6000 10 1 1000 1 HotMetal 0 Text None
+
+NOBIAS ELEMENT:LiquidMetal
+
+Interaction LiquidMetal Metal HotMetal HotMetal 10%
+Interaction LiquidMetal HotMetal LiquidMetal LiquidMetal 10% HotMetal HotMetal 10%
+
+Element Stones Salt 202 202 202 750 1 4 1 0 Clear 0 File salt.bmp
+Interaction Salt Water Clear Saltwater 10000
+Interaction Salt WarmWater Clear WarmSaltwater 20000
+Interaction Salt HotWater Clear HotSaltwater 30000
+Interaction Salt Plant Clear Salt 500
+Interaction Salt Cloud Clear Salt 500
+Interaction Salt Ice Clear Salt 500
+Interaction Salt Glue Salt Glue 100000
+
+Element Stones Crystal 254 254 254 0 100 1 1 0 Clear 0 File crystal.bmp
+Interaction Crystal All Crystal(grown) Crystal 300 Crystal(grown)
+Interaction Crystal Salt Crystal(grown) Crystal 3000
+Interaction Crystal Water Crystal(grown) Crystal 100
+Interaction Crystal WarmWater Crystal(grown) Crystal 600
+Interaction Crystal HotWater Crystal(grown) Crystal 1000
+Interaction Crystal Lava Lava Lava 400
+Interaction Crystal Lava2 Lava2 Lava2 400
+
+Element None Crystal(grown) 240 240 240 0 100 1 1 0 Clear 0 File crystal.bmp
+Interaction Crystal(grown) All Crystal Crystal 1 Crystal(grown) All 3
+Interaction Crystal(grown) Crystal Crystal Crystal(grown) 1
+Interaction Crystal(grown) Salt Crystal Crystal 2
+Interaction Crystal(grown) Water Crystal Crystal 1
+Interaction Crystal(grown) WarmWater Crystal Crystal 5
+Interaction Crystal(grown) HotWater Crystal Crystal 20
+Interaction Crystal(grown) Lava Lava Lava 400
+Interaction Crystal(grown) Lava2 Lava2 Lava2 400
+
+Element Stones Uranium-238 252 244 114 1000 20 1 1 0 Clear 0 HEX 00000000000000000007C000003FF800007FFC0001BFFF00023FFC80021FF880041FF840080FF0200807E0200807C0201003C0101001801010010010107FFC1013FEFFD01FFC7FF00FF83FE00FF03FE00FF01FE007E00FC003C0078003C0078001800300004004002B3A7D442AAFD56C2BBBD5542B2AD5443AAA574400000000 255 255 0
+
+Interaction Uranium-235 Uranium-238 Uranium-235 Uranium-235 100
+
+// Fluids
+
+Element Fluids Water 0 0 255 700 100 20 1 0 Clear 0 File water.bmp
+Interaction Water Fire Steam Clear 10000
+Interaction Water HotMetal Steam Metal 10000
+Interaction Water LiquidMetal Steam HotMetal 10000
+
+Element None WarmWater 20 20 255 600 100 20 1 0 Clear 0 File water.bmp
+Interaction WarmWater Fire Steam Clear 5000
+Interaction WarmWater Fire Steam Fire 5000
+Interaction WarmWater Water Water WarmWater 5000
+Interaction WarmWater Clear Clear WarmWater 7500
+
+Element None HotWater 40 40 255 500 100 20 1 0 Clear 0 File water.bmp
+Interaction HotWater Fire Steam Fire 10000
+Interaction HotWater Clear Clear Steam 7500
+Interaction HotWater WarmWater WarmWater HotWater 5000
+Interaction HotWater Water WarmWater WarmWater 5000
+
+Element Fluids Saltwater 0 0 180 710 100 20 1 0 Clear 0 File water2.bmp
+Interaction Saltwater Fire WarmSaltwater Clear 10000
+
+Element None WarmSaltwater 1 0 180 610 100 20 1 0 Clear 0 File erase.bmp
+Interaction WarmSaltwater Fire HotSaltwater Clear 10000
+Interaction WarmSaltwater Clear Clear WarmSaltwater 7500
+Interaction WarmSaltwater Saltwater Saltwater WarmSaltwater 5000
+
+Element None HotSaltwater 2 0 180 510 100 20 1 0 Clear 0 File erase.bmp
+Interaction HotSaltwater Clear Salt Steam 10000
+Interaction HotSaltwater WarmSaltwater WarmSaltwater HotSaltwater 5000
+Interaction HotSaltwater Saltwater WarmSaltwater WarmSaltwater 5000
+
+Element Fluids Ice 128 128 255 0 1 1 1 0 Clear 0 File ice.bmp
+Interaction Ice Clear Water Clear 20
+Interaction Ice Fire Water Clear 20000
+Interaction Ice Water Ice Ice 200
+Interaction Ice WarmWater Water Water 200
+Interaction Ice HotWater Water WarmWater 200
+Interaction Ice Steam Water Water 500
+Interaction Ice Steam Water WarmWater 500
+Interaction Ice Salt Water Salt 500
+
+Element Fluids Oil 100 0 0 500 10 15 1 0 Clear 0 File oil.bmp
+Element None BurningOil 140 0 0 400 10 15 1 100 Fire 0 Text None
+
+NOBIAS ELEMENT:Oil
+NOBIAS ELEMENT:BurningOil
+
+Interaction Oil Acid Clear Clear 20% BatteryAcid BatteryAcid2 30%
+Interaction Oil Fire BurningOil Fire 5000 Fire Fire 1000
+Interaction BurningOil Clear BurningOil Fire 5000 Fire Fire 1000
+
+Element Fluids Acid 255 0 60 998 10 3 1 0 Clear 0 File acid.bmp
+
+Interaction Acid Water WarmWater WarmWater 200
+Interaction Acid WarmWater HotWater HotWater 200
+Interaction Acid HotWater Steam Steam 200
+
+InteractionTrigger Acid All AcidTrigger 500 Wall
+
+acidsource = ELEMENT:AcidSource
+borderblocker = ELEMENT:BorderBlocker
+
+TRIGGER AcidTrigger {
+IF ((INTERACTION2 != acidsource) && (INTERACTION2 != wall) && (INTERACTION2 != borderblocker)) <DRAW ELEMENT:Clear POINT X2 Y2>
+}
+
+Element Fluids Gas 140 40 140 -50 2 1 5 0 Clear 0 File gas.bmp
+Interaction Gas Fire Gas(burning) Fire 10000
+Interaction Gas Charge PlasmaRed Charge 1000
+
+Element None Gas(burning) 255 49 49 50 1 1 1 21768 Clear 0 File erase.bmp
+Interaction Gas(burning) Clear Gas(burning) Fire 15000
+Interaction Gas(burning) Gas Gas(burning) Gas(burning) 50000
+
+Element Fluids GasII 140 240 180 -25 1 1 1 0 Clear 0 File gas2.bmp
+Interaction GasII Fire GasII(burning) Fire 100000
+Interaction GasII Charge PlasmaRed Charge 1000
+
+Element None GasII(burning) 255 50 50 -50 1 1 5 200 Clear 0 File erase.bmp
+Interaction GasII(burning) Clear GasII(burning) Fire 2000
+Interaction GasII(burning) GasII GasII(burning) GasII(burning) 2000
+
+// Fire
+
+Element Fire Fire 255 0 0 -400 1 1 1 2500 Smoke 0 File fire.bmp
+
+NOBIAS ELEMENT:Fire
+
+Interaction Fire Earth Fire Clear 1000
+Interaction Fire Wire Fire Clear 1000
+Interaction Fire BatterySkin Fire Clear 1000
+Interaction Fire BatteryAcid Fire Fire 5000 Fire Clear 5000
+Interaction Fire BatteryAcid2 Fire Fire 5000 Clear Fire 5000
+Interaction Fire Metal Clear HotMetal 5000
+Interaction Fire HotMetal Clear LiquidMetal 10
+
+Element None Smoke 80 60 60 -400 1 1 1 2000 Clear 0 Text None
+
+Element Fire Comet 255 255 0 998 1 1 1 0 Clear 0 File fire2.bmp
+Interaction Comet Clear Comet Fire 15000
+Interaction Comet Water Clear HotWater 1000
+Interaction Comet WarmWater Clear Steam 1000
+Interaction Comet HotWater Clear Steam 10000
+Interaction Comet Saltwater Comet HotSaltwater 50000
+Interaction Comet WarmSaltwater Comet HotSaltwater 50000
+Interaction Comet Plant Comet Plant(burning) 1800
+Interaction Comet Wood Comet Wood(burning) 1000
+Interaction Comet Seed Comet Fire 1000
+Interaction Comet Parasite Comet Fire 1000
+
+Element Fire TNT 255 255 150 0 1 1 1 0 Clear 0 File dynamit.bmp
+Element None TNTexploding 255 0 0 100 1 1 1 0 Clear 0 Text None
+
+InteractionTrigger TNT Fire <DRAW ELEMENT:TNTexploding FILL X1 Y1> 100%
+InteractionTrigger TNTexploding All { 100%
+EXEC ArcExplosion ELEMENT:Clear (10 RAND 12) (1 RAND 3) 25 75 120 50
+EXEC ArcExplosion ELEMENT:Fire (7 RAND 11) (1 RAND 3) 25 75 120 50
+}
+
+Element Fire Fireworks 255 255 200 0 1 1 1 0 Clear 0 File fireworks.bmp
+
+InteractionTrigger Fireworks Fire <EXEC LaunchExplosion ELEMENT:Fire (3 RAND 5) (1 RAND 3) 25 70 400 70> 100%
+
+Element Fire PlasmaRed 255 0 0 0 1 1 1 0 Clear 0 File explosion.bmp
+Element None PlasmaBlue 0 0 255 0 1 1 1 0 Clear 0 Text None
+Element None PlasmaGreen 0 255 0 0 1 1 1 0 Clear 0 Text None
+Element None PlasmaYellow 255 255 0 0 1 1 1 0 Clear 0 Text None
+Element None PlasmaPurple 255 0 255 0 1 1 1 0 Clear 0 Text None
+Element None PlasmaRedTrail 205 0 0 0 1 1 1 1000 Fire 0 File explosion.bmp
+Element None PlasmaBlueTrail 0 0 205 0 1 1 1 1000 Fire 0 Text None
+Element None PlasmaGreenTrail 0 205 0 0 1 1 1 1000 Fire 0 Text None
+Element None PlasmaYellowTrail 205 200 0 0 1 1 1 1000 Fire 0 Text None
+Element None PlasmaPurpleTrail 200 0 205 0 1 1 1 1000 Fire 0 Text None
+
+NOBIAS ELEMENT:PlasmaRed
+NOBIAS ELEMENT:PlasmaBlue
+NOBIAS ELEMENT:PlasmaGreen
+NOBIAS ELEMENT:PlasmaYellow
+NOBIAS ELEMENT:PlasmaPurple
+
+Element PlasmaRed DIE Clear 0.5%
+Element PlasmaBlue DIE Clear 0.5%
+Element PlasmaGreen DIE Clear 0.5%
+Element PlasmaYellow DIE Clear 0.5%
+Element PlasmaPurple DIE Clear 0.5%
+Element PlasmaRed DIE PlasmaBlue 1%
+Element PlasmaRed DIE PlasmaGreen 1%
+Element PlasmaRed DIE PlasmaYellow 1%
+Element PlasmaRed DIE PlasmaPurple 1%
+Element PlasmaBlue DIE PlasmaRed 1%
+Element PlasmaBlue DIE PlasmaGreen 1%
+Element PlasmaBlue DIE PlasmaYellow 1%
+Element PlasmaBlue DIE PlasmaPurple 1%
+Element PlasmaGreen DIE PlasmaBlue 1%
+Element PlasmaGreen DIE PlasmaRed 1%
+Element PlasmaGreen DIE PlasmaYellow 1%
+Element PlasmaGreen DIE PlasmaPurple 1%
+Element PlasmaYellow DIE PlasmaBlue 1%
+Element PlasmaYellow DIE PlasmaGreen 1%
+Element PlasmaYellow DIE PlasmaYellow 1%
+Element PlasmaYellow DIE PlasmaRed 1%
+Element PlasmaPurple DIE PlasmaBlue 1%
+Element PlasmaPurple DIE PlasmaGreen 1%
+Element PlasmaPurple DIE PlasmaYellow 1%
+Element PlasmaPurple DIE PlasmaRed 1%
+
+Interaction PlasmaRed Earth PlasmaRed Fire 40% Fire PlasmaRed 50%
+Interaction PlasmaBlue Earth PlasmaBlue Fire 40% Fire PlasmaBlue 50%
+Interaction PlasmaGreen Earth PlasmaGreen Fire 40% Fire PlasmaGreen 50%
+Interaction PlasmaYellow Earth PlasmaYellow Fire 40% Fire PlasmaYellow 50%
+Interaction PlasmaPurple Earth PlasmaPurple Fire 40% Fire PlasmaPurple 50%
+Interaction PlasmaRed Clear PlasmaRed PlasmaRedTrail 40% Clear PlasmaRed 50%
+Interaction PlasmaRed PlasmaRedTrail PlasmaRedTrail PlasmaRed 100%
+Interaction PlasmaBlue Clear PlasmaBlue PlasmaBlueTrail 40% Clear PlasmaBlue 50%
+Interaction PlasmaBlue PlasmaBlueTrail PlasmaBlueTrail PlasmaBlue 100%
+Interaction PlasmaGreen Clear PlasmaGreen PlasmaGreenTrail 40% Clear PlasmaGreen 50%
+Interaction PlasmaGreen PlasmaGreenTrail PlasmaGreenTrail PlasmaGreen 100%
+Interaction PlasmaYellow Clear PlasmaYellow PlasmaYellowTrail 40% Clear PlasmaYellow 50%
+Interaction PlasmaYellow PlasmaYellowTrail PlasmaYellowTrail PlasmaYellow 100%
+Interaction PlasmaPurple Clear PlasmaPurple PlasmaPurpleTrail 40% Clear PlasmaPurple 50%
+Interaction PlasmaPurple PlasmaPurpleTrail PlasmaPurpleTrail PlasmaPurple 100%
+
+// Life
+
+Element Life Plant 0 255 0 0 1 1 1 0 Clear 0 File plant.bmp
+Interaction Plant Water Plant Plant 7000
+Interaction Plant WarmWater Plant Plant 5
+Interaction Plant HotWater Clear Clear 20
+Interaction Plant Steam Clear Clear 2000
+Interaction Plant Fire Plant(burning) Clear 6000
+
+Element None Plant(burning) 199 0 0 0 1 1 1 468 Clear 0 File erase.bmp
+Interaction Plant(burning) Water Clear Steam 10000
+Interaction Plant(burning) WarmWater Clear Steam 10000
+Interaction Plant(burning) HotWater Clear Steam 10000
+Interaction Plant(burning) Plant Plant(burning) Plant(burning) 2000
+Interaction Plant(burning) Clear Plant(burning) Fire 1200
+Interaction Plant(burning) Wood Plant(burning) Wood(burning) 1000
+Interaction Plant(burning) Oil Plant(burning) Gas(burning) 1000
+Interaction Plant(burning) Parasite Plant(burning) Fire 1000
+
+Element Life Wood 128 64 0 0 1 1 1 0 Clear 0 File wood.bmp
+Interaction Wood Fire Wood(burning) Clear 4000
+
+Element None Wood(burning) 200 0 0 0 1 1 1 8 Clear 0 File erase.bmp
+Interaction Wood(burning) Water Clear Steam 10000
+Interaction Wood(burning) WarmWater Clear Steam 20000
+Interaction Wood(burning) HotWater Clear Steam 30000
+Interaction Wood(burning) Wood Wood(burning) Wood(burning) 1000
+Interaction Wood(burning) Clear Wood(burning) Ash 80
+Interaction Wood(burning) Clear Wood(burning) Fire 20000
+Interaction Wood(burning) Clear Clear Clear 1500
+Interaction Wood(burning) Parasite Wood(burning) Fire 1500
+
+Element None Steam 80 80 255 -100 1 1 4 10 Water 0 Text None
+
+Element Life Parasite 200 100 0 50 1 1 1 0 Clear 0 File bug.bmp
+
+NOBIAS ELEMENT:Parasite
+
+Interaction Parasite Plant Parasite Parasite 400
+Interaction Parasite Plant Clear Parasite 400
+Interaction Parasite Plant Parasite Plant 100000
+Interaction Parasite Seed Parasite Parasite 500
+Interaction Parasite Seed Clear Parasite 700
+Interaction Parasite Wood Parasite Parasite 200
+Interaction Parasite Wood Clear Parasite 300
+Interaction Parasite Wood Parasite Wood 100000
+Interaction Parasite Goo Parasite Parasite 800 Clear Clear 400
+Interaction Parasite Water Parasite Parasite 200
+Interaction Parasite Water Clear Parasite 300
+Interaction Parasite WarmWater Parasite Parasite 200
+Interaction Parasite WarmWater Clear Parasite 300
+Interaction Parasite HotWater Clear HotWater 500
+Interaction Parasite Fire Fire Fire 6000
+Interaction Parasite Ice Ice Ice 800
+Interaction Parasite Salt Clear Salt 30
+InteractionTrigger Parasite Clear { 20%
+CLOSEST ELEMENT:Plant X1 Y1 50
+IF ((CLOSESTX > 0) && (CLOSESTY > 0)) { 
+IF ((CLOSESTX > X1) && (X2 > X1)) <DRAW 0 SWAPPOINTS X2 Y2 X1 Y1>
+IF ((CLOSESTX < X1) && (X2 < X1)) <DRAW 0 SWAPPOINTS X2 Y2 X1 Y1>
+IF ((CLOSESTY > Y1) && (Y2 > Y1)) <DRAW 0 SWAPPOINTS X2 Y2 X1 Y1>
+IF ((CLOSESTY < Y1) && (Y2 < Y1)) <DRAW 0 SWAPPOINTS X2 Y2 X1 Y1>
+}
+CLOSEST ELEMENT:Wood X1 Y1 50
+IF ((CLOSESTX > 0) && (CLOSESTY > 0)) { 
+IF ((CLOSESTX > X1) && (X2 > X1)) <DRAW 0 SWAPPOINTS X2 Y2 X1 Y1>
+IF ((CLOSESTX < X1) && (X2 < X1)) <DRAW 0 SWAPPOINTS X2 Y2 X1 Y1>
+IF ((CLOSESTY > Y1) && (Y2 > Y1)) <DRAW 0 SWAPPOINTS X2 Y2 X1 Y1>
+IF ((CLOSESTY < Y1) && (Y2 < Y1)) <DRAW 0 SWAPPOINTS X2 Y2 X1 Y1>
+}
+}
+
+Element Life Goo 0 190 0 32000 6000 200 200 0 Clear 0 HEX 000000000000000000000000000000000010400000202000004010000040100000C0180000C0180000E018000060300000703000003FE000001FC00003CF9F000FEDBF801C78E1C0303DC060201F8020400F8010400D8010000D80000018C0000038C0000070600000E0300003801E0000000000000000000000000000000000 255 255 255
+
+NOBIAS ELEMENT:Goo
+
+Interaction Goo All Goo All 89% Clear
+Interaction Goo Oil Goo Water 20% Goo Goo 10%
+Interaction Goo Water Water Goo 10%
+Interaction Goo Saltwater Goo Water 10% Goo Salt 10% Clear Saltwater 10%
+Interaction Goo Salt Clear Salt 20% Clear Clear 20%
+Interaction Goo Plant Goo Goo 30% Clear Clear 30% Goo Clear 30%
+Interaction Goo Wood Goo Goo 30% Clear Clear 30% Goo Clear 30%
+Interaction Goo Acid Goo Fire 40% Goo Water 40% Fire Water 40% Salt Salt 40%
+Interaction Goo Wall Goo Goo 10% Goo Wall 10% Clear Goo 10%
+
+// Misc.
+
+Element None Stone 40 40 40 2000 1 0 1 1 Stone2 0 Text None
+Element None Stone2 70 70 70 2000 1 0 1 1 Stone 0 Text None
+
+Interaction Stone Lava Stone Stone 1
+Interaction Stone Lava2 Stone Stone 1
+
+Element None Glass 200 200 255 0 2 50 2 0 Clear 1000 HEX 0000000000000000000000000000000007FFFFF804000008040000080400000804008008040102080402040804040808040810080410200804204008040081080401020804020408040408080408100804102008040000080400000804000008040000080400000807FFFFF80000000000000000000000000000000000000000 255 255 255
+
+Interaction Glass Lava Lava Lava 10000
+Interaction Glass Lava2 Lava Lava2 10000
+
+// Electricity
+
+Element Electricity Battery 0 0 0 0 1 1 1 0 Clear 0 HEX 000000000003E000000C18000010040000100400001C1C00001FFC00001F7C00001E3C00001F7C000013E40000100400001004000010040000100400001004000010040000100400001004000010040000100400001004000013C400001004003BBDFBA82A93F2A83B90B3902A90BB102A90B2903A909A900000000000000000 255 255 255
+Element None BatterySkin 0 0 190 0 1 1 1 0 Clear 0 Text None
+
+InteractionTrigger Battery All BatteryTrigger 100% Battery
+Interaction Battery BatterySkin BatteryAcid BatterySkin 50% BatteryAcid2 BatterySkin 50%
+Interaction Battery BatteryAcid BatteryAcid BatteryAcid 100%
+
+batteryacid = ELEMENT:BatteryAcid
+batteryacid2 = ELEMENT:BatteryAcid2
+wire = ELEMENT:Wire
+batteryskin = ELEMENT:BatterySkin
+wall = ELEMENT:Wall
+
+TRIGGER BatteryTrigger {
+SET NEXTINTERACTION ((INTERACTION2 == batteryacid) || (INTERACTION2 == wall) || (INTERACTION2 == batteryacid2) || (INTERACTION2 == wire) || (INTERACTION2 == batteryskin) || (INTERACTION2 == 1))
+IF (NEXTINTERACTION == 0) <DRAW ELEMENT:BatterySkin FILLEDCIRCLE X2 Y2 0>
+}
+
+Element Electricity Wire 150 150 180 0 1 1 1 0 Clear 0 HEX 000000000000000000000000000000003F000000610000000180000000800000008000000080000001800000010000000100000002007E000201820002030200020C020003F8020000C00200000006000000040000000C000000080000001800000008002ABB0C002AAA0FFC2ABB00002AB200002AAA00003EAB000000000000 255 255 255
+
+Element Electricity BatteryAcid 0 244 0 700 20 20 1 500 BatteryAcid2 0 HEX 0000000000000000000000000000000003FFFFFC05A6C0C4052481841DA683841524870415B6CE0414000F04159C0384155001C41D88038405440304059C060403FFFFFC00000000000000000000000000000000313BB7502A912550339137202A9126203291352000000000137600002A2500003A2500002B76000000000000 255 255 255
+Element None BatteryAcid2 20 190 20 700 20 20 1 500 BatteryAcid 0 Text None
+
+NOBIAS ELEMENT:BatteryAcid
+NOBIAS ELEMENT:BatteryAcid2
+
+Interaction BatteryAcid Wire Clear Charge 1%
+Interaction BatteryAcid2 Wire Clear Charge 1%
+Interaction BatteryAcid ChargeDis Clear Wire 1%
+Interaction BatteryAcid2 ChargeDis Clear Wire 1%
+Interaction BatteryAcid ChargeDis2 Clear Wire 1%
+Interaction BatteryAcid2 ChargeDis2 Clear Wire 1%
+Interaction BatteryAcid ChargeDis3 Clear Wire 1%
+Interaction BatteryAcid2 ChargeDis3 Clear Wire 1%
+Interaction BatteryAcid ChargeDis4 Clear Wire 1%
+Interaction BatteryAcid2 ChargeDis4 Clear Wire 1%
+Interaction BatteryAcid ChargeDis5 Clear Wire 1%
+Interaction BatteryAcid2 ChargeDis5 Clear Wire 1%
+InteractionTrigger BatteryAcid SwitchOn <DRAW ELEMENT:SwitchTransfer FILL X2 Y2 X2 Y2> 100%
+InteractionTrigger BatteryAcid2 SwitchOn <DRAW ELEMENT:SwitchTransfer FILL X2 Y2 X2 Y2> 100%
+Interaction BatteryAcid SwitchOn Clear Charge 1%
+Interaction BatteryAcid2 SwitchOn Clear Charge 1%
+Interaction BatteryAcid SwitchTransfer Clear Wire 1%
+Interaction BatteryAcid2 SwitchTransfer Clear Wire 1%
+
+Element None Charge 250 250 0 0 1 1 1 10000 ChargeDis 0 Text None
+Element None ChargeDis 240 240 0 0 1 1 1 10000 ChargeDis2 0 Text None
+Element None ChargeDis2 230 230 0 0 1 1 1 50000 ChargeDis3 0 Text None
+Element None ChargeDis3 220 220 0 0 1 1 1 2500 ChargeDis4 0 Text None
+Element None ChargeDis4 210 210 0 0 1 1 1 1750 ChargeDis5 0 Text None
+Element None ChargeDis5 200 200 0 0 1 1 1 1000 Wire 0 Text None
+
+Interaction Charge Wire Charge Charge 100%
+Interaction ChargeDis Charge ChargeDis ChargeDis 10%
+Interaction ChargeDis2 Charge ChargeDis ChargeDis 10%
+Interaction ChargeDis3 Charge ChargeDis ChargeDis 10%
+Interaction ChargeDis4 Charge ChargeDis ChargeDis 10%
+Interaction ChargeDis5 Charge ChargeDis ChargeDis 10%
+InteractionTrigger Charge SwitchOn <DRAW ELEMENT:SwitchTransfer FILL X2 Y2 X2 Y2> 100%
+
+Element Electricity Switch 255 255 255 0 1 1 1 100% SwitchOn 0 HEX 0000000001FFFF0003FFFF8003FFFF8003FFFF8003FFFF8003FFFF8003FFFF8003F0FF8003F6FF8003F67F8003F07F8003F67F8003F37F8003F87F8003FB7F8003FB7F8003FB7F8003FB7F8003FB7F8003F87F8003FFFF8003FFFF8003FFFF8003FFFF8003FFFF8003FFFF8003FFFF8003FFFF8003FFFF8001FFFF0000000000 255 255 255
+Element None SwitchOn 0 255 0 0 1 1 1 0 Clear 0 Text None
+Element None SwitchOff 255 0 0 0 1 1 1 0 Clear 0 Text None
+Element None SwitchTransfer 255 255 0 0 1 1 1 90% SwitchOn 0 Text None
+
+NOBIAS ELEMENT:SwitchTransfer
+Interaction SwitchTransfer Wire SwitchTransfer Charge 100%
+
+glass = ELEMENT:Glass
+
+TRIGGER LightBulbCover {
+SET NEXTINTERACTION ((INTERACTION2 == glass) || (INTERACTION2 == wire) || (INTERACTION2 == $0) || (INTERACTION2 == 1))
+IF (NEXTINTERACTION == 0) <DRAW ELEMENT:Glass FILLEDCIRCLE X2 Y2 0>
+}
+
+Element Electricity2 LightBulbYellow* 0 0 0 0 1 1 1 0 Clear 0 HEX 000000000007C0000018300000600C0000880200009002000120010001200100024000800240008002000080020000800100010001000100008002000080020000400400002008000020080000101000001010000008200000082000000FE00000101000000FE00000101000000FE00000101000000FE0000003800000000000 255 255 0
+Element None LightBulbYellow 0 0 0 0 1 1 1 0 Clear 0 Text None
+Element None YellowLightOn 255 255 0 0 1 1 1 500 YellowLightDim 0 Text None
+Element None YellowLightDim 180 180 0 0 1 1 1 100 LightBulbYellow 0 Text None
+
+InteractionTrigger LightBulbYellow* All <EXEC LightBulbCover ELEMENT:LightBulbYellow> 100% LightBulbYellow*
+Interaction LightBulbYellow* LightBulbYellow LightBulbYellow LightBulbYellow 100%
+Interaction LightBulbYellow* Glass LightBulbYellow Glass 100%
+InteractionTrigger Charge LightBulbYellow <DRAW ELEMENT:YellowLightOn FILL X2 Y2> 100%
+
+Element Electricity2 LightBulbRed* 0 0 0 0 1 1 1 0 Clear 0 HEX 000000000007C0000018300000600C0000880200009002000120010001200100024000800240008002000080020000800100010001000100008002000080020000400400002008000020080000101000001010000008200000082000000FE00000101000000FE00000101000000FE00000101000000FE0000003800000000000 255 0 0
+Element None LightBulbRed 0 0 0 0 1 1 1 0 Clear 0 Text None
+Element None RedLightOn 255 0 0 0 1 1 1 500 RedLightDim 0 Text None
+Element None RedLightDim 180 0 0 0 1 1 1 100 LightBulbRed 0 Text None
+
+InteractionTrigger LightBulbRed* All <EXEC LightBulbCover ELEMENT:LightBulbRed> 100% LightBulbRed*
+Interaction LightBulbRed* LightBulbRed LightBulbRed LightBulbRed 100%
+Interaction LightBulbRed* Glass LightBulbRed Glass 100%
+InteractionTrigger Charge LightBulbRed <DRAW ELEMENT:RedLightOn FILL X2 Y2> 100%
+
+Element Electricity2 LightBulbBlue* 0 0 0 0 1 1 1 0 Clear 0 HEX 000000000007C0000018300000600C0000880200009002000120010001200100024000800240008002000080020000800100010001000100008002000080020000400400002008000020080000101000001010000008200000082000000FE00000101000000FE00000101000000FE00000101000000FE0000003800000000000 0 0 255
+Element None LightBulbBlue 0 0 0 0 1 1 1 0 Clear 0 Text None
+Element None BlueLightOn 0 0 255 0 1 1 1 500 BlueLightDim 0 Text None
+Element None BlueLightDim 0 0 180 0 1 1 1 100 LightBulbBlue 0 Text None
+
+InteractionTrigger LightBulbBlue* All <EXEC LightBulbCover ELEMENT:LightBulbBlue> 100% LightBulbBlue*
+Interaction LightBulbBlue* LightBulbBlue LightBulbBlue LightBulbBlue 100%
+Interaction LightBulbBlue* Glass LightBulbBlue Glass 100%
+InteractionTrigger Charge LightBulbBlue <DRAW ELEMENT:BlueLightOn FILL X2 Y2> 100%
+
+Element Electricity2 LightBulbGreen* 0 0 0 0 1 1 1 0 Clear 0 HEX 000000000007C0000018300000600C0000880200009002000120010001200100024000800240008002000080020000800100010001000100008002000080020000400400002008000020080000101000001010000008200000082000000FE00000101000000FE00000101000000FE00000101000000FE0000003800000000000 0 255 0
+Element None LightBulbGreen 0 0 0 0 1 1 1 0 Clear 0 Text None
+Element None GreenLightOn 0 255 0 0 1 1 1 500 GreenLightDim 0 Text None
+Element None GreenLightDim 0 180 0 0 1 1 1 100 LightBulbGreen 0 Text None
+
+InteractionTrigger LightBulbGreen* All <EXEC LightBulbCover ELEMENT:LightBulbGreen> 100% LightBulbGreen*
+Interaction LightBulbGreen* LightBulbGreen LightBulbGreen LightBulbGreen 100%
+Interaction LightBulbGreen* Glass LightBulbGreen Glass 100%
+InteractionTrigger Charge LightBulbGreen <DRAW ELEMENT:GreenLightOn FILL X2 Y2> 100%
+
+Element Electricity BlastCap 232 232 232 0 1 1 1 0 Clear 0 HEX 00000000644EEC9C54A8495464EE49DC54A2495066AE4D50000000000000000000000000000C0C0000101000002020000070700000A8A80001252400018D8C00017774000109C4000112A4000118D400019754000150440001B064000150540000B8680000747000001A400000154000000A8000000700000000000000000000 255 255 255
+Element None BlastCap2 232 232 10 0 1 1 1 1000 BlastCap 0 Text None
+
+InteractionTrigger Charge BlastCap <DRAW ELEMENT:BlastCap2 FILL X2 Y2> 100%
+TIMER 1 FRAMES <Interaction BlastCap2 GROUP:Explosives BlastCap2 Fire 100%>
+Interaction BlastCap2 TNT BlastCap2 Fire 100%
+
+Element Electricity Turbine 240 240 240 0 1 1 1 0 Clear 0 HEX 00000000000000000003FFF00007FFE00007FFC0000FFF80000FFF00000FFC00000FF800001FF000001FE000001FFE00001FFC00003FF800003FF0000007E000000FC000000F8000001F0000001E0000003C00000038000000700000006ED20000C89A0000C89600010892000008D200000A9200000A9200000ED20000000000 255 255 255
+Element None Turbine2 230 230 0 0 1 1 1 90% Turbine 0 Text None
+
+InteractionTrigger Steam Turbine <DRAW ELEMENT:Turbine2 FILL X2 Y2> 100%
+Interaction Steam Turbine Clear Turbine 10%
+Interaction Steam Turbine2 Clear Turbine2 10%
+Interaction Turbine2 Wire Turbine2 Charge 100%
+
+Element Electricity HeatPad 200 0 0 0 1 1 1 0 Clear 0 HEX 00000000000000000000000000C020000180C000030180C0030103000181060000E1840000208600002083000061810000C30300000002000000000000000000000000001FFFFFF83FFFFFFC1FFFFFF800000000000000002B7700002A5200002A5200002A7200003B5200002A5200002A5200002B5200000000000000000000 255 30 30
+Element None HeatPad2 255 0 0 0 1 1 1 100 HeatPad 0 Text None
+
+InteractionTrigger Fire HeatPad <DRAW ELEMENT:HeatPad2 FILL X2 Y2> 100%
+Interaction HeatPad2 Water HeatPad2 Steam 100%
+Interaction HeatPad2 WarmWater HeatPad2 Steam 100%
+Interaction HeatPad2 HotWater HeatPad2 Steam 100%
+Interaction HeatPad2 Saltwater HeatPad2 Steam 100%
+Interaction HeatPad2 WarmSaltwater HeatPad2 Steam 100%
+Interaction HeatPad2 HotSaltwater HeatPad2 Steam 100%
+
+Element Electricity ElecFountain 0 0 200 0 1 1 1 0 Clear 0 File spring.bmp
+Element None ElecFountain2 0 0 255 0 1 1 1 500 ElecFountain 0 Text None
+
+InteractionTrigger Charge ElecFountain <DRAW ELEMENT:ElecFountain2 FILL X2 Y2> 100%
+Interaction ElecFountain2 Clear ElecFountain2 Water 10%
+
+Element Electricity ElecOilsource 128 0 0 0 1 1 1 0 Clear 0 File oilsource.bmp
+Element None ElecOilsource2 183 0 0 0 1 1 1 500 ElecOilsource 0 Text None
+
+InteractionTrigger Charge ElecOilsource <DRAW ELEMENT:ElecOilsource2 FILL X2 Y2> 100%
+Interaction ElecOilsource2 Clear ElecOilsource2 Oil 10%
+
+Element Electricity ElecGassource 140 40 140 0 1 1 1 0 Clear 0 File gassource.bmp
+Element None ElecGassource2 183 50 200 0 1 1 1 500 ElecGassource 0 Text None
+
+InteractionTrigger Charge ElecGassource <DRAW ELEMENT:ElecGassource2 FILL X2 Y2> 100%
+Interaction ElecGassource2 Clear ElecGassource2 Gas 10%
+
+Element Electricity ElecGasIIsource 140 240 180 0 1 1 1 0 Clear 0 File gas2source.bmp
+Element None ElecGasIIsource2 150 255 200 0 1 1 1 500 ElecGasIIsource 0 Text None
+
+InteractionTrigger Charge ElecGasIIsource <DRAW ELEMENT:ElecGasIIsource2 FILL X2 Y2> 100%
+Interaction ElecGasIIsource2 Clear ElecGasIIsource2 GasII 0.5%
+
+Element Electricity ElecBurner 200 0 0 0 1 1 1 0 Clear 0 File burner.bmp
+Element None ElecBurner2 251 0 0 0 1 1 1 500 ElecBurner 0 Text None
+
+InteractionTrigger Charge ElecBurner <DRAW ELEMENT:ElecBurner2 FILL X2 Y2> 100%
+Interaction ElecBurner2 Clear ElecBurner2 Fire 0.5%
+
+// Power Plants
+
+// Crystal Reactor
+
+Element Electricity2 SuperCrystal 0 255 255 0 1 0 1 100 SuperCrystal2 0 Text Crys
+Element None SuperCrystal2 0 148 255 0 1 0 1 10000 SuperCrystal 0 Text None
+Element Electricity2 MagneticWires 160 160 160 0 1 0 1 0 Clear 0 Text mWires
+Element None MagCharge 255 255 255 0 1 0 1 32768 MagChargeDis 0 Text None
+Element None MagChargeDis 200 200 200 0 1 0 1 1000 MagneticWires 0 Text None
+Element Electricity2 BruteWire 255 0 0 0 1 0 1 0 Clear 0 Text bWires
+Element None BruteCharge 255 255 255 0 1 0 1 32768 BruteChargeDis 0 Text None
+Element None BruteChargeDis 0 255 255 0 1 0 1 1000 BruteWire 0 Text None
+Element Electricity2 EnergyRefinery 0 255 0 0 1 0 1 0 Clear 0 Text Ref
+Element None RefineryCharge 255 255 255 0 1 0 1 32768 RefineryChargeDis 0 Text None
+Element None RefineryChargeDis 255 0 0 0 1 0 1 1000 EnergyRefinery 0 Text None
+
+Interaction SuperCrystal MagneticWires SuperCrystal MagCharge 32768
+Interaction MagCharge BruteWire MagCharge BruteCharge 32768
+Interaction BruteCharge EnergyRefinery BruteCharge RefineryCharge 32768
+Interaction RefineryCharge Wire RefineryCharge Charge 32768
+Interaction MagCharge MagneticWires MagCharge MagCharge 32768
+Interaction BruteCharge BruteWire BruteCharge BruteCharge 32768
+Interaction RefineryCharge EnergyRefinery RefineryCharge RefineryCharge 32768
+
+// Fission Nuclear Plant
+
+Element Electricity Uranium-235 0 200 1 100 20 1 1 30 Uranium-235Gas 0 HEX 00000000000000000007C000003FF800007FFC0001BFFF00023FFC80021FF880041FF840080FF0200807E0200807C0201003C0101001801010010010107FFC1013FEFFD01FFC7FF00FF83FE00FF03FE00FF01FE007E00FC003C0078003C0078001800300004004002B3A7D442AAFD56C2BBBD5542B2AD5443AAA574400000000 255 255 0
+Element None Uranium-235Gas 0 200 1 -100 20 1 1 30 Uranium-235 0 Text None
+
+NOBIAS ELEMENT:Uranium-235
+NOBIAS ELEMENT:Uranium-235Gas
+
+InteractionTrigger Uranium-235 All UraniumDecay 200 Uranium-235Gas
+InteractionTrigger Uranium-235Gas All UraniumDecay 200 Uranium-235
+Interaction Uranium-235 All Uranium-235 Clear 1 Uranium-235Gas
+Interaction Uranium-235Gas All Uranium-235Gas Clear 1 Uranium-235
+
+metal = ELEMENT:Metal
+hotmetal = ELEMENT:HotMetal
+clear = ELEMENT:Clear
+heatpad = ELEMENT:HeatPad
+heatpad2 = ELEMENT:HeatPad2
+uraniumtap = ELEMENT:UraniumTap
+uraniumpipe = ELEMENT:UraniumPipe
+
+TRIGGER UraniumDecay {
+IF ((INTERACTION2 != metal) && (INTERACTION2 != hotmetal) && (INTERACTION2 != clear) && (INTERACTION2 != heatpad) && (INTERACTION2 != uraniumtap) && (INTERACTION2 != heatpad2) && (INTERACTION2 != uraniumpipe)) {
+          DRAW INTERACTION1 POINT X2 Y2
+          DRAW ELEMENT:Clear POINT X1 Y1
+          }
+}
+
+Interaction Uranium-235Gas Clear Uranium-235Gas Uranium-235Gas 1
+InteractionTrigger Uranium-235Gas HeatPad <DRAW ELEMENT:HeatPad2 FILL X2 Y2> 100%
+Interaction Metal Uranium-235Gas Metal Uranium-235Gas 32768 Metal Clear 32768
+Interaction Metal Uranium-235 Metal Uranium-235 32768 Metal Clear 32768
+Interaction HotMetal Uranium-235Gas HotMetal Uranium-235Gas 32768 HotMetal Clear 32768
+Interaction HotMetal Uranium-235 HotMetal Uranium-235 32768 HotMetal Clear 32768
+Interaction Water Uranium-235 Steam Clear 10000
+Interaction Water Uranium-235Gas Steam Clear 10000
+
+Element Electricity2 NuclearRod 0 255 0 0 1 1 1 15 NuclearRod2 0 Text NucRod
+Element None NuclearRod2 0 180 0 0 1 1 1 15 NuclearRod 0 Text None
+
+Interaction Water NuclearRod Steam NuclearRod 100 Water NuclearRod 100
+Interaction Water NuclearRod2 Steam NuclearRod 100 Water NuclearRod 100
+Interaction Water NuclearRod3 Steam NuclearRod 100 Water NuclearRod 100
+Interaction Water NuclearRod4 Steam NuclearRod 100 Water NuclearRod 100
+
+Element None NuclearRod3 80 180 0 0 1 1 1 1 NuclearRod2 0 Text None
+Element None NuclearRod4 255 0 0 0 1 1 1 0 Clear 0 Text None
+
+Interaction NuclearRod Clear NuclearRod2 Clear 1
+Interaction NuclearRod2 Clear NuclearRod3 Clear 1
+Interaction NuclearRod3 Clear NuclearRod4 Clear 1
+
+InteractionTrigger NuclearRod4 Clear <EXEC ArcExplosion ELEMENT:Uranium-235 10 (1 RAND 2) 20 10 100 250> 1
+
+// Mining
+
+Element Mining Pipe 120 120 123 0 1 1 1 0 Clear 0 Text Pipe
+
+Interaction Pipe Water WaterPipe Water 32768
+Interaction Pipe WaterTap WaterPipe WaterTap 32768
+Interaction Pipe WaterPipe WaterPipe WaterPipe 32768
+Interaction Pipe Oil OilPipe Oil 32768
+Interaction Pipe OilTap OilPipe OilTap 32768
+Interaction Pipe OilPipe OilPipe OilPipe 32768
+Interaction Pipe Uranium UraniumPipe Uranium 32768
+Interaction Pipe UraniumTap UraniumPipe UraniumTap 32768
+Interaction Pipe UraniumPipe UraniumPipe UraniumPipe 32768
+
+Element Mining Tap 170 170 170 0 1 1 1 0 Clear 0 Text Tap
+
+Interaction Tap Water WaterTap Water 32768
+Interaction Tap WaterTap WaterTap WaterTap 32768
+Interaction Tap WaterPipe WaterTap WaterPipe 32768
+Interaction Tap Oil OilTap Oil 32768
+Interaction Tap OilTap OilTap OilTap 32768
+Interaction Tap OilPipe OilTap OilPipe 32768
+Interaction Tap Uranium-238 UraniumTap Uranium-238 32768
+Interaction Tap UraniumTap UraniumTap UraniumTap 32768
+Interaction Tap UraniumPipe UraniumTap UraniumPipe 32768
+
+Element Mining Driller 255 255 255 0 1 1 1 0 Clear 0 HEX 01F00000060F0000180500002019000040228000204280001184C0000A0880000C10C00004114000022140000142600000C2200000C4600000246000001860000018A000001890000005100000031000000110000000A8000000680000006800000028000000140000000C000000040000000000000000000000000000000000 255 255 255
+Element None DrillBit 180 180 180 1000 1 0 1 0 Clear 0 Text None
+
+NOBIAS ELEMENT:Driller
+NOBIAS ELEMENT:DrillBit
+NOBIAS ELEMENT:WaterDrillBit
+NOBIAS ELEMENT:OilDrillBit
+NOBIAS ELEMENT:UraniumDrillBit
+
+Interaction Driller Clear Driller DrillBit 100%
+Interaction Driller DrillBit Driller Clear 1000%
+Interaction Driller WaterPipe WaterTap WaterPipe 100%
+Interaction Driller WaterTap WaterTap WaterTap 100%
+Interaction Driller OilPipe OilTap OilPipe 100%
+Interaction Driller OilTap OilTap OilTap 100%
+
+InteractionTrigger DrillBit Earth <DRAW ELEMENT:DrillBit POINT X1 (Y1 + 1)> 50%
+Interaction WaterTap DrillBit WaterTap WaterPipe 100%
+Interaction OilTap DrillBit OilTap OilPipe 100%
+Interaction UraniumTap DrillBit UraniumTap UraniumPipe 100%
+Interaction DrillBit Water WaterDrillBit Water 100%
+Interaction DrillBit Oil OilDrillBit Oil 100%
+Interaction DrillBit WaterPipe WaterPipe WaterPipe 100%
+Interaction DrillBit OilPipe OilPipe OilPipe 100%
+Interaction DrillBit Uranium-238 UraniumDrillBit Uranium-238 100%
+Interaction DrillBit UraniumPipe UraniumPipe UraniumPipe 100%
+
+Element None WaterDrillBit 20 20 120 1000 1 0 1 0 Clear 0 Text None
+
+Interaction WaterDrillBit Earth WaterPipe Earth 100
+Interaction WaterDrillBit WaterPipe WaterPipe WaterPipe 32869
+InteractionTrigger WaterDrillBit Water <DRAW ELEMENT:WaterDrillBit POINT X1 (Y1 + 1)> 100%
+
+Element None OilDrillBit 120 20 20 1000 1 0 1 0 Clear 0 Text None
+
+Interaction OilDrillBit Earth OilPipe Earth 100
+Interaction OilDrillBit OilPipe OilPipe OilPipe 32869
+InteractionTrigger OilDrillBit Oil <DRAW ELEMENT:OilDrillBit POINT X1 (Y1 + 1)> 100%
+
+Element None UraniumDrillBit 20 120 0 1000 1 0 1 0 Clear 0 Text None
+
+Interaction UraniumDrillBit Earth UraniumPipe Earth 100
+Interaction UraniumDrillBit UraniumPipe UraniumPipe UraniumPipe 32869
+InteractionTrigger UraniumDrillBit Uranium-238 <DRAW ELEMENT:UraniumDrillBit POINT X1 (Y1 + 1)> 100%
+
+Element Mining WaterPipe 0 0 120 0 1 1 1 0 Clear 0 File pipe.bmp
+Element None WaterTransfer 0 0 255 0 1 1 1 10000 WaterPipe 0 Text None
+
+InteractionTrigger Water WaterPipe <DRAW ELEMENT:WaterTransfer FILL X2 Y2> 1000
+Interaction Water WaterPipe Clear WaterPipe 1000
+
+Element Mining WaterTap 0 0 200 0 1 1 1 0 Clear 0 HEX 00000000000000000000000000FF800001FFC00000FF8000001C0000001C0000001C0000001C0000001C00000FFFF8001FFFFC000FFFFC0000001C0000001C0000001C000000080000000000000000001DDE1C0009521C000952000009DE00000950000009501800095018000950000009500000000000000000000000000000 0 0 255
+Element None WaterRelease 0 0 255 0 1 1 1 1000 WaterTap 0 Text None
+
+InteractionTrigger WaterTransfer WaterTap <DRAW ELEMENT:WaterRelease FILL X2 Y2> 32768
+Interaction WaterRelease Clear WaterRelease Water 1000
+
+Element Mining OilPipe 120 0 0 0 1 1 1 0 Clear 0 File oilsource.bmp
+Element None OilTransfer 255 0 0 0 1 1 1 10000 OilPipe 0 Text None
+
+InteractionTrigger Oil OilPipe <DRAW ELEMENT:OilTransfer FILL X2 Y2> 1000
+Interaction Oil OilPipe Clear OilPipe 1000
+
+Element Mining OilTap 200 0 0 0 1 1 1 0 Clear 0 HEX 00000000000000000000000000FF800001FFC00000FF8000001C0000001C0000001C0000001C0000001C00000FFFF8001FFFFC000FFFFC0000001C0000001C0000001C000000080000000000000000001DDE1C0009521C000952000009DE00000950000009501800095018000950000009500000000000000000000000000000 80 0 0
+Element None OilRelease 255 0 0 0 1 1 1 1000 OilTap 0 Text None
+
+InteractionTrigger OilTransfer OilTap <DRAW ELEMENT:OilRelease FILL X2 Y2> 32768
+Interaction OilRelease Clear OilRelease Oil 1000
+
+Element Mining UraniumPipe 0 120 0 0 1 1 1 0 Clear 0 HEX 00000000000000000007C000003FF800007FFC0001BFFF00023FFC80021FF880041FF840080FF0200807E0200807C0201003C0101001801010010010107FFC1013FEFFD01FFC7FF00FF83FE00FF03FE00FF01FE007E00FC003C0078003C0078001800300004004002B3A7D442AAFD56C2BBBD5542B2AD5443AAA574400000000 255 255 0
+Element None UraniumTransfer 0 255 0 0 1 1 1 10000 UraniumPipe 0 Text None
+
+InteractionTrigger Uranium-238 UraniumPipe <DRAW ELEMENT:UraniumTransfer FILL X2 Y2> 1000
+Interaction Uranium-238 UraniumPipe Clear UraniumPipe 1000
+
+Element Mining UraniumTap 0 200 0 0 1 1 1 0 Clear 0 HEX 00000000000000000000000000FF800001FFC00000FF8000001C0000001C0000001C0000001C0000001C00000FFFF8001FFFFC000FFFFC0000001C0000001C0000001C000000080000000000000000001DDE1C0009521C000952000009DE00000950000009501800095018000950000009500000000000000000000000000000 0 255 0
+Element None UraniumRelease 0 255 0 0 1 1 1 1000 UraniumTap 0 Text None
+
+InteractionTrigger UraniumTransfer UraniumTap <DRAW ELEMENT:UraniumRelease FILL X2 Y2> 32768
+Interaction UraniumRelease Clear UraniumRelease Uranium-235 1000
+
+// Explosives
+
+Element Explosives Gamma_Bomb 255 255 255 2000 1 1 1 0 Clear 0 HEX 0000000000000000000000000007C000003FF800003FF800001FF000001FF000000FE000000FE0000007C0000007C00000038000000000000000000000010000000380000001000000701C0001F83F0007FC7FC00FFC7FE01FF83FF00FF83FE00FF01FE007F01FC003E00F8001E00F0000400400000000000000000000000000 225 225 225
+Element None Radiation 111 255 120 0 1 1 1 32768 G_End 0 Text Radiation
+Element None Eradicated_Atoms 255 255 255 0 1 1 1 9 Gamma_Bomb 0 E Atoms
+Element None G_End 0 0 0 -1000 1 1 1 50 Clear 0 G End
+Interaction Radiation Clear Radiation Radiation 32767
+Interaction Radiation Earth Eradicated_Atoms Radiation 32768
+Interaction Gamma_Bomb All Clear Radiation 32768 Clear
+Interaction G_End All G_End Clear 32768 Clear
+
+Element Explosives OldTNT 255 255 200 0 1 1 1 0 Clear 0 HEX 000000000000000000767000002520000025200000252000002520000000000000000000000C0C0000101000002020000070700000A8A80001252400018D8C0001777400010884000113E4000118D400019744000150440001B064000150540000B8680000747000001A400000154000000A8000000700000000000000000000 255 255 255
+
+Interaction Fire OldTNT Explosion Explosion 32768
+
+Element None Explosion 200 0 0 0 2 1 5 0 Explosion2 0 File gas.BMP
+Interaction Explosion All Explosion Explosion 3000 Explosion
+Interaction Explosion All Explosion Explosion2 1 Explosion
+Interaction Explosion OldTNT Explosion Explosion 32768
+
+Element None Explosion2 200 0 0 0 1 1 4 500 Fire 0 File steam.BMP
+Interaction Explosion2 Explosion Explosion2 Explosion2 40000
+Interaction Explosion2 Clear Explosion2 Fire 400
+
+Element Explosives Decimation 255 0 0 0 1 1 1 10 Clear 0 FILE http://www.freewebs.com/alchemygod/Decimate.bmp
+Element None Explosion3 255 90 0 0 2 1 5 0 Explosion2 0 File erase.bmp
+Element None Explosion4 255 150 0 0 1 1 4 500 Fire 0 File erase.bmp
+
+InteractionTrigger Decimation All Decimate 8000 Clear
+
+explosion = ELEMENT:Explosion
+explosion2 = ELEMENT:Explosion2
+explosion3 = ELEMENT:Explosion3
+explosion4 = ELEMENT:Explosion4
+fire = ELEMENT:Fire
+smoke = ELEMENT:Smoke
+
+TRIGGER Decimate {
+IF ((INTERACTION2 != explosion) && (INTERACTION2 != explosion2) && (INTERACTION2 != explosion3) && (INTERACTION2 != explosion4) && (INTERACTION2 != fire)) <DRAW ELEMENT:Decimation POINT X2 Y2>
+}
+
+Interaction Explosion3 Fire Smoke Smoke 100
+Interaction Decimation Clear Explosion3 Explosion3 32768
+Interaction Explosion4 Decimation Explosion3 Explosion4 3000
+Interaction Explosion3 All Explosion3 Explosion3 3000 Explosion3
+Interaction Explosion3 All Explosion3 Explosion4 1 Explosion3
+Interaction Explosion4 Explosion3 Explosion4 Explosion4 40000
+Interaction Explosion4 Clear Explosion4 Fire 400
+
+Element Explosives Dynamite 140 10 10 0 1 1 1 0 Clear 0 HEX 000000000000000032A491382AB55B502AB55F162BBDD554292D5556292D555431255556000000000000000000000000000000000000C000000100000002000000070000000A8000001240000018C000001740000010400000104000001040000018400000144000001A400000154000000A8000000700000000000000000000 140 10 0
+
+InteractionTrigger Dynamite Fire <EXEC Explosion3 ELEMENT:Fire 0 X1 Y1 1 30> 50%
+
+// Volcano Elements
+
+Element Volcano Eruptor 180 11 11 0 1 1 1 0 Clear 0 File vulcano.bmp
+
+Interaction Eruptor Clear Clear Clear 100%
+
+InteractionTrigger Eruptor Earth Eruption 32768
+
+TRIGGER Eruption {
+DRAW ELEMENT:Magma RANDOMFILLEDCIRCLE  X1 Y1 (10 RAND 30) 1000
+DRAW ELEMENT:Eruptor2 FILLEDCIRCLE X1 Y1 2
+}
+
+Element None Eruptor2 0 0 0 0 1 0 1 0 Clear 0 Text None
+
+InteractionTrigger Eruptor2 All { 1000
+DRAW 0 SWAPPOINTS X1 Y1 X2 (Y1 - 1)
+DRAW 0 OBJECT X1 Y1 SIZE 3 a ELEMENT:Lava b ELEMENT:Magma {
+" aaa "
+"ba ab"
+"aaa"
+}
+CLOSEST ELEMENT:Clear X1 Y1 50
+IF (CLOSESTD < 20) {
+          EXEC Eruption2 CLOSESTX CLOSESTY
+          DRAW ELEMENT:Lava REPLACEFILLEDCIRCLE 0 0 (WIDTH * 2) 0 ELEMENT:Eruptor2
+          }
+}
+
+TRIGGER Eruption2 {
+EXEC LaunchExplosion ELEMENT:Fire 20 (1 RAND 2) 20 200 100 400
+EXEC LaunchExplosion ELEMENT:EruptionCloud 40 (1 RAND 2) 100 200 100 200
+EXEC ArcExplosion ELEMENT:Fire 50 0 50 120 100 100
+EXEC ArcExplosion ELEMENT:Lava 20 1 50 80 50 200
+DRAW ELEMENT:Fire FILLEDCIRCLE $0 $1 (20 RAND 70)
+DRAW ELEMENT:Lava FILLEDCIRCLE $0 $1 (10 RAND 18)
+DRAW ELEMENT:Volcano FILLEDCIRCLE X1 Y1 (10 RAND 22)
+DRAW ELEMENT:Earthquake REPLACEFILLEDCIRCLE $0 $1 150 0 ELEMENT:Earth
+DRAW ELEMENT:StoneWind REPLACEFILLEDCIRCLE $0 $1 71 0 ELEMENT:Clear
+}
+
+Element Volcano Lava 180 10 10 1000 100 20 32000 15 Lava2 10 File lava.bmp
+Element None Lava2 10 10 10 1000 1 20 32000 15 Lava 0 Text None
+
+NOBIAS ELEMENT:Lava
+NOBIAS ELEMENT:Lava2
+
+Interaction Lava Water Stone HotWater 3000
+Interaction Lava WarmWater Stone Steam 3000
+Interaction Lava HotWater Stone Steam 30000
+Interaction Lava Saltwater Stone HotSaltwater 3000
+Interaction Lava WarmSaltwater Stone HotSaltwater 30000
+Interaction Lava Wood Lava Wood(burning) 2000
+Interaction Lava Wood(burning) Lava Lava 2000
+Interaction Lava Plant Lava Plant(burning) 2000
+Interaction Lava Plant(burning) Lava Lava 2000
+Interaction Lava Oil Lava Gas(burning) 2000
+Interaction Lava Parasite Lava Fire 2000
+Interaction Lava Wall Lava2 Fire 5000 Lava Lava 5000
+Interaction Lava Goo Lava2 Clear 5000 Clear Clear 5000
+Interaction Lava Concrete Lava2 Fire 5000 Lava Lava 5000
+Interaction Lava Concrete2 Lava2 Fire 5000 Lava Lava 5000
+Interaction Lava Metal Lava2 HotMetal 500 Lava LiquidMetal 500
+Interaction Lava HotMetal Lava LiquidMetal 500
+
+Interaction Lava2 Water Stone2 HotWater 3000
+Interaction Lava2 WarmWater Stone2 Steam 3000
+Interaction Lava2 HotWater Stone2 Steam 30000
+Interaction Lava2 Saltwater Stone2 HotSaltwater 3000
+Interaction Lava2 WarmSaltwater Stone2 HotSaltwater 30000
+Interaction Lava2 Wood Lava Wood(burning) 2000
+Interaction Lava2 Wood(burning) Lava Lava 2000
+Interaction Lava2 Plant Lava Plant(burning) 2000
+Interaction Lava2 Plant(burning) Lava Lava 2000
+Interaction Lava2 Oil Lava Gas(burning) 2000
+Interaction Lava2 Parasite Lava Fire 2000
+Interaction Lava2 Wall Lava2 Fire 5000
+Interaction Lava2 Goo Lava2 Clear 5000 Clear Clear 5000
+Interaction Lava Wall Lava2 Fire 5000 Lava Lava 5000
+Interaction Lava2 Concrete Lava2 Fire 5000 Lava Lava 5000
+Interaction Lava2 Concrete2 Lava2 Fire 5000 Lava Lava 5000
+Interaction Lava2 Metal Lava2 HotMetal 500 Lava LiquidMetal 500
+Interaction Lava2 HotMetal Lava LiquidMetal 500
+
+Interaction Lava Water Water Lava 20000
+Interaction Lava2 Water Water Lava2 20000 
+Interaction Lava MagmaVein2 Lava2 Magma 1%
+Interaction Lava Water Stone Stone 10%
+Interaction Lava Steam Stone Stone 10%
+Interaction Lava2 Water Stone Stone 10%
+Interaction Lava2 Steam Stone Stone 10%
+
+Element None Magma 175 5 5 1000 100 20 32000 80 MagmaVein 0 Text None
+
+Interaction Magma Earth MagmaVein Magma 10000
+
+Element None MagmaVein 160 10 10 0 1 1 200 15 MagmaVein2 0 Text None
+Element None MagmaVein2 20 20 20 0 1 1 200 15 MagmaVein 0 Text None
+
+NOBIAS ELEMENT:MagmaVein
+NOBIAS ELEMENT:MagmaVein2
+
+Interaction MagmaVein Magma Magma MagmaVein 1000
+Interaction MagmaVein Clear MagamVein Lava 0.5% Lava Lava 0.4%
+Interaction MagmaVein2 Magma Magma2 MagmaVein2 1000
+Interaction MagmaVein2 Clear MagamVein2 Lava 0.5% Lava Lava 0.4%
+
+Element Volcano Volcano 170 10 10 0 1 0 1 0 Clear 0 File firegroup.bmp
+
+NOBIAS ELEMENT:Volcano
+
+Interaction Volcano All Volcano Lava 0.5% Volcano LavaSpew 40% Volcano EruptionCloud 60%
+
+Element None LavaSpew 255 10 10 -300 800 102 1 1000 Lava 0 Text None
+
+Element None EruptionCloud 90 70 70 -700 80 1 1 10 Clear 0 Text None
+
+NOBIAS ELEMENT:EruptionCloud
+
+Interaction EruptionCloud Lava Clear Lava2 15%
+Interaction EruptionCloud Lava2 Clear Lava 15%
+Interaction EruptionCloud Clear EruptionCloud Ash 0.1% Ash Ash 0.1% Clear Clear 0.2%
+
+InteractionTrigger EruptionCloud Lava { 100%
+IF ((X1 PIXEL (Y1 - 1)) == ELEMENT:Lava) {
+          DRAW 0 SWAPPOINTS X1 Y1 X1 (Y1 - 1)
+          }
+}
+
+InteractionTrigger EruptionCloud Lava2 { 100%
+IF ((X1 PIXEL (Y1 - 1)) == ELEMENT:Lava2) {
+          DRAW 0 SWAPPOINTS X1 Y1 X1 (Y1 - 1)
+          }
+}
+
+Element Volcano StoneWind 120 120 120 1000 1 1 1 2600 StoneWind2 0 File nuke.bmp
+Element None StoneWind2 110 110 110 1000 1 1 1 140 StoneWind3 0 Text None
+Element None StoneWind3 100 100 100 1000 1 1 1 140 StoneWind4 0 Text None
+Element None StoneWind4 90 90 90 1000 1 1 1 140 StoneWind5 0 Text None
+Element None StoneWind5 80 80 80 1000 1 1 1 140 StoneWind6 0 Text None
+Element None StoneWind6 70 70 70 1000 1 1 1 140 StoneWind7 0 Text None
+Element None StoneWind7 60 60 60 1000 1 1 1 140 StoneWind8 0 Text None
+Element None StoneWind8 50 50 50 1000 1 1 1 140 Fire 0 Text None
+
+NOBIAS ELEMENT:StoneWind
+NOBIAS ELEMENT:StoneWind2
+NOBIAS ELEMENT:StoneWind3
+NOBIAS ELEMENT:StoneWind4
+NOBIAS ELEMENT:StoneWind5
+NOBIAS ELEMENT:StoneWind6
+NOBIAS ELEMENT:StoneWind7
+NOBIAS ELEMENT:StoneWind8
+
+Interaction StoneWind Clear StoneWind StoneWind 32768
+Interaction StoneWind Earth StoneWind StoneWind 1000
+Interaction StoneWind Plant StoneWind StoneWind 32768
+Interaction StoneWind Wood StoneWind StoneWind 32768
+Interaction StoneWind Wall StoneWind StoneWind 10000
+Interaction StoneWind Glass StoneWind StoneWind 10000
+Interaction StoneWind Concrete StoneWind StoneWind 5000
+Interaction StoneWind Concrete2 StoneWind StoneWind 5000
+Interaction StoneWind Metal StoneWind StoneWind 5000
+Interaction StoneWind2 StoneWind StoneWind2 StoneWind2 10000
+Interaction StoneWind3 StoneWind StoneWind3 StoneWind3 10000
+Interaction StoneWind4 StoneWind StoneWind4 StoneWind4 10000
+Interaction StoneWind5 StoneWind StoneWind5 StoneWind5 10000
+Interaction StoneWind6 StoneWind StoneWind6 StoneWind6 10000
+Interaction StoneWind7 StoneWind StoneWind7 StoneWind7 10000
+Interaction StoneWind8 StoneWind StoneWind8 StoneWind8 10000
+Interaction StoneWind3 StoneWind2 StoneWind3 StoneWind3 10000 
+Interaction StoneWind4 StoneWind3 StoneWind4 StoneWind4 10000 
+Interaction StoneWind5 StoneWind4 StoneWind5 StoneWind5 10000 
+Interaction StoneWind6 StoneWind5 StoneWind6 StoneWind6 10000 
+Interaction StoneWind7 StoneWind6 StoneWind7 StoneWind7 10000 
+Interaction StoneWind8 StoneWind7 StoneWind8 StoneWind8 10000 
+Interaction Fire StoneWind8 Fire Fire 10000
+Interaction StoneWind8 Clear Ash Ash 100 EruptionCloud EruptionCloud 700
+
+Element None Ash 80 70 70 300 10 0 1 1 Clear 0 Text None
+
+NOBIAS ELEMENT:Ash
+
+Interaction Ash Ash Clear Ash 0.2% Clear Clear 0.2% Stone2 Clear 0.01% Stone Clear 0.01%
+Interaction Ash Lava Fire Lava 1000 Lava Lava 600
+Interaction Ash Lava2 Fire Lava2 1000
+Interaction Ash Water Clear Water 10% Water Ash 10% Stone Water 10% Clear SulfuricAcid 4%
+
+Element Volcano Earthquake 101 26 0 0 1 1 1 2600 Earthquake2 0 File sand2.bmp
+Element None Earthquake2 201 126 0 0 1 1 1 500 Earth 0 Text None
+
+NOBIAS ELEMENT:Earthquake
+NOBIAS ELEMENT:Earthquake2
+
+Interaction Earthquake Earth Earthquake Earthquake 32768
+Interaction Earthquake2 Earthquake Earthquake2 Earthquake2 10000 
+
+Element None Dirt 201 126 0 -435 1 1 1 1682 Rubble 0 Text None
+Element None Rubble 200 128 0 800 1 20 1 433 Clear 0 Text None
+
+Interaction Earthquake Clear Clear Dirt 32768
+Interaction Earthquake Water Earthquake Tsunami 32768
+Interaction Earthquake Concrete Earthquake ConcreteQuake 32768
+Interaction Earthquake Concrete2 Earthquake ConcreteQuake 32768
+Interaction Earthquake Wall Earthquake ConcreteQuake 32768
+
+Element None ConcreteQuake 64 64 64 0 1 1 1 2600 ConcreteQuake2 0 Text None
+Element None ConcreteQuake2 80 80 80 0 1 1 1 500 Concrete 0 Text None
+
+NOBIAS ELEMENT:ConcreteQuake
+NOBIAS ELEMENT:ConcreteQuake2
+
+Interaction ConcreteQuake Concrete ConcreteQuake ConcreteQuake 32768
+Interaction ConcreteQuake Concrete2 ConcreteQuake ConcreteQuake 32768
+Interaction ConcreteQuake Wall ConcreteQuake ConcreteQuake 32768
+Interaction ConcreteQuake2 ConcreteQuake ConcreteQuake2 ConcreteQuake2 10000 
+
+Element None StoneRubble 64 64 64 -435 1 1 1 1682 StoneRubble2 0 Text None
+Element None StoneRubble2 64 64 50 800 1 20 1 433 Clear 0 Text None
+
+Interaction ConcreteQuake Clear Clear StoneRubble 32768
+
+Element None Tsunami 50 50 255 700 100 20 1 2600 Tsunami2 0 Text None
+Element None Tsunami2 0 0 255 700 100 20 1 500 Water 0 Text None
+Element None Tsunami3 0 0 255 -700 1 0 1 1000 Water 0 Text None
+Element None Tsunami4 0 0 255 -700 1 0 1 1000 Clear 0 Text None
+
+NOBIAS ELEMENT:Tsunami
+NOBIAS ELEMENT:Tsunami2
+
+Interaction Tsunami Water Tsunami Tsunami 32768
+Interaction Tsunami2 Tsunami Tsunami2 Tsunami2 10000 
+Interaction Tsunami Clear Clear Tsunami3 32768
+InteractionTrigger Tsunami3 Clear <DRAW ELEMENT:Tsunami4 FILLEDCIRCLE X1 Y1 3> 1000
+
+Element None SulfuricAcid 209 198 12 720 100 20 1 0 Clear 0 Text None
+
+Interaction SulfuricAcid Plant SulfuricAcid Clear 10% SulfuricAcid SulfuricAcid 10% Clear Plant(burning) 9%
+Interaction SulfuricAcid Wood SulfuricAcid Clear 10% SulfuricAcid SulfuricAcid 10% Clear Wood(burning) 9%
+
+// Spouts
+
+Element Spouts Fountain 0 0 254 0 1 1 1 0 Clear 0 File spring.bmp
+Interaction Fountain Clear Fountain Water 1000
+Interaction Fountain Salt Saltwater Saltwater 500
+Interaction Fountain Fire Fountain Steam 1000
+
+Element Spouts Oilsource 128 0 0 0 1 1 1 0 Clear 0 File oilsource.bmp
+Interaction Oilsource Clear Oilsource Oil 1000
+
+Element Spouts Burner 250 0 0 0 1 1 1 0 Clear 0 File burner.bmp
+Interaction Burner Water Burner WarmWater 5000
+Interaction Burner WarmWater Burner HotWater 5000
+Interaction Burner Saltwater Burner WarmSaltwater 5000
+Interaction Burner WarmSaltwater Burner HotSaltwater 5000
+Interaction Burner Clear Burner Fire 5000
+Interaction Burner Plant Burner Plant(burning) 1800
+Interaction Burner Clear Burner Fire 1000
+Interaction Burner Wood Burner Wood(burning) 1000
+Interaction Burner Oil Burner Fire 1000
+Interaction Burner Parasite Burner Fire 1000
+Interaction Burner Extinguisher BurnerOff Extinguisher 1000
+
+Element Spouts AntimatterSource 255 255 255 0 1 1 1 0 Clear 0 File minus.bmp
+Interaction AntimatterSource Clear AntimatterSource Antimatter 10000
+
+Element Spouts ReplicatorSource 255 255 255 0 1 1 1 0 Clear 0 File plus.bmp
+Interaction ReplicatorSource Clear ReplicatorSource Replicator 10000
+
+Element Spouts CometSource 255 255 0 0 1 1 1 0 Clear 0 File fire2.bmp
+Interaction CometSource Clear CometSource Comet 4000
+
+Element Spouts AcidSource 255 0 100 0 1 1 1 0 Clear 0 File acid.bmp
+Interaction AcidSource Clear AcidSource Acid 2000
+
+Element Spouts CrystalSource 255 255 255 0 1 1 1 0 Clear 0 File crystal.bmp
+Element None CrystalSeed 200 200 200 9000 1 1 1 0 Clear 0 Text None
+Interaction CrystalSource All CrystalSource CrystalSeed 50
+Interaction CrystalSeed Crystal(grown) Crystal(grown) Crystal(grown) 50
+Interaction CrystalSource Crystal(grown) Crystal(grown) Crystal(grown) 50
+Interaction CrystalSeed Crystal Crystal Crystal 50
+Interaction CrystalSource Crystal Crystal Crystal 50
+
+InteractionTrigger CrystalSeed All CrystalSeedTrigger 100 Clear
+
+SET crystalsource ELEMENT:CrystalSource
+
+TRIGGER CrystalSeedTrigger {
+IF (INTERACTION2 != crystalsource) <DRAW ELEMENT:Crystal POINT X1 Y1
+}
+
+Element Spouts BatteryAcidSource 0 200 0 0 1 1 1 0 Clear 0 HEX 0000000000000000000000000000000003FFFFFC05A6C0C4052481841DA683841524870415B6CE0414000F04159C0384155001C41D88038405440304059C060403FFFFFC00000000000000000000000000000000313BB7502A912550339137202A9126203291352000000000137600002A2500003A2500002B76000000000000 255 255 255
+
+Interaction BatteryAcidSource Clear BatteryAcidSource BatteryAcid 2000
+
+Element Spouts Gassource 139 39 139 0 1 1 1 0 Clear 0 File gassource.bmp
+Interaction Gassource Clear Gassource Gas 500
+
+Element Spouts GasIIsource 139 239 179 0 1 1 1 0 Clear 0 File gas2source.bmp
+Interaction GasIIsource Clear GasIIsource GasII 250
+
+// Explosions
+
+// ArcExplosion Element RayCount Radius MinDistance MaxDistance HorizontalRange VerticalRange
+
+TRIGGER ArcExplosion {
+	DRAW 0 FILLEDCIRCLE X1 Y1 (0 RAND 20)
+	FOR RayCount FROM 1 TO $1 DO ArcExplosion2 (X1 * 100) (Y1 * 100) ((0 - $6) RAND $6) ((0 - $5) RAND $5) ($3 RAND $4) $0 $2
+}
+
+TRIGGER ArcExplosion2 {
+	DRAW $5 FILLEDCIRCLE ($0 / 100) ($1 / 100) $6
+	IF ($4 > 0) <TIMER 1 FRAMES ArcExplosion2 ($0 - $3) ($1 - $2) ($2 - 1) $3 ($4 - 1) $5 $6>
+}
+
+// DotExplosion Element RayCount MinDistance MaxDistance HorizontalRange VerticalRange
+
+TRIGGER DotExplosion {
+	DRAW 0 FILLEDCIRCLE X1 Y1 (3 RAND 5)
+	FOR RayCount FROM 0 TO $1 DO DotExplosion2 (X * 50) (Y * 50) ((0 - $5) RAND $5) ((0 - $4) RAND $4) ($2 RAND $3) $0
+}
+
+TRIGGER DotExplosion2 {
+	DRAW $5 POINT ($0 / 50) ($1 / 50)
+	IF ($4 > 0) <TIMER 1 FRAMES DotExplosion2 ($0 - $3) ($1 - $2) ($2 - 1) $3 ($4 - 1) $5>
+}
+
+// LaunchExplosion Element RayCount Radius MinDistance MaxDistance HorizontalRange VerticalRange
+
+TRIGGER LaunchExplosion {
+	DRAW 0 FILLEDCIRCLE X1 Y1 10
+	DRAW $0 FILLEDCIRCLE X1 Y1 5
+	IF (REVERSE == 0) <SET LaunchExplosionVar 1> ELSE <SET LaunchExplosionVar -1>
+	FOR RayCount FROM 1 TO $1 DO LaunchExplosion2 (X1 * 100) (Y1 * 100) ((0 - $6) RAND $6) (LaunchExplosionVar * $5) ($3 RAND $4) $0 $2
+}
+
+TRIGGER LaunchExplosion2 {
+	DRAW $5 FILLEDCIRCLE ($0 / 100) ($1 / 100) $6
+	IF ($4 > 0) <TIMER 1 FRAMES LaunchExplosion2 ($0 - $2) ($1 - $3) $2 $3 ($4 - 1) $5 $6> ELSE <FOR RayCount FROM 1 TO 4 DO LaunchExplosion3 $0 $1 ((0 - 500) RAND 500) ((0 - 500) RAND 500) 15 $5>
+}
+
+TRIGGER LaunchExplosion3 {
+	DRAW $5 LINE ($0 / 100) ($1 / 100) ($2 / 50) ($3 / 50)
+	IF ($4 > 0) <TIMER 1 FRAMES LaunchExplosion3 ($0 - $2) ($1 - $3) ($2 - 1) $3 ($4 - 1) $5>
+}
+
+// Element DieElement StartX StartY Radius MaxRadius
+// Based on Lawl_Rock's explosion
+
+TRIGGER Explosion3 {
+          IF ($1 != 0) <DRAW $1 REPLACEFILLEDCIRCLE $2 $3 ($4 - 1) 0 $0>
+          DRAW $0 CIRCLE $2 $3 $4
+          IF ($4 < $5) {
+          TIMER 1 FRAMES Explosion3 $0 $1 $2 $3 ($4 + 1) $5
+          }
+}
+
+// Mini-functinos
+
+// varid x1 y1 x2 y2
+
+TRIGGER DISTFORMULA {
+DIST[$0] = (SQRT (($1 - $3) ^ 2 - ($2 - $4) ^ 2))
+}
+
+// elementid startx starty endx endy
+
+TRIGGER POINTLINE {
+DRAW $0 LINE $1 $2 ($2 - $0) ($3 - $1)
+} 
+
+// elementid x y width height replaceelementid
+
+TRIGGER REPLACEFILLEDRECT {
+FOR tmp FROM 0 TO $4 DO <DRAW $0 REPLACELINE $1 ($2 + tmp) $3 0 $5>
+}
+
+// elementid x y width height replaceelementid
+
+TRIGGER REPLACERECT {
+DRAW $0 REPLACELINE $1 $2 $3 0 0 $5
+DRAW $0 REPLACELINE $1 ($2 + $4) $3 0 0 $5
+DRAW $0 REPLACELINE $1 $2 0 $4 0 $5
+DRAW $0 REPLACELINE ($1 + $3) $2 0 $4 0 $5
+}
+
+// elementid x1 y1 x2 y2 x3 y3
+
+TRIGGER POINTTRIANGLE {
+DRAW $0 LINE $1 $2 ($3 - $1) ($4 - $2)
+DRAW $0 LINE $3 $4 ($5 - $3) ($6 - $4)
+DRAW $0 LINE $5 $6 ($1 - $5) ($2 - $6)
+}
+
+// elementid x1 y1 x2 y2 x3 y3 replaceelementid
+
+TRIGGER REPLACEPOINTTRIANGLE {
+DRAW $0 REPLACELINE $1 $2 ($3 - $1) ($4 - $2) 0 $7
+DRAW $0 REPLACELINE $3 $4 ($5 - $3) ($6 - $4) 0 $7
+DRAW $0 REPLACELINE $5 $6 ($1 - $5) ($2 - $6) 0 $7
+}
+
+// Firing
+
+// EXEC ShootProjectile StartX StartY Speed Element Aiming ShootType Radius DrawType ReplaceElement StopType
+// EXEC ShootProjectile $0     $1    $2    $3       $4     $5         $6     $7          $8           $9
+
+TRIGGER ShootProjectile {
+IF ($0 > -10) {
+          IF ($4 == 0) <SET tmpX ($0 - X)>
+          IF ($4 == 0) <SET tmpY ($1 - Y)>
+          SET tmp (SQRT ((tmpX * tmpX) + (tmpY * tmpY)))
+          }
+EXEC MoveProjectile ($0 * 50) ($1 * 50) ((tmpX * ($2 * -50)) / tmp) ((tmpY * ($2 * -50)) / tmp) $3 $7 $8 $9 $6 $5
+SET StopVar 0
+}
+
+TRIGGER MoveProjectile {
+SET FlyX (($0 + $2) / 50)
+SET FlyY (($1 + $3) / 50)
+SET StopMoving 0
+IF (($0 / 50) > WIDTH) <SET StopMoving 1>
+IF (($1 / 50) > HEIGHT) <SET StopMoving 1>
+IF (($0 / 50) < 0) <SET StopMoving 1>
+IF (($1 / 50) < 0) <SET StopMoving 1>
+IF ($9 == 0) {
+          IF ($5 == 0) <DRAW $4 LINE FlyX FlyY ($2 / 50) ($3 / 50)>
+          IF ($5 == 1) <DRAW $4 REPLACELINE FlyX FlyY ($2 / 50) ($3 / 50) 0 $6>
+          IF (($7 == 0) && (StopMoving == 0)) <TIMER 1 FRAMES MoveProjectile ($0 + $2) ($1 + $3) $2 $3 $4 $5 $6 $7 $8 0>
+          IF (($7 == 1) && (StopMoving == 0) && (StopVar == 0)) <TIMER 1 FRAMES MoveProjectile ($0 + $2) ($1 + $3) $2 $3 $4 $5 $6 $7 $8 0>
+          }
+IF ($9 == 1) {
+          IF ($5 == 0) <DRAW $4 FILLEDCIRCLE FlyX FlyY $8>
+          IF ($5 == 1) <DRAW $4 REPLACEFILLEDCIRCLE FlyX FlyY $8 0 $6>
+          IF (($7 == 0) && (StopMoving == 0)) <TIMER 1 FRAMES MoveProjectile ($0 + $2) ($1 + $3) $2 $3 $4 $5 $6 $7 $8 1>
+          IF (($7 == 1) && (StopMoving == 0) && (StopVar == 0)) <TIMER 1 FRAMES MoveProjectile ($0 + $2) ($1 + $3) $2 $3 $4 $5 $6 $7 $8 1>
+IF (StopMoving == 1) <DRAW ELEMENT:Clear REPLACEFILLEDCIRCLE 0 0 (WIDTH * 2) 0 $4>
+}
+}
+
+// Stamp Autogens
+
+TRIGGER selectelement {
+IF (BUTTON == 1) <SET ELEMENT1 $0> $0
+IF (BUTTON == 2) <SET ELEMENT2 $0> $0
+IF (BUTTON == 4) <SET ELEMENT4 $0> $0
+IF ((SETPIECES != 0) || (USETOOL != 0)) {
+          SET SETPIECES 0
+          USETOOL = 0
+          EXEC circletools
+          }
+EXEC listgroups
+EXEC listelements elementgroulisted
+EXEC LeftMenu
+}
+
+TRIGGER listgroups {
+	MENU LEFT CLEAR
+	IF (texticons == 0) <MENU LEFT ADDBORDER TEXT "Scroll" FILE scroll.bmp ((ELEMENT1 == 1) * 255) ((ELEMENT2 == 1) * 255) ((ELEMENT4 == 1) * 255) dragmenu>
+	IF (texticons == 1) <MENU LEFT ADDBORDER TEXT "Scroll" TEXT "Scroll" ((ELEMENT1 == 1) * 255) ((ELEMENT2 == 1) * 255) ((ELEMENT4 == 1) * 255) dragmenu>
+          groupcount = 1
+	IF (COUNT:GROUPS == 0) <SET groupcount 0>
+	WHILE (groupcount - COUNT:GROUPS < 0) {
+		IF ((texticons == 1) && (elementgroulisted == groupcount)) <MENU LEFT ADDBORDER GROUP groupcount GROUPNAME groupcount 255 255 255 listgroupclick groupcount>
+		IF ((texticons == 1) && (elementgroulisted != groupcount)) <MENU LEFT ADD GROUP groupcount GROUPNAME groupcount listgroupclick groupcount>
+		IF ((texticons == 0) && (elementgroulisted == groupcount)) <MENU LEFT ADDBORDER GROUP groupcount GROUP groupcount 255 255 255 listgroupclick groupcount>
+		IF ((texticons == 0) && (elementgroulisted != groupcount)) <MENU LEFT ADD GROUP groupcount GROUP groupcount listgroupclick groupcount>
+		INC groupcount
+	}
+}
+TRIGGER listgroupclick {
+DRAW 0 REPLACEFILLEDCIRCLE 0 0 (WIDTH * 2) 0 ELEMENT:PreviewFrame
+	IF (BUTTON == 1) <SET ELEMENT1 GROUP:$0:1>
+	IF (BUTTON == 1) listelements
+	IF (BUTTON == 2) listelements
+	IF (BUTTON == 4) sublistelements
+	IF (BUTTON != 4) listgroups
+IF (SETPIECES != 0) {
+          SET SETPIECES 0
+          EXEC circletools
+          }
+IF (USETOOL != 0) {
+          USETOOL = 0
+          EXEC circletools
+          }
+EXEC LeftMenu
+}
+
+ON dragmenu EXEC LeftMenu
+
+Element None DummyElement2 255 255 255 0 1 1 1 0 Clear 0 HEX 00000000000000000101F8000380FE0007E03F0003F81F8001F80FC030F80FE078F80FE07DF81FF03FF03FF01FF87FFC1FFCFC7E0FFEF83E003F703C001FA038000FC0000017F000003BF800007DFC0000FCFE0001F87F0003F03F8007E03FC00FC01FE01F800FF03F0007F83E0003C81C0001C8080000F80000007000000000 255 255 255
+Element None DummyElement3 255 255 255 0 1 1 1 0 Clear 0 HEX 0000000000000000000000007C0000007F8000004EC000004360000060B0000020D80000106C0000081E0000040F0000020700000103FFFF018000001C8000011700003F1F0001C01C00030C3800031263FF81B2FE0040E40000306400000C080000030700000183000002FE0000038000000000000000000000000000000000 255 255 255
+
+TRIGGER LeftMenu {
+EXEC listgroups
+// MENU LEFT ADD TEXT "" SEPERATOR 0 <>
+MENU LEFT ADD TEXT "Stamp Autogens" File stamp.bmp {
+          EXEC AutoGenSelection
+          SETPIECES = 1
+          }
+MENU LEFT ADD TEXT "" SEPERATOR 0 <>
+}
+
+TRIGGER MOUSEMOVE {
+IF (SETPIECES != 0) {
+          SET CURSOR 2
+          REMOVETRIGGER drawing
+          }
+IF ((SETPIECES == 0) && (USETOOL != 0)) {
+          REMOVETRIGGER drawing
+          IF (USETOOL == 1) <CURSOR = 0>
+          IF (USETOOL == 2) <CURSOR = 2>
+          IF (USETOOL == 3) <CURSOR = 7>
+          }
+}
+
+ON DRAW IF (SETPIECES != 0) {
+REMOVETRIGGER drawing
+IF ((BUTTON == 1) || PREVIEW) {
+          IF (SETPIECES == -1) <DRAW GRIDELEMENT FILLEDRECT ((X / BRUSHSIZE) * BRUSHSIZE) ((Y / BRUSHSIZE) * BRUSHSIZE) BRUSHSIZE BRUSHSIZE>
+          IF (SETPIECES == 1) TreeGen
+          IF (SETPIECES == 2) HouseGen
+          IF (SETPIECES == 3) BatteryGen
+          IF (SETPIECES == 4) CrystalGen
+          IF (SETPIECES == 5) AirportGen
+          IF (SETPIECES == 6) TurbineGen
+          IF (SETPIECES == 7) HotplateGen
+          IF (SETPIECES == 8) FissionPlantGen
+          IF (SETPIECES == 9) DrillRigGen
+          IF (SETPIECES == 10) SET SETPIECES 0
+          IF (SETPIECES == 11) SET SETPIECES 0
+          IF (SETPIECES == 12) SET SETPIECES 0
+          IF (SETPIECES == 13) SET SETPIECES 0
+          IF (SETPIECES == 14) SET SETPIECES 0
+          IF (SETPIECES == 15) SET SETPIECES 0
+          IF (SETPIECES == 16) SET SETPIECES 0
+          IF (SETPIECES == 17) SET SETPIECES 0
+          IF (SETPIECES == 18) SET SETPIECES 0
+          IF (SETPIECES == 19) SET SETPIECES 0
+          IF (SETPIECES == 20) SET SETPIECES 0
+          IF (SETPIECES == 21) SET SETPIECES 0
+          IF (SETPIECES == 22) SET SETPIECES 0
+          IF (SETPIECES == 23) SET SETPIECES 0
+          }
+}
+
+ON DRAW IF ((SETPIECES == 0) && (USETOOL != 0)) {
+IF (BUTTON == 1) {
+          IF (USETOOL == 1) RepeatClick
+          IF (USETOOL == 3) {
+                    IF (CTRL) <ELEMENT1 = 1>
+                    }
+          }
+IF (BUTTON == 2) {
+          }
+IF (BUTTON == 4) {
+          }
+}
+
+TRIGGER MOUSEDOWN {
+IF ((SETPIECES == 0) && (USETOOL != 0)) {
+IF (BUTTON == 1) {
+          IF (USETOOL == 1) ClickOnce
+          IF (USETOOL == 2) LaserFire
+          IF (USETOOL == 3) {
+                    IF (ZOOM < 10) {
+                              IF (CTRL == 0) {
+                                        INC ZOOM
+                                        ON zoominc SCROLL (X * ZOOM) (Y * ZOOM)
+                                        }
+                              }
+                    }
+          }
+IF (BUTTON == 4) {
+          IF (USETOOL == 3) <ZOOM = 1>
+          }
+}
+}
+
+TRIGGER ToolSelection {
+MENU SUB CLEAR
+MENU SUB ADD TEXT "Controls" File hand.bmp <USETOOL = 1>
+IF (LaserX > 0) MENU SUB ADD TEXT "Fire Laser" File preview.bmp <USETOOL = 2>
+MENU SUB ADD TEXT "Zoom" File zoom.bmp <USETOOL = 3>
+SUBMENU
+}
+
+TRIGGER AutoGenSelection {
+MENU RIGHT CLEAR
+
+MENU RIGHT ADD TEXT "Element" ELEMENT ELEMENT:Earth {
+          MENU SUB CLEAR
+          MENU SUB ADD TEXT "Clear" ELEMENT ELEMENT:Clear SETGRIDELEMENT ELEMENT:Clear
+          MENU SUB ADD TEXT "Earth" ELEMENT ELEMENT:Earth SETGRIDELEMENT ELEMENT:Earth
+          MENU SUB ADD TEXT "Wall" ELEMENT ELEMENT:Wall SETGRIDELEMENT ELEMENT:Wall
+          MENU SUB ADD TEXT "Water" ELEMENT ELEMENT:Water SETGRIDELEMENT ELEMENT:Water
+          SUBMENU
+          }
+MENU RIGHT ADD TEXT "Tree" File tree.bmp <SET SETPIECES 1>
+MENU RIGHT ADD TEXT "House" File home.bmp <SET SETPIECES 2>
+MENU RIGHT ADD TEXT "Battery" ELEMENT ELEMENT:Battery <SETPIECES = 3>
+MENU RIGHT ADD TEXT "Crystal Reactor" File http://www.freewebs.com/alchemygod/CrystalReactor.bmp <SETPIECES = 4>
+MENU RIGHT ADD TEXT "Airport" ELEMENT ELEMENT:DummyElement3 <SETPIECES = 5>
+MENU RIGHT ADD TEXT "Turbine" ELEMENT ELEMENT:Turbine <SETPIECES = 6>
+MENU RIGHT ADD TEXT "HotPlate" ELEMENT ELEMENT:HeatPad <SETPIECES = 7>
+MENU RIGHT ADD TEXT "Fission Reactor" ELEMENT ELEMENT:Uranium-238 <SETPIECES = 8>
+MENU RIGHT ADD TEXT "Oil Rig" ELEMENT ELEMENT:Driller <SETPIECES = 9>
+}
+
+TRIGGER ClickOnce {
+OVERELEMENT = (X PIXEL Y)
+IF (OVERELEMENT == ELEMENT:SwitchOff) <DRAW ELEMENT:SwitchOn FILL X Y>
+IF (OVERELEMENT == ELEMENT:SwitchOn) <DRAW ELEMENT:SwitchOff FILL X Y>
+IF (OVERELEMENT == ELEMENT:ElecFountain) <DRAW ELEMENT:ElecFountain2 FILL X Y>
+IF (OVERELEMENT == ELEMENT:ElecOilsource) <DRAW ELEMENT:ElecOilsource2 FILL X Y>
+IF (OVERELEMENT == ELEMENT:ElecBurner) <DRAW ELEMENT:ElecBurner2 FILL X Y>
+IF (OVERELEMENT == ELEMENT:HeatPad) <DRAW ELEMENT:HeatPad2 FILL X Y>
+}
+
+TRIGGER RepeatClick {
+OVERELEMENT = (X PIXEL Y)
+IF (OVERELEMENT == ELEMENT:Water) <DRAW ELEMENT:Steam REPLACEFILLEDCIRCLE X Y 2 0 ELEMENT:Water>
+IF (OVERELEMENT == ELEMENT:Earth) <DRAW ELEMENT:Wall REPLACEFILLEDCIRCLE X Y 2 0 ELEMENT:Earth>
+IF (OVERELEMENT == ELEMENT:Acid) <DRAW ELEMENT:Oil REPLACEFILLEDCIRCLE X Y 2 0 ELEMENT:Acid>
+IF (OVERELEMENT == ELEMENT:Clear) <DRAW ELEMENT:Fire POINT X Y>
+IF (OVERELEMENT == ELEMENT:Metal) <DRAW ELEMENT:HotMetal REPLACEFILLEDCIRCLE X Y 2 0 ELEMENT:Metal>
+}
+
+// Auto Gens
+
+TRIGGER SETGRIDELEMENT {
+SETPIECES = -1
+GRIDELEMENT = $0
+MENU REFRESH
+}
+
+
+TRIGGER TreeGen {
+DRAW ELEMENT:Wood FILLEDRECT (X - 2) (Y - 15) 5 19
+DRAW ELEMENT:Plant FILLEDCIRCLE (X - 4) (Y - 19) 9
+DRAW ELEMENT:Plant FILLEDCIRCLE (X + 4) (Y - 19) 9
+DRAW ELEMENT:Plant FILLEDCIRCLE X (Y - 25) 9
+}
+
+TRIGGER HouseGen {
+DRAW ELEMENT:Clear OBJECT (X - 15) (Y - 13) a ELEMENT:Wall w ELEMENT:Wood g ELEMENT:Glass {
+	"                                "
+	"                                "
+	"                     aaaa       "
+	"              www    aaaa       "
+	"             wwwww   aaaa       "
+	"            wwwwwwww aaaa       "
+	"           wwwwwwwwwwaaaa       "
+	"         wwwwwwwwwwwwwaaa       "
+	"        wwwwwwwwwwwwwwwaa       "
+	"      wwwwwwwwwwwwwwwwwwa       "
+	"     wwwwwwwwwwwwwwwwwwwww      "
+	"    wwwwwwwwwwwwwwwwwwwwwwww    "
+	"   wwwwwwwwwwwwwwwwwwwwwwwwww   "
+	" wwwwwwwwwwwwwwwwwwwwwwwwwwwww  "
+	" wwwwwwwwwwwwwwwwwwwwwwwwwwwwww "
+	" wwwwwwwwwwwwwwwwwwwwwwwwwwwwww "
+	"    aaaaaaaaaaaaaaaaaaaaaaaa    "
+	"    aaaaaaaaaaaaaaaaaaaaaaaa    "
+	"    aaaaawwwwwaaaagggggggaaa    "
+	"    aaaaawwwwwaaaagggggggaaa    "
+	"    aaaaawwwwwaaaagggggggaaa    "
+	"    aaaaawwwwwaaaagggggggaaa    "
+	"    aaaaawwwwwaaaagggggggaaa    "
+	"    aaaaawwwwwaaaagggggggaaa    "
+	"    aaaaawwwwwaaaagggggggaaa    "
+	"    aaaaawwwwwaaaaaaaaaaaaaa    "
+	"    aaaaawwwwwaaaaaaaaaaaaaa    "
+	"    aaaaawwwwwaaaaaaaaaaaaaa    "
+	"    aaaaawwwwwaaaaaaaaaaaaaa    "
+	"                                "
+	"                                "
+	"                                "
+	}
+}
+
+TRIGGER BatteryGen {
+DRAW ELEMENT:Clear OBJECT (X - 25) (Y - 25) A ELEMENT:Wire W ELEMENT:Wall b ELEMENT:BatteryAcid S ELEMENT:SwitchOff {
+	"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+	"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWSSSSSSSSSSSSSSSSSSWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWWWWWWWWWWWWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWWWWWWWWWWWWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWWWWWWWWWWWWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWWWWWWWWWWWWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWWWWWWWWWWWWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWAAAAAAAAAAWWWWSSWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"AAAAAAAAAAAAAAAASSSSSSbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"AAAAAAAAAAAAAAAASSSSSSbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"AAAAAAAAAAAAAAAASSSSSSbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"AAAAAAAAAAAAAAAASSSSSSbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"AAAAAAAAAAAAAAAASSSSSSbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"AAAAAAAAAAAAWWWWWWWWWWbbbbbbbbbbbbbbbbbbbbbbbbbbWW"
+	"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+	"WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW"
+	}
+}
+
+TRIGGER CrystalGen {
+DRAW ELEMENT:Clear OBJECT (X - 22) (Y - 15) w ELEMENT:Wall c ELEMENT:SuperCrystal b ELEMENT:BruteWire r ELEMENT:EnergyRefinery m ELEMENT:MagneticWires {
+	"                w                     w                "
+	"               ww          c          ww               "
+	"              www          c          www              "
+	"             www          ccc          www             "
+	"            www           ccc           www            "
+	"           www           ccccc           www           "
+	"          www            ccccc            www          "
+	"         www            ccccccc            www         "
+	"         www            ccccccc            www         "
+	"        www            ccccccccc            www        "
+	"        www            ccccccccc            www        "
+	"       www            ccccccccccc            www       "
+	"       www            ccccccccccc            www       "
+	"      www            ccccccccccccc            www      "
+	"      www            ccccccccccccc            www      "
+	"     wwww           ccccccccccccccc           wwww     "
+	"     wwwww          ccccccccccccccc          wwwww     "
+	"    wwwwww          ccccccccccccccc          wwwwww    "
+	"    wbwwww        ccccccccccccccccccc        wwwwbw    "
+	"   bbbbmmmmmmmmmmccccccccccwccccccccccmmmmmmmmmmbbbb   "
+	"   bbbbmwww       ccccccccwwwcccccccc       wwwmbbbb   "
+	"   bbbbmwwww      ccccccccwwwcccccccc      wwwwmbbbb   "
+	"  bbbbbbwwwww     cccccccwwwwwccccccc     wwwwwbbbbbb  "
+	"  bbbbbbbwwwww    cccccwwwrrrwwwccccc    wwwwwbbbbbbb  "
+	"  bbbbbbbwwwwwww  cccccwwrrrrrwwccccc  wwwwwwwbbbbbbb  "
+	" bbbbbbbbwwwwwwwwwwcccwwrrrrrrrwwcccwwwwwwwwwwbbbbbbbb "
+	" bbbbbbbbwwwwwwwwwwwwwwwrrrrrrrwwwwwwwwwwwwwwwbbbbbbbb "
+	" bbbbbbbbbbbbbbbbbbbbbbbrrrrrrrbbbbbbbbbbbbbbbbbbbbbbb "
+	"bbbbbbbbbbbbbbbbbbbbbbbbrrrrrrrbbbbbbbbbbbbbbbbbbbbbbbb"
+	"bbbbbbbbwwwwwwwwwwwwwwwwrrrrrrrwwwwwwwwwwwwwwwwbbbbbbbb"
+	"bbbbbbbbwwwwwwwwwwwwwwwwrrrrrrrwwwwwwwwwwwwwwwwbbbbbbbb"
+	"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+	"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+	"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+	"wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww"
+	}
+}
+
+TRIGGER AirportGen {
+DRAW ELEMENT:Clear OBJECT (X - 92) (Y - 54) w ELEMENT:Concrete2 g ELEMENT:Glass c ELEMENT:Concrete m ELEMENT:Metal {
+	"                                                                                                                                                                                        "
+	"             cccccccc                                                                                                                                                                   "
+	"       ccccccwwwwwwwwcccccccc                                                                                                                                                           "
+	"    cccwwwwwwwwwwggwwwwwwwwwwcccc                                                                                                                                                       "
+	"    cwwwwwwwwgggwggggggwwwwwwwwwc                                                                                                                                                       "
+	"    cwwggwggggggwggggggggwggggggc                                                                                                                                                       "
+	"     ggggwggggggwggggggggwgggggc                                                                                                                                                        "
+	"     ggggwwgggggwggggggggwgggggc                                                                                                                                                        "
+	"     ggggwwggggwwgggggggwgggggwc                                                                                                                                                        "
+	"     cgggwwggggwwgggggggwgggggwc                                                                                                                                                        "
+	"      gggwwggggwwgggggggwgggggc                                                                                                                                                         "
+	"      gggwwggggwwgggggggwgggggc                                                                                                                                                         "
+	"      ggggwwggggwggggggwgggggwc                                                                                                                                                         "
+	"      ggggwwggggwggggggwgggggwc                                                                                                                                                         "
+	"       gggwwggggwggggggwgggggc                                                                                                                                                          "
+	"       gggwwggwwwwgggggwggggcc                                                                                                                                                          "
+	"       ccwwwwwccwcccwwwwwwwccc                                                                                                                                                          "
+	"      wwwcccccccwccccccccccwwww                                                                                                                                                         "
+	"      wcccccccccwcccccccccccccw                                                                                                                                                         "
+	"       wccccccccwccccccccccccw                                                                                                                                                          "
+	"       wccccccccwccccccccccccw                                                                                                                                                          "
+	"        wcccccccwcccccccccccw                                                                                                                                                           "
+	"        wcccccccwcccccccccccw                                                                                                                                                           "
+	"         wccccccwccccccccccw                                                                                                                                                            "
+	"         wccccccwccccccccccw                                                                                                                                                            "
+	"         wccccccwcccccccccw                                                                                                                                                             "
+	"         wccccccwcccccccccw                                                                                                                                                             "
+	"         wccccccwcccccccccw                                                                                                                                                             "
+	"         wccccccwcccccccccw                                                                                                                                    m                        "
+	"         wccccccwcccccccccw                                                                                                                         m          m                        "
+	"         wccccccwcccccccccw                                                                                                                         m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m                        "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m   m  m                 "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m   m  m                 "
+	"         wccccccwcccccccccw                                                                                                       m                 m          m   m  m                 "
+	"         wccccccwcccccccccw                                                                                                       m        wwwwwwwwwwwwwwww    m   m  m                 "
+	"         wccccccwcccccccccw                                                                                                      wwwwwwwwwwccccwcccccccccccwwwwwwwwwwww                 "
+	"         wccccccwcccccccccw                                                                                                 wwwwwccccccccccccccwccccccccccccccccccccccw                 "
+	"         wccccccwcccccccccw                                                                                                 wcccccccccccccwwwwwwwwwwwwwwwwwwccccccccccw                 "
+	"         wccccccwcccccccccw                                                                                                 wcccwwwwwwwwwwgggggwggggggggggggwwwwwwwwwwww                "
+	"         wccccccwcccccccccw                                                                                                wwwwwgggggggggggggggwgggggggggggggggggggggggw                "
+	"         wccccccwcccccccccw                                                                                                wggggggggggggggggggggwgggggggggggggggggggggw                 "
+	"         wccccccwcccccccccw                                                                                                 wgggggggggggggggggggwgggggggggggggggggggggw                 "
+	"         wccccccwcccccccccw                                                                                                 wgggggggggggggggggggwggggggggggggggggggggw                  "
+	"         wccccccwcccccccccw                                                                                                 wgggggggggggggggggggwggggggggggggggggggggw                  "
+	"         wccccccwcccccccccw                                                                                                 wgggggggggggggggggggwggggggggggggggggggggw                  "
+	"         wccccccwcccccccccw                                                                                                  wgggggggggggggggggggwggggggggggggggggggw                   "
+	"         wccccccwcccccccccw                                                                                                  wgggggggggggggggggggwggggggggggggggggggw                   "
+	"         wccccccwcccccccccw                                                                                                  wggggggggggggggwwwwwwwwwwwwwwwgggggggggw                   "
+	"         wccccccwcccccccccw                                                                                                   wgggwwwwwwwwwwcccccwcccccccccwwwwwwwwww                   "
+	"         wccccccwcccccccccw                                                                                                 wwwwwwcccccccccccccccwccccccccccccccccccw                   "
+	"         wccccccwcccccccccw                                                                                                 wccccccccccccccccccccwccccccccccccccccccw                   "
+	"         wccccccwcccccccccw                                                                                                 wccccccccccccccccccccwccccccccccccccccccw                   "
+	"         wccccccwcccccccccw                                                                                                 wccccccccccccccccccccwccccccccccccccccccw                   "
+	"         wccccccwcccccccccw                                                                                                 wccccccccccwwwwwwwwwwwwwwwwwwwwcccccccccw                   "
+	"         wccccccwcccccccccw                                                                                                 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww                   "
+	"         wccccccwcccccccccw                                                                                                  wcccccccccccccccccccccccccccccccccccccw                    "
+	"         wccccccwcccccccccwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww    "
+	"         wccccccwcccccccccwccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwcccccccccwccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccggggggggggcggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggccccccccccccccccccccgggggggggccggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggggggcgggggggggcccccccccccccccccccccccccccccccggggggggggggccccgggggggggggggcgggggggggcw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwcccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccw    "
+	"         wccccccwccccccccccwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww    "
+	"         wccccccwccccccccccw                                                                                                                                                            "
+	"         wwcccccwccccccccccw                                                                                                                                                            "
+	"           wwwwcwcccccwwwwww                                                                                                                                                            "
+	"               wwwwwww                                                                                                                                                                  "
+	}
+}
+
+TRIGGER TurbineGen {
+DRAW ELEMENT:Wall FILLEDRECT (X - 60) (Y - 60) 120 60
+DRAW ELEMENT:Clear FILLEDRECT (X - 50) (Y - 50) 100 40
+DRAW ELEMENT:Wire FILLEDRECT (X - 50) (Y - 50) 115 4
+DRAW ELEMENT:Turbine FILLEDRECT (X - 50) (Y - 50) 100 5
+DRAW ELEMENT:HeatPad FILLEDRECT (X - 50) (Y - 15) 100 2
+DRAW ELEMENT:Wire FILLEDRECT (X - 50) (Y - 10) 115 2
+DRAW ELEMENT:ElecBurner FILLEDRECT (X - 50) (Y - 10) 100 2
+}
+
+TRIGGER HotplateGen {
+DRAW ELEMENT:Clear OBJECT (X - 10) (Y - 10) w ELEMENT:Wire h ELEMENT:HeatPad b ELEMENT:ElecBurner c ELEMENT:Wall {
+	" h                            h "
+	" h                            h "
+	" h                            h "
+	" h                            h "
+	" h                            h "
+	" h                            h "
+	" h                            h "
+	" h                            h "
+	" h                            h "
+	" hhhhhhhhhhhhhhhhhhhhhhhhhhhhhh "
+	"                                "
+	" bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb "
+	" bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb "
+	" cccccccccccccwwwcccccccccccccc "
+	" cccccccccccccwwwcccccccccccccc "
+	" cccccccccccccwwwccccccccccccccw"
+	" cccccccccccccwwwwwwwwwwwwwwwwww"
+	" cccccccccccccwwwwwwwwwwwwwwwwww"
+	" cccccccccccccwwwwwwwwwwwwwwwwww"
+	" ccccccccccccccccccccccccccccccw"
+	" cccccccccccccccccccccccccccccc "
+	"                                "
+	}
+}
+
+TRIGGER FissionPlantGen {
+DRAW ELEMENT:Clear OBJECT (X - 32) (Y - 29) w ELEMENT:Wire t ELEMENT:Turbine g ELEMENT:ElecFountain u ELEMENT:NuclearRod c ELEMENT:Concrete {
+	"                                                               "
+	"       ccc                ccc                                  "
+	"        ccc              ccc                                   "
+	"         ccc            ccc                                    "
+	"          ccc          ccc                                     "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"           ccc        ccc                                      "
+	"          ccc          ccc                                     "
+	"         ccc            ccc                                    "
+	"        ccc              ccc                                   "
+	"       ccc                ccc                                  "
+	"      ccc                  ccc                                 "
+	"     ccc                    ccc                                "
+	"    ccc                      ccc                               "
+	"   ccc                        ccc                              "
+	"  ccc                          ccc                             "
+	" ccc                            ccc                            "
+	" cccc         ctttttttttttttttwwwwwwwwwwwwwwccccccccc          "
+	" cccc         ctttttttttttttttwwwwwwwwwwwwwwccccccccc          "
+	" cc                          ccccccwwwwwwwwwccccccccc          "
+	" c                                cwwwwwwwwwccccccccc          "
+	" c                                gwwwwwwwwwccccccccc          "
+	" c                                gwwwwwwwwwccccccccc          "
+	" c                                gwwwwwwwwwccccccccc          "
+	" c                                gwwwwwwwwwccccccccc          "
+	" c                                cwwwwwwwwwccccccccc          "
+	" c                                ccccccwwwcccccccccc          "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" c                                ccccccwwwccccccccccccccccccc "
+	" ccuu uu uu uu uu uu uu uu uu uuccccccccwwwccccccccccccccccccc "
+	" ccuu uu uu uu uu uu uu uu uu uuccccccccwwwccccccccccccccccccc "
+	" ccuu uu uu uu uu uu uu uu uu uuccccccccwwwccccccccccccccccccc "
+	" ccuu uu uu uu uu uu uu uu uu uuccccccccwwwccccccccccccccccccc "
+	" ccuu uu uu uu uu uu uu uu uu uuccccccccwwwccccccccccccccccccc "
+	" cccccccccccccccccccccccccccccccccccccccwwwwwwwwwwwwwwwwwwwwww "
+	" cccccccccccccccccccccccccccccccccccccccwwwwwwwwwwwwwwwwwwwwww "
+	" cccccccccccccccccccccccccccccccccccccccwwwwwwwwwwwwwwwwwwwwww "
+	" cccccccccccccccccccccccccccccccccccccccwwwwwwwwwwwwwwwwwwwwww "
+	" ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc "
+	" ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc "
+	"                                                               "
+	}
+}
+
+TRIGGER DrillRigGen {
+DRAW ELEMENT:Clear OBJECT (X - 70) (Y - 70) 2 ELEMENT:Concrete2 m ELEMENT:Metal o ELEMENT:Tap g ELEMENT:Glass w ELEMENT:Metal c ELEMENT:Concrete p ELEMENT:Pipe d ELEMENT:Driller {
+	"                                                                                                                   mmmmmm                 "
+	"                                                                                                                   mmmmmm                 "
+	"                                                                                                                   mccccm                 "
+	"                                                                                                                   mccccm                 "
+	"                                                                                                                   mccccm                  "
+	"                                                                                                                   mccccm                  "
+	"                                                                                                                   mccccm                  "
+	"                                                                                                                   mccccm                  "
+	"                                                                                                                   mccccm                  "
+	"                                                                                                                   mccccm                  "
+	"                                                                                                                   mccccm                  "
+	"                                                                                                                   mccccm                  "
+	"                                                                                                              mmmmmmmmmmmmmmmm             "
+	"                                                                                                              mmmmmmmmmmmmmmmm             "
+	"                                                                                                              mccccccccccccmmm             "
+	"                                                                                                              mccccccccccccmmm             "
+	"                                                                                                              mccccccccccccmmm             "
+	"                                                                                                              mmmmmmmmmmmmmmmm             "
+	"                                                                                                              mmmmmmmmmmmmmmmm             "
+	"                                                                                                                 mm     mmmm               "
+	"                                                                                                                 mmm    mmmm               "
+	"                                                                                                                 mmmm  mmmmm               "
+	"                                                                                                                 mmmmmmmmmmm               "
+	"                                                                                                                 mm mmmmmmmmm              "
+	"                                                                                                                 mm mmmm mmmm              "
+	"                                                                                                                 mmmmmmmm mmm              "
+	"                                                                                                                mmmmm  mmmmmm              "
+	"                                                                                                                mmmm    mmmmm              "
+	"                                                                                                                mmmm    mmmmmm             "
+	"                                               m                                                                mmmmm mmmmmmmm             "
+	"                                               mm                                                               mmmmmmmmmmmmmm             "
+	"                                              mmmm                                                              mm  mmmmm  mmm             "
+	"                                              mmmm                                                              mm mmmmmm  mmm             "
+	"                                              mppmm                                                             mmmmmmm mmmmmmm            "
+	"                                             mmpppmm                                                           mmmmmm     mmmmm            "
+	"        mmmmmmmmmmmmmmmmmmm                   mmpppmm                                                          mmmmm       mmmm            "
+	"        mmmmmmmmmmmmmmmmmmmm                   mpppmm                                                          mmmmmmm    mmmmm            "
+	"        mmm mmmm mm   mmmmmm                   mmpppmm                                                         mmmmmmmm  mmmmmm            "
+	"        mmm   mmmmm mmmm  mm                    mppppmm                                                        mmm mmmmmmmm mmmm           "
+	"        mmm    mmmmmmm    mm                    mmppppmm                                                       mmm   mmmmm  mmmm           "
+	"        mmm     mmmmm     mm                     mmppppm                                                       mmm   mmmmmm mmmm           "
+	"        mmm   mmmmmmmmm   mm                     mmppppmm                            wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww    "
+	"        mmm mmmm mm mmmmm mm                      mpppppmm                           wppppppppppppwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww    "
+	"        mmmmmm   mm   mmmmmm                      mppppppmm                          wppppoooooooooooooowwwwwwww                     ww    "
+	"        mmmm     mmm   mmmmm                 mm   mpmppppmm                          wppwwoooooooooooooo                             ww    "
+	"        mmmmmm   mmm mmmmmmm                 mmmm mpmpppppmm                         wppww                                           ww    "
+	"        mmmmmmmm mmmmmm   mm                 m  m mpmmpppppmm                        wppww                                           ww    "
+	"        mmm  mmmmmmmm     mm                mm  m mpmmppppppmm                       wppww                                           ww    "
+	"        mmm    mmmmm      mm                mm  m mpmmmpppppmm                       wppww                                           ww    "
+	"        mmm  mmmmmmmm     mm                mmm m mpmmmmpppppmm                      wppww                                           ww    "
+	"        mmmmmmm   mmmmm   mm                mmmmm mpm mmppppppmm                     wppww                                           ww    "
+	"        mmmmm     mm mmmm mm               mm mmm mpm mmmppppppmm                    wppww                                           ww    "
+	"        mmm       mm   mmmmm               mm  m  mpm  mmppppppmm                    wppww                                           ww    "
+	"        mmm       mm   mmmmm               m   m  mpm  mmmppppppmm                   wppww                                           ww    "
+	"        mmmm      mm mmmmmmm              mmm  m  mpm   mmpppppppmm                  wppww                                           ww    "
+	"        mmmmmm    mmmmmmm mm              mmmm m  mpm    mmpppppppmm                 wppww                                           ww    "
+	"        mmmmmmmm mmmmmm   mm              mm mmm  mpm    mmmppppppmm                 wppww                                           ww    "
+	"        mmm  mmmmmmmm     mm              m    m  mpm     mmpppppppmm                wppww                                           ww    "
+	"        mmm  mmmmmmm      mm             mm   mm  mpm     mmmpppppppmm               wppww                                           ww    "
+	"        mmmmmmmmmmmmm     mm             mm   m   mpm      mmppppppppmm              wppww                                           ww    "
+	"        mmmmmmm   mmmmm   mm             mm   m   mpm      mmmpppppppmm              wppww                                           ww    "
+	"        mmmmm     mmmmmm  mm            mmmm  m   mpm       mmppppppppmm             wppww                                           ww    "
+	"        mmmmmm    mm  mmmmmm            mmmmm m   mpm       mmmppppppppmm            wppww                                           ww    "
+	"        mmm mmmm  mm    mmmm            mm mmmm   mpm        mmpppppppppmm           wppww                                           ww    "
+	"        mmm   mmm mm  mmmmmm            m   mmm   mpm        mmmppppppppmm           wppww                                           ww    "
+	"        mmm    mmmmmmmmmmmmm           mm    mm   mpm         mmmppppppppmm          wppww                                           ww    "
+	"        mmm      mmmmmmmm mm           mm    m    mpm         mmmpppppppppmm         wppww                                           ww    "
+	"        mmm     mmmmmmm   mm           mm    m    mpm          mmmpppppppppmm        wppww                                           ww    "
+	"       mmmm   mmmmmmmmmm  mm          mmmm   m    mpm          mmmpppppppppmm        wppww                                           ww    "
+	"      222222222222222222222222        mmmmm mm    mpm           mmmpppppppppmm       wppww                                           ww    "
+	"      222222222222222222222222        mmmmmmmm    mpm           mmmpppppppppmmm      wppwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww    "
+	"      222222222222222222222222        mm mmmmm    mpm            mmpppppppppmmmm     wppwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww    "
+	"      22cccccccccccccccccccc22       mm   mmmm    mpm         mmmmmpppppppppmmmm     2pp22222cccccccccccccccccccccccccccccccccccccccc22    "
+	"      22cccccccccggggccccccc22       mm    mm     mpm         mmmmmpppppppppmmmm     2pp22c222cccccccccccccccccccccccccccccccccccccccc22   "
+	"      22ccggggcccggggccccccc22       mm    mm     mpm         mpppppppppppppppmm     2ppcccc222cccccccccccccccccccccccccccccccccccccccc22  "
+	"      22ccggggcccggggccccccc22      mmm    mm     mpm         mpppppppppppppppmm     2ppccccc222ccc2222222222222222222222222222222222ccc22 "
+	"      22ccggggcccggggccccccc22      mmmm   mm     mpm         mpppppppppppppppmm     2ppcccccc222222222222222222222222222222222222222222222"
+	"      22cccccccccccccccccccc22      mmmmm  mm     mpm         mpppppppppppppppmm     2ppccccccc22cccccccccccccccc22222222222222222222222222"
+	"      22cccccccccccccccccccc22      mm mmm mm    ppppp        mpppppppppppppppmm     2ppccccccc22cccccccccccccccccccccccccccccccccccccccc22"
+	"      2222222222222222222222222222 mm   mmmmm    pdddp        mpppppppppppppppmm     2ppccccccc22cccggggccccccccccccccccccccccccccccccccc22"
+	"   2222222222222222222222222222222 mm    mmm     pdddp        mpppppppppppppppmm     2ppccccccc22cccggggcccgggggccgggggcccggggcccggggcccc22"
+	"   2222222222222222222222222222222 mm     mm     pdddp        mpppppppppppppppmm     2ppccccccc22cccggggcccgggggccgggggcccggggcccggggcccc22"
+	"   22cccccccccccccccccccccccccccc2mmmm    mm     p   p        mpppppppppppppppmm     2ppccccccc22cccggggcccgggggccgggggcccggggcccggggcccc22"
+	"   22cccccccccccccccccccccccccccc2mm mm   mm     p   p        mpppppppppppppppmm     2ppccccccc22cccggggcccgggggccgggggcccggggcccggggcccc22"
+	"   22cccccccccccccccccccccccccccc2mm  mm  mm                  mpppppppppppppppmm     2ppccccccc22cccccccccccccccccgggggcccggggcccggggcccc22"
+	"   22cccgggggcccgggggccgggggccccc2mmmmmmmmmm                  mpppppppppppppppmm     2ppccccccc22cccccccccccccccccccccccccccccccccccccccc22"
+	"   22cccgggggcccgggggccgggggccccc2mmmmmmmmmm                  mpppppppppppppppmm     2ppccccccc22cccccccccccccccccccccccccccccccccccccccc22"
+	"   22cccgggggcccgggggccgggggccccc2cccccccc2                   mmmmppppppppmmmmmm     2ppccccccc22222222222222222222222222222222222222222222"
+	"   22cccgggggcccgggggccgggggccccc2cccccccc2                   mmmmmmpppppmmmmmmm     2pp222222222222222222222222222222222222222222222222222"
+	"   22cccccccccccccccccccccccccccc2cccccccc2                       mmpppppmm          2pp222222222222222222222222222222222222222222222222222"
+	"   22cccccccccccccccccccccccccccc2cccccccc2                       mmpppppmm          2ppccccccc2222ccccc222cccccc222cccccc222ccc22  2222   "
+	"   22cccccccccccccccccccccccccccc2cccccccc2                       mmpppppmm          2ppcccccc2222ccccc222cccccc222cccccc222cccc22 2222    "
+	"222222222222222222222222222222222222222222222222       22222222222222pp222222222222222ppccccc2222cccccc22cccccc222cccccc222ccccc222222     "
+	"222222222222222222222222222222222222222222222222       22222222222222pp222222222222222ppcccc2222cccccc22cccccc222cccccc2222ccccc22222      "
+	"2cccccccccccccccccccccccccccccccccccccccccccccc2       2cccccccccccccppcccccccccccccc2ppcccccccccccccccccccccccccccccc2222cccccc2222       "
+	"2cccccccccccccccccccccccccccccccccccccccccccccc2       2cccccccccccccppcccccccccccccc2ppcccccccccccccccccccccccccccccccccccccccc222        "
+	"2cccccccccccccccccccccccccccccccccccccccccccccc2       2cccccccccccccppcccccccccccccc2ppcccccccccccccccccccccccccccccccccccccccc22         "
+	"222222222222222222222222222222222222222222222222       22222222222222pp222222222222222pp222222222222222222222222222222222222222222222      "
+	"  22cccccccccccccccccccccccc22222222222222222222       22222222222222ppppppppppppppppppp222222222222222222222222222222222222222222222      "
+	"  22ccccccccccccccccccccccccccccccccccccccccccc2       2ccccccccccccccppppppppppppppppppccccccccccccccccccccccccccccccccccccccccccc22      "
+	"  22ccccccccccccccccccccccccccccccccccccccccccc2       2ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc22      "
+	"  2222222222222222222222222222222222222222222222       22222222222222222222cccccccccccccccccccccccccccccccccccccccccccccccccccccccc22      "
+	"   22222cccc222222222222222222222222222222222222       222222222222222222222222222222222222222222222222222222222222222222222222222222      "
+	"     2222cccccccccccccccccccccccccccccccccccccc2       2ccccccccccccccccccccccccc2222222222222222222222222222222222222222222222222222      "
+	"      2222ccccccccccccccccccccccccccccccccccccc2       2ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc22            "
+	"       2222cccccccccccccccccccccccccccccccccccc2       2ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc22            "
+	"        22222cccccccccccccccccccccccccccccccccc2       2ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc22            "
+	"         22222ccccccccccccccccccccccccccccccccc2       2ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc22            "
+	"           2222cccccccccccccccccccccccccccccccc2       2ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc22            "
+	"            2222ccccccccccccccccccccccccccccccc2       2ccccccccccccccccccccccccc2222222222222222222222222222222222222222222222            "
+	"             22222222222222222222222222222222222       222222222222222222222222222222222222m22222222222222222222222222222222222            "
+	"              2mmmmmmmmmmmmmmmmmmmmmmmm222222222       222222222222222222222222222222222222mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm2222            "
+	"               mmmmm    mmm   mmmm   mm                                                    mm      mmm mmm   mm    mmm   mm                "
+	"               mm mmmm  mmm  mmmmmm  mm                                                    mm    mmmmm  mmmm mm  mmm     mm                "
+	"               mm  mmmm  mm mm   mmmmmm                                                    mm  mmmmmmm    mmmmmmmm       mm                "
+	"               mm    mmmmmmmm      mmmm                                                    mmmmmmmm mm     mmmmm         mm                "
+	"               mm     mmmmm          mm                                                    mmmmmm   mm   mmmmmmmm        mm                "
+	"               mm      mmmmm         mm                                                    mmmmm    mm mmmmm mmmmm       mm                "
+	"               mm    mmm mmmm        mm                                                    mmm      mmmmmm   mmmmmmm    mmm                "
+	"               mm   mm   mmmmmm      mm                                                    mm       mmmm     mm  mmmmmmmmmm                "
+	"               mm mm     mm mmmm   mmmm                                                    mm       mmmm     mm   mmmmmm mm                "
+	"               mmmm      mm   mmmmmmmmm                                                    mm       mmmmmm   mm   mmmmmmmmm                "
+	"               mmmm      mm    mmmm  mm                                                    mm      mmm mmmm  mm mmmm mmmmmm                "
+	"               mmmmmm    mm   mmmmmmmmm                                                    mm    mmmmm   mmmmmmmmmm   mmmmm                "
+	"               mm mmmm   mm mmmm  mmmmm                                                    mm  mmmmmmm    mmmmmmm       mmm                "
+	"               mm  mmmmm mmmmmm     mmm                                                    mmmmmmmm mm     mmmmm         mm                "
+	"               mm    mmmmmmmm        mm                                                    mmmmmm   mm   mmmmmmmm        mm                "
+	"               mm     mmmmm          mm                                                    mmmmm    mm mmmmm mmmmmm      mm                "
+	"               mm    mmmmmmm         mm                                                    mmm      mmmmmm   mm  mmm     mm                "
+	"               mm  mmmmm mmmmm       mm                                                    mm       mmmm     mm   mmmm   mm                "
+	"               mmmmmmmm  mmmmmm    mmmm                                                    mm       mmmmm    mm     mmm mmm                "
+	"               mmmmmm    mm mmmmmmmmmmm                                                    mm       mmmmmmm  mm       mmmmm                "
+	"               mmmmm     mm   mmmmm  mm                                                    mm       mm mmmmm mm    mmmmmmmm                "
+	"               mmmmmm    mm  mmmmmmm mm                                                    mm      mmm   mmmmmm  mmmmmmm mm                "
+	"               mm mmmm   mmmmmm  mmmmmm                                                    mm    mmmmm     mmmmmmmmmmm   mm                "
+	"               mm   mmm  mmmm     mmmmm                                                    mm   mmm mm      mmmmmmm      mm                "
+	}
+}
+
+// Interface
+
+Element None DummyElement1 255 255 255 0 1 1 1 0 Clear 0 HEX 00000000000000003FFFFFFC3FFFFFFC30000000300000000000000C0000000C30000000300000000000000C0000000C30000000300000000000000C0000000C30000000300000000000000C0000000C30000000300000000000000C0000000C30000000300000000000000C0000000C3FFFFFFC3FFFFFFC0000000000000000 255 255 255
+
+TRIGGER menutop {
+	MENU TOP CLEAR
+	MENU TOP ADD TEXT "Mainmenu" FILE home.bmp {
+		IF (BUTTON == 1) quitsandbox
+		IF ((BUTTON == 2) || (BUTTON == 4)) {
+			INCLUDE warning.bs2
+			FILE DELETE warning.bs2
+			FILE OPEN warning.bs2
+			FILE CLOSE
+			INCLUDE http://siebn.de/addonlist.php?basismod=Default!
+		} 
+	}
+	MENU TOP ADD TEXT "Fullscreen" FILE resolution.bmp {
+		IF (BUTTON == 1) sandresolutionmenu
+		IF (BUTTON == 2) {
+			MENU SUB CLEAR
+			MENU SUB ADD TEXT "Foreground Layer" TEXT "Foreground Layer" <>
+			MENU SUB ADD TEXT "Load File" TEXT "Load File" <LOAD FGLAYER FILEDIALOG>
+			MENU SUB ADD TEXT "Use Sandbox" TEXT "Use Sandbox" {
+				SAVE SAND tmpfglayer.bmp
+				LOAD FGLAYER tmpfglayer.bmp
+			}
+			MENU SUB ADD TEXT "Set Alpha" TEXT "Set Alpha" {
+				MENU SUB CLEAR
+				MENU SUB ADD TEXT "0%" TEXT "0%" <SET FGLAYERALPHA ((255 * 0) / 10)>
+				MENU SUB ADD TEXT "10%" TEXT "10%" <SET FGLAYERALPHA ((255 * 1) / 10)>
+				MENU SUB ADD TEXT "20%" TEXT "20%" <SET FGLAYERALPHA ((255 * 2) / 10)>
+				MENU SUB ADD TEXT "30%" TEXT "30%" <SET FGLAYERALPHA ((255 * 3) / 10)>
+				MENU SUB ADD TEXT "40%" TEXT "40%" <SET FGLAYERALPHA ((255 * 4) / 10)>
+				MENU SUB ADD TEXT "50%" TEXT "50%" <SET FGLAYERALPHA ((255 * 5) / 10)>
+				MENU SUB ADD TEXT "60%" TEXT "60%" <SET FGLAYERALPHA ((255 * 6) / 10)>
+				MENU SUB ADD TEXT "70%" TEXT "70%" <SET FGLAYERALPHA ((255 * 7) / 10)>
+				MENU SUB ADD TEXT "80%" TEXT "80%" <SET FGLAYERALPHA ((255 * 8) / 10)>
+				MENU SUB ADD TEXT "90%" TEXT "90%" <SET FGLAYERALPHA ((255 * 9) / 10)>
+				MENU SUB ADD TEXT "100%" TEXT "100%" <SET FGLAYERALPHA ((255 * 10) / 10)>
+				SUBMENU
+			}
+			MENU SUB ADD TEXT "Clear" TEXT "Clear" <LOAD FGLAYER "">
+			MENU SUB ADD TEXT "" SEPERATOR 30 <>
+			MENU SUB ADD TEXT "Background Layer" TEXT "Background Layer" <>
+			MENU SUB ADD TEXT "Load File" TEXT "Load File" <LOAD BGLAYER FILEDIALOG>
+			MENU SUB ADD TEXT "Use Sandbox" TEXT "Use Sandbox" {
+				SAVE SAND tmpbglayer.bmp
+				LOAD BGLAYER tmpbglayer.bmp
+			}
+			MENU SUB ADD TEXT "Clear" TEXT "Clear" <LOAD BGLAYER "">
+			SUBMENU
+		} 
+		IF (BUTTON == 4) fullscreenmenu
+	}
+	MENU TOP ADD TEXT "Config" FILE config.bmp {
+		IF (BUTTON == 1) {
+			MENU SUB CLEAR
+			MENU SUB ADD TEXT "Solidlines" FILE solid.bmp <SET SOLIDDRAW (1 - SOLIDDRAW)>
+			MENU SUB ADD TEXT "Text of Icons" FILE icontext.bmp switchtexticons
+			MENU SUB ADD TEXT "Preview" FILE preview.bmp <SET SHOWPREVIEW (1 - SHOWPREVIEW)>
+			MENU SUB ADD TEXT "History" FILE h.bmp <SET save_history (1 - save_history)>
+			MENU SUB ADD TEXT "Physics" FILE p.bmp <SET PHYSICS (1 - PHYSICS)>
+			MENU SUB ADD TEXT "Gravity" FILE g.bmp switchgravity
+			MENU SUB ADD TEXT "Interactions" FILE i.bmp <SET INTERACTIONS (1 - INTERACTIONS)>
+			MENU SUB ADD TEXT "Death" FILE d.bmp <SET DEATH (1 - DEATH)>
+			SUBMENU
+		}
+		IF (BUTTON == 2) {
+			MENU SUB CLEAR
+			MENU SUB ADD TEXT "Brushsize" TEXT "Brushsize" <SET wheelfunction 0>
+			MENU SUB ADD TEXT "Zoom" TEXT "Zoom" <SET wheelfunction 1>
+			MENU SUB ADD TEXT "History" TEXT "History" <SET wheelfunction 2>
+			SUBMENU
+		}
+		IF (BUTTON == 4) {
+			MENU SUB CLEAR
+			MENU SUB ADD TEXT "Paste Clipboard" TEXT "Paste Clipboard" <INCLUDE CLIPBOARD>
+			MENU SUB ADD TEXT "Load Configfile" TEXT "Load Configfile" <INCLUDE FILEDIALOG>
+			MENU SUB ADD TEXT "Paste BS1 Config" TEXT "Paste BS1 Config" loadBS1config
+			MENU SUB ADD TEXT "Load BS1 Configfile" TEXT "Load BS1 Configfile" loadBS1configfile
+			MENU SUB ADD TEXT "Load elements.bs2" TEXT "Load elements.bs2" reloadelementscfg
+			MENU SUB ADD TEXT "Edit elements.bs2" TEXT "Edit elements.bs2" <SYSTEM "start notepad elements.bs2">
+			MENU SUB ADD TEXT "Load basicelements.bs2" TEXT " Load basicelements.bs2 " reloadelementscfg2
+			MENU SUB ADD TEXT "Edit basicelements.bs2" TEXT " Edit basicelements.bs2 " <SYSTEM "start notepad basicelements.bs2">
+			SUBMENU
+		}
+	}
+	MENU TOP ADD TEXT "Reverse Gravity" FILE turn.bmp {
+		IF (BUTTON == 1) {
+			IF (REVERSE == 0) <SET REVERSE 1> ELSE <SET REVERSE 0>
+		}
+		IF (BUTTON == 2) {
+			MENU SUB CLEAR
+			MENU SUB ADD TEXT "Wind 100% Left" TEXT "Wind 100% Left" <SET WIND 1000>
+			MENU SUB ADD TEXT "Wind 95% Left" TEXT "Wind 95% Left" <SET WIND 950>
+			MENU SUB ADD TEXT "Wind 90% Left" TEXT "Wind 90% Left" <SET WIND 900>
+			MENU SUB ADD TEXT "Wind 75% Left" TEXT "Wind 75% Left" <SET WIND 750>
+			MENU SUB ADD TEXT "Wind 50% Left" TEXT "Wind 50% Left" <SET WIND 500>
+			MENU SUB ADD TEXT "Wind 25% Left" TEXT "Wind 25% Left" <SET WIND 250>
+			MENU SUB ADD TEXT "Wind 10% Left" TEXT "Wind 10% Left" <SET WIND 100>
+			MENU SUB ADD TEXT "Wind 5% Left" TEXT "Wind 5% Left" <SET WIND 50>
+			MENU SUB ADD TEXT "No Wind" TEXT "No Wind" <SET WIND 0>
+			MENU SUB ADD TEXT "Wind 5% Right" TEXT "Wind 5% Right" <SET WIND -50>
+			MENU SUB ADD TEXT "Wind 10% Right" TEXT "Wind 10% Right" <SET WIND -100>
+			MENU SUB ADD TEXT "Wind 25% Right" TEXT "Wind 25% Right" <SET WIND -250>
+			MENU SUB ADD TEXT "Wind 50% Right" TEXT "Wind 50% Right" <SET WIND -500>
+			MENU SUB ADD TEXT "Wind 75% Right" TEXT "Wind 75% Right" <SET WIND -750>
+			MENU SUB ADD TEXT "Wind 90% Right" TEXT "Wind 90% Right" <SET WIND -900>
+			MENU SUB ADD TEXT "Wind 95% Right" TEXT "Wind 95% Right" <SET WIND -950>
+			MENU SUB ADD TEXT "Wind 100% Right" TEXT "Wind 100% Right" <SET WIND -1000>
+			SUBMENU
+		}
+		IF (BUTTON == 4) {
+			MENU SUB CLEAR
+			MENU SUB ADD TEXT "-600%" TEXT "-600%" setgravity 1 6000
+			MENU SUB ADD TEXT "-400%" TEXT "-400%" setgravity 1 4000
+			MENU SUB ADD TEXT "-300%" TEXT "-300%" setgravity 1 3000
+			MENU SUB ADD TEXT "-200%" TEXT "-200%" setgravity 1 2000
+			MENU SUB ADD TEXT "-150%" TEXT "-150%" setgravity 1 1500
+			MENU SUB ADD TEXT "-110%" TEXT "-110%" setgravity 1 1100
+			MENU SUB ADD TEXT "-100%" TEXT "-100%" setgravity 1 1000
+			MENU SUB ADD TEXT "-90%" TEXT "-90%" setgravity 1 900
+			MENU SUB ADD TEXT "-75%" TEXT "-75%" setgravity 1 750
+			MENU SUB ADD TEXT "-50%" TEXT "-50%" setgravity 1 500
+			MENU SUB ADD TEXT "-25%" TEXT "-25%" setgravity 1 250
+			MENU SUB ADD TEXT "0%" TEXT "0%" setgravity 0 0
+			MENU SUB ADD TEXT "25%" TEXT "25%" setgravity 0 250
+			MENU SUB ADD TEXT "50%" TEXT "50%" setgravity 0 500
+			MENU SUB ADD TEXT "75%" TEXT "75%" setgravity 0 750
+			MENU SUB ADD TEXT "90%" TEXT "90%" setgravity 0 900
+			MENU SUB ADD TEXT "100%" TEXT "100%" setgravity 0 1000
+			MENU SUB ADD TEXT "110%" TEXT "110%" setgravity 0 1100
+			MENU SUB ADD TEXT "150%" TEXT "150%" setgravity 0 1500
+			MENU SUB ADD TEXT "200%" TEXT "200%" setgravity 0 2000
+			MENU SUB ADD TEXT "300%" TEXT "300%" setgravity 0 3000
+			MENU SUB ADD TEXT "400%" TEXT "400%" setgravity 0 4000
+			MENU SUB ADD TEXT "600%" TEXT "600%" setgravity 0 6000
+			SUBMENU
+		}
+	}
+	IF ( BORDER == 0 ) <MENU TOP ADD TEXT "Border" FILE border0.bmp borderselector>
+	IF ( BORDER == 1 ) <MENU TOP ADD TEXT "Border" FILE border1.bmp borderselector>
+	IF ( BORDER == 2 ) <MENU TOP ADD TEXT "Border" FILE border2.bmp borderselector>
+          IF (SIDEBORDER == 0) <MENU TOP ADD TEXT "Sides" File border1.bmp sideborderselector>
+          IF (SIDEBORDER == 1) <MENU TOP ADD TEXT "Sides" ELEMENT ELEMENT:DummyElement1 sideborderselector>
+	IF (SPEED == 0) <MENU TOP ADD TEXT "Speed" FILE pause.bmp speedmenu>
+	IF ((SPEED > 0) && (SPEED < 60) ) <MENU TOP ADD TEXT "Speed" FILE slow.bmp speedmenu>
+	IF (SPEED == 60) <MENU TOP ADD TEXT "Speed" FILE play.bmp speedmenu>
+	IF (SPEED > 60) <MENU TOP ADD TEXT "Speed" FILE fast.bmp speedmenu>
+	IF (SPEED == 0) <MENU TOP ADDDRAG TEXT "History" FILE history.bmp historybutton>
+	MENU TOP ADD TEXT "" SEPERATOR 0 <>
+	MENU TOP ADD TEXT "Clear Screen" FILE empty.bmp {
+		IF (BUTTON == 1) clearscreensandbox 0
+		IF (BUTTON == 2) clearscreensandbox ELEMENT1
+	}
+	MENU TOP ADD TEXT "Load Game" FILE load.bmp {
+		IF ((BUTTON == 1) && (WINDOWS == 1)) <LOAD SAND FILEDIALOG>
+		IF ((BUTTON == 1) && (WINDOWS == 0)) <LOAD SAND quicksave.png>
+		IF ((BUTTON == 2) || (BUTTON == 4)) {
+			INCLUDE warning.bs2
+			FILE DELETE warning.bs2
+			FILE OPEN warning.bs2
+			FILE CLOSE
+			INCLUDE http://siebn.de/savegamelist.php?mod=Default!
+		} 
+	}
+	MENU TOP ADD TEXT "Save Game" FILE save.bmp {
+		IF ((BUTTON == 1) && (WINDOWS == 1)) <SAVE SAND FILEDIALOG>
+		IF ((BUTTON == 1) && (WINDOWS == 0)) <SAVE SAND quicksave.png>
+		IF ( BUTTON == 2 ) savesubmenu2
+		IF ( BUTTON == 4 ) savesubmenu
+	}
+	IF (rotatetool == 0) <MENU TOP ADD TEXT "Rotate clockwise" FILE rotateright.bmp rotatemenu>
+	IF (rotatetool == 1) <MENU TOP ADD TEXT "Rotate anticlockwise" FILE rotateleft.bmp rotatemenu>
+	IF (rotatetool == 2) <MENU TOP ADD TEXT "Rotate 180°" FILE rotate.bmp rotatemenu>
+	IF (rotatetool == 3) <MENU TOP ADD TEXT "Point reflection" FILE pointreflection.bmp rotatemenu>
+	IF (rotatetool == 4) <MENU TOP ADD TEXT "Flip horizontally" FILE fliph.bmp rotatemenu>
+	IF (rotatetool == 5) <MENU TOP ADD TEXT "Flip vertically" FILE flipv.bmp rotatemenu>
+	MENU TOP ADD TEXT "Zoom" FILE zoom.bmp {
+		IF (BUTTON == 1) zoomtoggle
+		IF (BUTTON == 2) viewsubmenu
+		IF (BUTTON == 4) zoomsubmenu
+	}
+}
+
+Element None BorderBlocker 255 255 255 0 1 1 1 0 Clear 0 Text None
+
+TRIGGER sideborderselector {
+SET SIDEBORDER (1 - SIDEBORDER)
+EXEC menutop
+IF (SIDEBORDER == 1) {
+          ON clearsides DRAW 0 LINE 1 1 0 HEIGHT
+          ON clearsides DRAW 0 LINE WIDTH 1 0 HEIGHT
+          ON clearsides TIMER 10 FRAMES clearsides
+          EXEC clearsides
+          }
+IF (SIDEBORDER == 0) {
+          REMOVETRIGGER clearsides
+          DRAW ELEMENT:BorderBlocker LINE 1 1 0 HEIGHT
+          DRAW ELEMENT:BorderBlocker LINE WIDTH 1 0 HEIGHT
+          }
+}
+
+REMOVETRIGGER clearsides
+
+TRIGGER menubottom {
+	MENU BOTTOM CLEAR
+	IF (squaredrawingtool == 0) <MENU BOTTOM ADD TEXT "Filled square" FILE square.bmp squaretools>
+	IF (squaredrawingtool == 1) <MENU BOTTOM ADD TEXT "Square" FILE square2.bmp squaretools>
+	IF (circledrawingtool == 0) <MENU BOTTOM ADD TEXT "Filled circle" FILE circle.bmp circletools>
+	IF (circledrawingtool == 1) <MENU BOTTOM ADD TEXT "Circle" FILE circle2.bmp circletools>
+	IF (circledrawingtool == 2) <MENU BOTTOM ADD TEXT "Double circle" FILE circle3.bmp circletools>
+	IF (circledrawingtool == 3) <MENU BOTTOM ADD TEXT "Multi circle" FILE circle4.bmp circletools>
+	IF (linedrawingtool == 0) <MENU BOTTOM ADD TEXT "Horizontal line" FILE horizontal.bmp linetools>
+	IF (linedrawingtool == 1) <MENU BOTTOM ADD TEXT "Vertical line" FILE vertical.bmp linetools>
+	IF (linedrawingtool == 2) <MENU BOTTOM ADD TEXT "Diagonal line" FILE angel45.bmp linetools>
+	IF (linedrawingtool == 3) <MENU BOTTOM ADD TEXT "Diagonal line" FILE angel135.bmp linetools>
+	IF (linedrawingtool == 4) <MENU BOTTOM ADD TEXT "Triangle Up" FILE triangleup.bmp linetools>
+	IF (linedrawingtool == 5) <MENU BOTTOM ADD TEXT "Triangle Down" FILE triangledown.bmp linetools>
+	IF (specialdrawingtool == 0) <MENU BOTTOM ADD TEXT "Fill" FILE fill.bmp specialtools>
+	IF (specialdrawingtool == 1) <MENU BOTTOM ADD TEXT "Replace" FILE replace.bmp specialtools>
+	IF (specialdrawingtool == 2) <MENU BOTTOM ADD TEXT "Copy Square" FILE copy.bmp specialtools>
+	IF (specialdrawingtool == 3) <MENU BOTTOM ADD TEXT "Hand Movetool" FILE hand.bmp specialtools>
+	IF (specialdrawingtool == 4) <MENU BOTTOM ADD TEXT "Hand Copytool" FILE handcopy.bmp specialtools>
+	IF (specialdrawingtool == 5) <MENU BOTTOM ADD TEXT "Stamptool" FILE stamp.bmp specialtools>
+	IF (specialdrawingtool == 6) <MENU BOTTOM ADD TEXT "Rotate clockwise" FILE rotateright.bmp specialtools>
+	IF (specialdrawingtool == 7) <MENU BOTTOM ADD TEXT "Rotate anticlockwise" FILE rotateleft.bmp specialtools>
+	IF (specialdrawingtool == 8) <MENU BOTTOM ADD TEXT "Rotate 180°" FILE rotate.bmp specialtools>
+	IF (specialdrawingtool == 9) <MENU BOTTOM ADD TEXT "Point Reflection°" FILE pointreflection.bmp specialtools>
+	IF (specialdrawingtool == 10) <MENU BOTTOM ADD TEXT "Flip horizontally°" FILE fliph.bmp specialtools>
+	IF (specialdrawingtool == 11) <MENU BOTTOM ADD TEXT "Flip vertically°" FILE flipv.bmp specialtools>
+	IF (specialdrawingtool == 12) <MENU BOTTOM ADD TEXT "Random Circle" FILE randomcircle.bmp specialtools>
+          IF (specialdrawingtool == 13) <MENU BOTTOM ADD TEXT "Dropper" File preview.bmp specialtools>
+          MENU BOTTOM ADD TEXT "Write" FILE text.bmp usewrite
+          MENU BOTTOM ADD TEXT "Tools" ELEMENT ELEMENT:DummyElement2 {
+                    EXEC ToolSelection
+                    SETPIECES = 0
+                    USETOOL = 1
+                    }
+	MENU BOTTOM ADD TEXT "" SEPERATOR 0 <>
+	IF (usesizeselector == 0) sizebuttons
+	IF (usesizeselector == 1) sizeselector
+}
+
+ON squaretools SETPIECES = 0
+ON circletools SETPIECES = 0
+ON linetools SETPIECES = 0
+ON specialtools SETPIECES = 0
+ON usewrite SETPIECES = 0
+ON squaretools USETOOL = 0
+ON circletools USETOOL = 0
+ON linetools USETOOL = 0
+ON specialtools USETOOL = 0
+ON usewrite USETOOL = 0
+
+// Start-up Stuff
+
+DRAW ELEMENT:BorderBlocker LINE 1 1 0 HEIGHT
+DRAW ELEMENT:BorderBlocker LINE WIDTH 1 0 HEIGHT
+GROUP Fire ADD Lava 1
+SET BRUSHSIZE 15
+SET ELEMENT1 ELEMENT:Earth
+SET ELEMENT2 ELEMENT:Earth
+SET ELEMENT4 ELEMENT:Clear
+maxhistories = 50
+SHOWPREVIEW = 1
+EXEC listgroup
+EXEC listgroups
+EXEC listelements GROUP:Stones
+EXEC usefilledcircle
+EXEC LeftMenu
+EXEC menutop
+EXEC menubottom
+ON KEY_SHIFT SET SHOWPREVIEW (1 - SHOWPREVIEW)
+ON KEYUP_SHIFT SET SHOWPREVIEW (1 - SHOWPREVIEW)
+ON KEY_BACKSPACE EXEC back_load
+ON KEY_v IF (CTRL == 1) <INCLUDE CLIPBOARD>
+ON MOUSEWHEELUP IF (wheelfunction == 0) brushizeinc
+ON MOUSEWHEELUP IF (wheelfunction == 1) zoominc
+ON MOUSEWHEELUP IF (wheelfunction == 2) history_back
+ON MOUSEWHEELDOWN IF (wheelfunction == 0) brushizedec
+ON MOUSEWHEELDOWN IF (wheelfunction == 1) zoomdec
+ON MOUSEWHEELDOWN IF (wheelfunction == 2) history_foreward
