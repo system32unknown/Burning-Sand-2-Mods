@@ -1,0 +1,1501 @@
+INCLUDE sandbox.bs2
+EXEC clearall
+
+INCLUDE elements.bs2
+
+Element none Meteor 255 180 0  0 1 1 1 32768 Clear 0 Text None
+Interaction Meteor Clear Meteor Fire 5000
+Interaction Meteor Clear Meteor MeteorTrail 1000
+
+Element none MeteorTrail 235 159 0 500 1 1 1 1000 Fire 0 TEXT none
+
+Element none MeteorHit 245 179 0 700 1 1 1 100 Clear 0 TEXT None
+Interaction MeteorHit Clear MeteorHit Fire 2000
+
+Interaction Lava Clear Lava Fire 100
+
+Element none DoorFrame 98 49 0 0 1 0 1 0 Clear 2 TEXT None
+Element none Door 128 64 0 0 1 0 1 0 Clear 3 TEXT None
+
+Element none DoorFrame(burning) 78 29 0 0 1 0 1 100 Fire 2 TEXT None
+Element none Door(burning) 128 44 0 0 1 0 1 100 Fire 3 TEXT None
+
+Element none Building 164 82 0 0 1 0 1 0 Clear 4 TEXT None
+Element none Building(burning) 78 29 0 0 1 0 1 100 Fire 2 TEXT None
+
+Element none Window 225 225 250 0 1 1 1 0 Clear 0 Text None
+Element none WindowFrame 120 120 120 0 1 0 1 0 Fire 1 TEXT None
+
+Element none Window(burning) 180 180 230 0 1 1 1 100 Fire 0 Text None
+Element none WindowFrame(burning) 100 100 100 0 1 0 1 100 Fire 1 TEXT None
+
+Element none Roof 66 33 0 0 1 0 1 0 Clear 2 TEXT None
+Element none Roof(burning) 46 13 0 0 1 0 1 100 Fire 2 TEXT None
+
+Element none Brick1 128 0 0 0 1 0 1 0 Clear 2 TEXT Brick1
+Element none Brick2 128 128 128 0 1 0 1 0 Clear 4 TEXT Brick2
+
+Element none Brick1(burning) 108 0 0 0 1 0 1 100 Clear 2 TEXT Brick1
+Element none Brick2(burning) 108 108 108 0 1 0 1 100 Clear 4 TEXT Brick2
+
+Element none TreeTrunk 128 64 0 0 1 0 1 0 Clear 2 TEXT TreeTrunk
+Element none Tree 0 128 0 0 1 0 1 0 Clear 2 TEXT Tree
+
+Element none TreeTrunk(burning) 108 44 0 0 1 0 1 100 Fire 2 TEXT TreeTrunk
+Element none Tree(burning) 0 108 0 0 1 0 1 100 Fire 2 TEXT Tree
+
+Element none Shirt1 255 0 0 0 1 0 1 0 Clear 3 TEXT Shirt1
+Element none Skin 255 128 64 0 1 0 1 0 Clear 4 TEXT Skin
+Element none Pants1 0 0 128 0 1 0 1 0 Clear 5 TEXT Pants1
+Element none Shirt2 0 128 0 0 1 0 1 0 Clear 3 TEXT Shirt2
+Element none Shirt3 255 255 0 0 1 0 1 0 Clear 4 TEXT Shirt3
+Element none Pants2 128 0 0 0 1 0 1 0 Clear 2 TEXT Pants2
+
+Element none Shirt1(burning) 235 0 0 0 1 0 1 100 Fire 3 TEXT Shirt1
+Element none Skin(burning) 235 108 44 0 1 0 1 100 Fire 4 TEXT Skin
+Element none Pants1(burning) 0 0 108 0 1 0 1 100 Fire 5 TEXT Pants1
+Element none Shirt2(burning) 0 108 0 0 1 0 1 100 Fire 3 TEXT Shirt2
+Element none Shirt3(burning) 235 235 0 0 1 0 1 100 Fire 4 TEXT Shirt3
+Element none Pants2(burning) 108 0 0 0 1 0 1 100 Fire 2 TEXT Pants2
+
+Element none Dog 81 40 0 0 1 0 1 0 Clear 2 TEXT Dog
+Element none Dog(burning) 61 20 0 0 1 0 1 100 Fire 2 TEXT Dog
+
+Element none WindowFrame2 81 81 81 0 1 0 1 0 Clear 3 TEXT WindowFrame2
+Element none DoorFrame2 81 81 81 0 1 0 1 0 Clear 3 TEXT DoorFrame2
+
+Element none WindowFrame2(burning) 81 81 81 0 1 0 1 100 Fire 3 TEXT WindowFrame2
+Element none DoorFrame2(burning) 61 61 61 0 1 0 1 100 Fire 3 TEXT DoorFrame2
+
+Interaction WindowFrame2 Fire WindowFrame2(burning) Fire 5000
+Interaction WindowFrame2(burning) WindowFrame2 WindowFrame2(burning) WindowFrame2(burning) 2000
+Interaction WindowFrame2(burning) Clear WindowFrame2(burning) Fire 5000
+
+Interaction WindowFrame2(burning) Window WindowFrame2(burning) Window(burning) 2500
+Interaction WindowFrame2 Window(burning) WindowFrame2(burning) Window(burning) 2000
+
+Interaction DoorFrame2 Fire DoorFrame2(burning) Fire 10000
+Interaction DoorFrame2 Window(burning) DoorFrame2(burning) Window(burning) 10000
+Interaction DoorFrame2 WindowFrame2(burning) doorFrame2(burning) WindowFrame2(burning) 10000
+
+Interaction DoorFrame2(burning) Window DoorFrame2(burning) Window(burning) 2500
+Interaction DoorFrame2(burning) WindowFrame2 DoorFrame2(burning) WindowFrame2(burning) 2000
+
+Interaction Dog Fire Dog(burning) Fire 25000
+Interaction Dog(burning) Dog Dog(burning) Dog(burning) 30000
+Interaction Dog(burning) Clear Dog(burning) Fire 5000
+
+Interaction Skin Fire Skin(burning) Fire 30000
+
+Interaction Shirt1 Fire Shirt1(burning) Fire 30000
+Interaction Shirt2 Fire Shirt2(burning) Fire 30000
+Interaction Shirt3 Fire Shirt3(burning) Fire 30000 
+
+Interaction Pants1 Fire Pants1(burning) Fire 30000
+Interaction Pants2 Fire Pants2(burning) Fire 30000
+Interaction Pants3 Fire Pants3(burning) Fire 30000
+
+Interaction Shirt1(burning) Shirt1 Shirt1(burning) Shirt1(burning) 30000
+Interaction Shirt2(burning) Shirt2 Shirt2(burning) Shirt2(burning) 30000
+Interaction Shirt3(burning) Shirt3 Shirt3(burning) Shirt3(burning) 30000
+Interaction Shirt1(burning) Shirt2 Shirt1(burning) Shirt2(burning) 30000
+Interaction Shirt1(burning) Shirt3 Shirt1(burning) Shirt3(burning) 30000
+Interaction Shirt2(burning) Shirt3 Shirt2(burning) Shirt3(burning) 30000
+
+Interaction Shirt1(burning) Pants1 Shirt1(burning) Pants1(burning) 300000
+Interaction Shirt2(burning) Pants1 Shirt2(burning) Pants1(burning) 300000
+Interaction Shirt3(burning) Pants1 Shirt3(burning) Pants1(burning) 300000
+
+Interaction Shirt1(burning) Pants2 Shirt1(burning) Pants2(burning) 30000
+Interaction Shirt2(burning) Pants2 Shirt2(burning) Pants2(burning) 30000
+Interaction Shirt3(burning) Pants2 Shirt3(burning) Pants2(burning) 30000
+
+Interaction Pants1(burning) Shirt1 Pants1(burning) Shirt1(burning) 30000
+Interaction Pants1(burning) Shirt2 Pants1(burning) Shirt2(burning) 30000
+Interaction Pants1(burning) Shirt3 Pants1(burning) Shirt3(burning) 30000
+
+Interaction Pants2(burning) Shirt1 Pants2(burning) Shirt1(burning) 30000
+Interaction Pants2(burning) Shirt2 Pants2(burning) Shirt2(burning) 30000
+Interaction Pants2(burning) Shirt3 Pants2(burning) Shirt3(burning) 30000
+
+Interaction Shirt1(burning) Skin Shirt1(burning) Skin(burning) 30000
+Interaction Shirt2(burning) Skin Shirt2(burning) Skin(burning) 30000
+Interaction Shirt3(burning) Skin Shirt3(burning) Skin(burning) 30000
+
+Interaction Pants1(burning) Clear Pants1(burning) Fire 5000
+Interaction Pants1(burning) Clear Pants1(burning) Fire 5000
+
+Interaction Pants2(burning) Clear Pants2(burning) Fire 5000
+Interaction Pants2(burning) Clear Pants2(burning) Fire 5000
+
+
+Interaction TreeTrunk Fire TreeTrunk(burning) Fire 30000
+Interaction Tree Fire Tree(burning) Fire 30000
+
+Interaction Tree Tree(burning) Tree(burning) Tree(burning) 3000
+Interaction TreeTrunk TreeTrunk(burning) TreeTrunk(burning) TreeTrunk(burning) 300
+Interaction Tree(burning) TreeTrunk Tree(burning) TreeTrunk(burning) 300
+Interaction Tree TreeTrunk(burning) Tree(burning) TreeTrunk(burning) 3000
+
+Interaction Tree(burning) Clear Tree(burning) Fire 5000
+Interaction TreeTrunk(burning) Clear TreeTrunk(burning) Fire 5000
+
+Interaction Building Fire Building(burning) Fire 30000
+Interaction Building(burning) Building Building(burning) Building(burning) 120
+Interaction Building(burning) Clear Building(burning) Fire 5000
+
+Interaction Brick1 Fire Brick1(burning) Fire 30000
+Interaction Brick2 Fire Brick2(burning) Fire 30000
+
+Interaction Brick1(burning) Brick1 Brick1(burning) Brick1(burning) 100
+Interaction Brick1(burning) Brick2 Brick1(burning) Brick2(burning) 100
+Interaction Brick2(burning) Brick2 Brick2(burning) Brick2(burning) 100
+Interaction Brick2(burning) Brick1 Brick2(burning) Brick1(burning) 100
+
+Interaction Brick1(burning) Clear Brick1(burning) Fire 5000
+Interaction Brick2(burning) Clear Brick2(burning) Fire 5000
+
+Interaction Window(burning) Clear Window(burning) Fire 5000
+Interaction WindowFrame Fire WindowFrame(burning) Fire 30000
+Interaction Window Fire Window(burning) Fire 30000
+Interaction DoorFrame Fire DoorFrame(burning) Fire 30000
+Interaction Door Fire Door(burning) Fire 30000
+
+Interaction Window(burning) Window Window(burning) Window(burning) 100
+Interaction Window(burning) WindowFrame Window(burning) WindowFrame(burning) 100
+
+Interaction Building(burning) WindowFrame Building(burning) WindowFrame(burning) 120
+Interaction WindowFrame(burning) Window WindowFrame(burning) Window(burning) 120
+Interaction Building(burning) DoorFrame Building(burning) DoorFrame(burning) 120
+Interaction DoorFrame(burning) Door DoorFrame(burning) Door(burning) 120
+
+Interaction Roof Fire Roof(burning) Fire 32768
+Interaction Roof(burning) Roof Building(burning) Roof(burning) 120
+Interaction Roof(burning) Clear Roof(burning) Fire 5000
+
+TRIGGER Houseone {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) B ELEMENT:DoorFrame C ELEMENT:Door {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"          BBBBBBBBBBBB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	"          BCCCCCCCCCCB          "
+	}
+}
+
+TRIGGER Housetwo {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) B ELEMENT:Building {
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	}
+}
+
+TRIGGER Housethree {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) B ELEMENT:WindowFrame C ELEMENT:Window {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"          BBBBBBBBBBBBB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BCCCCCCCCCCCB         "
+	"          BBBBBBBBBBBBB         "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	}
+}
+
+TRIGGER Housefour {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) B ELEMENT:Roof {
+	"                               B"
+	"                              BB"
+	"                             BBB"
+	"                            BBBB"
+	"                           BBBBB"
+	"                          BBBBBB"
+	"                         BBBBBBB"
+	"                        BBBBBBBB"
+	"                       BBBBBBBBB"
+	"                      BBBBBBBBBB"
+	"                     BBBBBBBBBBB"
+	"                    BBBBBBBBBBBB"
+	"                   BBBBBBBBBBBBB"
+	"                  BBBBBBBBBBBBBB"
+	"                 BBBBBBBBBBBBBBB"
+	"                BBBBBBBBBBBBBBBB"
+	"               BBBBBBBBBBBBBBBBB"
+	"              BBBBBBBBBBBBBBBBBB"
+	"             BBBBBBBBBBBBBBBBBBB"
+	"            BBBBBBBBBBBBBBBBBBBB"
+	"           BBBBBBBBBBBBBBBBBBBBB"
+	"          BBBBBBBBBBBBBBBBBBBBBB"
+	"         BBBBBBBBBBBBBBBBBBBBBBB"
+	"        BBBBBBBBBBBBBBBBBBBBBBBB"
+	"       BBBBBBBBBBBBBBBBBBBBBBBBB"
+	"      BBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"     BBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"    BBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"   BBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"  BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	" BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	}
+}
+
+TRIGGER Housefive {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) B ELEMENT:Roof {
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"
+	}
+}
+
+TRIGGER Housesix {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) A ELEMENT:Roof {
+	"A                               "
+	"AA                              "
+	"AAA                             "
+	"AAAA                            "
+	"AAAAA                           "
+	"AAAAAA                          "
+	"AAAAAAA                         "
+	"AAAAAAAA                        "
+	"AAAAAAAAA                       "
+	"AAAAAAAAAA                      "
+	"AAAAAAAAAAA                     "
+	"AAAAAAAAAAAA                    "
+	"AAAAAAAAAAAAA                   "
+	"AAAAAAAAAAAAAA                  "
+	"AAAAAAAAAAAAAAA                 "
+	"AAAAAAAAAAAAAAAA                "
+	"AAAAAAAAAAAAAAAAA               "
+	"AAAAAAAAAAAAAAAAAA              "
+	"AAAAAAAAAAAAAAAAAAA             "
+	"AAAAAAAAAAAAAAAAAAAA            "
+	"AAAAAAAAAAAAAAAAAAAAA           "
+	"AAAAAAAAAAAAAAAAAAAAAA          "
+	"AAAAAAAAAAAAAAAAAAAAAAA         "
+	"AAAAAAAAAAAAAAAAAAAAAAAA        "
+	"AAAAAAAAAAAAAAAAAAAAAAAAA       "
+	"AAAAAAAAAAAAAAAAAAAAAAAAAA      "
+	"AAAAAAAAAAAAAAAAAAAAAAAAAAA     "
+	"AAAAAAAAAAAAAAAAAAAAAAAAAAAA    "
+	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAA   "
+	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
+	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+	}
+}
+
+TRIGGER Chymnyone {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Brick1 - ELEMENT:Brick2 {
+	"        ----------------        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        ----------------        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        ----------------        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        ----------------        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        ----------------        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        ----------------        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        ----------------        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        ----------------        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	}
+}
+
+TRIGGER Chymnytwo {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Brick1 - ELEMENT:Brick2 {
+	"    ------------------------    "
+	"    -++++++++-++++++++-++++-    "
+	"    -++++++++-++++++++-++++-    "
+	"    -++++++++-++++++++-++++-    "
+	"    ------------------------    "
+	"    -++++-++++++++-++++++++-    "
+	"    -++++-++++++++-++++++++-    "
+	"    -++++-++++++++-++++++++-    "
+	"    ------------------------    "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        ----------------        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        ----------------        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        ----------------        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        ----------------        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        -++++-+++++++++-        "
+	"        ----------------        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	"        -+++++++++-++++-        "
+	}
+}
+
+
+TRIGGER TreeTrunk {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) # ELEMENT:TreeTrunk {
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	"     ######################     "
+	}
+}
+
+TRIGGER TreeTop {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	}
+}
+
+TRIGGER TreeRight {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"++++++++++++++++                "
+	"+++++++++++++++++               "
+	"+++++++++++++++++               "
+	"+++++++++++++++++               "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"+++++++++++++++++++             "
+	"+++++++++++++++++++             "
+	"+++++++++++++++++++             "
+	"+++++++++++++++++++             "
+	"+++++++++++++++++++             "
+	"+++++++++++++++++++             "
+	"+++++++++++++++++++             "
+	"+++++++++++++++++++             "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"++++++++++++++++++              "
+	"+++++++++++++++++               "
+	"+++++++++++++++++               "
+	"+++++++++++++++++               "
+	"++++++++++++++++                "
+	}
+}
+
+TRIGGER TreeURight {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"++++                            "
+	"++++++++                        "
+	"++++++++++                      "
+	"++++++++++++                    "
+	"+++++++++++++                   "
+	"++++++++++++++                  "
+	"++++++++++++++                  "
+	"+++++++++++++++                 "
+	"+++++++++++++++                 "
+	"+++++++++++++++                 "
+	"++++++++++++++++                "
+	"++++++++++++++++                "
+	"++++++++++++++++                "
+	"++++++++++++++++                "
+	"+++++++++++++++++               "
+	"+++++++++++++++++               "
+	}
+}
+
+TRIGGER TreeDRight {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"++++++++++++++++                "
+	"++++++++++++++++                "
+	"++++++++++++++++                "
+	"++++++++++++++++                "
+	"+++++++++++++++                 "
+	"+++++++++++++++                 "
+	"+++++++++++++++                 "
+	"+++++++++++++++                 "
+	"++++++++++++++                  "
+	"++++++++++++++                  "
+	"+++++++++++++                   "
+	"+++++++++++++                   "
+	"++++++++++++                    "
+	"+++++++++++                     "
+	"+++++++++                       "
+	"++++++                          "
+	"++                              "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	}
+}
+
+TRIGGER TreeDLeft {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"               +++++++++++++++++"
+	"               +++++++++++++++++"
+	"                ++++++++++++++++"
+	"                ++++++++++++++++"
+	"                ++++++++++++++++"
+	"                ++++++++++++++++"
+	"                 +++++++++++++++"
+	"                 +++++++++++++++"
+	"                 +++++++++++++++"
+	"                  ++++++++++++++"
+	"                  ++++++++++++++"
+	"                   +++++++++++++"
+	"                    ++++++++++++"
+	"                      ++++++++++"
+	"                        ++++++++"
+	"                            ++++"
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	}
+}
+
+TRIGGER TreeULeft {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                              ++"
+	"                          ++++++"
+	"                       +++++++++"
+	"                     +++++++++++"
+	"                    ++++++++++++"
+	"                   +++++++++++++"
+	"                   +++++++++++++"
+	"                  ++++++++++++++"
+	"                  ++++++++++++++"
+	"                 +++++++++++++++"
+	"                 +++++++++++++++"
+	"                 +++++++++++++++"
+	"                 +++++++++++++++"
+	"                ++++++++++++++++"
+	"                ++++++++++++++++"
+	"                ++++++++++++++++"
+	"                ++++++++++++++++"
+	}
+}
+
+TRIGGER TreeDown {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	" ++++++++++++++++++++++++++++++ "
+	"    ++++++++++++++++++++++++    "
+	"            ++++++++            "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	}
+}
+
+TRIGGER TreeLeft {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"                ++++++++++++++++"
+	"               +++++++++++++++++"
+	"               +++++++++++++++++"
+	"               +++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"             +++++++++++++++++++"
+	"             +++++++++++++++++++"
+	"             +++++++++++++++++++"
+	"             +++++++++++++++++++"
+	"             +++++++++++++++++++"
+	"             +++++++++++++++++++"
+	"             +++++++++++++++++++"
+	"             +++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"              ++++++++++++++++++"
+	"               +++++++++++++++++"
+	"               +++++++++++++++++"
+	"               +++++++++++++++++"
+	"                ++++++++++++++++"
+	}
+}
+
+TRIGGER TreeUp {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Tree {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"            ++++++++            "
+	"    ++++++++++++++++++++++++    "
+	" ++++++++++++++++++++++++++++++ "
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	"++++++++++++++++++++++++++++++++"
+	}
+}
+
+TRIGGER Brick {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Brick1 - ELEMENT:Brick2 {
+	"--------------------------------"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"--------------------------------"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"--------------------------------"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"--------------------------------"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"--------------------------------"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"--------------------------------"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"--------------------------------"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"+++++++-+++++++-+++++++-+++++++-"
+	"--------------------------------"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"+++-+++++++-+++++++-++++++++-+++"
+	"+++-+++++++-+++++++-++++++++-+++"
+	}
+}
+
+
+TRIGGER Person1 {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) S ELEMENT:Shirt1 + ELEMENT:Skin # ELEMENT:Pants1 {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"               ++               "
+	"              ++++              "
+	"             ++++++             "
+	"             ++++++             "
+	"              ++++              "
+	"               ++               "
+	"             SSSSSS             "
+	"             SSSSSS             "
+	"            SSSSSSSS            "
+	"            + SSSS +            "
+	"            + SSSS +            "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"             ######             "
+	"             ######             "
+	}
+}
+
+TRIGGER Person2 {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) S ELEMENT:Shirt2 + ELEMENT:Skin # ELEMENT:Pants1 {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"               ++               "
+	"              ++++              "
+	"             ++++++             "
+	"             ++++++             "
+	"              ++++              "
+	"               ++               "
+	"             SSSSSS             "
+	"             SSSSSS             "
+	"            SSSSSSSS            "
+	"            + SSSS +            "
+	"            + SSSS +            "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"             ######             "
+	"             ######             "
+	}
+}
+
+TRIGGER Person3 {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) + ELEMENT:Skin S ELEMENT:Shirt3 # ELEMENT:Pants1 {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"               ++               "
+	"              ++++              "
+	"             ++++++             "
+	"             ++++++             "
+	"              ++++              "
+	"               ++               "
+	"             SSSSSS             "
+	"             SSSSSS             "
+	"            SSSSSSSS            "
+	"            + SSSS +            "
+	"            + SSSS +            "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"             ######             "
+	"             ######             "
+	}
+}
+
+TRIGGER Person4 {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) # ELEMENT:Pants2 S ELEMENT:Shirt1 + ELEMENT:Skin {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"               ++               "
+	"              ++++              "
+	"             ++++++             "
+	"             ++++++             "
+	"              ++++              "
+	"               ++               "
+	"             SSSSSS             "
+	"             SSSSSS             "
+	"            SSSSSSSS            "
+	"            + SSSS +            "
+	"            + SSSS +            "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"             ######             "
+	"             ######             "
+	}
+}
+
+TRIGGER Person5 {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) # ELEMENT:Pants2 S ELEMENT:Shirt2 + ELEMENT:Skin {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"               ++               "
+	"              ++++              "
+	"             ++++++             "
+	"             ++++++             "
+	"              ++++              "
+	"               ++               "
+	"             SSSSSS             "
+	"             SSSSSS             "
+	"            SSSSSSSS            "
+	"            + SSSS +            "
+	"            + SSSS +            "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"             ######             "
+	"             ######             "
+	}
+}
+
+TRIGGER Person6 {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) # ELEMENT:Pants2 S ELEMENT:Shirt3 + ELEMENT:Skin {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"               ++               "
+	"              ++++              "
+	"             ++++++             "
+	"             ++++++             "
+	"              ++++              "
+	"               ++               "
+	"             SSSSSS             "
+	"             SSSSSS             "
+	"            SSSSSSSS            "
+	"            + SSSS +            "
+	"            + SSSS +            "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"              ####              "
+	"             ######             "
+	"             ######             "
+	}
+}
+
+TRIGGER Dog {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) $ ELEMENT:Dog {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                   $$           "
+	"                   $$$$         "
+	"              $$$$$$$$$         "
+	"            $$$$$$$$$           "
+	"           $$$$$$$$$            "
+	"          $ $$$$$$$$            "
+	"          $ $$    $$            "
+	"            $$    $$            "
+	"            $$    $$            "
+	}
+}
+
+TRIGGER door2 {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) . ELEMENT:Window + ELEMENT:DoorFrame2 {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"    ++++++++++++++++++++++++    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	"    +..........++..........+    "
+	}
+}
+
+TRIGGER Window2 {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) . ELEMENT:Window = ELEMENT:WindowFrame2 {
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	"=..............................="
+	}
+}
+
+TRIGGER roofsingle {
+DRAW ELEMENT:Clear OBJECT ((X / 32) * 32) ((Y / 32) * 32) A ELEMENT:Roof {
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"                                "
+	"               AA               "
+	"              AAAA              "
+	"             AAAAAA             "
+	"            AAAAAAAA            "
+	"           AAAAAAAAAA           "
+	"          AAAAAAAAAAAA          "
+	"         AAAAAAAAAAAAAA         "
+	"        AAAAAAAAAAAAAAAA        "
+	"       AAAAAAAAAAAAAAAAAA       "
+	"      AAAAAAAAAAAAAAAAAAAA      "
+	"     AAAAAAAAAAAAAAAAAAAAAA     "
+	"    AAAAAAAAAAAAAAAAAAAAAAAA    "
+	"   AAAAAAAAAAAAAAAAAAAAAAAAAA   "
+	"  AAAAAAAAAAAAAAAAAAAAAAAAAAAA  "
+	" AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA "
+	"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+	}
+}
+
+TRIGGER SelectionMenu {
+EXEC listgroups
+MENU LEFT ADD TEXT "House Parts" File home.bmp HouseSelection
+MENU LEFT ADD TEXT "" SEPERATOR 0 <>
+}
+
+TRIGGER HouseSelection {
+MENU RIGHT CLEAR
+
+MENU RIGHT ADD TEXT "Door" TEXT "Door" <SET SETPIECES 1>
+MENU RIGHT ADD TEXT "Building" TEXT "Build" <SET SETPIECES 2>
+MENU RIGHT ADD TEXT "Window" TEXT "Window" <SET SETPIECES 3>
+MENU RIGHT ADD TEXT "Slant Right" TEXT "Right" <SET SETPIECES 4>
+MENU RIGHT ADD TEXT "Roof" TEXT "Roof" <SET SETPIECES 5>
+MENU RIGHT ADD TEXT "Slant Left" TEXT "Left" <SET SETPIECES 6>
+MENU RIGHT ADD TEXT "Chimney One" TEXT "  1Chmny" <SET SETPIECES 7>
+MENU RIGHT ADD TEXT "Chimney Two" TEXT "  2Chmny" <SET SETPIECES 8>
+
+MENU RIGHT ADD TEXT "TreeTrunk" TEXT "Trunk" <SET SETPIECES 9>
+MENU RIGHT ADD TEXT "TreeTop" TEXT "TreeTop" <SET SETPIECES 10>
+MENU RIGHT ADD TEXT "TreeRight" TEXT "TreeRight" <SET SETPIECES 11>
+MENU RIGHT ADD TEXT "TreeUpRight" TEXT "TreeUR" <SET SETPIECES 12>
+MENU RIGHT ADD TEXT "TreeDownRight" TEXT "TreeDR" <SET SETPIECES 13>
+MENU RIGHT ADD TEXT "TreeDownLeft" TEXT "TreeDL" <SET SETPIECES 14>
+MENU RIGHT ADD TEXT "TreeUpLeft" TEXT "TreeUL" <SET SETPIECES 15>
+MENU RIGHT ADD TEXT "TreeDown" TEXT "TreeDown" <SET SETPIECES 16>
+MENU RIGHT ADD TEXT "Tree Left" TEXT "TreeLeft" <SET SETPIECES 17>
+MENU RIGHT ADD TEXT "Tree Up" TEXT "TreeUp" <SET SETPIECES 18>
+MENU RIGHT ADD TEXT "Brick" TEXT "Brick" <SET SETPIECES 19>
+MENU RIGHT ADD TEXT "Person" TEXT "People" <SET SETPIECES 20>
+MENU RIGHT ADD TEXT "Doggy dog dog" TEXT "Dog" <SET SETPIECES 21>
+MENU RIGHT ADD TEXT "door2 " TEXT "GlassDoor" <SET SETPIECES 22>
+MENU RIGHT ADD TEXT "Window2 " TEXT "XlWindow" <SET SETPIECES 23>
+MENU RIGHT ADD TEXT "Roof" TEXT " /\ Roof " <SET SETPIECES 24>
+}
+
+TRIGGER MOUSEMOVE {
+IF (SETPIECES != 0) {
+	REMOVETRIGGER drawing
+          SET CURSOR 2
+          }
+}
+
+ON DRAW IF (SETPIECES != 0) {
+        REMOVETRIGGER drawing
+   IF ((BUTTON == 1) || PREVIEW) {
+           IF (SETPIECES == 1) Houseone
+           IF (SETPIECES == 2) Housetwo
+           IF (SETPIECES == 3) Housethree
+           IF (SETPIECES == 4) Housefour
+           IF (SETPIECES == 5) Housefive
+           IF (SETPIECES == 6) Housesix
+	   IF (SETPIECES == 7) Chymnyone
+	   IF (SETPIECES == 8) Chymnytwo
+           IF (SETPIECES == 9) TreeTrunk
+           IF (SETPIECES == 10) TreeTop
+           IF (SETPIECES == 11) TreeRight
+           IF (SETPIECES == 12) TreeURight
+           IF (SETPIECES == 13) TreeDRight
+           IF (SETPIECES == 14) TreeDLeft
+	   IF (SETPIECES == 15) TreeULeft
+	   IF (SETPIECES == 16) TreeDown
+	   IF (SETPIECES == 17) TreeLeft
+	   IF (SETPIECES == 18) TreeUp
+             IF (SETPIECES == 19) Brick
+             IF (SETPIECES == 20) PersonDraw
+             IF (SETPIECES == 21) Dog
+             IF (SETPIECES == 22) door2
+             IF (SETPIECES == 23) Window2
+	IF (SETPIECES == 24) roofsingle 
+           }
+	IF (BUTTON == 2) {
+          DRAW ELEMENT:Earth FILLEDRECT ((X / 32) * 32) ((Y / 32) * 32) 32 32
+          }
+	IF (BUTTON == 4) {
+          DRAW ELEMENT:Clear FILLEDRECT ((X / 32) * 32) ((Y / 32) * 32) 32 32
+          }
+}
+
+TRIGGER PersonDraw {
+SET Per (1 RAND 6)
+IF (Per == 1) <EXEC Person1>
+IF (Per == 2) <EXEC Person2>
+IF (Per == 3) <EXEC Person3>
+IF (Per == 4) <EXEC Person4>
+IF (Per == 5) <EXEC Person5>
+IF (Per == 6) <EXEC Person6>
+}
+
+TRIGGER selectelement {
+DRAW 0 REPLACEFILLEDCIRCLE 0 0 (WIDTH * 2) 0 ELEMENT:PreviewFrame
+IF (BUTTON == 1) <SET ELEMENT1 $0> $0
+IF (BUTTON == 2) <SET ELEMENT2 $0> $0
+IF (BUTTON == 4) <SET ELEMENT4 $0> $0
+IF (SETPIECES != 0) {
+          SET SETPIECES 0
+          EXEC circletools
+          }
+EXEC listgroups
+EXEC listelements elementgroulisted
+EXEC SelectionMenu
+}
+
+TRIGGER listgroupclick {
+DRAW 0 REPLACEFILLEDCIRCLE 0 0 (WIDTH * 2) 0 ELEMENT:PreviewFrame
+	IF (BUTTON == 1) <SET ELEMENT1 GROUP:$0:1>
+	IF (BUTTON == 1) listelements
+	IF (BUTTON == 2) listelements
+	IF (BUTTON == 4) sublistelements
+	IF (BUTTON != 4) listgroups
+IF (SETPIECES != 0) {
+          SET SETPIECES 0
+          EXEC circletools
+          }
+EXEC SelectionMenu
+}
+
+ON dragmenu EXEC SelectionMenu
+
+ON KEY_BACKSPACE EXEC back_load
+ON KEY_v IF (CTRL == 1) <INCLUDE CLIPBOARD>
+ON KEY_F1 EXEC listelements 1
+ON KEY_F2 EXEC listelements 2
+ON KEY_F3 EXEC listelements 3
+ON KEY_F4 EXEC listelements 4
+ON KEY_F5 EXEC listelements 5
+ON KEY_F6 EXEC listelements 6
+ON KEY_F7 EXEC listelements 7
+ON KEY_F8 EXEC listelements 8
+ON KEY_F9 EXEC listelements 9
+ON KEY_F10 EXEC listelements 10
+ON KEY_F11 EXEC listelements 11
+ON KEY_F12 EXEC listelements 12
+
+REMOVETRIGGER startanimation
+EXEC setview 0 1 1 1 1 1 256
+EXEC usefilledcircle
+SET BRUSHSIZE 15
+SET MENURIGHT 62
+SET ELEMENT1 ELEMENT:Sand
+SET ELEMENT2 ELEMENT:Earth
+SET ELEMENT4 ELEMENT:Clear
+EXEC listgroups
+EXEC listelements GROUP:Stones
+EXEC SelectionMenu
+EXEC menutop
+EXEC menubottom
+
+ON PREPHYSICS EXEC prephysicdirection
+ON POSTPHYSICS EXEC postphysicdirection
+
+ON KEY_SHIFT SET SHOWPREVIEW (1 - SHOWPREVIEW)
+ON KEYUP_SHIFT SET SHOWPREVIEW (1 - SHOWPREVIEW)
+ON KEYUP_SHIFT DRAW 0 REPLACEFILLEDCIRCLE 0 0 (WIDTH * 2) 0 ELEMENT:PreviewFrame
+ON MOUSEWHEELUP IF (wheelfunction == 0) brushizeinc
+ON MOUSEWHEELUP IF (wheelfunction == 1) zoominc
+ON MOUSEWHEELUP IF (wheelfunction == 2) history_back
+ON MOUSEWHEELDOWN IF (wheelfunction == 0) brushizedec
+ON MOUSEWHEELDOWN IF (wheelfunction == 1) zoomdec
+ON MOUSEWHEELDOWN IF (wheelfunction == 2) history_forewardt None
+
+
+TRIGGER KEY_1 {
+SET Mx1 X 
+SET My1 Y 
+SET StopVar 0
+}
+TRIGGER KEYUP_1 {
+EXEC ShootProjectile Mx1 My1 7 ELEMENT:Meteor 0 1 10 0 1 0
+}
+
+TRIGGER KEY_2 {
+SET Mx1 X 
+SET My1 Y 
+SET StopVar 0
+}
+TRIGGER KEYUP_2 {
+EXEC ShootProjectile Mx1 My1 7 ELEMENT:Meteor 0 1 20 0 1 0
+}
+
+TRIGGER KEY_3 {
+SET Mx1 X 
+SET My1 Y 
+SET StopVar 0
+}
+TRIGGER KEYUP_3 {
+EXEC ShootProjectile Mx1 My1 7 ELEMENT:Meteor 0 1 30 0 1 0
+}
+
+TRIGGER KEY_4 {
+SET Mx1 X 
+SET My1 Y 
+SET StopVar 0
+}
+TRIGGER KEYUP_4 {
+EXEC ShootProjectile Mx1 My1 7 ELEMENT:Meteor 0 1 40 0 1 0
+}
+
+TRIGGER KEY_5 {
+SET Mx1 X 
+SET My1 Y 
+SET StopVar 0
+}
+TRIGGER KEYUP_5 {
+EXEC ShootProjectile Mx1 My1 7 ELEMENT:Meteor 0 1 50 0 1 0
+}
+
+TRIGGER KEY_6 {
+SET Mx1 X 
+SET My1 Y 
+SET StopVar 0
+}
+TRIGGER KEYUP_6 {
+EXEC ShootProjectile Mx1 My1 7 ELEMENT:Meteor 0 1 60 0 1 0
+}
+
+
+
+TRIGGER ShootProjectile {
+IF ($0 > -10) {
+          IF ($4 == 0) <SET tmpX ($0 - X)>
+          IF ($4 == 0) <SET tmpY ($1 - Y)>
+          SET tmp (SQRT ((tmpX * tmpX) + (tmpY * tmpY)))
+          }
+EXEC MoveProjectile ($0 * 50) ($1 * 50) ((tmpX * ($2 * -50)) / tmp) ((tmpY * ($2 * -50)) / tmp) $3 $7 $8 $9 $6 $5
+SET StopVar 0
+}
+
+TRIGGER MoveProjectile {
+SET FlyX (($0 + $2) / 50)
+SET FlyY ((($1 + $3) / 50) + (GRAVITY / 100))
+SET StopMoving 0
+IF (($0 / 50) > WIDTH) <SET StopMoving 1>
+IF (($1 / 50) > HEIGHT) <SET StopMoving 1>
+IF (($0 / 50) < 0) <SET StopMoving 1>
+IF (($1 / 50) < 0) <SET StopMoving 1>
+IF ($9 == 0) {
+          IF ($5 == 0) <DRAW $4 POINT FlyX FlyY>
+          IF ($5 == 1) <DRAW $4 REPLACEFILLEDCIRCLE FlyX FlyY 0 0 $6>
+          IF (($7 == 0) && (StopMoving == 0)) <TIMER 1 FRAMES MoveProjectile ($0 + $2) ($1 + $3) $2 ($3 + (GRAVITY / 100)) $4 $5 $6 $7 $8 0>
+          IF (($7 == 1) && (StopMoving == 0) && (StopVar == 0)) <TIMER 1 FRAMES MoveProjectile ($0 + $2) ($1 + $3) $2 ($3 + (GRAVITY / 100)) $4 $5 $6 $7 $8 0>
+          }
+IF ($9 == 1) {
+          IF ($5 == 0) <DRAW $4 FILLEDCIRCLE FlyX FlyY $8>
+          IF ($5 == 1) <DRAW $4 REPLACEFILLEDCIRCLE FlyX FlyY $8 0 $6>
+          IF (($7 == 0) && (StopMoving == 0)) <TIMER 1 FRAMES MoveProjectile ($0 + $2) ($1 + $3) $2 ($3 + (GRAVITY / 100)) $4 $5 $6 $7 $8 1>
+          IF (($7 == 1) && (StopMoving == 0) && (StopVar == 0)) <TIMER 1 FRAMES MoveProjectile ($0 + $2) ($1 + $3) $2 ($3 + (GRAVITY / 100)) $4 $5 $6 $7 $8 1>
+IF (StopMoving == 1) <DRAW ELEMENT:MeteorHit REPLACEFILLEDCIRCLE 0 0 (WIDTH * 2) 0 $4>
+IF (StopVar == 1) <DRAW ELEMENT:MeteorHit REPLACEFILLEDCIRCLE 0 0 (WIDTH * 2) 0 $4>
+}
+}

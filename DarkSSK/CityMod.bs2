@@ -1,0 +1,994 @@
+EXEC clearall
+MENURIGHT = 70
+EXEC menutop
+EXEC menubottom
+SET SHOWPREVIEW (1 - SHOWPREVIEW)  
+
+GROUP City 100 HEX 000000000000003E0000002003FF80200200802002928020020080203FF0803E201280002890803E2013FC08201204082892240820120408201204082892243E201204002012043E2892240820120408201204082892240820120408201204082892242220120422201204142892240820120408201204082892240820120400 255 255 255 
+GROUP Suburb 105 HEX 0000040000000A00000015001C102A802010024019595B200555529038D8D3080000000400088212001FFFFD002208410044108200FFFFFF011041080220821007FFFFFF08820421110408421FFFFFFF020000000200000002000000021FC1F00222220802222208023FE2080222220802222228021FC2080200020802000208 255 255 255
+GROUP Destroy 110 TEXT Destroy
+GROUP Landscape 120 TEXT Landscape
+
+Element None Fram 80 80 255 0 1 1 1 0 Clear 0 TEXT Fram 
+Element None Frame 100 100 100 0 1 1 1 0 Clear 0 TEXT Frame 
+Element None Balc 120 120 120 0 1 1 1 0 Clear 0 TEXT Balc 
+Element None Tip 255 0 0 0 1 1 1 50 Tip2 0 TEXT Tip
+Element None Tip2 255 255 255 0 1 1 1 19999 Tip 0 TEXT Tip2
+Element None Door 100 100 255 0 1 1 1 0 Clear 0 TEXT Door
+Element None Frame2 80 80 230 0 1 1 1 0 Clear 0 TEXT Frame2
+Element None Metal 0 0 0 0 1 1 1 0 Clear 0 TEXT Metal
+Element None Fire2 255 150 70 -700 1 1 1 0 Clear 0 TEXT Fire2
+Element None Rubble 60 60 60 -300 0 1 1 0 Clear 0 TEXT Rubble
+Element None Trail 0 255 0 0 1 1 1 20000 Clear 0 TEXT Trail
+Element None C1 90 90 90 0 1 1 1 0 Clear 0 TEXT C1
+Element None C2 90 90 90 0 1 1 1 0 Clear 0 TEXT C2
+Element None Smoke 90 90 90 -200 1 1 4 700 Clear 0 TEXT Smoke
+Element None White 255 255 255 0 1 1 1 0 Clear 0 TEXT White
+Element None Shockwave 255 0 0 0 1 1 1 0 Clear 0 TEXT Shockwave
+Element None S2 255 100 80 0 1 1 1 0 Clear 0 TEXT S2
+Element None S3 255 255 0 0 1 1 1 0 Clear 0 TEXT S3
+Element None Framed 135 77 0 0 1 1 1 0 Clear 0 TEXT Framed
+Element None Pants 0 0 140 0 1 1 1 0 Clear 0 TEXT Pants
+Element None Shirt 255 0 0 0 1 1 1 0 Clear 0 TEXT Shirt
+Element None Flesh 255 213 199 0 1 1 1 0 Clear 0 TEXT Flesh
+Element None Earth 125 67 0 0 1 1 1 0 Clear 0 TEXT Earth 
+Element None Shrap 255 0 0 0 1 1 1 0 Clear 0 TEXT Shrap
+Element None Sun2 255 255 0 0 1 1 1 0 Clear 0 TEXT Sun2
+Element None Lining 120 0 0 0 1 1 1 0 Clear 0 TEXT Lining
+Element None SunP 255 255 140 0 1 1 1 2000 Clear 0 TEXT SunP
+Element None SunE 255 255 140 0 1 1 1 0 Clear 0 TEXT SunE
+Element None Sun3 255 255 0 0 1 1 1 0 Clear 0 TEXT Sun3
+Element None Leaves 0 255 0 0 1 1 1 0 Clear 0 TEXT Leaves
+Element None Null2 0 0 0 0 1 1 1 0 Clear 0 TEXT Null2
+Element None Nu2 0 0 0 0 1 1 1 0 Clear 0 TEXT Nu2
+Element None Yellow 255 255 0 0 1 1 1 0 Clear 0 TEXT Yellow
+Element None Uf 100 100 100 0 1 1 1 0 Clear 0 TEXT Uf
+Element None AGen 50 255 50 0 1 1 1 0 Clear 0 TEXT AGen
+
+Element City Concrete 100 100 100 0 1 1 1 0 Clear 0 TEXT Concrete
+Element City FineConcrete 100 100 100 0 1 1 1 0 Clear 0 TEXT FineConcrete
+Element City WhitePaint 255 255 255 0 1 1 1 0 Clear 0 TEXT WhitePaint 
+Element City FinePaint 255 255 255 0 1 1 1 0 Clear 0 TEXT FinePaint
+Element City Window 100 100 255 0 1 1 1 0 Clear 0 TEXT Window 
+Element City Antenna 100 100 100 0 1 1 1 0 Clear 0 TEXT Antenna
+Element City Door 100 100 255 0 1 1 1 0 Clear 0 TEXT Door
+Element City Window2 100 100 255 0 1 1 1 0 Clear 0 TEXT Window2
+Element City Balcony 255 255 255 0 1 1 1 0 Clear 0 TEXT Balcony
+Element City Pane 255 255 255 0 1 1 1 0 Clear 0 TEXT Pane
+Element City Clear. 0 0 0 0 1 1 1 32768 Clear 0 TEXT Clear
+
+Element Suburb Wood 165 107 0 0 1 1 1 0 Clear 0 TEXT Wood
+Element Suburb Roof 140 33 0 0 1 1 1 0 Clear 0 TEXT Roof
+Element Suburb Left 140 33 0 0 1 1 1 0 Clear 0 TEXT Left
+Element Suburb Right 140 33 0 0 1 1 1 0 Clear 0 TEXT Right
+Element Suburb RoofTop 140 33 0 0 1 1 1 0 Clear 0 TEXT RoofTop
+Element Suburb Chimney 100 100 100 0 1 1 1 0 Clear 0 TEXT Chimney
+Element Suburb Door2 100 100 255 0 1 1 1 0 Clear 0 TEXT Door2
+Element Suburb Window3 100 100 255 0 1 1 1 0 Clear 0 TEXT Window3
+Element Suburb Antenna2 100 100 100 0 1 1 1 0 Clear 0 TEXT Antenna2
+Element Suburb Person 255 255 255 0 1 1 1 0 Clear 0 TEXT Person
+
+Element Landscape Earth2 255 255 255 0 1 1 1 0 Clear 0 TEXT Earth2
+Element Landscape Sun 255 255 0 0 1 1 1 0 Clear 0 TEXT Sun
+Element Landscape Tree 0 255 0 0 1 1 1 0 Clear 0 TEXT Tree
+Element Landscape Flower 255 50 255 0 1 1 1 0 Clear 0 TEXT Flower 
+
+Element Destroy Bomb 100 100 100 3000 0 0 1 0 Clear 0 TEXT Bomb
+Element Destroy Fire 255 0 0 -400 1 1 1 2000 Clear 0 TEXT Fire
+Element Destroy Alien 0 255 0 0 1 1 1 0 Clear 0 TEXT Alien
+Element Destroy Atomic 255 255 255 3000 0 0 1 0 Clear 0 TEXT Atomic
+Element Destroy Mine 70 70 70 0 1 1 1 0 Clear 0 TEXT Mine
+Element Destroy ScatterBomb 200 200 255 3000 0 0 1 0 Clear 0 TEXT ScatterBomb
+Element Destroy UFO 0 0 0 0 1 1 1 0 Clear 0 TEXT UFO
+
+Interaction Fire GROUP:None Fire Fire 3500 Sun2
+Interaction Fire Concrete Fire Fire 3500
+Interaction Fire WhitePaint Fire Fire 5000
+Interaction Fire Window Fire Fire 5500
+Interaction Fire Antenna Fire Fire 4500
+Interaction Fire Door Fire Fire 3500
+Interaction Fire Window2 Fire Fire 5500
+Interaction Fire Balcony Fire Fire 4500
+Interaction Fire Wood Fire Fire 7000
+Interaction Fire GROUP:Suburb Fire Fire 4000
+Interaction Alien Clear Trail Alien 20000
+Interaction Alien GROUP:City Alien Clear 32768
+Interaction Alien GROUP:Suburb Alien Clear 32768 Trail
+Interaction C2 Clear C2 Smoke 1000
+Interaction White White Null White 3
+Interaction Null White Null Null 32768
+Interaction White All White White 15000 Null
+Interaction Null Null Null2 Null 1
+Interaction Null2 Null Null2 Null2 10000
+Interaction Shockwave Clear S2 Shockwave 32768
+Interaction Shockwave Clear Shockwave Shockwave 32768
+Interaction S2 Shockwave S2 S2 32768
+Interaction S2 Shockwave S2 Clear 32768
+Interaction S2 Clear S3 S2 32768
+Interaction S2 Clear S2 S2 32768
+Interaction S3 S2 S3 S3 32768
+Interaction S3 S2 S3 Clear 32768
+Interaction Shockwave All Shockwave Clear 32768 S2
+Interaction S2 All S2 Clear S3
+Interaction S3 All S3 S3 32768
+Interaction Null2 S3 Clear S3 32768
+Interaction S3 Clear S3 S3 32768
+Interaction S3 Null S3 S3 32768
+Interaction Null Clear Clear Clear 800
+Interaction S3 Null2 S3 S3 32768
+Interaction Shrap Clear Shrap Fire 5000
+Interaction Sun2 Fire Sun2 Sun2 32768
+Interaction AGen Clear AGen Alien 400
+
+InteractionTrigger Bomb GROUP:None BombTrigger 9768
+InteractionTrigger Bomb GROUP:City BombTrigger 9768
+InteractionTrigger Bomb GROUP:Suburb BombTrigger 9768
+InteractionTrigger Atomic GROUP:None AtomTrigger 9500
+InteractionTrigger Atomic GROUP:City AtomTrigger 9500
+InteractionTrigger Atomic GROUP:Suburb AtomTrigger 9500
+InteractionTrigger Null2 Null2 SFater 2
+InteractionTrigger Mine GROUP:None BombTrigger 3000 Earth
+InteractionTrigger Mine GROUP:City BombTrigger 3000
+InteractionTrigger Mine GROUP:Suburb BombTrigger 3000
+InteractionTrigger Mine GROUP:Landscape BombTrigger 3000
+InteractionTrigger ScatterBomb GROUP:None Scatter 3000
+InteractionTrigger ScatterBomb GROUP:City Scatter 3000
+InteractionTrigger ScatterBomb GROUP:Suburb Scatter 3000
+InteractionTrigger ScatterBomb GROUP:Landscape Scatter 3000
+InteractionTrigger Sun Clear sun2 32768
+
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Concrete)) <EXEC concrete X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:WhitePaint)) <EXEC whitepaint X Y>  
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Window)) <EXEC window X Y> 
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Antenna)) <EXEC antenna X Y> 
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Door)) <EXEC door X Y> 
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Window2)) <EXEC windo X Y> 
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Balcony)) <EXEC balcony X Y> 
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Clear.)) <EXEC clear X Y> 
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:FineConcrete)) <EXEC fineconc X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:FinePaint)) <EXEC finepaint X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Bomb)) <EXEC bomb X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Fire)) <EXEC fire X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Alien)) <EXEC alien X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Wood)) <EXEC wood X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Roof)) <EXEC roof X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Left)) <EXEC left X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Right)) <EXEC right X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:RoofTop)) <EXEC rooftop X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Chimney)) <EXEC chimney X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Atomic)) <EXEC atom X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Door2)) <EXEC door2 X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Window3)) <EXEC windowed X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Antenna2)) <EXEC antenna2 X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Person)) <EXEC person X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Mine)) <EXEC mine X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Earth2)) <EXEC earth2 X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:ScatterBomb)) <EXEC scatterb X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Sun)) <EXEC sun X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Pane)) <EXEC pane X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Tree)) <EXEC tree X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:Flower)) <EXEC flower X Y>
+ON DRAW IF (((BUTTON == 1) || PREVIEW) && (ELEMENT1 == ELEMENT:UFO)) <EXEC ufo X Y>
+
+REMOVETRIGGER BombTrigger
+ON BombTrigger DRAW ELEMENT:Fire FILLEDCIRCLE X1 Y1 50 50
+ON BombTrigger DRAW ELEMENT:Fire2 FILLEDCIRCLE X1 Y1 10 5
+
+REMOVETRIGGER AtomTrigger
+ON AtomTrigger DRAW ELEMENT:Fire FILLEDCIRCLE X1 Y1 90 5
+ON AtomTrigger DRAW ELEMENT:White FILLEDRECT 211 202 10 10
+
+REMOVETRIGGER SFater
+ON SFater DRAW ELEMENT:Shockwave FILLEDRECT 1 1 400 10
+
+REMOVETRIGGER Scatter
+ON Scatter DRAW ELEMENT:Shrap RANDOMFILLEDCIRCLE X1 Y1 100 10
+
+REMOVETRIGGER sun2
+TRIGGER sun2
+ON sun2 DRAW ELEMENT:Sun2 FILLEDCIRCLE X1 Y1 70
+
+TRIGGER atom { 
+DRAW ELEMENT:Clear OBJECT ((X / 15) * 15) ((Y / 11) * 11) B ELEMENT:Atomic { 
+	"               "
+        "    BBBBBBB    "
+        "   BBBBBBBBB   "
+        "  BBBBBBBBBBB  "
+        " BBBBBBBBBBBBB "
+        " BBBBBBBBBBBBB "
+        " BBBBBBBBBBBBB "
+        "  BBBBBBBBBBB  "
+        "   BBBBBBBBB   "
+        "    BBBBBBB    "
+        "               "
+   }
+}
+
+TRIGGER concrete { 
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) B ELEMENT:Concrete { 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+        "BBBBBBBBBBBBBBBBBBBBBBBB" 
+   } 
+} 
+
+TRIGGER window { 
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) W ELEMENT:Window F ELEMENT:Frame I ELEMENT:Fram B ELEMENT:Balc { 
+        "                        " 
+        "                        " 
+        "                        " 
+        "                        " 
+        "    IIIIIIIIIIIIIIII    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IIIIIIIIIIIIIIII    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IWWWWWWIWWWWWWWI    " 
+        "    IIIIIIIIIIIIIIII    " 
+        "   FBBBBBBBBBBBBBBBBF   " 
+        "     FBBBBBBBBBBBBF     " 
+        "     FBBBBBBBBBBBBF     " 
+        "      FFFFFFFFFFFF      " 
+   } 
+} 
+
+TRIGGER antenna {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 48) * 48) A ELEMENT:Antenna I ELEMENT:Tip {
+	"          III           "
+        "         IIIII          "
+        "          III           "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+        "           A            "
+
+   }
+}
+
+TRIGGER door { 
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) D ELEMENT:Door E ELEMENT:Frame2 {
+	"                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "  EEEEEEEEEEEEEEEEEEEE  "
+        "  EDDDDDDDDEEDDDDDDDDE  "
+        "  EDDDDDDDDEEDDDDDDDDE  "
+        "  EDDDDDDDDEEDDDDDDDDE  "
+        "  EDDDDDDDDEEDDDDDDDDE  "
+        "  EDDDDDDDDEEDDDDDDDDE  "
+        "  EDDDDDEEDEEDEEDDDDDE  "
+        "  EDDDDDEDDEEDDEDDDDDE  "
+        "  EDDDDDDDDEEDDDDDDDDE  "
+        "  EDDDDDDDDEEDDDDDDDDE  "
+        "  EDDDDDDDDEEDDDDDDDDE  "
+        "  EDDDDDDDDEEDDDDDDDDE  " 
+   }
+}       
+
+TRIGGER windo {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) W ELEMENT:Window E ELEMENT:Frame2 {
+	" EEEEEEEEEEEEEEEEEEEEEE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+        " EWWWWWWWWWWWWWWWWWWWWE "
+	" EEEEEEEEEEEEEEEEEEEEEE "
+   }
+}
+
+TRIGGER balcony {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) E ELEMENT:Metal W ELEMENT:Window T ELEMENT:Frame2 C ELEMENT:Metal {
+	"                        "
+	"                        "
+	"                        "	
+	"                        "	
+        "                        "
+        "                        "
+        "       TTTTTTTTTT       "
+        "      TWWWWTWWWWWT      "
+        "     TWWWWWTWWWWWWT     "
+        "    TWWWWWWTWWWWWWT     "
+        "    TWWWWWWTWWWWWWT     "
+        "    TWWWWWWTWWWWWWT     "
+        "    TWWWWWWTWWWWWWT     "
+        " EEEEEEEEEEEEEEEEEEEEEE "
+        " EEWTWWEEWWEEWWEEWWTWEE "
+        " EEWTWWEEWWEEWWEEWWTWEE "
+        " EEWTWWEEWWEEWWEEWWTWEE "
+        " EEWTWWEEWWEEWWEEWWTWEE "
+        "  EETWWEEWWEEWWEEWWTEE  "
+        "   CCCCCCCCCCCCCCCCCC   "
+        "    CCCCCCCCCCCCCCCC    "
+        "     CCCCCCCCCCCCCC     "
+        "      CCCCCCCCCCCC      "
+        "        CCCCCCCC        "   
+   }
+}
+
+TRIGGER clear {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Clear {
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+   }
+}
+
+
+TRIGGER whitepaint {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:WhitePaint {
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+   }
+}
+
+TRIGGER bomb {
+DRAW ELEMENT:Clear OBJECT ((X / 15) * 15) ((Y / 12) * 12) B ELEMENT:Bomb {
+	"               "
+        "    BBBBBBB    "
+        "   BBBBBBBBB   "
+        "  BBBBBBBBBBB  "
+        " BBBBBBBBBBBBB "
+        " BBBBBBBBBBBBB "
+        " BBBBBBBBBBBBB "
+        "  BBBBBBBBBBB  "
+        "   BBBBBBBBB   "
+        "    BBBBBBB    "
+        "               "
+   }
+}
+
+TRIGGER fire {
+DRAW ELEMENT:Clear OBJECT ((X / 1) * 1) ((Y / 1) * 1) F ELEMENT:Fire {
+	"F"
+   }
+}
+
+TRIGGER alien {
+DRAW ELEMENT:Clear OBJECT ((X / 2) * 2) ((Y / 2) * 2) F ELEMENT:Alien {
+	"FF"
+        "FF"
+   }
+}
+
+TRIGGER fineconc {
+DRAW ELEMENT:Clear OBJECT ((X / 12) * 12) ((Y / 12) * 12) C ELEMENT:Concrete {
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+   }
+}  
+
+TRIGGER finepaint {
+DRAW ELEMENT:Clear OBJECT ((X / 12) * 12) ((Y / 12) * 12) C ELEMENT:WhitePaint {
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+	"CCCCCCCCCCCC"
+   }
+}  
+
+TRIGGER wood {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Wood {
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+   }
+} 
+
+TRIGGER roof {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Roof {
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+   }
+} 
+
+TRIGGER left {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Roof {
+	"                       C"
+        "                      CC"
+        "                     CCC"
+        "                    CCCC"
+        "                   CCCCC"
+        "                  CCCCCC"
+        "                 CCCCCCC"
+        "                CCCCCCCC"
+        "               CCCCCCCCC"
+        "              CCCCCCCCCC"
+        "             CCCCCCCCCCC"
+        "            CCCCCCCCCCCC"
+        "           CCCCCCCCCCCCC" 
+        "          CCCCCCCCCCCCCC"
+        "         CCCCCCCCCCCCCCC"
+        "        CCCCCCCCCCCCCCCC"
+        "       CCCCCCCCCCCCCCCCC"
+        "      CCCCCCCCCCCCCCCCCC"
+        "     CCCCCCCCCCCCCCCCCCC"
+        "    CCCCCCCCCCCCCCCCCCCC"
+        "   CCCCCCCCCCCCCCCCCCCCC"
+        "  CCCCCCCCCCCCCCCCCCCCCC"
+        " CCCCCCCCCCCCCCCCCCCCCCC"
+        "CCCCCCCCCCCCCCCCCCCCCCCC"
+   }
+} 
+
+TRIGGER right {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Roof {
+
+	"C                       "
+        "CC                      "
+        "CCC                     "
+        "CCCC                    "
+        "CCCCC                   "
+        "CCCCCC                  "
+        "CCCCCCC                 "
+        "CCCCCCCC                "
+        "CCCCCCCCC               "
+        "CCCCCCCCCC              "
+        "CCCCCCCCCCC             "
+        "CCCCCCCCCCCC            "
+        "CCCCCCCCCCCCC           "
+        "CCCCCCCCCCCCCC          "
+        "CCCCCCCCCCCCCCC         "
+        "CCCCCCCCCCCCCCCC        "
+        "CCCCCCCCCCCCCCCCC       "
+        "CCCCCCCCCCCCCCCCCC      "
+        "CCCCCCCCCCCCCCCCCCC     "
+        "CCCCCCCCCCCCCCCCCCCC    "
+        "CCCCCCCCCCCCCCCCCCCCC   "
+        "CCCCCCCCCCCCCCCCCCCCCC  "
+        "CCCCCCCCCCCCCCCCCCCCCCC "
+        "CCCCCCCCCCCCCCCCCCCCCCCC"
+   }
+} 
+
+TRIGGER rooftop {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Roof {
+	"                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "                        "
+        "           CC           "
+        "          CCCC          "
+        "         CCCCCC         "
+        "        CCCCCCCC        "
+        "       CCCCCCCCCC       "
+        "      CCCCCCCCCCCC      "
+        "     CCCCCCCCCCCCCC     "
+        "    CCCCCCCCCCCCCCCC    "
+        "   CCCCCCCCCCCCCCCCCC   "
+        "  CCCCCCCCCCCCCCCCCCCC  "
+        " CCCCCCCCCCCCCCCCCCCCCC "
+        "CCCCCCCCCCCCCCCCCCCCCCCC"
+   }
+} 
+
+TRIGGER chimney {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Chimney 2 ELEMENT:C2 1 ELEMENT:C1 {
+        "                        "
+        "        22222222        "
+        "        1CCCCCC1        "
+        "        1CCCCCC1        "
+        "        11CCCC11        "
+        "         1CCCC1         "
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+        "         1CCCC1         " 
+	"                        "
+        "                        "
+        "                        "
+        "                        "
+   }
+} 
+
+TRIGGER door2 {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) W ELEMENT:Wood F ELEMENT:Framed {
+        "                        "
+        "    FFFFFFFFFFFFFFFF    "
+        "    FWWWWWWWWWWWWWWF    "
+        "    FWWWWWWWWWWWWWWF    "  
+        "    FWWWWWWWWWWWWWWF    "  
+        "    FWWWWWWWWWWWWWWF    "  
+        "    FWWWWWWWWWWWWWWF    "  
+        "    FWWWWWWWWWWWWWWF    "  
+        "    FWWWWWWWWWWWWWWF    "  
+        "    FWWWWWWWWWWWWWWF    "   
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWFFWWF    " 
+        "    FWWWWWWWWWWFFWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+        "    FWWWWWWWWWWWWWWF    " 
+   }
+}   
+
+
+TRIGGER windowed {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) W ELEMENT:Window F ELEMENT:Metal 1 ELEMENT:C1 {
+	"                        "
+        "                        "
+        "                        "
+        "                        "
+        "    FFFFFFFFFFFFFFF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FFFFFFFFFFFFFFF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FWWWWWWFWWWWWWF     "
+        "    FWWWWWWFWWWWWWF     "
+	"   11111111111111111    "
+        "    111111111111111     "
+        "    111111111111111     "
+	"                        "
+	"                        "
+	"                        "
+	"                        "
+	"                        "
+   }
+}  
+
+TRIGGER antenna2 {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Concrete = ELEMENT:Clear {
+	"                        "
+	"                        "
+	"           C            "
+	"          C C           "
+	"   CC      C            "
+	"     CCC   C            "
+	"        CCC CCCC        "
+	"           C    CCCC    "
+	"           C        CC  "
+	"   CC      C            "
+	"     CCC   C            "
+	"        CCC CCCC        "
+	"           C    CCCC    "
+	"           C        CC  "
+	"           C            "
+	"           C            "
+	"           C            "
+	"           C            "
+	"           C            "
+	"           C            "
+	"           C            "
+	"           C            "
+	"           C            "
+	"           C            "
+    }
+}                        
+
+TRIGGER person {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Flesh T ELEMENT:Pants S ELEMENT:Shirt {
+	"                        "
+        "                        "
+	"                        "
+        "                        "	
+	"                        "
+        "                        "
+        "                        "
+        "                        "
+	"         CCCCC          "
+        "        CCCCCCC         "
+        "       CCCCCCCCC        "
+        "        CCCCCCC         "
+        "         CCCCC          "
+	"        SSSSSSS         "
+        "      SSSSSSSSSSS       "
+        "      SS SSSSS SS       "
+        "      SS SSSSS SS       "
+        "      SS SSSSS SS       "
+        "      SS TTTTT SS       "
+        "      CC TTTTT CC       "
+        "         TT TT          "
+        "         TT TT          "
+        "         TT TT          "
+        "         CC CC          "
+   }
+}        
+
+TRIGGER mine {
+DRAW ELEMENT:Clear OBJECT ((X / 15) * 15) ((Y / 12) * 12) B ELEMENT:Mine {
+	"               "
+        "    BBBBBBB    "
+        "   BBBBBBBBB   "
+        "  BBBBBBBBBBB  "
+        " BBBBBBBBBBBBB "
+        " BBBBBBBBBBBBB "
+        " BBBBBBBBBBBBB "
+        "  BBBBBBBBBBB  "
+        "   BBBBBBBBB   "
+        "    BBBBBBB    "
+        "               "
+   }
+}
+
+TRIGGER earth2 {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) C ELEMENT:Earth {
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+   }
+}
+
+TRIGGER scatterb {
+DRAW ELEMENT:Clear OBJECT ((X / 15) * 15) ((Y / 12) * 12) B ELEMENT:ScatterBomb {
+	"               "
+        "    BBBBBBB    "
+        "   BBBBBBBBB   "
+        "  BBBBBBBBBBB  "
+        " BBBBBBBBBBBBB "
+        " BBBBBBBBBBBBB "
+        " BBBBBBBBBBBBB "
+        "  BBBBBBBBBBB  "
+        "   BBBBBBBBB   "
+        "    BBBBBBB    "
+        "               "
+   }
+}
+
+TRIGGER sun {
+DRAW ELEMENT:Clear OBJECT ((X / 1) * 1) ((Y / 1) * 1) S ELEMENT:Sun {
+	"S"
+   }
+}
+
+
+TRIGGER pane {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 24) * 24) S ELEMENT:Pane C ELEMENT:Concrete {
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"SSSSSSSSSSSSSSSSSSSSSSSS"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"SSSSSSSSSSSSSSSSSSSSSSSS"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"SSSSSSSSSSSSSSSSSSSSSSSS"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"SSSSSSSSSSSSSSSSSSSSSSSS"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"SSSSSSSSSSSSSSSSSSSSSSSS"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"CCCCCCCCCCCCCCCCCCCCCCCC"
+	"SSSSSSSSSSSSSSSSSSSSSSSS"
+   }
+}
+
+TRIGGER tree {
+DRAW 0 OBJECT (X - 24) (Y - 30) W ELEMENT:Wood L ELEMENT:Leaves {
+	"                        "
+	"        LLLLLLLL        "
+        "       LLLLLLLLLL       "
+        "       LLLLLLLLLL       "
+        "      LLLLLLLLLLLL      "
+        "     LLLLLLLLLLLLL      "
+        "    LLLLLLLLLLLLLLL     "
+        "   LLLLLLLLLLLLLLLL     "
+	"  LLLLLLLLLLLLLLLLL     "
+	"   LLLLLLLLLLLLLLLL     "
+	"   LLLLLLLLLLLLLLLL     "
+        "    LLLLLLLLLLLLLLL     "
+        "     LLLLLLLLLLLLL      "
+        "     LLLLLLLLLLLL       "
+        "      LLLLLLLLLL        "
+        "       LLLLLLLLL        "
+        "        LLLLLLL         "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+	"         WWWWW          "
+   }
+}
+
+TRIGGER flower {
+DRAW 0 OBJECT (X - 12) (Y - 12) F ELEMENT:Flower L ELEMENT:Leaves Y ELEMENT:Yellow {
+	"    FFFF    "
+	"   FFYYFF   "
+	"   FFYYFF   "
+	"    FFFF    "
+	"     LL     "
+	"     LL     "
+	"     LL     "
+	"     LL     "
+	"  LL LL LL  "
+	"  LLLLLLLL  "
+	"   LLLLLL   "
+	"    LLL     "
+   }
+}
+
+TRIGGER ufo {
+DRAW ELEMENT:Clear OBJECT ((X / 24) * 24) ((Y / 12) * 12) F ELEMENT:Uf W ELEMENT:Fram G ELEMENT:AGen {
+	"                        "
+	"        FFFFFFFF        "
+	"       FWWWWWWWWF       "
+	"       FWWWWWWWWF       "
+	"      FWWWWWWWWWWF      "
+	"   FFFFFFFFFFFFFFFFFF   "
+	"   FFFFFFFFFFFFFFFFFF   "
+	"  FFFFFFFFFFFFFFFFFFFF  "
+	"   FFFFFFFFFFFFFFFFFF   "
+	"    FFFFFGGGGGGGFFFFF   "
+	"        GGGGGGGGG       "
+	"                        "
+   }
+}
+
+NOBIAS ELEMENT:S3
+NOBIAS ELEMENT:S2
+NOBIAS ELEMENT:Shockwave
+
+EXEC setview 0 1 1 1 1 1 256
+
+EXEC listgroups 
+EXEC listelements 
+SET BRUSHSIZE 1
+
+ELEMENTR:Clear = 10
+ELEMENTG:Clear = 140
+ELEMENTB:Clear = 255
