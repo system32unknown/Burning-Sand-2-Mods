@@ -1,0 +1,457 @@
+Include menuitems
+Include settings
+Group Clear 0 File erase.bmp
+Group Stones 100 File stonegroup.bmp
+Group Liquids 200 File liquidgroup.bmp
+Group Burning 300 File firegroup.bmp
+Group Nature 400 File lifegroup.bmp
+Group Gases 500 File gasgroup.bmp
+Group Custom 600 HEX 000000000000000000000000000000003A5DDE88225092D8225092A8225C9288224492883BDC9E88000000000000000000007000000188000002040000020200001FC20000202000004010000080080000800800008008000080080000800800008008000040100000202000001FC00000000000000000000000000000000000 255 255 255
+Group Viral 700 HEX 0000000000000000000000000000000008BBCC80089252800892528008939E800892528005125280023A52F0000000000000000000000000000000000000E000001FBC0000E0060000800380018000400230114006F010400CE0804018E0824010E08040100000401800018008007F0007FFC000000000000000000000000000 255 255 255
+Element Clear Clear 0 0 0 1 1 1 1 0 Clear 0 File erase.bmp
+Element Clear Void 30 30 30 0 1 1 1 0 Clear 0 File hole.bmp
+Element Clear ??? 255 0 100 0 1 1 1 2000 ? 0 File question.bmp
+Element None ? 255 0 0 0 1 1 1 140 Clear 0 File hole.bmp
+Element Clear Replicator 255 255 255 800 1 1 1 0 Clear 0 File plus.bmp
+Element Clear Antimatter 255 200 200 800 1 1 1 140 Clear 0 File minus.bmp
+Element Clear Elevator 255 0 0 -200000 1 1 1 0 Clear 0 File up.bmp
+Element Stones Earth 200 127 0 0 1 1 1 0 Clear 200 File earth.BMP
+Element Stones Wall 80 0 0 0 1 1 1 0 Clear 300 File wall.BMP
+Element Stones Sand 230 180 0 900 1 1 1 0 Clear 400 File sand.BMP
+Element Stones Sandsource 230 180 0 0 1 1 1 0 Clear 500 File sandsource.BMP
+Element Stones Salt 200 200 200 720 1 4 1 0 Clear 600 File salt.BMP
+Element None Saltwater 0 0 180 750 100 20 1 0 Clear 0 File erase.bmp
+Element None Saltwatersteam 0 0 255 -50 1 1 1 10 Saltwater 0 File erase.bmp
+Element Stones Saltsource 200 200 200 0 1 1 1 0 Clear 700 File saltsource.BMP
+Element Stones Stone 100 100 100 1400 1 1 1 0 Clear 800 File stone.BMP
+Element Stones Crystal 255 255 255 0 100 1 1 0 Clear 1000 File crystal.bmp
+Element None Crystal(grown) 240 240 240 0 100 1 1 0 Clear 1000 File crystal.bmp
+Element Liquids Water 0 0 255 700 100 20 1 0 Clear 0 File water.BMP
+Element Liquids Cloud 150 150 255 0 1 1 1 250 Clear 100 File cloud.BMP
+Element Liquids Ice 128 128 255 0 1 1 1 0 Clear 200 File ice.BMP
+Element Liquids Fountain 0 0 255 0 1 1 1 0 Clear 300 File spring.BMP
+Element Liquids Oil 100 0 0 500 10 15 1 0 Clear 400 File oil.BMP
+Element Liquids Oilsource 128 0 0 0 1 1 1 0 Clear 500 File oilsource.BMP
+Element Liquids Glue 255 100 255 680 20 1 1 0 Clear 600 File glue.BMP
+Element Liquids Pipe 255 255 255 0 1 1 1 0 Clear 600 File pipe.BMP
+Element Burning Fire 255 0 0 -400 1 1 1 3100 Clear 100 File fire.BMP
+Element Burning Burner 255 0 0 0 1 1 1 0 Clear 200 File burner.BMP
+Element Burning Firework 255 200 200 -1000 1000 1 1 400 Fire 300 File fireworks.BMP
+Element Burning TNT 255 255 80 0 2 1 5 0 Clear 400 File dynamit.BMP
+Element None Explosion 200 0 0 0 2 1 5 0 Explosion2 0 File gas.BMP
+Element None Explosion2 200 0 0 0 1 1 4 500 Fire 0 File steam.BMP
+Element Burning Extinguisher 200 200 200 1100 100 20 1 0 Clear 500 File extinguisher.BMP
+Element Burning Acid 255 0 60 998 10 3 1 0 Clear 600 File acid.BMP
+Element Burning Comet 255 255 0 998 1 1 1 0 Clear 900 File fire2.BMP
+Element Burning Vulcano 240 50 0 0 1 1 1 0 Clear 900 File vulcano.bmp
+Element Burning Lava 190 50 0 1000 100 1 1 0 Clear 1000 File lava.bmp
+Element None Magma 220 50 0 -200 1 1 1 350 Lava 0 File erase.bmp
+Element Nature Plant 0 255 0 0 1 1 1 0 Clear 600 File lifegroup.BMP
+Element None Plant(burning) 200 0 0 0 1 1 1 468 Clear 0 File erase.bmp
+Element Nature Seed 0 180 0 20 1 1 10 0 Clear 600 File seed.BMP
+Element Nature Wood 128 64 0 0 1 1 1 0 Clear 700 File tree.BMP
+Element None Wood(burning) 200 0 0 0 1 1 1 8 Clear 0 File erase.bmp
+Element None Ash 80 80 80 200 1 1 1 0 Clear 0 File erase.bmp
+Element Nature Cera 255 255 100 0 1 1 1 0 Clear 800 File wax.BMP
+Element None Cera(burning) 170 0 0 0 1 1 1 68 Clear 0 File erase.bmp
+Element None Cera(liquid) 235 235 0 600 1 1 1 68 Clear 0 File erase.bmp
+Element None Cera(liquid&burning) 130 0 0 600 1 1 1 68 Clear 0 File erase.bmp
+Element Nature Parasite 200 100 0 50 1 1 1 0 Clear 800 File bug.BMP
+Element Gases Steam 80 80 255 -100 1 1 4 10 Water 100 File steam.BMP
+Element Gases Gas 140 40 140 -50 2 1 5 0 Clear 100 File gas.BMP
+Element None Gas(burning) 255 50 50 50 1 1 1 21768 Clear 0 File erase.bmp
+Element Gases Gassource 140 40 140 0 1 1 1 0 Clear 200 File gassource.BMP
+Element Gases GasII 140 240 180 -25 1 1 1 0 Clear 300 File gas2.BMP
+Element None GasII(burning) 255 50 50 -50 1 1 5 200 Clear 0 File erase.bmp
+Element Gases GasIIsource 140 240 180 0 1 1 1 0 Clear 400 File gas2source.BMP
+Interaction Void All Void Clear 50000 Clear
+Interaction ??? Clear ??? ??? 10000
+Interaction ??? Void ??? ??? 10000
+Interaction ??? Earth ??? ??? 10000
+Interaction ??? Wall ??? ??? 10000
+Interaction ??? Sand ??? ??? 10000
+Interaction ??? Sandsource ??? ??? 10000
+Interaction ??? Salt ??? ??? 10000
+Interaction ??? Saltsource ??? ??? 10000
+Interaction ??? Stone ??? ??? 10000
+Interaction ??? Water ??? ??? 10000
+Interaction ??? Oil ??? ??? 10000
+Interaction ??? Ice ??? ??? 10000
+Interaction ??? Fountain ??? ??? 10000
+Interaction ??? Oilsource ??? ??? 10000
+Interaction ??? Fire ??? ??? 10000
+Interaction ??? Burner ??? ??? 10000
+Interaction ??? Firework ??? ??? 10000
+Interaction ??? Acid ??? ??? 10000
+Interaction ??? Gas ??? ??? 10000
+Interaction ??? Gas(burning) ??? ??? 10000
+Interaction ??? GasII ??? ??? 10000
+Interaction ??? GasII(burning) ??? ??? 10000
+Interaction ??? Steam ??? ??? 10000
+Interaction ??? Gassource ??? ??? 10000
+Interaction ??? Saltwater ??? ??? 10000
+Interaction ??? Saltwatersteam ??? ??? 10000
+Interaction ??? Ash ??? ??? 10000
+Interaction ??? TNT ??? ??? 10000
+Interaction ??? Explosion ??? ??? 10000
+Interaction ??? Explosion2 ??? ??? 10000
+Interaction ??? Vulcano ??? ??? 10000
+Interaction ??? Lava ??? ??? 10000
+Interaction ??? Magma ??? ??? 10000
+Interaction ??? Comet ??? ??? 10000
+Interaction ??? Glue ??? ??? 10000
+Interaction ??? Antimatter ??? ??? 10000
+Interaction ??? Replicator ??? ??? 10000
+Interaction ??? Elevator ??? ??? 10000
+Interaction ??? Crystal(grown) ??? ??? 10000
+Interaction Replicator All All All 10000 Clear
+Interaction Antimatter Replicator Clear Clear 100000
+Interaction Antimatter All Clear Clear 10000 Clear
+Interaction Sand Cloud Clear Sand 300
+Interaction Sand Glue Sand Glue 100000
+Interaction Sandsource Clear Sandsource Sand 1000
+Interaction Salt Water Clear Saltwater 10000
+Interaction Salt Plant Clear Salt 500
+Interaction Salt Cloud Clear Salt 500
+Interaction Salt Ice Clear Salt 500
+Interaction Salt Glue Salt Glue 100000
+Interaction Salt Glue Salt Glue 100000
+Interaction Saltwater Fire Salt Steam 10000
+Interaction Saltwater Fire Clear Clear 100000
+Interaction Saltwater Vulcano Saltwatersteam Lava 2000
+Interaction Saltwatersteam Clear Steam Salt 20000
+Interaction Saltsource Clear Saltsource Salt 1000
+Interaction Saltsource Water Saltwater Clear 500
+Interaction Stone Glue Sand Glue 100000
+Interaction Crystal Clear Crystal(grown) Crystal 300
+Interaction Crystal Salt Crystal(grown) Crystal 3000
+Interaction Crystal Water Crystal(grown) Crystal 100
+Interaction Crystal(grown) Crystal Crystal Crystal(grown) 1
+Interaction Crystal(grown) Salt Crystal Crystal 2
+Interaction Crystal(grown) Water Crystal Crystal 1
+Interaction Water Fire Clear Steam 10000
+Interaction Water Fire Clear Clear 100000
+Interaction Water Glue Water Glue 25000
+Interaction Cloud Clear Cloud Water 300
+Interaction Ice Clear Water Clear 20
+Interaction Ice Fire Water Clear 20000
+Interaction Ice Water Ice Ice 200
+Interaction Ice Steam Water Water 500
+Interaction Fountain Clear Fountain Water 1000
+Interaction Fountain Salt Saltwater Saltwater 500
+Interaction Fountain Fire Fountain Steam 1000
+Interaction Oil Fire Clear Fire 5000
+Interaction Oil Fire Gas(burning) Fire 15000
+Interaction Oil Fire Fire Fire 5000
+Interaction Oil Gas(burning) Gas(burning) Oil 1000
+Interaction Oil Glue Oil Glue 100000
+Interaction Oilsource Clear Oilsource Oil 1000
+Interaction Oilsource Fire Oilsource Gas(burning) 1000
+Interaction Glue Earth Glue Earth 100000
+Interaction Glue Wall Glue Wall 100000
+Interaction Glue Explosion Explosion Explosion 100000
+Interaction Glue Oil Glue Oil 100000
+Interaction Glue Sand Glue Sand 100000
+Interaction Glue Salt Glue Salt 100000
+Interaction Glue Crystal(grown) Glue Crystal(grown) 100000
+Interaction Glue Crystal Glue Salt 100000
+Interaction Glue Seed Glue Seed 100000
+Interaction Glue Parasite Glue Parasite 100000
+Interaction Pipe Clear Wall Clear 100000
+Interaction Pipe Earth Wall Earth 100000
+Interaction Pipe Magma Wall Magma 100000
+Interaction Pipe Lava Wall Lava 100000
+Interaction Pipe Comet Wall Comet 100000
+Interaction Pipe Vulcano Wall Vulcano 100000
+Interaction Pipe TNT Wall TNT 100000
+Interaction Pipe Saltwater Wall Saltwater 100000
+Interaction Pipe Saltwatersteam Wall Saltwatersteam 100000
+Interaction Pipe Gassource Wall Gassource 100000
+Interaction Pipe Steam Wall Steam 100000
+Interaction Pipe GasII Wall GasII 100000
+Interaction Pipe Gas Wall Gas 100000
+Interaction Pipe Acid Wall Acid 100000
+Interaction Pipe Burner Wall Burner 100000
+Interaction Pipe Oilsource Wall Oilsource 100000
+Interaction Pipe Fountain Wall Fountain 100000
+Interaction Pipe Ice Wall Ice 100000
+Interaction Pipe Oil Wall Oil 100000
+Interaction Pipe Stone Wall Stone 100000
+Interaction Pipe Saltsource Wall Saltsource 100000
+Interaction Pipe Salt Wall Salt 100000
+Interaction Pipe Sand Wall Sand 100000
+Interaction Pipe Earth Wall Earth 100000
+Interaction Pipe Crystal Pipe Crystal 100000
+Interaction Pipe Crystal(grown) Pipe Crystal(grown) 100000
+Interaction Pipe Seed Pipe Seed 100000
+Interaction Pipe Parasite Pipe Parasite 100000
+Interaction Pipe Wall Water Wall 100000
+Interaction Pipe Water Water Water 100000
+Interaction Fire Earth Fire Clear 1000
+Interaction Fire Sand Clear Sand 100000
+Interaction Fire Stone Clear Stone 100000
+Interaction Fire Salt Clear Salt 100000
+Interaction Fire Glue Fire Fire 10000
+Interaction Burner Water Burner Steam 50000
+Interaction Burner Saltwater Burner Saltwatersteam 50000
+Interaction Burner Clear Burner Fire 5000
+Interaction Burner Plant Burner Plant(burning) 1800
+Interaction Burner Clear Burner Fire 1000
+Interaction Burner Wood Burner Wood(burning) 1000
+Interaction Burner Cera Burner Cera(burning) 1000
+Interaction Burner Oil Burner Gas(burning) 1000
+Interaction Burner Gas Burner Gas(burning) 1000
+Interaction Burner GasII Burner GasII(burning) 1000
+Interaction Burner Seed Burner Fire 1000
+Interaction Burner Parasite Burner Fire 1000
+Interaction Firework Clear Firework Firework 150
+Interaction TNT Fire Explosion Explosion 50000
+Interaction TNT Explosion Explosion Explosion 50000
+Interaction Explosion All Explosion Explosion 3000 Explosion
+Interaction Explosion All Explosion Explosion2 1 Explosion
+Interaction Explosion2 Explosion Explosion2 Explosion2 40000
+Interaction Explosion2 Clear Explosion2 Fire 400
+Interaction Extinguisher Fire Clear Extinguisher 10000
+Interaction Extinguisher Plant(burning) Clear Extinguisher 10000
+Interaction Extinguisher Wood(burning) Clear Extinguisher 10000
+Interaction Extinguisher Firework Clear Extinguisher 10000
+Interaction Extinguisher Comet Clear Extinguisher 10000
+Interaction Extinguisher Cera(burning) Clear Extinguisher 10000
+Interaction Extinguisher Glue Explosion Explosion 10000
+Interaction Acid Water Water Water 200
+Interaction Acid All Acid Clear 500 Wall
+Interaction Comet Clear Comet Fire 15000
+Interaction Comet Water Sand Steam 1000
+Interaction Comet Saltwater Comet Saltwatersteam 50000
+Interaction Comet Plant Comet Plant(burning) 1800
+Interaction Comet Wood Comet Wood(burning) 1000
+Interaction Comet Cera Comet Cera(burning) 1000
+Interaction Comet Oil Comet Gas(burning) 1000
+Interaction Comet Gas Comet Gas(burning) 1000
+Interaction Comet GasII Comet GasII(burning) 1000
+Interaction Comet Glue Comet Fire 1000
+Interaction Comet Seed Comet Fire 1000
+Interaction Comet Parasite Comet Fire 1000
+Interaction Vulcano Clear Vulcano Magma 600
+Interaction Vulcano Clear Vulcano Lava 600
+Interaction Vulcano Water Vulcano Steam 2000
+Interaction Lava Water Stone Steam 3000
+Interaction Lava Saltwater Stone Saltwatersteam 3000
+Interaction Lava Ice Stone Water 3000
+Interaction Lava Wood Lava Wood(burning) 2000
+Interaction Lava Plant Lava Plant(burning) 2000
+Interaction Lava Cera Lava Cera(liquid&burning) 2000
+Interaction Lava Cera(liquid) Lava Cera(liquid&burning) 2000
+Interaction Lava Oil Lava Gas(burning) 2000
+Interaction Lava Gas Lava Gas(burning) 2000
+Interaction Lava Glue Lava Fire 2000
+Interaction Lava Seed Lava Fire 2000
+Interaction Lava Parasite Lava Fire 2000
+Interaction Magma Wood Lava Wood(burning) 2000
+Interaction Magma Saltwater Lava Saltwatersteam 3000
+Interaction Magma Plant Lava Plant(burning) 2000
+Interaction Magma Ice Lava Water 2000
+Interaction Magma Cera Lava Cera(burning) 2000
+Interaction Magma Cera(liquid) Lava Cera(liquid&burning) 2000
+Interaction Magma Oil Lava Gas(burning) 2000
+Interaction Magma Gas Magma Gas(burning) 2000
+Interaction Magma GasII Magma GasII(burning) 2000
+Interaction Magma Glue Magma Fire 2000
+Interaction Magma Seed Magma Fire 2000
+Interaction Magma Parasite Magma Fire 2000
+Interaction Plant Water Plant Plant 16000
+Interaction Plant Fire Plant(burning) Clear 6000
+Interaction Plant Wood Plant Plant 100
+Interaction Plant(burning) Water Clear Steam 10000
+Interaction Plant(burning) Saltwater Clear Saltwatersteam 3000
+Interaction Plant(burning) Plant Plant(burning) Plant(burning) 2000
+Interaction Plant(burning) Clear Plant(burning) Fire 1200
+Interaction Plant(burning) Wood Plant(burning) Wood(burning) 1000
+Interaction Plant(burning) Cera Plant(burning) Cera(burning) 1000
+Interaction Plant(burning) Oil Plant(burning) Gas(burning) 1000
+Interaction Plant(burning) Gas Plant(burning) Gas(burning) 1000
+Interaction Plant(burning) GasII Plant(burning) GasII(burning) 1000
+Interaction Plant(burning) Parasite Plant(burning) Fire 1000
+Interaction Seed Water Clear Plant 1
+Interaction Seed Fire GasII(burning) Fire 10000
+Interaction Seed Glue Seed Glue 100000
+Interaction Seed Salt Clear Salt 100
+Interaction Seed Wood Plant Wood 500
+Interaction Wood Fire Wood(burning) Clear 4000
+Interaction Wood Plant Wood Wood 100
+Interaction Wood(burning) Water Clear Steam 10000
+Interaction Wood(burning) Wood Wood(burning) Wood(burning) 1000
+Interaction Wood(burning) Clear Wood(burning) Ash 80
+Interaction Wood(burning) Clear Wood(burning) Fire 20000
+Interaction Wood(burning) Clear Clear Clear 1500
+Interaction Wood(burning) Parasite Wood(burning) Fire 1500
+Interaction Ash Glue Ash Glue 100000
+Interaction Cera Fire Cera(burning) Clear 4000
+Interaction Cera(burning) Water Clear Steam 10000
+Interaction Cera(burning) Cera Cera(burning) Cera(burning) 10
+Interaction Cera(burning) Clear Cera(burning) Fire 10000
+Interaction Cera(burning) Clear Cera(burning) Cera(liquid) 50
+Interaction Cera(liquid) Fire Cera(liquid&burning) Clear 4000
+Interaction Cera(liquid&burning) Clear Cera(liquid&burning) Fire 10000
+Interaction Cera(liquid&burning) Water Cera(liquid) Fire 10000
+Interaction Parasite Plant Parasite Parasite 400
+Interaction Parasite Plant Clear Parasite 400
+Interaction Parasite Plant Parasite Plant 100000
+Interaction Parasite Seed Parasite Parasite 500
+Interaction Parasite Seed Clear Parasite 700
+Interaction Parasite Wood Parasite Parasite 200
+Interaction Parasite Wood Clear Parasite 300
+Interaction Parasite Wood Parasite Wood 100000
+Interaction Parasite Water Parasite Parasite 200
+Interaction Parasite Water Clear Parasite 300
+Interaction Parasite Fire Fire Fire 6000
+Interaction Parasite Ice Ice Ice 800
+Interaction Parasite Salt Clear Salt 30
+Interaction Gas Fire Gas(burning) Fire 10000
+Interaction Gas(burning) Clear Gas(burning) Fire 15000
+Interaction Gas(burning) Gas Gas(burning) Gas(burning) 50000
+Interaction Gassource Clear Gassource Gas 500
+Interaction GasII Fire GasII(burning) Fire 100000
+Interaction GasII(burning) Clear GasII(burning) Fire 2000
+Interaction GasII(burning) GasII GasII(burning) GasII(burning) 2000
+Interaction GasIIsource Clear GasIIsource GasII 250
+
+
+
+// Bomb Customization
+
+
+// Metal
+
+Element Custom Metal 159 165 162 0 0 1 1 0 Clear 0 HEX 000000000000000022EE6200368492002AE4F200228492002284920022E493800000000000000000000060000000B0000001180000020C00000406000008050000100A000020140000402800008050000100A000020140000402800008050000100A0000381400002C280000165000000BA00000054000000380000000000000 255 255 255
+
+// Fuse
+
+Element None Fuse_Spark 255 255 0 -259 0 1 1 11340 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None FSpark_Trail 255 255 0 0 0 1 1 18432 Fire 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element Custom Fuse 219 217 216 0 0 1 1 0 Fire 0 HEX 000000000000000000000000000000000000000000000000079279C004124100079279C004120900041E79C000000000000000000000000000000000FFFFFFFF108421082108421042108420FFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 255 255 255
+Element None Fuse_Burning 255 0 0 0 0 1 1 20808 Fuse_Spark 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Interaction Fuse Fire Fuse_Burning Fuse_Burning 32768
+Interaction Fuse_Burning Fuse Fuse_Burning Fuse_Burning 11796
+Interaction Fuse_Spark Clear FSpark_Trail Fuse_Spark 12277
+
+// Timer
+
+Element Custom Timer 0 0 255 0 0 1 1 0 Clear 0 HEX 000000000000000000000000078001E004800120FFFFFFFF000000000C1F0380140100400401002004010020041F03E00410002004100020041000401F1F038000000000FFFFFFFF00000000000000000EE8BBC0044DA240044ABB800448A28004E8BA4000000000000000000000000000000000000000000000000000000000 255 255 255
+Element None T2 0 255 0 0 0 1 1 0 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None T3 255 0 0 0 0 1 1 0 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Interaction Timer Clear T2 Clear 2
+Interaction Timer Metal T2 Metal 2
+Interaction T2 Timer T2 T2 32768
+Interaction T2 Clear T3 Clear 2
+Interaction T2 Metal T3 Metal 2
+Interaction T3 T2 T3 T3 32768
+Interaction T3 Wire_Dis Wall Wall 32768
+
+
+// Detonator
+
+Element Custom Detonator 255 255 255 0 0 1 1 0 Clear 0 HEX 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000FFFFF80300000601000007810000078300000600FFFFF8000000000000000001DDDDDDC0949119409895518095DDDD4000000000000000000000000000000000000000000000000 255 255 255
+Element None Detonator2 255 255 255 0 0 1 1 0 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Interaction Detonator Wire_Charge Detonator2 Detonator2 32768
+Interaction Detonator2 Detonator Detonator2 Detonator2 32768
+Interaction Detonator2 C4_Explosion C4_Explosion C4_Explosion 32768
+
+
+// C4 Charge
+
+Element Custom C4_Charge 255 255 153 0 0 1 1 0 Clear 0 HEX 00000000000000000FE0C0C01FE0C0C01800C0C01800C0C01800C0C01800C0C01800C0C01800C0C01800FFC01800FFC0180000C0180000C0180000C0180000C0180000C0180000C0180000C0180000C0180000C0180000C0180000C0180000C01FE000C00FE000C0000000000000000000000000000000000000000000000000 255 255 255
+Element None C4_Explosion 255 48 0 0 0 1 1 0 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None C4_Explosion2 234 0 0 0 0 1 1 11340 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Interaction C4_Charge Fuse_Burning C4_Explosion C4_Explosion 32768
+Interaction C4_Charge Fire C4_Explosion C4_Explosion 32768
+Interaction C4_Charge C4_Explosion C4_Explosion C4_Explosion 32768
+Interaction C4_Charge Detonator2 C4_Explosion C4_Explosion 32768
+Interaction C4_Explosion All C4_Explosion C4_Explosion2 2 Void
+Interaction C4_Explosion All C4_Explosion C4_Explosion 14229 Void
+Interaction C4_Explosion2 C4_Explosion C4_Explosion2 C4_Explosion2 32768
+
+// Wire
+
+Element Custom Wire 0 0 138 0 0 1 1 0 Clear 0 HEX 00000000000000000000000000000000000000000000000000000000045DEE00044928000549CE0005492800039D2E0000000000000000000000000000000000FFFFFFFF00000000FFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 255 255 255
+Element None Wire_Charge 255 255 255 0 0 1 1 32768 Wire_Dis 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Wire_Dis 0 0 99 0 0 1 1 1635 Wire 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Interaction Wire T3 Wire_Charge T3 32768
+Interaction Wire On_Wave Wire_Charge On_Wave 32768
+Interaction Wire_Charge Wire Wire_Charge Wire_Charge 32768
+
+// Battery
+
+Element Custom Battery 255 255 255 0 0 1 1 32768 B_Acid 0 HEX 000000000000000001E67700012922000129220001CF22000129220001E922000000000000000000000000000180000001800000018000000FF01FF00FF01FF001800000018000000180000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 255 255 255
+Element None B_Acid 0 192 0 1471 0 20 1 3810 B_Acid2 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None B_Acid2 0 219 0 1329 0 20 1 15138 B_Acid 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Interaction Battery Clear Earth Earth 32768
+Interaction B_Acid Wire Clear Wire_Charge 32768
+
+// On/Off
+
+Element Custom On 0 201 0 0 0 1 1 0 Clear 0 HEX 0000000000000000000000000000000000001E90000C12D0000C12B0000C1290000C1E90000C0000000C0000006D8000008C4000010C2000020C1000040C0800040C0800040C0800040C0800040C08000400080004000800020010000100200000FFC00000000000000000000000000000000000000000000000000000000000 255 255 255
+Element None On_Wave 255 255 255 0 0 1 1 19168 On_Wave_Dis 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None On_Wave_Dis 0 255 87 0 0 1 1 1468 On 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element Custom Off 255 0 0 0 0 1 1 0 Clear 0 HEX 0000000000000000000000000000000000007770000C5440000C5770000C5440000C5440000C7440000C0000000C0000000C0000000C0000000C0000000C0000000C0000000C0000000C0000000C0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 255 255 255
+Interaction On Wire_Charge On_Wave Wire_Charge 32768
+Interaction On On_Wave On_Wave On_Wave 32768
+Interaction On Off Off Off 10025
+Interaction Off On On On 32768
+
+// Flash Powder
+
+Element Custom Flash_Powder 111 114 114 906 0 1 1 0 Clear 0 HEX 000000000000000000000000000000003D0CEA0021128A003D1EEA0021122E0021122A0021D2EA000000000000000000077459DC05545514075555D8045555140476D9D40000000000000000000000000003C0000007F800000FFE00007DFF0000FFFF8001FFFFE003BFFFF007FFFFF81FFF7F7C3FFFFFFE7FFFFFFE00000000 255 255 255
+Element None Flash 255 255 0 0 0 1 1 7626 Light 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Light 255 255 126 0 0 1 1 1812 Light2 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Light2 255 255 195 0 0 1 1 1161 Light3 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Light3 255 255 228 0 0 1 1 1458 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Interaction Flash_Powder Fire Flash Flash 32768
+Interaction Flash_Powder Flash Flash Flash 32768
+Interaction Flash Clear Flash Flash 12752
+Interaction Flash Metal Flash Clear 32768
+Interaction Flash Fuse Flash Clear 32768
+Interaction Flash_Powder Detonator2 Flash Clear 32768
+Interaction Flash Detonator2 Flash Clear 32768
+Interaction Flash Wire Flash Clear 32768
+Interaction Flash B_Acid Flash Clear 32768
+Interaction Flash B_Acid2 Flash Clear 32768
+Interaction Flash Earth Flash Clear 32768
+Interaction Flash T3 Flash Clear 32768
+Interaction Flash Wall Flash Clear 32768
+Interaction Flash_Powder Detonator2 Flash Flash 32768
+Interaction Flash On Flash Clear 32768
+Interaction Flash Off Flash Clear 32768
+Interaction Flash C4_Charge Flash Clear 32768
+
+
+// Viral
+
+Element Viral Virus_Vile 255 255 255 0 0 1 1 32768 Virus 0 HEX 0000000000000000000000000000000000000110000F011000108110002040A00044204000402000004220E0004820400040204000422040004020E000402000004820E0004020A0004220C0004220A000402000004820A00040A0A00040A0A0004420E000204000001080E0000F0080000000E000000020000000E000000000 255 255 255
+Element None Virus 0 69 0 0 0 1 1 1812 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Glass 228 228 255 0 0 1 1 0 Clear 0 Text None
+Element Viral Electronic_Cap 93 93 126 0 0 1 1 0 Clear 0 HEX 000000000000000000000000000000000000000000FFF1E000FFF10000FFF10000FFF100004021E000422000004820C000402120004221E0004021200040212000482000004021E000422120004221E000402100004821000040A0000040A000004420000020400000108000000F000000000000000000000000000000000000 255 255 255
+Element None Electronic_Cap2 255 255 255 0 0 1 1 32768 Clear 0 HEX 000000000000000000000000000000000000000000FFF1E000FFF10000FFF10000FFF100004021E000422000004820C000402120004221E0004021200040212000482000004021E000422120004221E000402100004821000040A0000040A000004420000020400000108000000F000000000000000000000000000000000000 255 255 255
+Element Viral Human 255 255 255 0 0 1 1 32768 Human2 0 HEX 00000000000000000000000000000000000000000000000000000000000000000003C00000042000000810000010080000100800001008000010080000081000000420000003C000000080000001C0000002A00000049000000C9800000C98000001400000022000000220000002200000063000000000000000000000000000 255 255 255
+Element None Human2 234 207 171 0 0 1 1 0 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Skin 255 192 174 0 0 1 1 0 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Skin2 255 204 201 0 0 1 1 0 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Blood 255 0 0 976 0 20 1 5875 Clear 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+Element None Infected_Human 0 108 0 0 0 1 1 40 Blood 0 HEX 0000000003FFE00002003000020028000200240002002200020021000200208002003FC002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004002000040020000400200004003FFFFC000000000 0 0 0
+
+Interaction Virus_Vile Clear Glass Glass 32768
+Interaction Virus Clear Clear Virus 10892
+Interaction Virus Clear Virus Virus 1315
+Interaction Virus Skin Virus Clear 15788
+Interaction Virus Skin2 Virus Clear 15260
+Interaction Virus Human2 Virus Infected_Human 456
+Interaction Electronic_Cap Wire_Charge Electronic_Cap2 Electronic_Cap2 32768
+Interaction Electronic_Cap Electronic_Cap2 Electronic_Cap2 Electronic_Cap2 32768
+Interaction Human Clear Skin Skin 32768
+Interaction Human2 Clear Human2 Blood 26197
+Interaction Human2 Clear Skin Skin 13235
+Interaction Skin Clear Skin2 Skin2 32768
+Interaction Blood Clear Blood Blood 2003
+Interaction Infected_Human Human2 Infected_Human Infected_Human 2003
+Interaction Infected_Human Skin Infected_Human Infected_Human 10892
+Interaction Infected_Human Skin2 Infected_Human Infected_Human 4646
