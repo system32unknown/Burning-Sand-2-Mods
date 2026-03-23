@@ -1,0 +1,377 @@
+GROUP CLEARALL
+ELEMENTSCLEAR
+MENURIGHT = 65
+
+bgen[x] = 39
+
+GROUP Frame 200 HEX 0000000000000000000000000000000000000000000000002DB6DB3020000010200000000FFFFFFE28000012280000120BC000022A0000122A0000120B9B3C422A10AAB22A12AA920A11AA62280000122800001208000002280000123EDB6DB2080000020800000208000002080000020FFFFFFE000000000000000000000000 255 255 255
+GROUP Solids 300 HEX 0000000000000000000000000000000000000000000000003FFFC000300020002800100024000800220004001100020008800100044000803E200040311000202888001024440008222200041111FFFC08890004044500040223FCFC011004A00088049000440488002204840011FCFC00090004000500040003FFFC00000000 255 255 255
+GROUP Liquids 400 HEX 00000000000000000000000000000000000000000000000000020000000700000005000000090000001900000011000000318000002080000030C0000060600000503000006018000050080000680C00005004000068040000740400002A040000350C00001A8800000F70000003C00000000000000000000000000000000000 255 255 255
+GROUP Engine 500 HEX 00000000000000003C000000200040002140146039A75A90212952F0212952803D27527000010000000F00000000000003F3F0000313100003B3B00001A1A00001A1A00001A1A00001A1A00003FFFF8003A00B8003A00B8003A00B8003A00B8003A00B8003A00B8003A00B8003A00B8003A00B8003A00B8003A00B8003A00B80 255 255 255
+GROUP Elec 600 HEX 000000000000000000000000000000000000000000000000000FC0000008400000084000007FF8000080042000800420008004F800800420008004200080040000800400008004000080040000AAAC0000D5540000AAAC0000D5540000AAAC0000D5540000AAAC0000D5540000AAACF800D55400007FF8000000000000000000 255 255 255
+GROUP Explosives 700 HEX 0000000000000000000000000FA0BC0008112200080A22000E043C00080A2000081120000FA0A0000000000000000000000000000000000000003FFE00084002010080060001000A8001FFF20009001200410012200531520281415201894DD209A94052434130520431001201D9001209F9001409BDFFF80000000000000000 255 255 255
+
+// %%%Frame%%%
+
+// Red
+Element Frame RedFrame 255 0 0 0 1 1 1 0 Clear 0 TEXT Red
+Interaction RedFrame Fire AllFramBurn Fire 4000
+Interaction AllFramBurn RedFrame AllFramBurn AllFramBurn 4000
+
+// Blue
+Element Frame BlueFrame 0 0 255 0 1 1 1 0 Clear 0 TEXT Blue
+Interaction BlueFrame Fire AllFramBurn Fire 4000
+Interaction AllFramBurn BlueFrame AllFramBurn AllFramBurn 4000
+
+// Green
+Element Frame GreenFrame 0 255 0 0 1 1 1 0 Clear 0 TEXT Green
+Element None AllFramBurn 255 100 100 0 1 1 1 700 Clear 0 TEXT AllFramBurn
+Interaction GreenFrame Fire AllFramBurn Fire 4000
+Interaction AllFramBurn GreenFrame AllFramBurn AllFramBurn 4000
+Interaction AllFramBurn Clear AllFramBurn Fire 2000
+
+// Dark Red
+Element Frame DarkRed 140 0 0 0 1 1 1 0 Clear 0 TEXT DarkRed
+Interaction DarkRed Fire AllFramBurn Fire 4000
+Interaction AllFramBurn DarkRed AllFramBurn AllFramBurn 4000
+
+// Dark Blue
+Element Frame DarkBlue 0 0 140 0 1 1 1 0 Clear 0 TEXT DarkBlue
+Interaction DarkBlue Fire AllFramBurn Fire 4000
+Interaction AllFramBurn DarkBlue AllFramBurn AllFramBurn 4000
+
+// Dark Green
+Element Frame DarkGreen 0 140 0 0 1 1 1 0 Clear 0 TEXT DarkGreen
+Interaction DarkGreen Fire AllFramBurn Fire 4000
+Interaction AllFramBurn DarkGreen AllFramBurn AllFramBurn 4000
+
+// %%%Solids%%%
+
+// Steel
+Element Solids Steel 180 180 180 0 1 1 1 0 Clear 0 TEXT Steel
+Element None MoltenSteel 240 100 100 0 1 1 1 200 Moltens 0 TEXT MoltenSteel
+Element None Moltens 240 100 100 600 20 8 2 100 Clear 0 TEXT Moltens
+Interaction Steel Fire MoltenSteel Fire 3000
+Interaction MoltenSteel Steel MoltenSteel MoltenSteel 1000
+Interaction MoltenSteel Clear MoltenSteel Fire 1000
+
+// Glass
+Element Solids Glass 100 100 255 0 1 1 1 0 Clear 0 TEXT Glass
+Element None GMelt 100 100 255 800 1 1 1 7000 Clear 0 TEXT GMelt
+Interaction Fire Glass Fire GMelt 6000
+Interaction GMelt Glass GMelt GMelt 3000
+
+// Titanium
+Element Solids Titanium 120 120 120 0 1 1 1 0 Clear 0 TEXT Titanium
+Element None titmelt 255 255 255 0 1 1 1 20000 Fire 0 TEXT titmelt
+Interaction Fire Titanium titmelt Fire 4000
+
+// Rubber
+Element Solids Rubber 70 70 70 0 1 1 1 0 Clear 0 TEXT Rubber
+Element None Rubburn 160 10 10 0 1 1 1 300 Clear 0 TEXT Rubburn
+Interaction Rubber Fire Rubburn Fire 4000
+Interaction Rubburn Rubber Rubburn Rubburn 2999
+Interaction Rubburn Clear Rubburn Fire 2000
+
+// Wood
+Element Solids Wood 100 60 10 0 1 1 1 0 Clear 0 TEXT Wood
+Element None WoodBu 190 10 10 0 1 1 1 1000 Fire 0 TEXT WoodBu
+Interaction Wood Fire WoodBu Fire 2000
+Interaction WoodBu Wood WoodBu WoodBu 3000
+Interaction WoodBu Clear WoodBu Fire 3000
+
+// %%%Liquids%%%
+
+// Water
+Element Liquids Water 10 50 255 700 20 9 5 0 Clear 0 TEXT Water
+Element None Steam 100 100 200 -200 1 1 1 500 Water 0 TEXT Steam
+Interaction Water Fire Steam Clear 5000
+
+// Spout
+Element Liquids Spout 100 100 255 0 1 1 1 0 Clear 0 TEXT Spout
+Interaction Spout Clear Spout Water 2000
+
+// Fuel
+Element Liquids Fuel 100 60 40 600 15 9 4 0 Clear 0 TEXT Fuel
+Element None FFire 255 70 10 -500 1 1 1 1000 Fire 0 TEXT FFire
+
+InteractionTrigger Fuel Fire ffire 5000
+
+REMOVETRIGGER ffire
+ON ffire DRAW ELEMENT:FFire FILLEDCIRCLE X2 Y2 (8 RAND RADIUS)
+
+// Fuel Source
+Element Liquids FuelSrc 60 20 10 0 1 1 1 0 Clear 0 TEXT FuelSrc
+Interaction FuelSrc Clear FuelSrc Fuel 3000
+
+// BattAcid
+Element Liquids BattAcid 70 255 80 900 0 1 1 0 Clear 0 TEXT BattAcid
+Element None kabatt 255 255 255 -700 0 1 1 2000 Clear 0 TEXT kabatt
+Interaction BattAcid Wire BattAcid Wave 2000
+Interaction BattAcid Wood BattAcid Clear 3000
+
+InteractionTrigger BattAcid Fire batt 7000
+InteractionTrigger BattAcid kabatt batt 2000
+
+REMOVETRIGGER batt
+ON batt DRAW ELEMENT:kabatt RANDOMFILLEDCIRCLE X1 Y1 (5 RAND RADIUS) 16000
+
+// %%%Elec%%%
+// Wire
+Element Elec Wire 10 10 140 0 1 1 1 0 Clear 0 TEXT Wire
+Element None Wave 0 255 255 0 1 1 1 0 Clear 0 TEXT Wave
+Element None WaDis 10 10 140 0 1 1 1 0 Clear 0 TEXT WaDis
+Interaction Wave Wire Wave Wave 32000
+Interaction Wave Wave WaDis Wave 1
+Interaction WaDis Wave WaDis WaDis 32000
+Interaction WaDis WaDis Wire WaDis 1
+Interaction Wire WaDis Wire Wire 15000
+Interaction Fire Wire Fire Fire 32768
+
+// Lights
+Element Elec Bulb 30 30 30 0 1 1 1 0 Clear 0 TEXT Bulb
+Element None Casedd 100 100 100 0 1 1 1 0 Clear 0 TEXT Cased
+Element None Light 255 255 80 0 1 1 1 0 Clear 0 TEXT Light
+Element None carcco 255 255 255 -900 1 1 1 1000 Clear 0 TEXT carcco
+Element None Bulbgen 30 30 30 0 1 1 1 20000 Bulb 0 TEXT Bulbgen
+Interaction Bulb Clear Bulb Casedd 32768
+
+InteractionTrigger Bulb Wave lightstart 8000
+InteractionTrigger Casedd Fire lightplode 2000
+InteractionTrigger Bulb Fire lightplode 2000
+InteractionTrigger Light Fire lightplode 2000
+InteractionTrigger Light carcco lightplode 2000
+InteractionTrigger Bulb carcco lightplode 2000
+
+REMOVETRIGGER lightend
+ON lightend DRAW ELEMENT:Bulb FILL X1 Y1
+
+REMOVETRIGGER lightstart
+ON lightstart DRAW ELEMENT:Light FILL X1 Y1
+ON lightstart TIMER 100 FRAMES lightend
+
+REMOVETRIGGER lightplode
+ON lightplode DRAW ELEMENT:carcco FILLEDCIRCLE X1 Y1 (10 RAND RADIUS)
+
+// Backlight
+Element Elec Backlight 30 30 30 0 1 1 1 0 Clear 0 TEXT Backlight
+Element None blight 255 0 0 0 1 1 1 0 Clear 0 TEXT blight
+Interaction Backlight Clear Backlight Casedd 32768
+
+InteractionTrigger Backlight Wave lightstartb 8000
+InteractionTrigger Backlight Fire lightplode 2000
+InteractionTrigger blight Fire lightplode 2000
+InteractionTrigger blight carcco lightplode 2000
+InteractionTrigger Backlight carcco lightplode 2000
+
+REMOVETRIGGER lightendb
+ON lightendb DRAW ELEMENT:Backlight FILL X1 Y1
+
+REMOVETRIGGER lightstartb
+ON lightstartb DRAW ELEMENT:blight FILL X1 Y1
+ON lightstartb TIMER 100 FRAMES lightendb
+
+// %%%Engine%%%
+// FuelPipe
+Element Engine FuelPipe 100 60 40 0 1 1 1 20000 Fuel 0 TEXT FuelTank
+Interaction FuelPipe Clear FuelPipe Titanium 32768
+
+// Engine
+Element Engine Engine 80 80 80 0 1 1 1 0 Clear 0 TEXT Engine
+Element None Engineli 170 50 50 0 1 1 1 0 Clear 0 TEXT Engineli
+Element None ennull 80 80 80 0 1 1 1 0 Clear 0TEXT enull
+Element None enplode 255 0 0 -500 1 1 1 2000 en2 0 TEXT enplode
+Element None en2 255 100 50 -600 1 1 1 2000 en3 0 TEXT en2
+Element None en3 255 255 0 -400 1 1 1 3000 Fire 0 TEXT en3
+Element None flashed 255 255 255 0 1 1 1 20000 Clear 0 TEXT flashed
+Interaction Engine Fuel Engineli Fuel 6000
+Interaction Fuel ennull Clear ennull 100
+Interaction Engineli Engine Engineli Engineli 29000
+Interaction Engineli Engineli ennull Engineli 1
+Interaction ennull Engineli ennull ennull 15000
+Interaction ennull ennull Engine ennull 1
+Interaction Engine ennull Engine Engine 8000
+Interaction Engineli Wire Engineli Wave 2000
+
+InteractionTrigger Engine Fire enndplode 5000
+InteractionTrigger ennull Fire enndplode 5000
+InteractionTrigger Engine enplode enndplode 1000
+InteractionTrigger Engineli Fire enndplode 5000
+InteractionTrigger Engineli enplode enndplode 1000
+
+REMOVETRIGGER enndplode
+ON enndplode DRAW ELEMENT:enplode FILLEDCIRCLE X2 Y2 (20 RAND RADIUS)
+ON enndplode DRAW ELEMENT:flashed FILLEDCIRCLE X2 Y2 1
+
+// Turbine
+Element Engine Turbine 120 120 160 0 1 1 1 0 Clear 0 TEXT Turbine
+Element None TRun 80 80 200 0 1 1 1 0 Clear 0 TEXT TRun
+Element None TStop 80 80 200 0 1 1 1 1000 Turbine 0 TEXT TStop
+Element None turplo 255 10 255 -800 1 1 1 1000 Fire 0 TEXT turplo
+Interaction Turbine Water TRun Clear 2000
+Interaction TRun Turbine TStop TRun 32768
+Interaction TRun Turbine TRun TRun 32768
+Interaction TStop TRun TStop TStop 12768
+Interaction TRun Wire TRun Wave 32000
+Interaction TStop Wire TStop Wave 32000
+
+InteractionTrigger Turbine Fire turplode 20000
+InteractionTrigger TRun Fire turplode 20000
+InteractionTrigger turplo Turbine turplode 2000
+
+REMOVETRIGGER turplode 
+ON turplode DRAW ELEMENT:turplo FILLEDCIRCLE X1 Y1 (((bgen[x] - 36) * 5) / 5)
+ON turplode TIMER 3 FRAMES turplode2
+
+REMOVETRIGGER turplode2
+ON turplode2 DRAW ELEMENT:turplo FILLEDCIRCLE X1 Y1 (((bgen[x] - 34) * 5) / 5)
+ON turplode2 TIMER 3 FRAMES turplode3
+
+REMOVETRIGGER turplode3
+ON turplode3 DRAW ELEMENT:turplo FILLEDCIRCLE X1 Y1 (((bgen[x] - 32) * 5) / 5)
+ON turplode3 TIMER 3 FRAMES turplode4
+
+REMOVETRIGGER turplode4
+ON turplode4 DRAW ELEMENT:turplo FILLEDCIRCLE X1 Y1 (((bgen[x] - 30) * 5) / 5)
+ON turplode4 TIMER 3 FRAMES turplode5
+
+REMOVETRIGGER turplode5
+ON turplode5 DRAW ELEMENT:turplo FILLEDCIRCLE X1 Y1 (((bgen[x] - 28) * 5) / 5)
+
+// Connector
+Element Engine Connector 180 180 180 0 1 1 1 0 Clear 0 TEXT Connecter
+Element None spreaded 255 255 255 0 1 1 1 0 Clear 0 TEXT spreaded
+Element None spedstop 200 200 200 0 1 1 1 1000 Connector 0 TEXT spedstop
+Interaction TStop Connector Turbine spreaded 2000
+Interaction spreaded Connector spreaded spreaded 32768
+Interaction spreaded spreaded spedstop spreaded 10000
+Interaction spedstop spreaded spedstop spedstop 16768
+Interaction spreaded Wire spreaded Wave 32768
+Interaction Connector Fire Fire Fire 32768
+Interaction TStop Fire Fire Fire 32768
+Interaction spreaded Fire Fire Fire 32768
+Interaction spedstop Fire Fire Fire 32768
+
+// %%%Explosives%%%
+Element Explosives Fire 255 0 0 -500 1 1 1 1000 Clear 0 TEXT Fire
+
+// Fuse
+Element Explosives Fuse 60 60 60 0 1 1 1 0 Clear 0 TEXT Fuse
+Element None FuseFire 255 0 0 -500 1 1 1 20000 Fire 0 TEXT FuseFire
+Interaction Fuse Fire Fire Fire 1000
+
+InteractionTrigger Fuse Fire fuseray 7000
+
+REMOVETRIGGER fuseray
+ON fuseray DRAW ELEMENT:FuseFire LINE X2 Y2 (2 RAND) (2 RAND)
+ON fuseray DRAW ELEMENT:FuseFire LINE X2 Y2 (-2 RAND) (2 RAND)
+ON fuseray DRAW ELEMENT:FuseFire LINE X2 Y2 (2 RAND) (-2 RAND)
+ON fuseray DRAW ELEMENT:FuseFire LINE X2 Y2 (-2 RAND) (-2 RAND)
+
+// C-4
+Element Explosives C4 255 255 100 0 1 1 1 0 Clear 0 TEXT C4
+Element None Shrap 155 155 155 0 1 1 1 0 Clear 0 TEXT Shrap
+Element None Flamed 255 0 0 -600 1 1 1 20000 Fire 0 TEXT Flamed
+Element None Smoke 100 100 100 -200 1 1 1 300 Clear 0 TEXT Smoke
+Interaction Shrap Clear Shrap Smoke 2000
+Interaction Fire Clear Fire Smoke 100
+Interaction Shrap Clear Clear Shrap 19000
+
+InteractionTrigger Shrap All ced2 300
+InteractionTrigger C4 Fire ced 5000
+InteractionTrigger Shrap Fire ced2 200
+InteractionTrigger C4 Shrap ced 2000
+
+REMOVETRIGGER ced
+ON ced DRAW ELEMENT:Shrap FILLEDCIRCLE X1 Y1 (15 RAND RADIUS)
+
+REMOVETRIGGER ced2
+ON ced2 DRAW ELEMENT:Flamed FILLEDCIRCLE X2 Y2 (12 RAND RADIUS)
+
+NOBIAS ELEMENT:Flamed
+NOBIAS ELEMENT:Shrap
+
+// Gunpowder
+Element Explosives GunPowder 150 150 150 900 0 1 1 0 Clear 0 TEXT GunPowder
+Element None Gunfire 255 0 0 -500 1 1 1 20000 Fire 0 TEXT Gunfire
+
+InteractionTrigger GunPowder Fire powdered 700
+InteractionTrigger GunPowder GunFire powdered 700
+
+REMOVETRIGGER powdered
+ON powdered DRAW ELEMENT:GunPowder FILLEDCIRCLE X1 Y1 (5 RAND RADIUS)
+ON powdered DRAW ELEMENT:Gunfire FILLEDCIRCLE X1 Y1 (6 RAND RADIUS)
+
+// Nitro
+Element Explosives Nitro 90 150 50 900 0 1 1 0 Clear 0 TEXT Nitro
+Element None Shrapnel 255 0 0 0 0 0 1 2000 Clear 0 TEXT Shrapnel
+Element None F1 255 0 0 0 1 1 1 3000 Fire 0 TEXT F423
+Element None F2 255 0 0 0 1 1 1 3000 Fire 0 TEXT F134
+Element None F3 255 0 0 0 1 1 1 3000 Fire 0 TEXT F22
+Element None F4 255 0 0 0 1 1 1 3000 Fire 0 TEXT F33
+Element None F5 255 0 0 0 1 1 1 3000 Fire 0 TEXT F88
+Element None F6 255 0 0 0 1 1 1 3000 Fire 0 TEXT F2
+Element None F7 255 0 0 0 1 1 1 3000 Fire 0 TEXT F6
+Element None F8 255 0 0 0 1 1 1 3000 Fire 0 TEXT F2
+Element None F9 255 0 0 0 1 1 1 3000 Fire 0 TEXT F4
+Element None F10 255 0 0 0 1 1 1 3000 Fire 0 TEXT F1
+Interaction Shrapnel Clear Clear Shrapnel 32000
+Interaction Shrapnel Clear Shrapnel F1 32000
+Interaction F1 Clear F1 F2 32000
+Interaction F2 Clear F3 F2 32000
+Interaction F3 Clear F4 F3 32000
+Interaction F4 Clear F5 F4 32000
+Interaction F5 Clear F6 F5 32000
+Interaction F6 Clear F7 F6 32000
+Interaction F7 Clear F8 F7 32000
+Interaction F8 Clear F9 F8 32000
+Interaction F9 Clear F10 F9 32000
+Interaction Shrapnel F1 F1 Shrapnel 32000
+Interaction Shrapnel F2 F2 Shrapnel 32000
+Interaction Shrapnel F3 F3 Shrapnel 32000
+Interaction Shrapnel F4 F4 Shrapnel 32000
+Interaction Shrapnel F5 F5 Shrapnel 32000
+Interaction Shrapnel F6 F6 Shrapnel 32000
+Interaction Shrapnel F7 F7 Shrapnel 32000
+Interaction Shrapnel F8 F8 Shrapnel 32000
+Interaction Shrapnel F9 F9 Shrapnel 32000
+Interaction Shrapnel F10 F10 Shrapnel 32000
+
+NOBIAS ELEMENT:Shrapnel
+NOBIAS ELEMENT:F1
+NOBIAS ELEMENT:F2
+NOBIAS ELEMENT:F3
+NOBIAS ELEMENT:F4
+NOBIAS ELEMENT:F5
+NOBIAS ELEMENT:F6
+NOBIAS ELEMENT:F7
+NOBIAS ELEMENT:F8
+NOBIAS ELEMENT:F9
+NOBIAS ELEMENT:F10
+
+InteractionTrigger Nitro Fire shrapdo 1000
+InteractionTrigger Nitro Shrapnel shrapdo 1000
+
+REMOVETRIGGER shrapdo
+ON shrapdo DRAW ELEMENT:Shrapnel FILLEDCIRCLE X1 Y1 (10 RAND RADIUS)
+
+// Backfire
+Element Explosives B-Fire 255 0 0 -32000 0 0 1 200 Fire 0 TEXT B-Fire
+Element None bfire 255 0 0 1 1 1 1 0 Clear 0 TEXT bfire
+Element Explosives Test 255 255 255 -32000 0 0 1 0 Clear 0 TEXT Test
+Interaction Test Clear Test Clear 32768
+Interaction B-Fire Clear B-Fire bfire 32768
+Interaction B-Fire B-Fire B-Fire Clear 32768
+Interaction bfire Clear Fire Clear 100
+
+REMOVETRIGGER message
+ON message MESSAGE CLEAR
+ON message MESSAGE ADDTEXT "Car Demoliton Mod. Version 1.0"
+ON message MESSAGE ADDLINE
+ON message MESSAGE ADDNUMBER ELEMENT:COUNT
+ON message MESSAGE ADDTEXT " <-Current number of elements."
+ON message MESSAGE ADDLINE
+ON message MESSAGE MESSAGEBOX
+
+EXEC listgroups
+EXEC message

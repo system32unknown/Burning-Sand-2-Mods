@@ -1,13 +1,5 @@
-// Delvar's edits of Atlas's old .95 Beta mod, "Cosmic Sand Beta 1"
-// 2007, May, 12.  Coded on a Core 2 Duo (x86) processor running XP SP2
-// ATI X1400 Graphics Card, resolution at 1280 x 800 pixels at 32 bit color
-// Notepad.exe used to write config.
-// Hex-o-Matic for HEX images
-// Runs on Sieben's "Burning Sand" for v0.99b (Beta 7).
-
-// PlanetBuilders mod: Green, Black and Cyan compete for control.
-
-// One group contains all the possible drawable elements: Clear, Green, Black, Cyan ships, Nebula, Sun, Earth and Lava (8 elements)
+INCLUDE sandbox.bs2
+EXEC clearall
 
 Group GodTools 0 HEX 00000000000000003C01004020C700402D290050252900503CC68054000000540700105502319355024A5455024A515502319655000000553FFFFFD5000000150FFFFFF50000000503FFFFFD0000000100FFFFFF00000000003FFFFF00000000000FFFFF000000000003FFFF000000000000FFFF0000000000003FFF00000000 255 255 255
 Group PlanetBuilders 100 HEX 00000000000000003A0000902A6189D03A92549422925094226A4C55000000150700101502319315024A5415024A511502319615000000153FFFFFF5000000050FFFFFFD0000000103FFFFFF0000000000FFFFFF00000000003FFFFF00000000000FFFFF000000000003FFFF000000000000FFFF0000000000003FFF00000000 255 255 255
@@ -123,9 +115,9 @@ Element None MoonCyan 0 177 241 0 1 1 1 0 Clear 0 File erase.bmp
 // Template for explosions
 // Element None GroundBoom 250 174 0 0 2 1 5 0 GroundBoom2 0 File erase.bmp
 // Element None GroundBoom2 250 125 0 0 1 1 4 500 Earth 0 File erase.bmp
-Element None GreenBlackBoom 250 177 0 0 2 1 5 0 GreenBlackBoom2 2 0 File erase.bmp
+Element None GreenBlackBoom 250 177 0 0 2 1 5 0 GreenBlackBoom2 0 File erase.bmp
 Element None GreenBlackBoom2 230 157 0 0 1 1 4 500 EarthGreen 0 File erase.bmp
-Element None GreenCyanBoom 250 177 0 0 2 1 5 0 GreenCyanBoom2 2 0 File erase.bmp
+Element None GreenCyanBoom 250 177 0 0 2 1 5 0 GreenCyanBoom2 0 File erase.bmp
 Element None GreenCyanBoom2 230 157 0 0 1 1 4 500 EarthGreen 0 File erase.bmp
 Element None BlackGreenBoom 255 179 5 0 2 1 5 0 BlackGreenBoom2 0 File erase.bmp
 Element None BlackGreenBoom2 235 159 0 0 1 1 4 500 EarthBlack 0 File erase.bmp
@@ -2262,3 +2254,21 @@ Interaction CSpyWave GTier3 CSpyWave CSpyWave 6000
 Interaction CSpyWave CTier1 CSpyWave CSpyWave 6000
 Interaction CSpyWave CTier2 CSpyWave CSpyWave 6000
 Interaction CSpyWave CTier3 CSpyWave CSpyWave 6000
+
+SET BRUSHSIZE 15
+SET ELEMENT1 ELEMENT:Earth
+SET ELEMENT2 ELEMENT:Earth
+SET ELEMENT4 ELEMENT:Clear
+EXEC listgroup GROUP:Stones
+EXEC usefilledcircle
+EXEC listgroups
+EXEC menutop
+EXEC menubottom
+ON KEY_BACKSPACE EXEC back_load
+ON KEY_v IF (CTRL == 1) <INCLUDE CLIPBOARD>
+ON MOUSEWHEELUP IF (wheelfunction == 0) brushizeinc
+ON MOUSEWHEELUP IF (wheelfunction == 1) zoominc
+ON MOUSEWHEELUP IF (wheelfunction == 2) history_back
+ON MOUSEWHEELDOWN IF (wheelfunction == 0) brushizedec
+ON MOUSEWHEELDOWN IF (wheelfunction == 1) zoomdec
+ON MOUSEWHEELDOWN IF (wheelfunction == 2) history_foreward

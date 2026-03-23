@@ -1,0 +1,1142 @@
+GROUP CLEARALL
+ELEMENTSCLEAR
+MENURIGHT = 70
+
+GROUP Human 80 FILE erase.bmp
+GROUP La+Ac 70 FILE erase.bmp
+GROUP TranMetal 60 FILE erase.bmp
+GROUP PoorMetal 50 FILE erase.bmp
+GROUP NonMetal 40 FILE erase.bmp
+GROUP NobleGas 30 FILE erase.bmp
+GROUP Alkali 20 FILE erase.bmp
+GROUP AlkaliEarth 10 FILE erase.bmp
+GROUP Misc 0 FILE erase.bmp
+
+// *********************MISC*******************
+
+// Fire
+Element Misc Fire 255 0 0 -600 1 1 1 2000 Fire2 0 TEXT Fire
+Element None Fire2 255 160 60 -400 1 1 1 2000 Clear 0 TEXT Fire2
+Interaction Fire Water Fire Steam 32768
+Interaction Fire2 Water Fire2 Steam 16389
+
+// Earth
+Element Misc Earth 100 50 10 0 1 1 1 0 Clear 0 TEXT Earth
+Element None Sand 190 150 0 990 0 1 1 0 Clear 0 TEXT Sand
+
+// SparkPlug
+Element Misc SparkPlug 60 60 60 0 1 1 1 0 Clear 0 TEXT SparkPlug
+
+// Water
+Element None Steam 100 100 255 -100 5 1 5 100 Water 0 TEXT Steam
+Element Misc Water 50 100 240 500 10 4 1 0 Clear 0 TEXT Water
+Interaction Water HeatTit Steam Titanium 32000
+Interaction Titanium HeatTit Titanium Titanium 5000
+
+// Container
+Element Misc Container 160 160 160 0 1 1 1 0 Clear 0 TEXT Container
+
+// Burner
+Element Misc Burner 120 20 20 0 1 1 1 0 Clear 0 TEXT Burner
+Element None Burnoff 120 20 20 0 1 1 1 0 Clear 0 TEXT Burnoff
+Interaction Burner Clear Burner Fire 5000
+Interaction Burner Water Burner Steam 5999
+Interaction Burner Nitrogen Burnoff Nitrogen 4000
+Interaction Burnoff Burner Burnoff Burnoff 32768
+
+// Coolant
+Element Misc Coolant 140 140 240 900 0 1 1 0 Clear 0 TEXT Coolant
+
+// MagicSwipe
+Element Misc MagicSwipe 255 255 255 970 0 1 1 800 Clear 0 TEXT MagicSwipe
+Interaction MagicSwipe Container MagicSwipe MagicSwipe 32768
+Interaction MagicSwipe Coolant MagicSwipe MagicSwipe 32768
+
+// Melter
+Element Misc Melter 255 100 100 900 0 1 1 1000 Clear 0 TEXT Melter
+
+// Knife
+Element Misc Knife 0 0 0 0 1 1 1 10000 Clear 0 TEXT Knife
+Interaction Knife SkinA Knife Blood 32768
+Interaction Knife Heart Knife HeartDown 32768
+
+// Reactor
+Element Misc Reactor 100 255 255 0 1 1 1 0 Clear 0 TEXT ReactRecieve
+
+// *********************ALKALI*****************
+
+// Lithium
+Element None Li2 140 140 140 0 1 1 1 0 Clear 0 TEXT Li2
+Element None LithS 140 140 140 0 1 1 1 0 Clear 0 TEXT LithS
+Element None Lithum 120 120 120 0 1 1 1 0 Clear 0 TEXT Lithum
+Element None Tarnish 50 50 50 700 0 1 1 0 Clear 0 TEXT Tarnish
+Element None LitBurn 255 0 0 -400 1 1 1 2000 Clear 0 TEXT LitBurn
+Element None LiBurn 255 100 100 0 1 1 1 500 Clear 0 TEXT LiBurn
+Element None Hydroxide 255 255 255 501 10 4 1 0 Clear 0 TEXT Hydroxide
+Element Alkali Lithium 120 120 120 0 1 1 1 20000 Li2 0 TEXT Lithium 
+
+Interaction Li2 Lithium Li2 Li2 5000
+Interaction Li2 Lithium Li2 Li2 16768
+Interaction Li2 Li2 LithS Li2 3
+Interaction Li2 LithS LithS LithS 32768
+Interaction LithS Lithium LithS Lithum 32768
+Interaction Lithum Lithium Lithum Lithum 32768
+Interaction Lithum Clear Tarnish Clear 10
+Interaction LithS Clear Tarnish Clear 10
+Interaction Tarnish LithS Tarnish Tarnish 10
+Interaction Tarnish Lithum Tarnish Tarnish 10
+Interaction Fire Lithum Fire LiBurn 21768
+Interaction LiBurn LithS LiBurn LiBurn 5000
+Interaction LiBurn Lithum LiBurn LiBurn 5000
+Interaction LiBurn Clear LiBurn LitBurn 5000
+Interaction Fire LithS Fire LiBurn 21000
+Interaction Lithum Water Hydroxide Water 32768
+Interaction Hydroxide Lithum Hydroxide Hydroxide 2000
+Interaction LithS Water Hydroxide Water 32768
+Interaction Hydroxide LithS Hydroxide Hydroxide 2000
+
+// Sodium
+
+Element None SodiPlode 255 100 50 -600 1 1 1 1000 Clear 0 TEXT SodiPlode
+Element None So2 255 255 0 -700 1 1 1 1000 Clear 0 TEXT So2
+Element None Sodi 255 100 100 200 1 1 1 151 Residue 0 TEXT Sodi
+Element None Firez 255 0 0 -500 1 1 1 400 Clear 0 TEXT Firez
+Element None Residue 190 40 10 800 1 1 1 0 Clear 0 TEXT Residue
+Element Alkali Sodium 130 130 130 0 1 1 1 0 Clear 0 TEXT Sodium
+
+Interaction Sodium Fire SodiPlode Fire 6000
+Interaction Sodium Fire2 SodiPlode Fire2 6000
+Interaction Sodium Fire So2 Fire 7000
+Interaction Sodium Fire2 So2 Fire2 7000
+Interaction SodiPlode Sodium SodiPlode SodiPlode 7000
+Interaction So2 Sodium So2 So2 4000
+Interaction Sodium Water Sodi Water 3000
+Interaction Sodi Sodium Sodi Sodi 9000
+Interaction Sodi Water Sodi Firez 5000
+Interaction Sodi Clear Sodi Firez 5000
+Interaction Residue Water Water Residue 400
+
+InteractionTrigger Sodi Water Sodiexplode 1000
+InteractionTrigger Sodi Clear Sodiexplode 100
+
+TRIGGER Sodiexplode {
+ON Sodiexplode DRAW ELEMENT:Firez FILLEDCIRCLE X2 Y2 4
+}
+
+// Potassium
+
+Element Alkali Potassium 120 10 60 500 1 1 1 0 Clear 0 TEXT Potassium
+
+InteractionTrigger Potassium Water PotSplode 4000
+
+TRIGGER PotSplode {
+ON PotSplode DRAW ELEMENT:Firez FILLEDCIRCLE X1 Y1 20 RAND 50
+}
+
+// Rubidium
+Element Alkali Rubidium 200 200 200 0 1 1 1 0 Clear 0 TEXT Rubidium
+Interaction Rubidium Water Fire Water 32768
+
+// Caesium
+Element None Caeup 255 100 50 -750 1 1 1 400 Clear 0 TEXT Caeup
+Element Alkali Caesium 255 255 100 800 1 1 1 0 Clear 0 TEXT Caesium
+
+Interaction Caesium Water Caeup Water 32768
+Interaction Caeup Caesium Caeup Caeup 6000
+
+InteractionTrigger Caeup Clear CePlod 3
+
+TRIGGER CePlod {
+ON CePlod DRAW ELEMENT:Fire FILLEDCIRCLE X1 Y1 17
+} 
+
+// Francium
+Element Alkali Francium 130 130 130 500 0 1 1 0 Clear 0 TEXT Francium
+
+Interaction Francium Clear Radon Clear 20
+Interaction Francium Clear Astatine Clear 25
+
+// ******************ALKALIEARTH********************
+
+// Beryllium
+Element None Flake 60 60 60 100 1 1 1 2 Clear 0 TEXT Flake
+Element None Fume 0 140 0 -100 4 1 1 10 Fume2 0 TEXT Fume
+Element None Fume2 0 200 0 -100 4 1 1 10 Fume 0 TEXT Fume2
+Element AlkaliEarth Beryllium 240 240 240 0 1 1 1 0 Clear 0 TEXT Beryllium
+
+Interaction Beryllium Clear Beryllium Flake 1
+Interaction Beryllium Fire Fume Fire 5000
+Interaction Beryllium Fire2 Fume2 Fire2 5000
+Interaction Fume All Fume Clear 1000 Beryllium
+Interaction Fume2 All Fume2 Clear 1000 Beryllium
+
+// Magnesium
+Element None Tarn 50 50 50 0 1 1 1 0 Clear 0 TEXT Tarn
+Element None MagBurn 255 100 100 0 1 1 1 600 Clear 0 TEXT MagBurn
+Element None LightFire 255 255 255 -700 0 0 1 1500 Clear 0 TEXT LightFire
+Element AlkaliEarth Magnesium 80 80 80 0 1 1 1 0 Clear 0 TEXT Magnesium
+
+Interaction Magnesium Clear Magnesium Tarn 1000
+Interaction Magnesium Fire MagBurn Fire 3000
+Interaction Tarn Fire MagBurn Fire 3000
+Interaction MagBurn Tarn MagBurn MagBurn 4000
+Interaction MagBurn Magnesium MagBurn MagBurn 4000
+Interaction MagBurn Clear MagBurn LightFire 3000
+
+InteractionTrigger Magnesium Water Maged 3000
+InteractionTrigger Tarn Water Maged 1000
+
+TRIGGER Maged {
+ON Maged DRAW ELEMENT:LightFire FILLEDCIRCLE X1 Y1 3
+}
+
+// Calcium
+Element None Coating 255 255 255 0 1 1 1 0 Clear 0 TEXT Coating
+Element None RedFlame 255 0 0 -760 1 1 1 2000 Clear 0 TEXT RedFlame
+Element AlkaliEarth Calcium 255 255 140 0 1 1 1 0 Clear 0 TEXT Calcium
+
+Interaction Calcium Clear Calcium Coating 32768
+Interaction Coating Fire RedFlame Fire 3
+Interaction Coating Fire2 RedFlame Fire2 3
+Interaction RedFlame Coating RedFlame RedFlame 2900
+Interaction RedFlame Calcium RedFlame RedFlame 2900
+Interaction Calcium Water Calcium Hydrogen 1
+
+// Strontium
+Element None Oxide 255 255 190 0 1 1 1 100 Clear 0 TEXT Oxide
+Element AlkaliEarth Strontium 150 150 150 0 1 1 1 0 Clear 0 TEXT Strontium
+
+Interaction Strontium Clear Strontium Oxide 32768
+Interaction Strontium Water Strontium Hydrogen 100
+
+// Barium
+Element None BarOx 160 160 160 0 1 1 1 0 Clear 0 TEXT BarOx
+Element None Peroxide 40 40 40 300 0 1 1 0 Clear 0 TEXT Peroxide
+Element None Poison 0 255 40 800 3 3 3 0 Clear 0 TEXT Poison
+Element AlkaliEarth Barium 200 200 200 0 1 1 1 0 Clear 0 TEXT Barium
+
+Interaction Barium Clear Barium BarOx
+Interaction Barium Fire Peroxide Fire 32768
+Interaction Barium Water Poison Poison 32768
+Interaction Barium Water Hydrogen Water 32768
+Interaction Barium Poison Hydrogen Hydrogen 32768
+
+// Radium
+Element None Radiation 0 0 0 0 1 1 1 0 Clear 0 TEXT Radiation
+Element None RadOxide 80 80 255 0 1 1 1 0 Clear 0 TEXT RadOxide
+Element AlkaliEarth Radium 255 255 255 0 1 1 1 0 Clear 0 TEXT Radium
+
+Interaction Radium Clear RadOxide Clear 3000
+Interaction RadOxide Radium RadOxide RadOxide 2000
+Interaction RadOxide Clear RadOxide Radiation 16768
+Interaction Radiation Clear Clear Radiation 20900
+Interaction Radiation Barium Barium Radiation 24000
+Interaction Radiation Calcium Calcium Radiation 34000
+Interaction Radiation Magnesium Magnesium Radiation 24000
+Interaction Radiation Francium Francium Radiation 34000
+Interaction Radiation Caesium Caesium Radiation 34000
+Interaction Radiation Lithium Lithium Radiation 34000
+Interaction Radiation Water Water Radiation 34000
+Interaction Radiation BarOx BarOx Radiation 34000
+Interaction Radiation Coating Coating Radiation 34000
+Interaction Radiation Tarn Tarn Radiation 34000
+Interaction Radiation Container Container Radiation 34000
+Interaction Radiation Boron Boron Radiation 34000
+Interaction Radiation Carbon Carbon Radiation 34000
+Interaction Radiation Fluorine Fluorine Radiation 24000
+Interaction Radiation Radon Radon Radiation 34000
+Interaction Radiation Silicon Silicon Radiation 24000
+Interaction Radiation CleanWater CleanWater Radiation 34000
+Interaction Radiation Phosphorous Phosphorous Radiation 34000
+Interaction Radiation Sulfur Sulfur Radiation 34000
+Interaction Radiation Arsenic Arsenic Radiation 24000
+Interaction Radiation Bromine Bromine Radiation 34000
+Interaction Radiation Aluminium Aluminium Radiation 24000
+Interaction Radiation Gallium Gallium Radiation 34000
+Interaction Radiation Germanium Germanium Radiation 34000
+Interaction Radiation Tin Tin Radiation 34000
+Interaction Radiation Astatine Astatine Radiation 24000
+Interaction Radiation Iodine Iodine Radiation 34000
+Interaction Radiation Indium Indium Radiation 34000
+Interaction Radiation Tellerium Tellerium Radiation 24000
+Interaction Radiation Astatine Astatine Radiation 34000
+Interaction Radiation Iodine Iodine Radiation 24000
+Interaction Radiation Bismuth Bismuth Radiation 34000
+Interaction Radiation Gas Gas Radiation 34000
+Interaction Radiation Scandium Scandium Radiation 34000
+Interaction Radiation Pinked Pinked Radiation 34000
+Interaction Radiation Vanadium Vanadium Radiation 32000
+Interaction Radiation Chromium Chromium Radiation 32000
+Interaction Radiation Iron Iron Radiation 32000
+Interaction Radiation Manganese Manganese Radiation 32000
+Interaction Radiation Cobalt Cobalt Radiation 32000
+Interaction Radiation HeartDown HeartDown Radiation 32000
+Interaction Radiation Blood Blood Radiation 32000
+Interaction Radiation BloodDep BloodDep Radiation 32000
+Interaction Radiation Earth Sand Radiation 32000
+Interaction Radiation Sand Sand Radiation 32000
+Interaction Radiation Copper Copper Radiation 32000
+Interaction Radiation Zinc Zinc Radiation 32000
+Interaction Radiation Sil2 Sil2 Radiation 32000
+Interaction Radiation SilF SilF Radiation 32000
+Interaction Radiation Cadmium Cadmium Radiation 32000
+Interaction Radiation Hafnium Hafnium Radiation 32000
+Interaction Radiation Osmium Osmium Radiation 32000
+
+// ******************NOBLEGASES********************
+
+// Helium
+Element NobleGas Helium 255 255 255 -400 100 100 100 0 Clear 0 TEXT Helium
+
+// Neon
+Element None Red 255 0 0 0 1 1 1 0 Clear 0 TEXT Red
+Element None Null 20 20 20 0 1 1 1 0 Clear 0 TEXT Null
+Element NobleGas Neon 20 20 20 -300 1 1 1 0 Clear 0 TEXT Neon
+
+Interaction Neon ElecSpark Red Clear 30000
+Interaction Neon SparkPlug Red SparkPlug 30000
+Interaction Red Neon Red Red 19000
+Interaction Red Red Null Red 4
+Interaction Null Red Null Null 12000
+Interaction Null Null Neon Null 1
+Interaction Neon Null Neon Neon 6000
+
+// Argon
+Element NobleGas Argon 20 20 20 -300 40 10 1 0 Clear 0 TEXT Argon
+Element None Cyan 0 255 255 0 1 1 1 0 Clear 0 TEXT Red
+Element None Null2 20 20 20 0 1 1 1 0 Clear 0 TEXT Null
+
+Interaction Argon ElecSpark Cyan Clear 30000
+Interaction Argon SparkPlug Cyan SparkPlug 30000
+Interaction Cyan Argon Cyan Cyan 19000
+Interaction Cyan Cyan Null2 Cyan 4
+Interaction Null2 Cyan Null2 Null2 12000
+Interaction Null2 Null2 Argon Null2 1
+Interaction Argon Null2 Argon Argon 1000
+
+// Krypton
+Element NobleGas Krypton 50 50 50 -40 1 1 1 0 Clear 0 TEXT Krypton
+Interaction Krypton Clear Krypton Radiation 2
+
+// Xenon
+Element NobleGas Xenon 40 40 40 60 1 1 1 0 Clear 0 TEXT Xenon
+Element None XenYel 255 255 0 0 1 1 1 0 Clear 0 TEXT XenYel
+Element None XenS 40 40 40 -90 1 1 1 0 Clear 0 TEXT XenS
+
+Interaction Xenon SparkPlug XenYel SparkPlug 3000
+Interaction Xenon XenYel XenYel XenYel 32768
+Interaction XenYel XenYel XenS XenYel 1
+Interaction XenS XenYel XenS XenS 24000
+Interaction XenS XenS Xenon XenS 1
+Interaction Xenon XenS Xenon Xenon 16000
+
+// Radon
+Element NobleGas Radon 60 60 60 80 1 1 1 0 Clear 0 TEXT Radon
+Interaction Radon Clear Radon Radiation 200
+
+// ******************NONMETALS********************
+
+// Hydrogen
+Element None Re 255 0 0 -400 1 1 1 2000 Re2 0 TEXT Re
+Element None Rd 255 0 0 -600 1 1 1 800 Clear 0 TEXT Rd
+Element None Re2 255 100 50 -600 1 1 1 200 Clear 0 TEXT Re2
+Element NonMetal Hydrogen 255 255 255 -770 1 1 1 0 Clear 0 TEXT Hydrogen
+
+InteractionTrigger Hydrogen Fire Hydoplode 6000
+InteractionTrigger Hydrogen Fire2 Hydoplode 6000
+InteractionTrigger Hydrogen Re2 Hydoplode 5
+InteractionTrigger Hydrogen Re Hydoplode 5
+InteractionTrigger Hydrogen Fire Hy2 6000
+InteractionTrigger Hydrogen Fire2 Hy2 6000
+InteractionTrigger Hydrogen Rd Hydoplode 50
+InteractionTrigger Hydrogen Rd Hy2 9
+InteractionTrigger Hydrogen Fluorine Hy2 32768
+
+TRIGGER Hydoplode {
+ON Hydoplode DRAW ELEMENT:Re FILLEDCIRCLE X1 Y1 4
+}
+
+TRIGGER Hy2 {
+ON Hy2 DRAW ELEMENT:Rd FILLEDCIRCLE X1 Y1 20
+}
+
+// Boron
+Element None GFire 50 255 50 -500 1 1 1 1000 Clear 0 TEXT GFire
+Element NonMetal Boron 50 10 0 0 1 1 1 0 Clear 0 TEXT Boron
+
+Interaction Fire Boron Fire GFire 3000
+Interaction Fire2 Boron Fire2 GFire 3000
+Interaction GFire Boron GFire GFire 2000
+
+// Carbon
+Element None Carfect 50 50 50 0 1 1 1 0 Clear 0 TEXT Carfect
+Element None Filtered 100 100 255 300 10 10 1 0 Clear 0 TEXT Fil
+Element None Crisp 50 50 50 4000 0 0 1 0 Clear 0 TEXT Crisp
+Element None CO2 70 70 70 0 1 1 1 0 Clear 0 TEXT CO2
+Element NonMetal Carbon 50 50 50 0 1 1 1 0 Clear 0 TEXT Carbon
+
+Interaction Fire2 Carbon Fire2 Carfect 3000
+Interaction Carfect Carbon Carfect Carfect 800
+Interaction Carfect Carfect Crisp Carfect 1
+Interaction Crisp Carfect Crisp Crisp 32768
+Interaction Carbon Water Carbon Filtered 32768
+Interaction Carbon Oxygen CO2 Clear 32768
+Interaction CO2 Clear Clear CO2 10000
+
+// Nitrogen
+Element None Ice 180 180 255 0 1 1 1 10 Water 0 TEXT Ice
+Element None LiquidNitrogen 100 140 255 800 1 1 1 0 Clear 0 TEXT LiquidNitrogen
+Element NonMetal Nitrogen 190 190 190 0 5 3 2 0 Clear 0 TEXT Nitrogen
+
+Interaction Nitrogen Clear Clear Nitrogen 10000
+Interaction Ice Water Ice Ice 100
+Interaction Nitrogen Fire Nitrogen Clear 32768
+Interaction Nitrogen Fire2 Nitrogen Clear 32768
+Interaction Ice Nitrogen Ice LiquidNitrogen 200
+Interaction LiquidNitrogen Nitrogen LiquidNitrogen LiquidNitrogen 5000
+Interaction Compress Nitrogen Compress LiquidNitrogen 32768
+Interaction Ice LiquidNitrogen Clear LiquidNitrogen 68
+Interaction LiquidNitrogen All LiquidNitrogen Ice 22768 Clear
+SET elementexception ELEMENT:LiquidNitrogen
+
+// Oxygen
+Element NonMetal Oxygen 255 255 255 0 1 1 1 0 Clear 0 TEXT Oxygen
+
+Interaction Oxygen Clear Clear Oxygen 8000
+Interaction Fire Oxygen Fire Fire 9000
+Interaction Fire2 Oxygen Fire2 Fire2 9000
+Interaction Oxygen Hydrogen Water Clear 2000
+
+// Fluorine
+Element None FlFire 255 0 0 -400 1 1 1 800 Fl2 0 TEXT FlFire
+Element None Fl2 255 0 0 -400 1 1 1 800 Fl3 0 TEXT Fl2
+Element None Fl3 255 155 50 -400 1 1 1 900 Fl4 0 TEXT Fl3
+Element None Fl4 240 240 0 -400 1 1 1 2000 Clear 0 TEXT Fl4
+Element None FireD 255 0 0 -600 1 1 1 1000 Clear 0 TEXT FireD
+Element NonMetal Fluorine 255 190 100 90 1 4 1 0 Clear 0 TEXT Fluorine
+
+Interaction Fluorine Argon Argon Argon 32768
+Interaction Fluorine Neon Neon Neon 32768
+Interaction Fluorine Radon Radon Radon 32768
+Interaction Fluorine Xenon Xenon Xenon 32768
+Interaction Fluorine Krypton Krypton Krypton 32768
+Interaction Fluorine Water FireD Clear 32768
+Interaction FlFire Fluorine FlFire FlFire 2000
+Interaction Fluorine All Fluorine Clear 10 Clear
+
+InteractionTrigger Fluorine Fire <DRAW ELEMENT:FlFire LINE X2 Y2 (-100 RAND 60) (-100 RAND 70)> 32768
+InteractionTrigger FlFire Clear <DRAW ELEMENT:Fl2 LINE X2 Y2 (-100 RAND 70) (-100 RAND 70)> 10000
+
+// Silicon
+Element NonMetal Silicon 190 190 230 0 1 1 1 0 Clear 0 TEXT Silicon
+
+// Phosphorous
+Element None PhosBurn 255 0 0 500 1 1 1 800 Clear 0 TEXT PhosBurn
+Element None PhosFire 255 0 0 -500 1 1 1 1000 Clear 0 TEXT PhosFire
+Element None PhosGlow 0 255 255 400 1 6 2 5000 Phosphorous 0 TEXT PhosGlow
+Element NonMetal Phosphorous 150 4 10 400 1 6 2 0 Clear 0 TEXT Phosphorous
+Interaction Phosphorous Fire2 PhosBurn Fire2 32768
+Interaction Phosphorous Fire PhosBurn Fire 32768
+Interaction PhosBurn Phosphorous PhosBurn PhosBurn 9000
+Interaction Oxygen Phosphorous Oxygen PhosGlow 7000
+InteractionTrigger PhosBurn Clear phosburn 1000
+
+TRIGGER phosburn {
+ON phosburn DRAW ELEMENT:PhosFire LINE X1 Y1 DX1 (DY1 - 60)
+ON phosburn DRAW ELEMENT:PhosFire FILLEDCIRCLE X1 Y1 6
+}
+
+// Sulfur
+Element None SulfBurn 0 190 190 0 1 1 1 0 Clear 0 TEXT SulfBurn
+Element NonMetal Sulfur 255 255 100 0 1 1 1 0 Clear 0 TEXT Sulfur
+
+Interaction Sulfur Fire SulfBurn Fire 32000
+Interaction Sulfur Fire2 SulfBurn Fire2 32000
+Interaction SulfBurn Sulfur SulfBurn SulfBurn 7000
+Interaction SulfBurn Clear SulfBurn Fire 32000
+Interaction Fire SulfBurn Fire Clear 800
+
+// Chlorine
+Element NonMetal Chlorine 100 255 50 100 2 1 1 0 Clear 0 TEXT Chlorine
+Element None CleanWater 50 50 255 800 10 5 1 0 Clear 0 TEXT CleanWater
+Element None SaltWater 0 50 100 600 7 2 1 0 Clear 0 TEXT SaltWater
+Element None Salt 200 200 200 400 2 2 2 0 Clear 0 TEXT Salt
+
+Interaction Fire2 Chlorine Fire2 Fire 32768
+Interaction Fire2 Chlorine Fire2 Fire2 3000
+Interaction Fire Chlorine Fire Fire 3300
+Interaction Chlorine Water CleanWater CleanWater 32768
+Interaction Chlorine Sodium Salt Salt 5000
+Interaction Salt Water SaltWater SaltWater 4000
+
+// Arsenic
+Element NonMetal Arsenic 140 140 140 0 1 1 1 500 Ar2 0 TEXT Arsenic
+Element None Ar2 170 170 170 0 1 1 1 400 Arsenic 0 TEXT Ar2
+Element None ArFumes 255 255 180 -400 5 5 1 0 Clear 0 TEXT ArFumes
+
+Interaction Arsenic Water Poison Poison 3200
+Interaction ArFumes All ArFumes Clear 50 Clear
+Interaction Fire2 Arsenic Fire2 ArFumes 32768
+Interaction Fire Arsenic Fire ArFumes 32768
+
+// Selenium
+Element NonMetal Selenium 190 190 190 0 1 1 1 0 Clear 0 TEXT Selenium
+
+// Bromine
+Element NonMetal Bromine 80 0 20 200 5 2 1 0 Clear 0 TEXT Bromine
+Element None BroFumes 50 0 10 -90 5 1 5 0 Clear 0 TEXT BroFumes
+Element None PotBroF 40 40 10 -100 5 1 4 0 Clear 0 TEXT PotBroF
+
+Interaction Bromine Clear Bromine BroFumes 10
+Interaction Bromine Potassium PotBroF PotBroF 32768
+Interaction PotBroF All PotBroF Clear 1000 Clear
+
+// Tellurium
+Element NonMetal Tellurium 170 170 170 0 1 1 1 0 Clear 0 TEXT Tellurium
+
+Interaction Tellurium Clear Tellurium Tellurium 20
+Interaction Tellurium Clear Clear Tellurium 20
+
+// Iodine
+Element NonMetal Iodine 65 50 50 200 1 4 2 0 Clear 0 TEXT Iodine
+Element None IoSalt 180 180 180 400 2 2 2 0 Clear 0 TEXT IoSalt
+Element None IoWater 200 50 10 800 2 2 2 0 Clear 0 TEXT IoWater
+
+Interaction Iodine Water IoWater Clear 2000
+Interaction Iodine Salt Iodine IoSalt 32000
+Interaction IoSalt Iodine IoSalt IoSalt 32768
+
+// Astatine
+Element NonMetal Astatine 40 40 40 0 1 1 1 100 Clear 0 TEXT Astatine
+Element NonMetal Vespene 25 150 25 -300 50 50 50 0 Clear 0 HEX nulledout
+Element None VesPlode 55 170 55 1000 0 1 1 0 Clear 0 TEXT VesPlode
+Element None VesEnd 0 150 0 1000 0 1 1 1000 Clear 0 TEXT VesEnd
+Interaction Vespene Fire2 VesPlode Clear 32000
+Interaction Vespene Fire VesPlode Clear 32000
+Interaction VesPlode All VesPlode VesPlode 32000 VesEnd
+Interaction VesPlode VesPlode VesEnd VesPlode 1
+Interaction VesEnd VesPlode VesEnd VesEnd 32768
+Interaction Astatine Clear Astatine Radiation 5000
+Interaction VesEnd All VesEnd Clear 2000
+
+NOBIAS ELEMENT:VesPlode
+
+// *****************POORMETALS*********************
+
+// Aluminium
+Element PoorMetal Aluminium 190 190 190 0 1 1 1 1 Al2 0 TEXT Aluminium
+Element None Al2 240 240 240 0 1 1 1 20000 Aluminium 0 TEXT Al2 
+Element None AMelt 190 190 190 900 0 1 1 0 Clear 0 TEXT AMelt
+Element None ANull 190 190 190 900 0 1 1 0 Clear 0 TEXT ANull
+
+Interaction Fire Aluminium Fire AMelt 3000
+Interaction AMelt Aluminium AMelt AMelt 10000
+Interaction AMelt Coolant ANull Coolant 4000
+Interaction AMelt MagicSwipe ANull MagicSwipe 43000
+Interaction ANull AMelt ANull ANull 32768
+Interaction ANull ANull Aluminium ANull 1
+Interaction Aluminium ANull Aluminium Aluminium 16000
+Interaction Aluminium Coolant Aluminium Clear 4000
+
+// Gallium
+Element PoorMetal Gallium 200 200 230 0 1 1 1 400 G2 0 TEXT Gallium
+Element None G2 180 180 230 0 1 1 1 400 Gallium 0 TEXT G2
+Element None GMelt 200 200 230 900 0 1 1 0 Clear 0 TEXT GMelt
+Element None GNull 200 200 230 900 0 1 1 0 Clear 0 TEXT GNull
+
+Interaction Fire Gallium Fire GMelt 3000
+Interaction GMelt Gallium GMelt GMelt 10000
+Interaction GMelt Coolant GNull Coolant 4000
+Interaction GMelt MagicSwipe GNull MagicSwipe 43000
+Interaction GNull GMelt GNull GNull 32768
+Interaction GNull GNull Gallium GNull 1
+Interaction Gallium GNull Gallium Gallium 16000
+Interaction Gallium Coolant Gallium Clear 4000
+
+// Germanium
+Element PoorMetal Germanium 190 190 240 0 1 1 1 900 Ge2 0 TEXT Germanium
+Element None Ge2 200 200 255 0 1 1 1 800 Germanium 0 TEXT Ge2
+Element None GeMelt 200 200 255 900 0 1 1 0 Clear 0 TEXT GeMelt
+Element None GeNull 200 200 255 900 0 1 1 0 Clear 0 TEXT GeNull
+
+Interaction Fire Germanium Fire GeMelt 3000
+Interaction GeMelt Germanium GeMelt GeMelt 10000
+Interaction GeMelt Coolant GeNull Coolant 43000
+Interaction GeMelt MagicSwipe GeNull MagicSwipe 43000
+Interaction GeNull GeMelt GeNull GeNull 32768
+Interaction GeNull GeNull Germanium GeNull 1
+Interaction Germanium GeNull Germanium Germanium 16000
+Interaction Germanium Coolant Germanium Clear 4000
+
+// Indium
+Element PoorMetal Indium 154 154 154 0 1 1 1 0 Clear 0 TEXT Indium
+Element None InMelt 154 154 154 902 0 1 1 0 Clear 0 TEXT InMelt
+Element None InNull 154 154 154 902 0 1 1 0 Clear 0 TEXT GeNull
+
+Interaction Fire Indium Fire InMelt 3000
+Interaction InMelt Indium InMelt InMelt 10000
+Interaction InMelt Coolant InNull Coolant 43000
+Interaction InMelt MagicSwipe InNull MagicSwipe 43000
+Interaction InNull InMelt InNull InNull 32768
+Interaction InNull InNull Indium InNull 1
+Interaction Indium InNull Indium Indium 16000
+Interaction Indium Coolant Indium Clear 4000
+
+// Tin
+Element PoorMetal Tin 120 120 120 0 1 1 1 0 Clear 0 TEXT Tin
+Element None TiMelt 120 120 120 906 0 1 1 0 Clear 0 TEXT TiMelt
+Element None TiNull 120 120 120 906 0 1 1 0 Clear 0 TEXT TiNull
+
+Interaction Tin Caesium Clear Caesium 8200 
+Interaction Tin Potassium Clear Potassium 8200 
+Interaction Tin Francium Clear Francium 8200 
+Interaction Fire Tin Fire TiMelt 3000
+Interaction TiMelt Tin TiMelt TiMelt 10000
+Interaction TiMelt Coolant TiNull Coolant 43000
+Interaction TiMelt MagicSwipe TiNull MagicSwipe 4000
+Interaction TiNull TiMelt TiNull TiNull 32768
+Interaction TiNull TiNull Tin TiNull 1
+Interaction Tin TiNull Tin Tin 16000
+Interaction Tin Coolant Tin Clear 4000
+
+// Antimony
+Element PoorMetal Antimony 100 100 150 0 1 1 1 900 An2 0 TEXT Antimony
+Element None An2 80 80 170 0 1 1 1 900 Antimony 0 TEXT An2
+Element None AnMelt 100 100 150 903 0 1 1 0 Clear 0 TEXT AnMelt
+Element None AnNull 100 100 150 903 0 1 1 0 Clear 0 TEXT AnNull
+Element None AnFumes 30 30 10 -90 4 2 1 100 Clear 0 TEXT AnFumes
+
+Interaction Fire Antimony Fire AnMelt 3000
+Interaction AnMelt Antimony AnMelt AnMelt 10000
+Interaction AnMelt Coolant AnNull Coolant 4000
+Interaction AnMelt MagicSwipe AnNull MagicSwipe 32000
+Interaction AnMelt Clear AnMelt AnFumes 408
+Interaction AnNull AnMelt AnNull AnNull 32768
+Interaction AnNull AnNull Antimony AnNull 1
+Interaction Antimony AnNull Antimony Antimony 16000
+Interaction Antimony Coolant Antimony Clear 4000
+
+// Thallium
+Element PoorMetal Thallium 120 120 150 0 1 1 1 0 Clear 0 TEXT Thallium
+Element None ThMelt 120 120 150 960 0 1 1 0 Clear 0 TEXT ThMelt
+Element None ThNull 120 120 150 970 0 1 1 0 Clear 0 TEXT ThNull
+
+Interaction Fire Thallium Fire ThMelt 3000
+Interaction ThMelt Thallium ThMelt ThMelt 10000
+Interaction ThMelt Coolant ThNull Coolant 4000
+Interaction ThMelt MagicSwipe ThNull MagicSwipe 43000
+Interaction ThNull ThMelt ThNull ThNull 32768
+Interaction ThNull ThNull Thallium ThNull 1
+Interaction Thallium Thallium Thallium Thallium 16000
+Interaction Thallium Coolant Thallium Clear 4000
+Interaction ThMelt Clear ThMelt Poison 20
+
+// Lead
+Element PoorMetal Lead 45 45 45 0 1 1 1 0 Clear 0 TEXT Lead
+
+Interaction Lead Water Lead Poison 30
+Interaction Lead Radiation Lead Clear 32768
+
+// Bismuth
+Element PoorMetal Bismuth 200 150 150 0 1 1 1 0 Clear 0 TEXT Bismuth
+Element None BiBurn 240 120 120 0 1 1 1 500 Clear 0 TEXT BiBurn
+Element None YelloOxide 255 255 100 -100 2 1 1 0 Clear 0 TEXT YelloOxide
+
+Interaction Bismuth Fire2 BiBurn Fire2 32768
+Interaction Bismuth Fire BiBurn Fire 32768
+Interaction BiBurn Bismuth BiBurn BiBurn 9000
+Interaction BiBurn Clear BiBurn Fire 3000
+Interaction BiBurn Clear BiBurn YelloOxide 100
+Interaction YelloOxide All YelloOxide Clear 300
+
+// Polonium
+Element PoorMetal Polonium 0 255 255 0 1 1 1 2000 P2 0 TEXT Polonium
+Element PoorMetal Ruby 255 0 0 0 1 1 1 2000 Rub2 0 HEX yayanotherone
+Element None Rub2 235 0 0 0 1 1 1 2000 Rub3 0 TEXT Rub2
+Element None Rub3 215 0 0 0 1 1 1 2000 Rub4 0 TEXT Rub3
+Element None Rub4 195 0 0 0 1 1 1 2000 Rub5 0 TEXT Rub4
+Element None Rub5 175 0 0 0 1 1 1 2000 Rub6 0 TEXT Rub5
+Element None Rub6 155 0 0 0 1 1 1 2000 Ruby 0 TEXT Rub6
+Element None P2 0 290 190 0 1 1 1 2000 Polonium 0 TEXT P2
+
+Interaction Polonium Clear Polonium Radiation 19000
+
+// *****************LATHANIDES*********************
+// Lanthanum
+Element La+Ac Lanthanum 100 120 120 0 1 1 1 0 Clear 0 TEXT Lanthanum
+Element None OxideLa2 70 90 90 0 1 1 1 0 Clear 0 TEXT OxideLa2
+Element None OxideLa 50 70 70 0 1 1 1 0 Clear 0 TEXT OxideLa
+
+Interaction Lanthanum Clear Lanthanum OxideLa 32000
+Interaction OxideLa Lanthanum OxideLa OxideLa2 32000
+
+// Promethium
+Element La+Ac Promethium 70 70 90 0 1 1 1 100 Pr2 0 TEXT Promethium
+Element None Pr2 100 100 120 0 1 1 1 40 Whitezr 0 TEXT P2
+Element None Whitezr 255 255 255 0 1 1 1 20000 Promethium 0 TEXT Whitezr
+
+Interaction Promethium Clear Promethium Radiation 3000
+
+// Samarium
+Element La+Ac Samarium 140 150 150 0 1 1 1 0 Clear 0 TEXT Samarium
+Element None Oxidz 0 40 0 0 1 1 1 0 Clear 0 TEXT Oxidz
+
+Interaction Samarium Clear Oxidz Clear 32768
+InteractionTrigger Fire Oxidz <DRAW ELEMENT:Fire FILLEDCIRCLE X2 Y2 3> 9768
+
+// Gadolinium
+Element La+Ac Gadolinium 210 210 220 0 1 1 1 100 Gad2 0 TEXT Gadolinium
+Element None Gad2 255 255 255 0 1 1 1 200 Gadolinium 0 TEXT Gad2
+Element None GUp 50 50 50 -800 1 1 1 5000 Clear 0 TEXT GUp
+Interaction Gadolinium Clear Gadolinium GUp 900
+
+// Actinium
+Element La+Ac Actinium 180 180 180 0 1 1 1 0 Clear 0 TEXT Actinium
+Element None FtFire 0 150 200 -400 1 1 1 1000 Clear 0 TEXT FtFire
+Element None Ft2 0 240 240 -800 1 1 1 1000 Clear 0 TEXT Ft2
+Interaction Actinium Clear Actinium Radiation 1000
+
+InteractionTrigger Actinium Fire2 <DRAW ELEMENT:FtFire FILLEDCIRCLE X2 Y2 (10 RAND 10) (-100 RAND 10)> 32768
+InteractionTrigger Actinium Fire <DRAW ELEMENT:FtFire FILLEDCIRCLE X2 Y2 (10 RAND 10) (-100 RAND 10)> 32768
+InteractionTrigger Actinium FtFire <DRAW ELEMENT:FtFire FILLEDCIRCLE X2 Y2 (10 RAND 10) (-100 RAND 10)> 32768
+InteractionTrigger FtFire Clear <DRAW ELEMENT:Ft2 FILLEDCIRCLE X2 Y2 (10 RAND 10) (10 RAND 10)> 10000
+
+// Thorium
+Element La+Ac Thorium 200 200 220 0 1 1 1 0 Clear 0 TEXT Thorium
+Element None TFire 255 255 255 -700 5 5 5 2000 Clear 0 TEXT TFire
+Interaction Thorium Clear Thorium Radiation 100
+Interaction Thorium Fire2 TFire Fire2 3000
+Interaction Thorium Fire TFire Fire 3000
+Interaction TFire Thorium TFire TFire 4650
+
+// Uranium
+Element La+Ac Urainium 0 240 0 0 1 1 1 8000 U2 0 TEXT Urainium
+Element None RadiaSrc 0 0 0 0 1 1 1 0 Clear 0 TEXT RadiaSrc
+Element None U2 0 140 0 0 1 1 1 8000 Urainium 0 TEXT U2
+Element None Gas 60 60 60 -500 1 1 1 0 Clear 0 TEXT Gas
+Element None Debris 255 255 255 -900 1 1 1 1000 Clear 0 TEXT Debris
+Interaction Urainium Clear Clear Urainium 1
+Interaction Urainium Clear Urainium Radiation 14000
+Interaction RadiaSrc Clear RadiaSrc Radiation 32768
+
+InteractionTrigger Urainium Fire2 Explods 32000
+InteractionTrigger Urainium Fire Explods 32000
+
+TRIGGER Explods {
+ON Explods DRAW ELEMENT:RadiaSrc FILLEDRECT 1 1 10 700
+ON Explods DRAW ELEMENT:RadiaSrc FILLEDRECT 1 1 900 10
+ON Explods DRAW ELEMENT:RadiaSrc FILLEDRECT 383 1 10 700
+ON Explods DRAW ELEMENT:RadiaSrc FILLEDRECT 381 418 700 10
+ON Explods DRAW ELEMENT:Debris FILL 35 30 1 1
+ON Explods DRAW ELEMENT:Fire FILLEDCIRCLE X1 Y1 (90 RAND 50)
+}
+
+// Plutonium
+Element La+Ac Plutonium 0 255 255 0 1 1 1 10000 Pl2 0 TEXT Plutonium
+Element None Pl2 0 140 140 0 1 1 1 10000 Plutonium 0 TEXT Pl2
+Element None Nukend 0 0 0 0 1 1 1 0 Clear 0 TEXT Nukend
+Element None Nukem 255 255 255 0 1 1 1 0 Clear 0 TEXT Nukem
+Element None FireEat 255 0 0 0 1 1 1 0 Clear 0 TEXT FireEat
+Interaction FireEat Nukend FireEat FireEat 32768
+Interaction FireEat FireEat Clear FireEat 1000
+Interaction Clear FireEat Clear Clear 32000
+Interaction FireEat Clear FireEat Radiation 10000
+Interaction FireEat Clear FireEat Fire 15000
+Interaction FireEat Clear FireEat Gas 32768
+Interaction FireEat Nukend FireEat FireEat 32000
+Interaction Nukend Nukem Nukend Nukend 32768
+Interaction Nukend Nukend FlFire Nukend 10
+Interaction Nukend Nukend FireEat Nukend 1
+Interaction Nukem Plutonium Nukem Nukem 32768
+Interaction Nukem Urainium Nukem Nukem 32768
+Interaction FireEat Nukem FireEat FireEat 32768
+Interaction Plutonium Clear Plutonium Radiation 32768
+Interaction Pl2 Clear Pl2 Radiation 32768
+Interaction Pl2 Plutonium Plutonium Pl2 32000
+
+InteractionTrigger Plutonium Fire2 Explods 32000
+InteractionTrigger Plutonium Fire Explods 32000
+InteractionTrigger Plutonium Urainium Nuke 32000
+InteractionTrigger Nukem Nukem Nukeend 1
+InteractionTrigger Clear Clear Test 32768
+
+REMOVETRIGGER Nuke
+ON Nuke DRAW ELEMENT:Nukem FILLEDRECT 1 1 600 600
+ON Nuke MESSAGE CLEAR
+ON Nuke MESSAGE ADDTEXT "What will happen?"
+ON Nuke MESSAGE ADDLINE
+ON Nuke MESSAGE MESSAGEBOX
+
+REMOVETRIGGER Nukeend 
+ON Nukeend DRAW ELEMENT:Nukend FILLEDCIRCLE 195 195 1
+
+NOBIAS ELEMENT:Nukend
+NOBIAS ELEMENT:FireEat
+
+// ***************TRANSITIVE*METALS*****************
+
+// Scandium
+Element TranMetal Scandium 180 180 200 0 1 1 1 0 Clear 0 TEXT Scandium
+Element None Pinked 255 100 255 0 1 1 1 2000 Clear 0 TEXT Pinked
+Element None Fires 255 0 0 -600 3 3 3 4000 Fires2 0 TEXT Fires
+Element None Fires2 140 0 0 -700 3 3 3 1000 Clear 0 TEXT Fires2
+Element None Yellowed 255 255 100 0 1 1 1 2000 Clear 0 TEXT Yellowed
+Interaction Scandium Clear Scandium Pinked 3000
+
+// Titanium
+Element TranMetal Titanium 80 80 100 0 1 1 1 0 Clear 0 TEXT Titanium
+Element None TiteMelt 80 80 100 900 0 1 1 0 Clear 0 TEXT TiteMelt
+Element None MeltNull 80 80 100 900 0 1 1 0 Clear 0 TEXT TiteNull
+Interaction TiteMelt Coolant MeltNull Clear 30000
+Interaction MeltNull TiteMelt MeltNull MeltNull 32768
+Interaction MeltNull MeltNull Titanium MeltNull 1
+Interaction MeltNull Coolant MeltNull Clear 32000
+Interaction Titanium MeltNull Titanium Titanium 9000
+Interaction Melter Titanium Melter TiteMelt 32000
+
+InteractionTrigger Chlorine Titanium titeexplode2 900
+InteractionTrigger Fires2 Titanium titeexplode 3900
+
+REMOVETRIGGER titeexplode
+ON titeexplode DRAW ELEMENT:Fire FILLEDCIRCLE X1 Y1 (20 RAND RADIUS)
+
+REMOVETRIGGER titeexplode2
+ON titeexplode2 DRAW ELEMENT:Fires FILLEDCIRCLE X1 Y1 (25 RAND RADIUS)
+
+// Vanadium
+Element TranMetal Vanadium 100 100 120 0 1 1 1 30 Whiteyy 0 TEXT Vanadium
+Element None Whiteyy 140 100 100 0 1 1 1 1000 Vanadium 0 TEXT Whiteyy
+Element None VadDust 90 90 110 870 0 1 1 0 Clear 0 TEXT VadDust
+Element None RedFire2 255 0 0 -600 1 1 1 2000 Clear 0 TEXT RedFire2
+Element None VadBurn 255 220 220 4000 1 1 1 2000 RedFire2 0 TEXT VadBurn
+Interaction Melter Vanadium Clear VadDust 32000
+Interaction VadBurn Clear VadBurn RedFire2 2000
+Interaction VadBurn VadDust VadBurn VadBurn 2500
+Interaction Fire VadDust Fire VadBurn 32000
+Interaction Fire2 VadDust Fire2 VadBurn 32000
+
+// Chromium
+Element TranMetal Chromium 160 160 200 0 1 1 1 400 Chh2 0 TEXT Chromium
+Element None Chh2 140 140 180 0 1 1 1 500 Chh3 0 TEXT Chh2
+Element None Chh3 180 180 220 0 1 1 1 400 Chh4 0 TEXT Chh3
+Element None Chh4 120 120 160 0 1 1 1 400 Chromium 0 TEXT Chh4
+Element None ChhMelt 90 90 90 900 0 1 1 0 Clear 0 TEXT ChhMelt
+Element None ChhNull 90 90 90 900 0 1 1 0 Clear 0 TEXT ChhNull
+Interaction Chromium Melter ChhMelt Melter 32000
+Interaction Chh2 Melter ChhMelt Melter 32000
+Interaction Chh3 Melter ChhMelt Melter 32000
+Interaction ChhMelt Coolant ChhNull Coolant 1000
+Interaction ChhNull ChhMelt ChhNull ChhNull 32000
+Interaction MeltNull ChhMelt MeltNull ChhNull 32000
+Interaction ChhNull MeltNull ChhNull MeltNull 32000
+Interaction ChhNull Coolant ChhNull Clear 32000
+Interaction ChhNull ChhNull Chromium ChhNull 1
+Interaction Chromium ChhNull Chromium Chromium 10000
+
+// Manganese
+Element TranMetal Manganese 200 200 220 0 1 1 1 0 Clear 0 TEXT Manganese
+Element None Man2 170 200 255 0 1 1 1 0 Clear 0 TEXT Man2
+Element None Man3 190 200 240 0 1 1 1 0 Clear 0 TEXT Man3
+Element None ManMelt 200 200 255 900 0 1 1 0 Clear 0 TEXT ChhMelt
+Element None ManNull 200 200 255 900 0 1 1 0 Clear 0 TEXT ChhNull
+Interaction Manganese Manganese Man2 Man3 900
+Interaction Man2 Man2 Manganese Man3 900
+Interaction Man3 Man3 Manganese Man2 900
+Interaction Manganese Melter ManMelt Melter 32000
+Interaction Man2 Melter ManMelt Melter 32000
+Interaction Man3 Melter ManMelt Melter 32000
+Interaction ManMelt Coolant ManNull Coolant 1000
+Interaction ManNull ManMelt ManNull ManNull 32000
+Interaction MeltNull ManMelt MeltNull ManNull 32000
+Interaction ChhNull ManMelt ChhNull ManNull 32000
+Interaction ManNull TiteMelt ManNull MeltNull 32000
+Interaction ManNull Coolant ManNull Clear 32000
+Interaction ManNull ManNull Manganese ManNull 1
+Interaction Manganese ManNull Manganese Manganese 10000
+
+// Iron
+Element TranMetal Iron 150 150 150 0 1 1 1 0 Clear 0 TEXT Iron
+Element None IrMelt 200 90 90 900 0 1 1 1 IrTelt 0 TEXT IrMelt
+Element None IrTelt 200 90 90 900 0 1 1 24000 IrMelt 0 TEXT IrTelt
+Element None IrNull 200 90 90 900 0 1 1 0 Clear 0 TEXT IrNull
+Element None IrRust 140 30 10 900 0 1 1 500 IrMelt 0 TEXT IrRust
+Element None Rust 140 30 10 0 1 1 1 0 Clear 0 TEXT Rust
+Interaction Iron Clear Rust Clear 40
+Interaction Rust Iron Rust Rust 10
+Interaction Rust Melter IrRust Melter 32000
+Interaction Iron Melter IrMelt Melter 32000
+Interaction IrMelt Coolant IrNull Coolant 1000
+Interaction IrNull IrMelt IrNull IrNull 32000
+Interaction MeltNull IrMelt MeltNull IrNull 32000
+Interaction ChhNull IrMelt ChhNull IrNull 32000
+Interaction IrNull MeltNull IrNull MeltNull 32000
+Interaction IrNull ManMelt IrNull ManNull 32000
+Interaction IrNull Coolant IrNull Clear 32000
+Interaction IrNull IrNull Iron IrNull 1
+Interaction Iron IrNull Iron Iron 10000
+Interaction IrTelt IrMelt IrTelt IrNull 1
+Interaction Aluminium Carbon Iron Iron 32000
+
+// Nuclear Reactor
+Element None Mixture 200 10 10 800 0 1 1 300 Mix3 0 TEXT Mixture
+Element None Mix3 240 100 50 800 0 1 1 500 Mixture 0 TEXT Mix3
+Element None Neutrons 50 100 255 0 1 1 1 0 Clear 0 TEXT Neutrons
+Element None Protons 255 255 0 0 1 1 1 0 Clear 0 TEXT Protons
+Element None ?!? 255 0 255 0 1 1 1 2000 ? 0 TEXT ?!?
+Element None ? 255 0 0 0 1 1 1 2000 ?? 0 TEXT ?
+Element None ?? 100 0 0 0 1 1 1 2000 ??? 0 TEXT ??
+Element None ??? 255 100 50 0 1 1 1 20000 Clear 0 TEXT ???
+Element None HeatTit 255 100 100 0 1 1 1 0 Clear 0 TEXT HeatTit
+Element None TitCold 100 100 100 0 1 1 1 0 Clear 0 TEXT TitCold
+Interaction HeatTit Coolant TitCold Coolant 99999
+Interaction TitCold HeatTit TitCold TitCold 8000
+Interaction HeatTit TitCold HeatTit HeatTit 1000
+Interaction TitCold TitCold Titanium TitCold 1
+Interaction Titanium TitCold Titanium Titanium 1000
+Interaction HeatTit Titanium HeatTit HeatTit 6000
+Interaction ?!? Titanium ?!? HeatTit 32000
+Interaction Plutonium Polonium Mixture Mixture 32768
+Interaction Mixture Plutonium Mixture Mixture 32768
+Interaction Mixture Polonium Mixture Mixture 32768
+Interaction Mixture Urainium Mixture Neutrons 16000
+Interaction Neutrons Clear Clear Neutrons 15000
+Interaction Neutrons Radiation Radiation Protons 20000
+Interaction Protons Clear Clear Protons 20000
+Interaction Protons Radiation Radiation Neutrons 20000
+Interaction Radiation Mixture Clear Mixture 32768
+Interaction Radiation Mix3 Clear Mix3 32768
+Interaction ?!? Radiation ?!? ?!? 32768
+Interaction ??? Radiation ??? ??? 32768
+Interaction ? Radiation ? ? 32768
+Interaction ?? Radiation ?? ?? 32768
+
+InteractionTrigger Neutrons Reactor { 10%
+	DRAW ELEMENT:?!? FILL X2 (Y2 - 2)
+}
+
+// Cobalt
+Element TranMetal Cobalt 50 10 170 0 1 1 1 0 Clear 0 TEXT Cobalt
+Element None HotCobalt 100 0 160 0 1 1 1 0 Clear 0 TEXT HotCobalt
+Element None CobNull 100 10 160 0 1 1 1 0 Clear 0 TEXT CobNull
+Interaction Cobalt Melter HotCobalt Melter 20000
+Interaction HotCobalt Cobalt HotCobalt HotCobalt 12000
+Interaction HotCobalt HotCobalt CobNull HotCobalt 1
+Interaction CobNull HotCobalt CobNull CobNull 6000
+Interaction CobNull CobNull Cobalt CobNull 1
+Interaction Cobalt CobNull Cobalt Cobalt 2000
+
+// Nickel
+Element TranMetal Nickel 200 200 200 0 1 1 1 200 Nick2 0 TEXT Nickel
+Element None Nick2 150 150 10 0 1 1 1 200 Nickel 0 TEXT Nick2
+Element None NickMelt 200 200 200 900 0 1 1 0 Clear 0 TEXT NickMelt
+Element None NickNull 200 200 200 900 0 1 1 0 Clear 0 TEXT NickNull
+Interaction Nickel Melter NickMelt Melter 32768
+Interaction NickMelt Coolant NickNull Coolant 3000
+Interaction NickNull NickMelt NickNull NickNull 32000
+Interaction NickNull NickNull Nickel NickNull 1
+Interaction Nickel NickNull Nickel Nickel 16000
+
+// Copper
+Element TranMetal Copper 200 160 10 0 1 1 1 0 Clear 0 TEXT Copper
+Element None CoppMelt 200 160 10 900 0 1 1 0 Clear 0 TEXT CoppMelt
+Element None CoppNull 200 160 10 900 0 1 1 0 Clear 0 TEXT CoppNull
+Element None CoppRust 170 235 170 0 1 1 1 0 Clear 0 TEXT CoppRust
+Interaction Copper Melter CoppMelt Melter 32768
+Interaction CoppMelt Coolant CoppNull Coolant 3000
+Interaction CoppNull CoppMelt CoppNull CoppNull 32000
+Interaction CoppNull CoppNull Copper Copper 1
+Interaction Copper CoppNull Copper Copper 16000
+Interaction Copper Water CoppRust Water 500
+
+// Zinc
+Element TranMetal Zinc 100 100 150 0 1 1 1 0 Clear 0 TEXT Zinc
+Element None ZBurnd 150 30 10 0 1 1 1 1000 Clear 0 TEXT ZBurnd
+Element None ZBurn 0 100 255 -600 4 4 4 1000 Clear 0 TEXT ZBurn
+Element None ZBurn2 0 255 100 -600 4 4 4 1000 Clear 0 TEXT ZBurn2
+Element None ZincMelt 100 100 150 900 0 1 1 0 Clear 0 TEXT ZincMelt
+Element None ZincNull 100 100 150 900 0 1 1 0 Clear 0 TEXT ZincNull
+Interaction Zinc Melter ZincMelt Melter 32768
+Interaction ZincMelt Coolant ZincNull Coolant 3000
+Interaction ZincNull ZincMelt ZincNull ZincNull 32000
+Interaction ZincNull ZincNull Zinc Zinc 1
+Interaction Zinc ZincNull Zinc Zinc 16000
+Interaction Zinc Fire2 ZBurnd Fire2 3276
+Interaction Zinc Fire ZBurnd Fire 3276
+Interaction ZBurnd Zinc ZBurnd ZBurnd 2000
+Interaction ZBurnd Clear ZBurnd ZBurn 5000
+Interaction ZBurnd Clear ZBurnd ZBurn2 5500
+
+// Silver
+Element TranMetal Silver 240 240 240 0 1 1 1 0 Clear 0 TEXT Silver
+Element None Sil2 240 240 240 0 1 1 1 500 SilF 0 TEXT Sil2
+Element None SilF 190 190 190 0 1 1 1 500 Sil2 0 TEXT SilF
+Element None SilvMelt 200 200 200 900 0 1 1 0 Clear 0 TEXT SilvMelt
+Element None SilvNull 200 200 200 900 0 1 1 0 Clear 0 TEXT SilvNull
+Interaction Sil2 Melter SilvMelt Melter 32768
+Interaction SilvMelt Coolant SilvNull Coolant 3000
+Interaction SilvNull SilvMelt SilvNull SilvNull 32000
+Interaction SilvNull SilvNull Sil2 SilvNull 1
+Interaction Sil2 SilvNull Sil2 Sil2 16000
+Interaction Silver Clear Clear Clear 4000
+Interaction Silver Silver Sil2 Silver 1
+Interaction Sil2 Silver Sil2 Sil2 32768
+
+// Cadmium
+Element TranMetal Cadmium 120 120 170 0 1 1 1 0 Clear 0 TEXT Cadmium
+Element None CadFumes 60 60 60 -100 1 1 1 200 Clear 0 TEXT CadFumes
+Element None CadmMelt 120 120 170 900 0 1 1 0 Clear 0 TEXT CadmMelt
+Element None CadmNull 120 120 170 900 0 1 1 0 Clear 0 TEXT CadmNull
+Element None Cadfire 255 100 100 -900 1 1 1 2000 Clear 0 TEXT CadFire
+Interaction Cadmium Melter CadmMelt Melter 32768
+Interaction CadmMelt Coolant CadmNull Coolant 3000
+Interaction CadmNull CadmMelt CadmNull CadmNull 32000
+Interaction CadmNull CadmNull Cadmium CadmNull 1
+Interaction Cadmium CadmNull Cadmium Cadmium 16000
+Interaction Cadmium Clear Cadmium CadFumes 150
+
+InteractionTrigger CadFumes Fire2 cadexplode 32000
+InteractionTrigger CadFumes Fire cadexplode 32000
+
+TRIGGER cadexplode {
+ON cadexplode DRAW ELEMENT:Cadfire FILLEDCIRCLE X1 Y1 (20 RAND RADIUS)
+}
+
+// Hafnium
+Element TranMetal Hafnium 200 200 220 0 1 1 1 0 Clear 0 TEXT Hafnium
+Element None HafPowder 180 180 200 100 2 1 2 0 Clear 0 TEXT HafPowder
+Element None Hafplode 255 0 0 -600 0 1 1 1000 Haf2 0 TEXT Hafplode
+Element None Haf2 255 255 255 -700 1 1 1 18700 Clear 0 TEXT Haf2
+Interaction Hafnium Melter HafPowder Melter 32768
+
+InteractionTrigger HafPowder Fire hafplode 3000
+InteractionTrigger HafPowder Fire2 hafplode 3000
+
+REMOVETRIGGER hafplode
+ON hafplode DRAW ELEMENT:Hafplode FILLEDCIRCLE X1 (Y1 - 20) (40 RAND RADIUS)
+
+// Osmium
+Element TranMetal Osmium 100 100 140 50 1 1 1 0 Clear 0 TEXT Osmium
+Interaction Osmium SkinA Blood Osmium 17000
+Interaction Osmium Blood Blood Osmium 17000
+
+// ************************HUMAN*********************
+
+// Skin
+Element Human Skin 230 200 180 0 1 1 1 0 Clear 0 TEXT Skin
+Element None SkinA 255 200 200 0 1 1 1 0 Clear 0 TEXT SkinA
+Element None SkinRot 60 150 20 0 1 1 1 500 Rot2 0 TEXT SkinRot
+Element None Rot2 80 170 40 0 1 1 1 500 SkinRot 0 TEXT Rot2
+Element None Burnt 40 40 40 0 1 1 1 0 Clear 0 TEXT Burnt
+Element None BNullez 40 40 40 0 1 1 1 0 Clear 0 TEXT BNullez
+Element None CarcinWave 255 200 200 0 1 1 1 0 Clear 0 TEXT CarcinWave
+Interaction Skin Blood SkinA Blood 20000
+Interaction SkinA Skin SkinA SkinA 17000
+Interaction SkinA Radiation SkinRot Radiation 2000
+Interaction SkinRot SkinA SkinRot SkinRot 300
+Interaction SkinA Fire2 Burnt Fire2 30000
+Interaction SkinA Fire Burnt Fire 30000
+Interaction SkinA Melter Burnt Melter 30000
+Interaction Burnt SkinA Burnt Burnt 9000
+Interaction Burnt Burnt BNullez Burnt 1
+Interaction BNullez Burnt BNullez BNullez 32768
+Interaction Rot2 Clear Clear Clear 400
+Interaction SkinRot CarcinWave SkinRot SkinRot 50
+
+// Blood
+Element Human Blood 200 0 0 960 0 1 1 0 Clear 0 TEXT Blood
+Element None BloodDep 150 20 0 960 0 1 1 0 Clear 0 TEXT BloodDep
+Interaction Blood SkinRot BloodDep SkinRot 4000
+Interaction BloodDep Blood BloodDep BloodDep 900
+
+// Heart
+Element Human Heart 255 0 0 0 1 1 1 0 Clear 0 TEXT Heart
+Element None HeartDown 150 0 0 5000 1 1 1 0 Clear 0 TEXT HeartDown
+Interaction Heart Clear Heart Blood 5000
+Interaction BloodDep Heart BloodDep HeartDown 500
+Interaction HeartDown Heart HeartDown HeartDown 2000
+Interaction HeartDown SkinRot SkinRot HeartDown 19000
+Interaction HeartDown SkinA SkinA HeartDown 19000
+Interaction HeartDown Rot2 Rot2 HeartDown 19000
+Interaction HeartDown CarcinWave HeartDown SkinRot 3000
+
+// Brain
+Element Human Brain 120 20 120 960 1 1 1 0 Clear 0 TEXT Brain
+Element None BrainDown 90 0 90 32000 0 0 1 0 Clear 0 TEXT BrainDown
+Element None BrainSick 120 140 120 0 1 1 1 0 Clear 0 TEXT BrainSick
+Interaction SkinRot Brain SkinRot BrainDown 4000
+Interaction BrainDown Brain BrainDown BrainDown 2000
+Interaction SickSkin Brain SickSkin BrainSick 2000
+Interaction BrainSick Brain BrainSick BrainSick 2000
+Interaction Brain BrainSick Brain Brain 2500
+
+// Eyes
+Element Human Eyes 10 200 255 0 1 1 1 0 Clear 0 TEXT Eyes
+Element None EyeDie 0 0 0 0 1 1 1 4000 Clear 0 TEXT EyeDie
+Element None EyeIrritate 140 90 90 0 1 1 1 0 Clear 0 TEXT EyeIrritate
+Interaction SkinRot Eyes SkinRot EyeDie 3000
+Interaction EyeDie Eyes EyeDie EyeDie 5000
+Interaction EyeIrritate Eyes EyeIrritate EyeIrritate 1000
+Interaction Eyes Chlorine EyeIrritate Chlorine 3200
+Interaction Eyes Bromine EyeIrritate Bromine 3200
+Interaction Eyes EyeIrritate Eyes Eyes 2000
+
+// Mouth
+Element Human Mouth 140 20 20 0 1 1 1 0 Clear 0 TEXT Mouth
+Element None BurntMouth 50 50 50 0 1 1 1 0 Clear 0 TEXT BurntMouth
+Element None SickMouth 100 180 100 0 1 1 1 0 Clear 0 TEXT SickMouth
+Element None Vomit 100 200 30 900 0 1 1 0 Clear 0 TEXT Vomit
+Element None SickSkin 150 255 150 0 1 1 1 0 Clear 0 TEXT SickSkin
+Element None MouthCar 140 20 20 0 1 1 1 0 Clear 0 TEXT MouthCar
+Interaction SickSkin SkinA SickSkin SickSkin 15000
+Interaction Vomit SkinA Vomit SickSkin 2000
+Interaction SkinRot Mouth SkinRot SkinRot 12000
+Interaction Mouth All Mouth Clear 2768 SkinA
+Interaction Mouth Francium SickMouth Clear 3000
+Interaction SickMouth Mouth SickMouth SickMouth 12000
+Interaction SickMouth Clear SickMouth Vomit 1000
+Interaction Mouth Phosphorous SickMouth Clear 3000
+Interaction Mouth Bromine SickMouth Clear 3000
+Interaction Mouth Chlorine SickMouth Clear 3000
+Interaction Mouth Astatine SickMouth Clear 3000
+Interaction Mouth Xenon SickMouth Clear 3000
+Interaction Mouth Fire2 BurntMouth Fire2 32000
+Interaction Mouth Fire BurntMouth Fire 32000
+Interaction BurntMouth Mouth BurntMouth BurntMouth 6000
+Interaction Cobalt Mouth Clear SickMouth 3000
+Interaction Melter Mouth Melter BurntMouth 12000
+Interaction MouthCar Mouth MouthCar MouthCar 32768
+Interaction MouthCar SkinA MouthCar CarcinWave 3000
+Interaction CarcinWave SkinA CarcinWave CarcinWave 32768
+Interaction CarcinWave Heart CarcinWave HeartDown 1000
+Interaction Mouth Nickel MouthCar Nickel 32768
+Interaction Mouth CadFumes MouthCar CadFumes 32768
+Interaction Mouth Thallium MouthCar Thallium 32768
+
+// *************************CURSOR**TECH**NOTES******************
+
+CURSOR = 12
+
+Element None White 160 160 160 0 1 1 1 0 Clear 0 TEXT White
+Element None Grey 120 120 120 0 1 1 1 0 Clear 0 TEXT Grey
+
+REMOVETRIGGER PREUPDATESCREEN
+ON PREUPDATESCREEN SAVE QUICKSAND 1
+ON PREUPDATESCREEN EXEC DrawCursor
+REMOVETRIGGER POSTUPDATESCREEN
+ON POSTUPDATESCREEN LOAD QUICKSAND 1
+
+REMOVETRIGGER DrawCursor
+ON DrawCursor DRAW ELEMENT:White CIRCLE X Y (BRUSHSIZE / 2)
+
+// Notes:
+// Don't forget to add radiation
+// silicon still reacts with halogens and dilute alkalis
+// Aluminium, when combined with Carbon, makes iron
+// Titanium + Chlorine = Fire
+// Zinc burns with a blue-green flame
+// Hafnium(Melted flakes) and Cadmium fumes are explosive
+
+EXEC setview 0 1 1 1 1 1 128
+EXEC listelements
+EXEC listgroups
+SET BRUSHSIZE 15

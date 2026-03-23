@@ -1,0 +1,202 @@
+GROUP CLEARALL
+ELEMENTSCLEAR
+MESSAGE ADDTEXT "Cell Mod -by DarkSSK"
+MESSAGE SENDTEXT "Cell Project"
+
+GROUP CellParts 801 HEX 000000007FFFFFFE4000000240000002400000024000000240000002400000024007E002401FF80240381C024071AE024060460240C8030240C9C30240D22B0240D4130240C4130240C4130240C223024061C60240740E02403B9C02401FF8024007E00240000002400000024000000240000002400000027FFFFFFE00000000 255 255 255
+GROUP Misc 802 HEX 000000007FFFFFFE40000002400000024000000240000002400000024000000240000002470038024780780246C0D80246C0D80246E19862467398624633180246331802461E1862460C1862460018624600186246001862460018624000000248BBB8024D9220024A93A0024890A00248BBB802400000027FFFFFFE00000000 255 255 255
+
+// Cell Parts
+
+Element CellParts Cytoplasm 100 100 255 0 1 1 1 0 Clear 0 TEXT Cytoplasm
+Element CellParts Nucleus 80 80 235 0 1 1 1 0 Clear 0 TEXT Nucleus
+Element CellParts Ribosomes 255 0 0 0 1 1 1 0 Clear 0 TEXT Ribosomes
+Element CellParts Mitochondria 255 255 255 0 1 1 1 0 Clear 0 TEXT Mitochondria
+Element CellParts NucMemb 255 255 255 0 1 1 1 0 Clear 0 TEXT NucMemb
+Element CellParts NucMem 200 200 200 0 1 1 1 900 Clear 0 TEXT NucMemb
+Element CellParts Nucleolus 50 50 205 0 1 1 1 0 Clear 0 TEXT Nucleolus
+Element CellParts GolgiBody 0 150 0 0 1 1 1 0 Clear 0 TEXT GolgiBody
+Element CellParts Endoplasmic 39 39 255 0 1 1 1 0 Clear 0 TEXT Endoplasmic
+Element CellParts Vacuole 100 10 100 0 1 1 1 0 Clear 0 TEXT Vacuole
+Element CellParts Lysosomes 255 255 0 0 1 1 1 0 Clear 0 TEXT Lysosomes
+
+// Misceleneous
+
+Element Misc Fire 255 255 255 0 1 1 1 20000 Clear 0 TEXT GreenFire
+Element Misc Fir 255 50 50 -300 0 0 1 1000 Clear 0 TEXT Fire
+Element Misc Bacteria 0 140 0 0 1 1 1 0 Clear 0 TEXT Bacteria
+Element Misc Dropper 90 90 90 3000 0 0 1 0 Clear 0 TEXT Dropper
+Element Misc Water 90 100 255 900 0 1 1000 0 Clear 0 TEXT Water
+Element Misc RadioWipe 0 0 0 0 1 1 1 0 Clear 0 TEXT RadioWipe
+
+// Null elements
+
+Element None Cytoed 100 100 255 0 1 1 1 0 Clear 0 TEXT Cytoed
+Element None Mitochondria* 255 255 255 0 1 1 1 0 Clear 0 TEXT Mitochondria*
+Element None Protein 255 255 180 0 1 1 1 600 Cytoed 0 TEXT Protein
+Element None Perm 80 80 235 0 1 1 1 0 Clear 0 TEXT Perm
+Element None NMemb 255 255 255 0 1 1 1 0 Clear 0 TEXT NMemb
+Element None NMem 255 255 255 0 1 1 1 0 Clear 0 TEXT NMem
+Element None Active 255 255 255 0 1 1 1 0 Clear 0 TEXT Active
+Element None Ribosom 255 0 0 0 1 1 1 0 Clear 0 TEXT Ribosom
+Element None Nuclus 76 76 235 0 1 1 1 0 Clear 0 TEXT Nuclus
+Element None GSurround 255 255 255 0 1 1 1 0 Clear 0 TEXT GSurround
+Element None Golgi 0 150 0 0 1 1 1 0 Clear 0 TEXT Golgi
+Element None Transport 255 255 0 0 1 1 1 0 Clear 0 TEXT Transport
+Element None SMemb 255 255 255 0 1 1 1 0 Clear 0 TEXT SMemb
+Element None Sull 50 50 205 0 1 1 1 0 Clear 0 TEXT Sull
+Element None Elec 255 255 0 0 1 1 1 0 Clear 0 TEXT Elec
+Element None Endoplas 39 39 255 0 1 1 1 700 Endoplas2 0 TEXT Endoplas
+Element None Endo 255 255 255 0 1 1 1 0 Clear 0 TEXT Endo
+Element None Endoplas2 59 59 255 0 1 1 1 300 Endoplas 0 TEXT Endoplas2
+Element None Vac 255 255 255 0 1 1 1 0 Clear 0 TEXT Vac
+Element None Vacd 100 10 100 0 1 1 1 0 Clear 0 TEXT Vacd
+Element None Food 255 255 0 0 1 1 1 0 Clear 0 TEXT Food
+Element None Chromosomes 50 50 50 0 1 1 1 0 Clear 0 TEXT Chromosomes
+Element None Nrg 0 255 255 -600 0 0 1 600 Clear 0 TEXT Nrg
+Element None Gone 60 60 60 -670 0 0 1 700 Clear 0 TEXT Gone
+Element None Dead 60 60 60 0 0 0 1 2000 Clear 0 TEXT Dead
+Element None Deaded 60 60 60 0 0 0 1 200 Clear 0 TEXT Deaded
+Element None Mitosis 0 0 0 0 1 1 1 20 Mitos 0 TEXT Mitosis
+Element None Mitos 0 0 0 0 1 1 1 10 1 0 TEXT Mitos
+Element None 1 255 255 255 0 1 1 1 0 Clear 0 TEXT 1
+Element None 2 255 255 255 0 1 1 1 0 Clear 0 TEXT 2
+Element None LBehind 255 255 255 0 1 1 1 3000 Clear 0 TEXT LBehind
+Element None Off 100 255 100 -600 0 0 1 500 Clear 0 TEXT Off
+Element None Lyso 255 255 255 0 1 1 1 0 Clear 0 TEXT Lyso
+Element None Enzymes 255 255 0 0 1 1 1 600 Cytoed 0 TEXT Enzymes
+Element None Sick 0 255 0 0 1 1 1 9000 S5 0 TEXT Sick
+Element None S5 0 170 0 0 1 1 1 9000 Sick 0 TEXT S5
+Element None SUp 100 255 100 -670 0 0 1 1000 Clear 0 TEXT SUp
+Element None BUp 0 180 0 -700 0 0 1 900 Clear 0 TEXT BUp
+Element None Expl 255 0 0 0 1 1 1 0 Clear 0 TEXT Expl
+Element None Exp 255 255 0 0 1 1 1 800 Clear 0 TEXT Exp
+Element None Steam 120 120 255 -400 10 1 10 500 Water 0 TEXT Steam
+Element None RadioStop 0 0 0 0 1 1 1 0 Clear 0 TEXT RadioStop
+
+// Interactions
+
+Interaction Cytoplasm Clear Cytoplasm NucMemb 32768
+Interaction Cytoplasm Clear Clear Cytoplasm 6000
+Interaction NucMemb Clear NucMemb NucMem 32768
+Interaction Cytoplasm Cytoplasm Mitochondria* Cytoplasm 100
+Interaction Mitochondria* Cytoplasm Mitochondria Cytoed 1000
+Interaction Cytoed Cytoplasm Cytoed Cytoed 32768
+Interaction Nucleus Nucleus Perm Nucleus 1000
+Interaction Perm Nucleus Perm Perm 32768
+Interaction Nucleus Cytoed Cytoed Nucleus 4000
+Interaction Perm Cytoed Perm NMemb 32768
+Interaction NMemb Cytoed NMemb NMem 32768
+Interaction Mitochondria* Cytoed Cytoed Mitochondria* 5000
+Interaction Ribosomes Cytoed Cytoed Ribosomes 20000
+Interaction Ribosomes Cytoed Ribosomes Protein 400
+Interaction Protein Cytoed Cytoed Protein 6000
+Interaction Nucleolus Perm Nucleolus Ribosom 800
+Interaction Ribosom Perm Perm Ribosom 8000
+Interaction Ribosomes Cytoed Cytoed Cytoed 900
+Interaction Ribosom NMemb Perm Active 1000
+Interaction Active NMemb Active Active 32768
+Interaction Active NMem Active Active 32768
+Interaction Active Perm Active Nuclus 3000
+Interaction Nuclus Perm Nuclus Nuclus 32768
+Interaction Ribosom Nuclus Nuclus Ribosom 8000
+Interaction Active Cytoed Active Ribosomes 400
+Interaction GolgiBody GolgiBody Transport GolgiBody 500
+Interaction GolgiBody GolgiBody Golgi GolgiBody 60
+Interaction Golgi GolgiBody Golgi Golgi 32768
+Interaction Golgi Cytoed Golgi GSurround 32768
+Interaction Transport GolgiBody GolgiBody Transport 7000
+Interaction Transport Golgi Golgi Transport 7000
+Interaction GolgiBody Cytoed Cytoed GolgiBody 3000
+Interaction Nucleolus Perm Nucleolus SMemb 32768
+Interaction SMemb Perm SMemb Ribosom 500
+Interaction Nucleolus Nucleolus Elec Nucleolus 1
+Interaction Elec Nucleolus Elec Elec 15000
+Interaction Elec Elec Sull Elec 60
+Interaction Sull Elec Sull Sull 10000
+Interaction Sull Sull Nucleolus Sull 1
+Interaction Nucleolus Sull Nucleolus Nucleolus 7000
+Interaction Endoplasmic Cytoed Cytoed Endoplasmic 400
+Interaction Endoplasmic Endoplasmic Endoplas Endoplasmic 1
+Interaction Endoplas Endoplasmic Endoplas Endoplas 32768
+Interaction Endoplas Cytoed Endoplas Endo 32768
+Interaction Endoplas2 Cytoed Endoplas2 Endo 32768
+Interaction Vacuole Cytoed Cytoed Vacuole 300
+Interaction Vacuole Vacuole Food Vacuole 100
+Interaction Vacuole Vacuole Vacd Vacuole 50
+Interaction Vacd Vacuole Vacd Vacd 32768
+Interaction Vacd Cytoed Vacd Vac 32768
+Interaction Food Vacd Vacd Food 5000
+Interaction Nucleus Nucleus Chromosomes Nucleus 90
+Interaction Chromosomes Perm Perm Chromosomes 6000
+Interaction Chromosomes Nuclus Nuclus Chromosomes 6000
+Interaction NucMem Clear NucMem Nrg 1000
+Interaction Perm Clear Dead Clear 32768
+Interaction Perm Dead Dead Dead 12000
+Interaction Nuclus Clear Dead Clear 32768
+Interaction Dead Nucleus Dead Dead 12000
+Interaction Dead Endoplas Dead Dead 12000
+Interaction Dead Ribosom Dead Dead 12000
+Interaction Dead Ribosomes Dead Dead 12000
+Interaction Dead Chromosomes Dead Dead 12000
+Interaction Dead Golgi Dead Dead 12000
+Interaction Dead Nucleolus Dead Dead 12000
+Interaction Dead Active Dead Dead 12000
+Interaction Dead Sull Dead Dead 12000
+Interaction Dead Perm Dead Dead 12000
+Interaction Dead Cytoed Dead Dead 12000
+Interaction Dead NMem Dead Dead 12000
+Interaction Dead NMemb Dead Dead 12000
+Interaction Dead Mitochondria* Dead Dead 12000
+Interaction Dead Mitochondria Dead Dead 12000
+Interaction Dead Food Dead Dead 12000
+Interaction Dead Vacd Dead Dead 12000
+Interaction Dead Vac Dead Dead 12000
+Interaction Dead Endo Dead Dead 12000
+Interaction Dead Endoplas Dead Dead 12000
+Interaction Dead GSurround Dead Dead 12000
+Interaction Dead Endoplas2 Dead Dead 12000
+Interaction Dead NucMemb Dead Dead 12000
+Interaction Dead Dead Deaded Dead 50
+Interaction Deaded Dead Deaded Deaded 4000
+Interaction Dead SMemb Dead Dead 12000
+Interaction Dead Transport Dead Dead 12000
+Interaction Deaded Clear Deaded Gone 4000
+Interaction Fire Clear LBehind Fire 30000
+Interaction LBehind Clear LBehind Off 7000
+Interaction Off NucMemb Off Dead 32768
+Interaction Lysosomes Cytoed Lysosomes Lyso 32768
+Interaction Lyso Cytoed Lyso Enzymes 500
+Interaction Enzymes Cytoed Cytoed Enzymes 12000
+Interaction Dead Enzymes Dead Dead 14000
+Interaction Dead Lyso Dead Dead 12000
+Interaction Dead Lysosomes Dead Dead 12000
+Interaction Bacteria Clear BUp Bacteria 12000
+Interaction BUp NucMemb BUp Sick 32768
+Interaction Bacteria NucMemb Bacteria Sick 32768
+Interaction Sick Cytoed Sick Sick 15000
+Interaction Sick NMemb Sick Sick 1
+Interaction Sick Nuclus Sick Sick 1500
+Interaction Sick Perm Sick Sick 1500
+Interaction Sick Sull Sick Sick 1500
+Interaction Sick SMemb Sick Sick 1500
+Interaction Sick Active Sick Sick 500
+Interaction Sick Elec Sick Sick 17000
+Interaction Sick Nucleolus Dead Dead 500
+Interaction Dead Sick Dead Dead 19000
+Interaction Dropper NucMemb Expl NucMemb 5000
+Interaction Expl All Expl Expl 10000
+Interaction Expl Expl Exp Expl 1
+Interaction Exp Expl Exp Exp 32768
+Interaction Cytoed Clear Cytoed NucMemb 32768
+Interaction NucMemb Water NucMemb Cytoed 3000
+Interaction Cytoed Water Cytoed Cytoed 19000
+Interaction Fir Clear Fir Clear 1000
+Interaction Fir Water Fir Steam 2000
+Interaction RadioWipe Clear RadioWipe RadioWipe 32768
+Interaction RadioWipe RadioWipe RadioStop RadioWipe 32768
+Interaction RadioStop RadioWipe RadioStop Clear 32768
+Interaction RadioStop Clear Clear Clear 1000
+Interaction RadioWipe NucMemb RadioWipe Dead 32768
+
+EXEC listgroups

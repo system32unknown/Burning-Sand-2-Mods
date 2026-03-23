@@ -1,5 +1,6 @@
 INCLUDE sandbox.bs2
 EXEC clearall
+INCLUDE write.bs2
 
 Group Clear 0 File erase.bmp
 Group Stones 100 File stonegroup.bmp
