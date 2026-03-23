@@ -2898,13 +2898,6 @@ TRIGGER menutop {
 	MENU TOP CLEAR
 	MENU TOP ADD TEXT "Mainmenu" FILE home.bmp {
 		IF (BUTTON == 1) quitsandbox
-		IF ((BUTTON == 2) || (BUTTON == 4)) {
-			INCLUDE warning.bs2
-			FILE DELETE warning.bs2
-			FILE OPEN warning.bs2
-			FILE CLOSE
-			INCLUDE http://siebn.de/addonlist.php?basismod=Default!
-		} 
 	}
 	MENU TOP ADD TEXT "Fullscreen" FILE resolution.bmp {
 		IF (BUTTON == 1) sandresolutionmenu
@@ -3048,13 +3041,6 @@ TRIGGER menutop {
 	MENU TOP ADD TEXT "Load Game" FILE load.bmp {
 		IF ((BUTTON == 1) && (WINDOWS == 1)) <LOAD SAND FILEDIALOG>
 		IF ((BUTTON == 1) && (WINDOWS == 0)) <LOAD SAND quicksave.png>
-		IF ((BUTTON == 2) || (BUTTON == 4)) {
-			INCLUDE warning.bs2
-			FILE DELETE warning.bs2
-			FILE OPEN warning.bs2
-			FILE CLOSE
-			INCLUDE http://siebn.de/savegamelist.php?mod=Default!
-		} 
 	}
 	MENU TOP ADD TEXT "Save Game" FILE save.bmp {
 		IF ((BUTTON == 1) && (WINDOWS == 1)) <SAVE SAND FILEDIALOG>
